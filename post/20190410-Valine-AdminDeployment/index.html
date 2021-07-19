@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="​    之前写过一篇《给hexo添加Valine评论功能》，但是站长收到评论没有通知，导致有访客有所评论都未能及时回复，变成了单向的个人博客，我的小天地，在昨晚一次机缘巧合下摸索到了新的方法，不仅仅支持有人评论，站长有通知，还可以管理评论，甚至可以拦截广告，垃圾评论等。 以下教程是建立在已由Valine评论的基础上完成的，若是没有安装Valine评论可以产考《给hexo添加Valine评论功能》">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Valine-Admin评论系统部署">
+<meta property="og:url" content="https://nobige.cn/post/20190410-Valine-AdminDeployment/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="​    之前写过一篇《给hexo添加Valine评论功能》，但是站长收到评论没有通知，导致有访客有所评论都未能及时回复，变成了单向的个人博客，我的小天地，在昨晚一次机缘巧合下摸索到了新的方法，不仅仅支持有人评论，站长有通知，还可以管理评论，甚至可以拦截广告，垃圾评论等。 以下教程是建立在已由Valine评论的基础上完成的，若是没有安装Valine评论可以产考《给hexo添加Valine评论功能》">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-47-28-615.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-51-41-134.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-55-42-790.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-33-59-971.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-58-44-54.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-48-07-214.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-44-32-95.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-44-46-575.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-45-11-885.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-17-08-466.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-20-12-200.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-41-06-8.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-41-25-936.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-28-18-790.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-29-03-992.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-23-23-720.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-06-04-20-48-57-562.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-06-04-20-50-06-955.jpg">
+<meta property="article:published_time" content="2019-04-10T04:53:18.000Z">
+<meta property="article:modified_time" content="2021-07-19T03:31:36.979Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="valine">
+<meta property="article:tag" content="部署">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-47-28-615.jpg">
+
+<link rel="canonical" href="https://nobige.cn/post/20190410-Valine-AdminDeployment/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Valine-Admin评论系统部署 | NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190410-Valine-AdminDeployment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Valine-Admin评论系统部署
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-04-10 12:53:18" itemprop="dateCreated datePublished" datetime="2019-04-10T12:53:18+08:00">2019-04-10</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">技巧</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>​    之前写过一篇《<a href="https://nobige.cn/post/20180725-forHexoAddValine/">给hexo添加Valine评论功能</a>》，但是站长收到评论没有通知，导致有访客有所评论都未能及时回复，变成了单向的个人博客，我的小天地，在昨晚一次机缘巧合下摸索到了新的方法，不仅仅支持有人评论，站长有通知，还可以管理评论，甚至可以拦截广告，垃圾评论等。</p>
+<p><strong>以下教程是建立在已由Valine评论的基础上完成的，若是没有安装Valine评论可以产考《<a href="https://nobige.cn/post/20180725-forHexoAddValine/">给hexo添加Valine评论功能</a>》或是官网的使用教程《快速开始》</strong></p>
+<h2 id="Valine-Admin"><a href="#Valine-Admin" class="headerlink" title="Valine-Admin"></a>Valine-Admin</h2><blockquote>
+<p>Valine Admin 是 Valine 评论系统的扩展和增强，主要实现评论邮件通知、评论管理、垃圾评论过滤等功能。支持完全自定义的邮件通知模板。基于Akismet API实现准确的垃圾评论过滤。此外，使用云函数等技术解决了免费版云引擎休眠问题，支持云引擎自动唤醒，漏发邮件自动补发。兼容云淡风轻及Deserts维护的多版本Valine。</p>
+</blockquote>
+<h2 id="快速部署"><a href="#快速部署" class="headerlink" title="快速部署"></a>快速部署</h2><p>1.在Leancloud云引擎设置界面，填写代码库并保存：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;DesertsP&#x2F;Valine-Admin.git</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-47-28-615.jpg" alt="Leancloud云引擎设置"></p>
+<p>2.在设置页面，设置环境变量以及 Web 二级域名。</p>
+<ul>
+<li>申请 web 主机域名必须先通过<a href="/go.html?u=https://leancloud.cn/settings.html#/setting/realname">实名认证</a>,审核速速的还是很快的，一个上午就通过了。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-51-41-134.jpg" alt="设置环境变量"></p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SITE_NAME</td>
+<td>Nobige</td>
+<td>[必填]博客名称</td>
+</tr>
+<tr>
+<td>SITE_URL</td>
+<td><a href="https://Nobige.cn">https://Nobige.cn</a></td>
+<td>[必填]首页地址</td>
+</tr>
+<tr>
+<td><strong>SMTP_SERVICE</strong></td>
+<td>QQ</td>
+<td>[新版支持]邮件服务提供商，支持 QQ、163、126、Gmail 以及 <a href="/go.html?u=https://nodemailer.com/smtp/well-known/#supported-services">更多</a></td>
+</tr>
+<tr>
+<td>SMTP_USER</td>
+<td><a href="mailto:xxxxxx@qq.com">xxxxxx@qq.com</a></td>
+<td>[必填]SMTP登录用户</td>
+</tr>
+<tr>
+<td>SMTP_PASS</td>
+<td>xxxxxxxx</td>
+<td>[必填]SMTP登录密码（QQ邮箱需要授权码）</td>
+</tr>
+<tr>
+<td>SENDER_NAME</td>
+<td>路人甲</td>
+<td>[必填]发件人</td>
+</tr>
+<tr>
+<td>SENDER_EMAIL</td>
+<td><a href="mailto:xxxxxx@qq.com">xxxxxx@qq.com</a></td>
+<td>[必填]发件邮箱</td>
+</tr>
+<tr>
+<td>ADMIN_URL</td>
+<td><a href="https://xxx.leanapp.cn/" target="_blank" rel="noopener">https://xxx.leanapp.cn/</a></td>
+<td>[建议]Web主机二级域名，用于自动唤醒</td>
+</tr>
+<tr>
+<td>BLOGGER_EMAIL</td>
+<td><a href="mailto:xxxxx@gmail.com">xxxxx@gmail.com</a></td>
+<td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
+</tr>
+<tr>
+<td>AKISMET_KEY</td>
+<td>xxxxxxxxxxxx</td>
+<td>[可选]Akismet Key 用于垃圾评论检测，设为MANUAL_REVIEW开启人工审核，留空不使用反垃圾</td>
+</tr>
+</tbody></table>
+<p><strong>以上必填参数请务必正确设置。</strong></p>
+<p>二级域名用于评论后台管理，如<a href="/go.html?u=https://phpMyAdmin.leanapp.cn/">https://phpMyAdmin.leanapp.cn</a> 。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-55-42-790.jpg" alt="设置二级域名"></p>
+<p>切换到部署标签页，分支使用master，点击部署即可</p>
+<p>第一次部署需要花点时间。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-33-59-971.jpg" alt="部署"></p>
+<p>评论管理。访问设置的二级域名<code>https://二级域名.leanapp.cn/sign-up</code>，注册管理员登录信息，如：<a href="https://phpMyAdmin.leanapp.cn/sign-up" target="_blank" rel="noopener">https://phpMyAdmin.leanapp.cn/sign-up</a></p>
+<h2 id="数据库导出"><a href="#数据库导出" class="headerlink" title="数据库导出"></a>数据库导出</h2><p>如果打开出现的是<strong>Not Found</strong> 则是要删除 数据库<strong>_User</strong> Class所有的数据</p>
+<p><strong>删除所有数据</strong></p>
+<p>存储 - _User - 其他 - 删除所有数据</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-58-44-54.jpg" alt="删除所有数据"></p>
+<p>如果有数据的话可以先导出数据库（没想到我这小破站还是有人访问的，泪流满面）</p>
+<p><strong>数据导出</strong></p>
+<p>应用设置 - 数据导出 -根据需求导出</p>
+<p>本来高高兴兴，但是却说不能导出？？？中午12点后不让导出？？？什么逻辑，真是奇葩。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-48-07-214.jpg" alt="中午12点后不让导出"></p>
+<p>习惯性的按起了 Ctrl+Shift+I 看到一个连接，单开一看全是数据，以json的格式提供，大概长这样。若是需要单页显示更多可以在页面上设置，复制保存为json文件，再设置完管理员账号后倒入账号即可。</p>
+<p>链接大概长这个样子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;leancloud.cn&#x2F;1.1&#x2F;classes&#x2F;_User?where&#x3D;%7B%7D&amp;limit&#x3D;20&amp;order&#x3D;-updatedAt</span><br></pre></td></tr></table></figure>
+
+<p><strong>数据导入</strong></p>
+<p>​    存储 - 数据 创建Class 右边的三个点  …  - 数据导入 根据自己的情况导入。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-44-32-95.jpg" alt="数据导入"></p>
+<p>​    处理数据需要一点点的时间</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-44-46-575.jpg" alt="处理数据"></p>
+<p>​    导入成功后会发邮件提醒。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-12-45-11-885.jpg" alt="邮件提醒"></p>
+<p>设置完<strong>自定义环境变量</strong>重启实例后就是安装完成了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-17-08-466.jpg" alt="自定义环境变量"></p>
+<p><strong>重启实例</strong></p>
+<p>云引擎 - 实例 - 螺母图案 - 重启</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-20-12-200.jpg" alt="重启实例"></p>
+<h2 id="定时任务设置"><a href="#定时任务设置" class="headerlink" title="定时任务设置"></a>定时任务设置</h2><p>目前实现了两种云函数定时任务：(1)自动唤醒，定时访问Web APP二级域名防止云引擎休眠；(2)每天定时检查24小时内漏发的邮件通知。</p>
+<p>进入云引擎-定时任务中，创建定时器，创建两个定时任务。</p>
+<p>选择self-wake云函数，Cron表达式为<code>0 0/30 7-23 * * ?</code>，表示每天早6点到晚23点每隔30分钟访问云引擎，<code>ADMIN_URL</code>环境变量务必设置正确：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-41-06-8.jpg" alt="防睡眠"></p>
+<p>选择resend-mails云函数，Cron表达式为<code>0 0 8 * * ?</code>，表示每天早8点检查过去24小时内漏发的通知邮件并补发：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-41-25-936.jpg" alt="发邮件"></p>
+<p><strong>添加定时器后记得点击启动方可生效</strong></p>
+<p><strong>至此，Valine Admin 已经可以正常工作，更多进阶配置。请查看GitHub个人觉得没有什么必要，除非你觉的邮件通知的样式太丑了，或是需要添加 垃圾评论检测</strong></p>
+<h2 id="邮件通知"><a href="#邮件通知" class="headerlink" title="邮件通知"></a>邮件通知</h2><p>站长的长个样子</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-13-28-18-790.jpg" alt="站长邮件通知"></p>
+<p>评论被回复</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-29-03-992.jpg" alt="评论被回复"></p>
+<h2 id="评论管理后台"><a href="#评论管理后台" class="headerlink" title="评论管理后台"></a>评论管理后台</h2><p>​    评论管理后台不知道是不是我这小站评论少的问题，还是压根就没有分页，打开后全部的评论一股脑的加载出来，若是没有图片的话还好，若有图片的话性能差点的电脑可能出现卡死的现象。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-04-10-14-23-23-720.jpg" alt="评论管理后台"></p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;github.com&#x2F;DesertsP&#x2F;Valine-Admin</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见问题解决"><a href="#常见问题解决" class="headerlink" title="常见问题解决"></a>常见问题解决</h2><p>​    2019-6-04补充</p>
+<p>​    最近几天收到了关于应用的Email,说是出了故障什么的,但是自从这篇文章写完后很久都没有去管了,今天又收到一位小老弟的Email说是按本文章部署的过程中出现了Not Found的错误,他的操作也是按我上文给出的删除user表,但是没有解决问题,这里稍微的说一下,为什么是删除user表而不是其他的操作?</p>
+<p>​    我在现在用Google搜索了一下发现没有相同的案例,唯一一个相关文章还是我所写的就是本文[关键词 Valine-Admin Not Found],其实这句话是官方说明的另一种表达意思,官方是这么说的</p>
+<blockquote>
+<p>注：使用原版Valine如果遇到注册页面不显示直接跳转至登录页的情况，请手动删除_User表中的全部数据。</p>
+</blockquote>
+<p>​    而我给那位小老弟的回复是尝试一下实例,who?重启大法好！</p>
+<p>2.第二个则是故障在我查了日志后发现是授权码的问题，修改一下，重启实例又可以正常的通知邮件啦！</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-06-04-20-48-57-562.jpg" alt="LeanCloud错误邮件"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190410-Valine-AdminDeployment/xiao2019-06-04-20-50-06-955.jpg" alt="实例日志"></p>
+<p>最最重要的是要学会看日志！</p>
+<p>最最重要的是要学会看日志！</p>
+<p>最最重要的是要学会看日志！</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="/go.html?u=https://leancloud.cn/docs/dashboard_guide.html#hash798824956">管理控制台使用指南 - LeanCloud 文档</a></p>
+<p><a href="/go.html?u=https://valine.js.org/quickstart.html">快速开始 | Valine</a></p>
+<p><a href="/go.html?u=https://github.com/DesertsP/Valine-Admin">DesertsP/Valine-Admin: A simple comment system based on LeanCloud and Valine. 👉</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/valine/" rel="tag"># valine</a>
+              <a href="/tags/%E9%83%A8%E7%BD%B2/" rel="tag"># 部署</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20190409-Composer-SSL-TLS-Problem/" rel="prev" title="Composer-SSL-TLS问题">
+      <i class="fa fa-chevron-left"></i> Composer-SSL-TLS问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20190410-Json-problem/" rel="next" title="Json-problem">
+      Json-problem <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Valine-Admin"><span class="nav-number">1.</span> <span class="nav-text">Valine-Admin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#快速部署"><span class="nav-number">2.</span> <span class="nav-text">快速部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库导出"><span class="nav-number">3.</span> <span class="nav-text">数据库导出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时任务设置"><span class="nav-number">4.</span> <span class="nav-text">定时任务设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#邮件通知"><span class="nav-number">5.</span> <span class="nav-text">邮件通知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评论管理后台"><span class="nav-number">6.</span> <span class="nav-text">评论管理后台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目地址"><span class="nav-number">7.</span> <span class="nav-text">项目地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见问题解决"><span class="nav-number">8.</span> <span class="nav-text">常见问题解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.min.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://duosuo.nobige.cn/' || 'https://disqus.com/api/',
+      apikey    : 'Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m',
+      shortname : 'nobige',
+      url       : "https://nobige.cn/post/20190410-Valine-AdminDeployment/",
+      identifier: "post/20190410-Valine-AdminDeployment/",
+      title     : "Valine-Admin评论系统部署",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+</body>
+</html>

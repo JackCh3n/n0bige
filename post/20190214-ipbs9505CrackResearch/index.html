@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="结果​    未成功，换回旧盒子，放弃折腾。 参数 联通盒子  浪潮 ipbs9505  芯片:S905L-B  WIFI芯片：REALTEK（瑞昱）8189FTV 121A0G1 GI11B  设置密码：6321    启用网管  启用心跳  启用视频日志   心跳周期：3600  网管地址：http:&#x2F;&#x2F;1*.111.36.215:37021&#x2F;acs  注册用户:testcpe  注册密码:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浪潮 ipbs9505 刷机破解研究">
+<meta property="og:url" content="https://nobige.cn/post/20190214-ipbs9505CrackResearch/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="结果​    未成功，换回旧盒子，放弃折腾。 参数 联通盒子  浪潮 ipbs9505  芯片:S905L-B  WIFI芯片：REALTEK（瑞昱）8189FTV 121A0G1 GI11B  设置密码：6321    启用网管  启用心跳  启用视频日志   心跳周期：3600  网管地址：http:&#x2F;&#x2F;1*.111.36.215:37021&#x2F;acs  注册用户:testcpe  注册密码:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190214-ipbs9505CrackResearch/logo.png">
+<meta property="article:published_time" content="2019-02-14T09:54:09.000Z">
+<meta property="article:modified_time" content="2021-07-19T03:31:36.979Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="破解">
+<meta property="article:tag" content="刷机">
+<meta property="article:tag" content="浪潮">
+<meta property="article:tag" content="盒子">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190214-ipbs9505CrackResearch/logo.png">
+
+<link rel="canonical" href="https://nobige.cn/post/20190214-ipbs9505CrackResearch/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>浪潮 ipbs9505 刷机破解研究 | NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190214-ipbs9505CrackResearch/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          浪潮 ipbs9505 刷机破解研究
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-02-14 17:54:09" itemprop="dateCreated datePublished" datetime="2019-02-14T17:54:09+08:00">2019-02-14</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">技巧</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190214-ipbs9505CrackResearch/logo.png" alt="浪潮ipbs9505刷机破解研究"></p>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>​    未成功，换回旧盒子，放弃折腾。</p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li><p>联通盒子</p>
+</li>
+<li><p>浪潮 ipbs9505</p>
+</li>
+<li><p>芯片:S905L-B</p>
+</li>
+<li><p>WIFI芯片：REALTEK（瑞昱）8189FTV 121A0G1 GI11B</p>
+</li>
+<li><p>设置密码：6321</p>
+</li>
+<li><ul>
+<li><input checked disabled type="checkbox"> 启用网管</li>
+<li><input checked disabled type="checkbox"> 启用心跳</li>
+<li><input checked disabled type="checkbox"> 启用视频日志</li>
+</ul>
+</li>
+<li><p>心跳周期：3600</p>
+</li>
+<li><p>网管地址：<a href="http://1*.111.36.215:37021/acs" target="_blank" rel="noopener">http://1*.111.36.215:37021/acs</a></p>
+</li>
+<li><p>注册用户:testcpe</p>
+</li>
+<li><p>注册密码:ac5entry</p>
+</li>
+<li><p>CPE用户:admin</p>
+</li>
+<li><p>CPE密码:admin</p>
+</li>
+<li><p>终端网管地址:<a href="http://1*.111.36.215.37021/ace" target="_blank" rel="noopener">http://1*.111.36.215.37021/ace</a></p>
+</li>
+<li><p>IPTV主NTP地址:1*.111.36.209</p>
+</li>
+<li><p>IPTV备NTP地址:1*.111.36.210</p>
+</li>
+<li><p>互联网主NTP地址：空</p>
+</li>
+<li><p>互联网备NTP地址：空</p>
+</li>
+<li><p>主认证地址:<a href="http://1*.111.36.114:8082/EDS/jsp/AuthenticationURL" target="_blank" rel="noopener">http://1*.111.36.114:8082/EDS/jsp/AuthenticationURL</a></p>
+</li>
+<li><p>备认证地址:<a href="http://1*.111.36.114:8082/EDS/jsp/AuthenticationURL" target="_blank" rel="noopener">http://1*.111.36.114:8082/EDS/jsp/AuthenticationURL</a></p>
+</li>
+<li><p>日志服务器:空</p>
+</li>
+<li><p>业务账号:</p>
+</li>
+<li><p>业务密码:</p>
+</li>
+<li><p>QOS上传地址：空</p>
+</li>
+<li><p>QOS用户名：空</p>
+</li>
+<li><p>QOS密码：空</p>
+</li>
+<li><p>wifi：无法使用代理</p>
+</li>
+</ul>
+<h2 id="刷机破解试想"><a href="#刷机破解试想" class="headerlink" title="刷机破解试想"></a>刷机破解试想</h2><p>​    安装第三方APP</p>
+<p>​        1.U盘直接安装，apk复制到U盘，apk无法显示，后商店抓包得知是zip后缀，改成zip也是无法正常安装。</p>
+<p>由于路由器是家用级，无法直接设置arp缓存便有了试想2.</p>
+<p>试想2，大概拓扑结构是，1盒子（客户机A），1电脑（抓包C，web服务1）,1电脑（客户机B，web服务2），</p>
+<p>客户机A通过usb网线接口连到 抓包C</p>
+<p>抓包C，抓包是通过网线口直接连已联网路由器</p>
+<p>抓包C，web服务是通过WiFi连接已联网路由器</p>
+<p>客户机B,web服务是通过WiFi连接已联网路由器</p>
+<p>客户机A的USB与 (抓包C，抓包,网线) 桥接</p>
+<p>如此，客户机A可以上网，抓包也可以正常的抓包。</p>
+<p>​        2.通过1猜测可能是安装的方式不对，官网商店应该可以正常安装，于是各种Google，甚至了解了arp欺骗，dns欺骗等，不知道是Wireshark抓包软件原因的问题还是官网就是IP地址非域名，DNS攻击当然无效，于是又是一番Google，最后在通过局域网下瞎试给找到撞到门道了，例如，在同个局域网下，a客户端要请求下载<a href="#">http://1.2.3.4/app.zip</a> 这个文件，B客户机只要同个局域网下就可以伪装成1.2.3.4这个IP地址，只要和a客户端是在同一个（局域网）路由器或是wifi下，将其IP地址设置成 1.2.3.4 即可，网关填路由器。之后a客户端再次请求客户端就是下载b客户机上的文件了，当然要开启Web服务器且端口和路径要对的上。<em>（没有学以致用）</em></p>
+<p>​        （原理：ip解析的过程大致可以说为，客户机a请求1.2.3.4，首先它问路由器有没有这个IP的mac地址，路由器R听到后当然是先去arp缓存中遍历一次看看有没有，有的话直接告诉客户机，没有的话路由器R则是广播一下，喊话看看有没有反应，有反应也是直接告诉，没有的话也是在交给路由器R的上级路由器等，直到TTL为1时放弃。当我把客户机B设置成1.2.3.4，路由器R广播时，客户机B则是直接回答说自己是1.2.3.4 ）</p>
+<p><em>一开始我是直接在抓包C上设置ARP缓存，但是没有反应，其原因则是客户a不走抓包C的arp缓存，</em></p>
+<p>​        3.试想2不成功，加上商店有个不知是授权还是什么东西（后来发现是计算，统计），便在客户B上搭建伪授权服务，当然了，也是如同思想2一样无效。又试将zip包换成商店的，结果不用伪授权都可以正常的安装。如此，授权和官方商店安装的问题的排除了，剩余的结果也犹然而出了，那边是apk安装包应该都是处理过的，打上标签或是其他等。在商店下载电视淘宝是2.0最新版，反倒是在淘宝官网看到最新版本是5点多。且通过压缩软件对比商店版和官网版及官网阿里云版都是出现对不上的情况。如此apk有修改的罪名也落锤了。    </p>
+<p>​        4.软的不能那就硬的来，刷机，先是没有找到对应的型号，之后拆机后通过芯片找到几个刷机包倒是有不少的刷机包，但是芯片的封装技术不同，网上的都是针脚可见，我这针脚都是直接在芯片下面焊住了，刷机软件也是没有办法。</p>
+<p>​        5.下载器？下载器的TTL口也是找了一番功夫，但是手上没有下载器也就暂时放弃了。</p>
+<h2 id="小谈"><a href="#小谈" class="headerlink" title="小谈"></a>小谈</h2><p>​    这算是一次很好的《计算机网络教程》实践过程</p>
+<p>​    由于技术和文笔的问题可能不是将情况和解决的方法描写的很清楚，若看到或是有更好的办法、方法欢迎批评、留言。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A0%B4%E8%A7%A3/" rel="tag"># 破解</a>
+              <a href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag"># 刷机</a>
+              <a href="/tags/%E6%B5%AA%E6%BD%AE/" rel="tag"># 浪潮</a>
+              <a href="/tags/%E7%9B%92%E5%AD%90/" rel="tag"># 盒子</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20190214-TortoiseGitLoadedPuttykeyGreyUnavailable/" rel="prev" title="TortoiseGit加载Putty密钥灰色不可用">
+      <i class="fa fa-chevron-left"></i> TortoiseGit加载Putty密钥灰色不可用
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20190222-hackintoshBCM94352zwifiNEW/" rel="next" title="黑苹果 博通 BCM94352z 无线网卡Wi-Fi 蓝牙驱动 10.13.x新方法">
+      黑苹果 博通 BCM94352z 无线网卡Wi-Fi 蓝牙驱动 10.13.x新方法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结果"><span class="nav-number">1.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">2.</span> <span class="nav-text">参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#刷机破解试想"><span class="nav-number">3.</span> <span class="nav-text">刷机破解试想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小谈"><span class="nav-number">4.</span> <span class="nav-text">小谈</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.min.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://duosuo.nobige.cn/' || 'https://disqus.com/api/',
+      apikey    : 'Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m',
+      shortname : 'nobige',
+      url       : "https://nobige.cn/post/20190214-ipbs9505CrackResearch/",
+      identifier: "post/20190214-ipbs9505CrackResearch/",
+      title     : "浪潮 ipbs9505 刷机破解研究",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+</body>
+</html>

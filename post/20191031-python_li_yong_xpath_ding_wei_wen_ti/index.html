@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="python利用xpath定位问题 以豆瓣top250为例，xpath定位的方式是“先大后小”，即先获取到列表然后再获取单部电影的信息。 列表最一层为ol元素且有class属性，要取列表则是 1selector.xpath(&#39;&#x2F;&#x2F;ol[@class&#x3D;&quot;grid_view&quot;]&#x2F;li&#39;)  取完后，单个信息便是简单获取了只要遍历即可，如电影封面图片，电影名字，评分。。。 12345678# 电影封面图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python利用xpath定位问题">
+<meta property="og:url" content="https://nobige.cn/post/20191031-python_li_yong_xpath_ding_wei_wen_ti/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="python利用xpath定位问题 以豆瓣top250为例，xpath定位的方式是“先大后小”，即先获取到列表然后再获取单部电影的信息。 列表最一层为ol元素且有class属性，要取列表则是 1selector.xpath(&#39;&#x2F;&#x2F;ol[@class&#x3D;&quot;grid_view&quot;]&#x2F;li&#39;)  取完后，单个信息便是简单获取了只要遍历即可，如电影封面图片，电影名字，评分。。。 12345678# 电影封面图">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20191031-python_li_yong_xpath_ding_wei_wen_ti/xiao2019-10-31-20-38-51-850.jpg">
+<meta property="article:published_time" content="2019-10-31T12:37:04.000Z">
+<meta property="article:modified_time" content="2021-07-19T03:31:36.983Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="xpath">
+<meta property="article:tag" content="lxml">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20191031-python_li_yong_xpath_ding_wei_wen_ti/xiao2019-10-31-20-38-51-850.jpg">
+
+<link rel="canonical" href="https://nobige.cn/post/20191031-python_li_yong_xpath_ding_wei_wen_ti/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>python利用xpath定位问题 | NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20191031-python_li_yong_xpath_ding_wei_wen_ti/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python利用xpath定位问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-31 20:37:04" itemprop="dateCreated datePublished" datetime="2019-10-31T20:37:04+08:00">2019-10-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="python利用xpath定位问题"><a href="#python利用xpath定位问题" class="headerlink" title="python利用xpath定位问题"></a>python利用xpath定位问题</h2><p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20191031-python_li_yong_xpath_ding_wei_wen_ti/xiao2019-10-31-20-38-51-850.jpg" alt="豆瓣top250"></p>
+<p>以豆瓣top250为例，xpath定位的方式是“先大后小”，即先获取到列表然后再获取单部电影的信息。</p>
+<p>列表最一层为<code>ol</code>元素且有<code>class</code>属性，要取列表则是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">selector.xpath(<span class="string">'//ol[@class="grid_view"]/li'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>取完后，单个信息便是简单获取了只要遍历即可，如电影封面图片，电影名字，评分。。。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 电影封面图片</span></span><br><span class="line">item.xpath(<span class="string">'//img/@src'</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 电影名字</span></span><br><span class="line">item.xpath(<span class="string">'//div[@class="hd"]/a/text()'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评分</span></span><br><span class="line">item.xpath(<span class="string">'//span[@class="rating_num"]/text()'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>若到此也是按其xpath的路径来获取的话，获取的<strong>并不是列表里面单个电影的信息，而是网页中全部符合路径的信息</strong>，为什么？原因和简单，其主要问题在于路径定位问题。</p>
+<p>若是改成绝对定位也是可以，如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 电影封面图片</span></span><br><span class="line">item.xpath(<span class="string">'//*[@id="content"]/div/div[/ol/li/div/div[1]/a/img/@src'</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<p>但是获取列表就没意义，解决办法只需要一个 <code>.</code> 修改之后的定位则是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 电影封面图片</span></span><br><span class="line">item.xpath(<span class="string">'.//img/@src'</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 电影名字</span></span><br><span class="line">item.xpath(<span class="string">'.//div[@class="hd"]/a/text()'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 评分</span></span><br><span class="line">item.xpath(<span class="string">'.//span[@class="rating_num"]/text()'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>可以理解为，当前路径下开始寻找。</p>
+<h2 id="XPath-语法"><a href="#XPath-语法" class="headerlink" title="XPath 语法"></a>XPath 语法</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取title</span></span><br><span class="line">item.xpath(<span class="string">'//title/text()'</span>)</span><br><span class="line"><span class="comment"># 获取图片链接</span></span><br><span class="line">item.xpath(<span class="string">'.//img/@src'</span>)</span><br><span class="line"><span class="comment"># 获取图片描述</span></span><br><span class="line">item.xpath(<span class="string">'.//img/@alt'</span>)</span><br><span class="line"><span class="comment"># 获取图片data-src</span></span><br><span class="line">item.xpath(<span class="string">'.//img/@data-src'</span>)</span><br><span class="line"><span class="comment"># 其他同理</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取指定节点下的所有节点，包含注释内容</span></span><br><span class="line">item.xpath(<span class="string">'//div[@class="jjText"]/node()'</span>)</span><br><span class="line"><span class="comment"># 再进一步进行提取注释内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取全部注释内容</span></span><br><span class="line">item.xpath(<span class="string">'.//comment()'</span>)</span><br><span class="line"></span><br><span class="line">/ 根节点选取、或是元素和元素的过度。</span><br><span class="line">//</span><br></pre></td></tr></table></figure>
+
+<h3 id="xpath获取某个节点的html源码"><a href="#xpath获取某个节点的html源码" class="headerlink" title="xpath获取某个节点的html源码"></a>xpath获取某个节点的html源码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> lxml.html</span><br><span class="line"><span class="keyword">import</span> html</span><br><span class="line">temp_html = requests.get(<span class="string">'https://www.thepaper.cn/newsDetail_forward_8054822'</span>).content.decode(<span class="string">'utf-8'</span>)</span><br><span class="line">selector = lxml.html.fromstring(temp_html)</span><br><span class="line">temp_txt = selector.xpath(<span class="string">'//div[@class="news_txt"]'</span>)</span><br><span class="line">temp_htmls = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> temp_txt:</span><br><span class="line">    temp_htmls += html.unescape(lxml.html.tostring(x).decode(<span class="string">'utf-8'</span>))</span><br><span class="line"><span class="comment"># html.unescape 是html转码,解析,转义</span></span><br><span class="line">print(temp_htmls)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="选取节点"><a href="#选取节点" class="headerlink" title="选取节点"></a>选取节点</h3><p>XPath 使用路径表达式在 XML 文档中选取节点。节点是通过沿着路径或者 step 来选取的。</p>
+<h4 id="下面列出了最有用的路径表达式："><a href="#下面列出了最有用的路径表达式：" class="headerlink" title="下面列出了最有用的路径表达式："></a>下面列出了最有用的路径表达式：</h4><table>
+<thead>
+<tr>
+<th align="left">表达式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">nodename</td>
+<td align="left">选取此节点的所有子节点。</td>
+</tr>
+<tr>
+<td align="left">/</td>
+<td align="left">从根节点选取。</td>
+</tr>
+<tr>
+<td align="left">//</td>
+<td align="left">从匹配选择的当前节点选择文档中的节点，而不考虑它们的位置。</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">选取当前节点。</td>
+</tr>
+<tr>
+<td align="left">..</td>
+<td align="left">选取当前节点的父节点。</td>
+</tr>
+<tr>
+<td align="left">@</td>
+<td align="left">选取属性。</td>
+</tr>
+</tbody></table>
+<p><strong>实例</strong></p>
+<p>在下面的表格中，我们已列出了一些路径表达式以及表达式的结果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">bookstore</td>
+<td align="left">选取 bookstore 元素的所有子节点。</td>
+</tr>
+<tr>
+<td align="left">/bookstore</td>
+<td align="left">选取根元素 bookstore。注释：假如路径起始于正斜杠( / )，则此路径始终代表到某元素的绝对路径！</td>
+</tr>
+<tr>
+<td align="left">bookstore/book</td>
+<td align="left">选取属于 bookstore 的子元素的所有 book 元素。</td>
+</tr>
+<tr>
+<td align="left">//book</td>
+<td align="left">选取所有 book 子元素，而不管它们在文档中的位置。</td>
+</tr>
+<tr>
+<td align="left">bookstore//book</td>
+<td align="left">选择属于 bookstore 元素的后代的所有 book 元素，而不管它们位于 bookstore 之下的什么位置。</td>
+</tr>
+<tr>
+<td align="left">//@lang</td>
+<td align="left">选取名为 lang 的所有属性。</td>
+</tr>
+</tbody></table>
+<h3 id="谓语（Predicates）"><a href="#谓语（Predicates）" class="headerlink" title="谓语（Predicates）"></a>谓语（Predicates）</h3><p>谓语用来查找某个特定的节点或者包含某个指定的值的节点。</p>
+<p>谓语被嵌在方括号中。</p>
+<p><strong>实例</strong></p>
+<p>在下面的表格中，我们列出了带有谓语的一些路径表达式，以及表达式的结果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">/bookstore/book[1]</td>
+<td align="left">选取属于 bookstore 子元素的第一个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()]</td>
+<td align="left">选取属于 bookstore 子元素的最后一个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[last()-1]</td>
+<td align="left">选取属于 bookstore 子元素的倒数第二个 book 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[position()&lt;3]</td>
+<td align="left">选取最前面的两个属于 bookstore 元素的子元素的 book 元素。</td>
+</tr>
+<tr>
+<td align="left">//title[@lang]</td>
+<td align="left">选取所有拥有名为 lang 的属性的 title 元素。</td>
+</tr>
+<tr>
+<td align="left">//title[@lang=’eng’]</td>
+<td align="left">选取所有 title 元素，且这些元素拥有值为 eng 的 lang 属性。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[price&gt;35.00]</td>
+<td align="left">选取 bookstore 元素的所有 book 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book[price&gt;35.00]/title</td>
+<td align="left">选取 bookstore 元素中的 book 元素的所有 title 元素，且其中的 price 元素的值须大于 35.00。</td>
+</tr>
+</tbody></table>
+<h3 id="选取未知节点"><a href="#选取未知节点" class="headerlink" title="选取未知节点"></a>选取未知节点</h3><p>XPath 通配符可用来选取未知的 XML 元素。</p>
+<table>
+<thead>
+<tr>
+<th align="left">通配符</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">*</td>
+<td align="left">匹配任何元素节点。</td>
+</tr>
+<tr>
+<td align="left">@*</td>
+<td align="left">匹配任何属性节点。</td>
+</tr>
+<tr>
+<td align="left">node()</td>
+<td align="left">匹配任何类型的节点。</td>
+</tr>
+</tbody></table>
+<p><strong>实例</strong></p>
+<p>在下面的表格中，我们列出了一些路径表达式，以及这些表达式的结果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">/bookstore/*</td>
+<td align="left">选取 bookstore 元素的所有子元素。</td>
+</tr>
+<tr>
+<td align="left">//*</td>
+<td align="left">选取文档中的所有元素。</td>
+</tr>
+<tr>
+<td align="left">//title[@*]</td>
+<td align="left">选取所有带有属性的 title 元素。</td>
+</tr>
+</tbody></table>
+<h3 id="选取若干路径"><a href="#选取若干路径" class="headerlink" title="选取若干路径"></a>选取若干路径</h3><p>通过在路径表达式中使用“|”运算符，您可以选取若干个路径。</p>
+<p><strong>实例</strong></p>
+<p>在下面的表格中，我们列出了一些路径表达式，以及这些表达式的结果：</p>
+<table>
+<thead>
+<tr>
+<th align="left">路径表达式</th>
+<th align="left">结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">//book/title | //book/price</td>
+<td align="left">选取 book 元素的所有 title 和 price 元素。</td>
+</tr>
+<tr>
+<td align="left">//title | //price</td>
+<td align="left">选取文档中的所有 title 和 price 元素。</td>
+</tr>
+<tr>
+<td align="left">/bookstore/book/title | //price</td>
+<td align="left">选取属于 bookstore 元素的 book 元素的所有 title 元素，以及文档中所有的 price 元素。</td>
+</tr>
+</tbody></table>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><p><a href="/go.html?u=https://www.w3school.com.cn/xpath/xpath_syntax.asp">XPath 语法</a></p>
+</li>
+<li><p><a href="/go.html?u=https://bbs.csdn.net/topics/391842853">求教！！Python xpath如何获取带注释的text？-CSDN论坛</a></p>
+</li>
+<li><p><a href="/go.html?u=https://www.jb51.net/article/154569.htm">python xpath获取页面注释的方法_python_脚本之家</a></p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/xpath/" rel="tag"># xpath</a>
+              <a href="/tags/lxml/" rel="tag"># lxml</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20191031-netERR_BLOCKED_BY_CLIENT/" rel="prev" title="netERR_BLOCKED_BY_CLIENT">
+      <i class="fa fa-chevron-left"></i> netERR_BLOCKED_BY_CLIENT
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20191108-selenium_an_zhuang_he_Chromedriver/" rel="next" title="selenium安装和Chromedriver">
+      selenium安装和Chromedriver <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#python利用xpath定位问题"><span class="nav-number">1.</span> <span class="nav-text">python利用xpath定位问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XPath-语法"><span class="nav-number">2.</span> <span class="nav-text">XPath 语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xpath获取某个节点的html源码"><span class="nav-number">2.1.</span> <span class="nav-text">xpath获取某个节点的html源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选取节点"><span class="nav-number">2.2.</span> <span class="nav-text">选取节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下面列出了最有用的路径表达式："><span class="nav-number">2.2.1.</span> <span class="nav-text">下面列出了最有用的路径表达式：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#谓语（Predicates）"><span class="nav-number">2.3.</span> <span class="nav-text">谓语（Predicates）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选取未知节点"><span class="nav-number">2.4.</span> <span class="nav-text">选取未知节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选取若干路径"><span class="nav-number">2.5.</span> <span class="nav-text">选取若干路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.min.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://duosuo.nobige.cn/' || 'https://disqus.com/api/',
+      apikey    : 'Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m',
+      shortname : 'nobige',
+      url       : "https://nobige.cn/post/20191031-python_li_yong_xpath_ding_wei_wen_ti/",
+      identifier: "post/20191031-python_li_yong_xpath_ding_wei_wen_ti/",
+      title     : "python利用xpath定位问题",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+</body>
+</html>

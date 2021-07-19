@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="Photo by Julian Hochgesang on Unsplash Html禁用referer 本地网站html图片或链接,跳过,隐藏,,删除,禁用referer  123456789101112&lt;meta name&#x3D;&quot;referrer&quot; content&#x3D;&quot;never&quot;&gt;值的解释neveralwaysorigindefault1.如果 referer-policy 的值为n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html和Css及Js错误常用集合">
+<meta property="og:url" content="https://nobige.cn/post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="Photo by Julian Hochgesang on Unsplash Html禁用referer 本地网站html图片或链接,跳过,隐藏,,删除,禁用referer  123456789101112&lt;meta name&#x3D;&quot;referrer&quot; content&#x3D;&quot;never&quot;&gt;值的解释neveralwaysorigindefault1.如果 referer-policy 的值为n">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/julian-hochgesang-u5krK0tBH8Y-unsplash.jpg">
+<meta property="article:published_time" content="2020-07-27T07:52:43.000Z">
+<meta property="article:modified_time" content="2021-07-19T03:31:37.051Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/julian-hochgesang-u5krK0tBH8Y-unsplash.jpg">
+
+<link rel="canonical" href="https://nobige.cn/post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Html和Css及Js错误常用集合 | NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Html和Css及Js错误常用集合
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-27 15:52:43" itemprop="dateCreated datePublished" datetime="2020-07-27T15:52:43+08:00">2020-07-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%94%99%E8%AF%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">错误</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/julian-hochgesang-u5krK0tBH8Y-unsplash.jpg" alt="car"></p>
+<p><em>Photo by Julian Hochgesang on <a href="/go.html?u=https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></em></p>
+<h2 id="Html"><a href="#Html" class="headerlink" title="Html"></a>Html</h2><h3 id="禁用referer"><a href="#禁用referer" class="headerlink" title="禁用referer"></a>禁用referer</h3><blockquote>
+<p>本地网站html图片或链接,跳过,隐藏,,删除,禁用referer</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"referrer"</span> <span class="attr">content</span>=<span class="string">"never"</span>&gt;</span></span><br><span class="line">值的解释</span><br><span class="line">never</span><br><span class="line">always</span><br><span class="line">origin</span><br><span class="line">default</span><br><span class="line">1.如果 referer-policy 的值为never：删除 http head 中的 referer；</span><br><span class="line">2.如果 referer-policy 的值为default：如果当前页面使用的是 https 协议，而正要加载的资源使用的是普通的 http 协议，则将 http header 中的 referer 置为空；</span><br><span class="line">3.如果 referer-policy 的值为 origin：只发送 origin 部分；</span><br><span class="line">4.如果 referer-policy 的值为 always：不改变http header 中的 referer 的值，注意：这种情况下，如果当前页面使用了 https 协议，而要加载的资源使用的是 http 协议，加载资源的请求头中也会携带 referer。</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https://blog.csdn.net/weixin_43627766/java/article/details/90311889</span><br></pre></td></tr></table></figure>
+
+<h3 id="表单禁止自动填写"><a href="#表单禁止自动填写" class="headerlink" title="表单禁止自动填写"></a>表单禁止自动填写</h3><p>如何禁止注册表单的自动填写邮箱、密码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">语法</span><br><span class="line">&lt;input autocomplete&#x3D;&quot;on|off&quot;&gt;</span><br><span class="line">属性值</span><br><span class="line">值	描述</span><br><span class="line">on	默认。规定启用自动完成功能。</span><br><span class="line">off	规定禁用自动完成功能。</span><br><span class="line">实例</span><br><span class="line">启用自动完成功能的 HTML 表单（其中一个输入字段禁用了自动完成）：</span><br><span class="line">&lt;form action&#x3D;&quot;demo_form.html&quot; autocomplete&#x3D;&quot;on&quot;&gt;</span><br><span class="line">First name:&lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;fname&quot;&gt;&lt;br&gt;</span><br><span class="line">Last name: &lt;input type&#x3D;&quot;text&quot; name&#x3D;&quot;lname&quot;&gt;&lt;br&gt;</span><br><span class="line">E-mail: &lt;input type&#x3D;&quot;email&quot; name&#x3D;&quot;email&quot; autocomplete&#x3D;&quot;off&quot;&gt;&lt;br&gt;</span><br><span class="line">&lt;input type&#x3D;&quot;submit&quot;&gt;</span><br><span class="line">&lt;&#x2F;form&gt;</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:&#x2F;&#x2F;www.runoob.com&#x2F;tags&#x2F;att-input-autocomplete.html</span><br></pre></td></tr></table></figure>
+
+<h2 id="Css"><a href="#Css" class="headerlink" title="Css"></a>Css</h2><h3 id="文字水平居中"><a href="#文字水平居中" class="headerlink" title="文字水平居中"></a>文字水平居中</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align: center;"</span>&gt;</span>文字水平居中<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="文本垂直水平居中"><a href="#文本垂直水平居中" class="headerlink" title="文本垂直水平居中"></a>文本垂直水平居中</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"width:200px;height:100px;line-height: 100px;"</span>&gt;</span>文本垂直水平居中<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="div居中的几种方法"><a href="#div居中的几种方法" class="headerlink" title="div居中的几种方法"></a>div居中的几种方法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*绝对定位和0*/</span></span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">background</span>:red;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">    <span class="attribute">top</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>:<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*flex布局*/</span></span><br><span class="line">&lt;!<span class="selector-tag">DOCTYPE</span> <span class="selector-tag">html</span>&gt;</span><br><span class="line">&lt;<span class="selector-tag">html</span>&gt;</span><br><span class="line">&lt;<span class="selector-tag">head</span>&gt;</span><br><span class="line">    &lt;meta charset="utf-8"&gt;</span><br><span class="line">    &lt;title&gt;登陆&lt;/title&gt;</span><br><span class="line">    &lt;style type="text/css"&gt;</span><br><span class="line">        <span class="selector-tag">html</span>&#123;<span class="attribute">width</span>: <span class="number">100%</span>;<span class="attribute">height</span>: <span class="number">100%</span>;&#125;  <span class="comment">/*整个页面的居中*/</span></span><br><span class="line">        <span class="selector-tag">body</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">            <span class="attribute">display</span>: flex;             <span class="comment">/*flex弹性布局*/</span></span><br><span class="line">            <span class="attribute">justify-content</span>: center;</span><br><span class="line">            <span class="attribute">align-items</span>: center;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-id">#login</span>&#123;</span><br><span class="line">            <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">            <span class="attribute">border</span>: <span class="number">1px</span> black solid;</span><br><span class="line">            <span class="attribute">display</span>: flex;</span><br><span class="line">            <span class="attribute">flex-direction</span>: column;        <span class="comment">/*元素的排列方向为垂直*/</span></span><br><span class="line">            <span class="attribute">justify-content</span>: center;    <span class="comment">/*水平居中对齐*/</span></span><br><span class="line">            <span class="attribute">align-items</span>: center;        <span class="comment">/*垂直居中对齐*/</span></span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;<span class="selector-tag">body</span>&gt;</span><br><span class="line">    &lt;div id="login"&gt;</span><br><span class="line">        &lt;h1&gt;登陆&lt;/h1&gt;</span><br><span class="line">        &lt;input type="text"&gt;&lt;br&gt;</span><br><span class="line">        &lt;input type="password"&gt;&lt;br&gt;</span><br><span class="line">        &lt;button&gt;确定&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https://www.cnblogs.com/jing-tian/p/10969887.html</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="改变input框中placeholder颜色的方法"><a href="#改变input框中placeholder颜色的方法" class="headerlink" title="改变input框中placeholder颜色的方法"></a>改变input框中placeholder颜色的方法</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-webkit-input-placeholder</span> &#123; <span class="comment">/* WebKit browsers 适配谷歌 */</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#BDCADA</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-moz-placeholder</span> &#123; <span class="comment">/* Mozilla Firefox 4 to 18 适配火狐 */</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#BDCADA</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">::-moz-placeholder</span> &#123; <span class="comment">/* Mozilla Firefox 19+ 适配火狐 */</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#BDCADA</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span><span class="selector-pseudo">:-ms-input-placeholder</span> &#123; <span class="comment">/* Internet Explorer 10+  适配ie*/</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#BDCADA</span>;</span><br><span class="line">&#125;</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https://blog.csdn.net/zeyu1021/article/details/44563393</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除超链接A标签下划线"><a href="#删除超链接A标签下划线" class="headerlink" title="删除超链接A标签下划线"></a>删除超链接A标签下划线</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span>,<span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;</span><br><span class="line"> <span class="attribute">text-decoration</span>:none;  <span class="comment">/*超链接无下划线*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;</span><br><span class="line"> <span class="attribute">text-decoration</span>:underline;  <span class="comment">/*鼠标放上去有下划线*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="css3圆角"><a href="#css3圆角" class="headerlink" title="css3圆角"></a>css3圆角</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">border-radius</span>:上 右 下 左;</span><br><span class="line"><span class="selector-tag">border-radius</span>: 15<span class="selector-tag">px</span> 50<span class="selector-tag">px</span> 30<span class="selector-tag">px</span> 5<span class="selector-tag">px</span>:</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="css3盒子阴影"><a href="#css3盒子阴影" class="headerlink" title="css3盒子阴影"></a>css3盒子阴影</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">值	说明</span><br><span class="line"><span class="selector-tag">h-shadow</span>	必需的。水平阴影的位置。允许负值</span><br><span class="line"><span class="selector-tag">v-shadow</span>	必需的。垂直阴影的位置。允许负值</span><br><span class="line"><span class="selector-tag">blur</span>	可选。模糊距离</span><br><span class="line"><span class="selector-tag">spread</span>	可选。阴影的大小</span><br><span class="line"><span class="selector-tag">color</span>	可选。阴影的颜色。在<span class="selector-tag">CSS</span>颜色值寻找颜色值的完整列表</span><br><span class="line"><span class="selector-tag">inset</span>	可选。从外层的阴影（开始时）改变阴影内侧阴影</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">box-shadow</span>: 10<span class="selector-tag">px</span> 10<span class="selector-tag">px</span> 5<span class="selector-tag">px</span> <span class="selector-id">#888888</span>;</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https://www.runoob.com/cssref/css3-pr-box-shadow.html</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="rgba"><a href="#rgba" class="headerlink" title="rgba"></a>rgba</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">值	描述</span><br><span class="line">red	定义红色值，取值范围为 0 ~ 255，也可以使用百分比 0% ~ 100%。</span><br><span class="line">green	定义绿色值，取值范围为 0 ~ 255，也可以使用百分比 0% ~ 100%。</span><br><span class="line">blue	定义蓝色值，取值范围为 0 ~ 255，也可以使用百分比 0% ~ 100%。</span><br><span class="line"></span><br><span class="line">alpha - 透明度	定义透明度 0（透完全明） ~ 1（完全不透明）</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:&#x2F;&#x2F;www.runoob.com&#x2F;cssref&#x2F;func-rgba.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="filter-滤镜"><a href="#filter-滤镜" class="headerlink" title="filter(滤镜)"></a>filter(滤镜)</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">默认值:	<span class="selector-tag">none</span></span><br><span class="line">继承:		<span class="selector-tag">no</span></span><br><span class="line">动画支持:	是。详细可查阅 CSS 动画 https://www.runoob.com/cssref/css-animatable.html</span><br><span class="line">版本:		<span class="selector-tag">CSS3</span></span><br><span class="line">JavaScript 语法:		object.style.WebkitFilter="grayscale(100%)" </span><br><span class="line"></span><br><span class="line">高斯模糊</span><br><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">-webkit-filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>); <span class="comment">/* Chrome, Safari, Opera */</span></span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br><span class="line">————————————————</span><br><span class="line">日期:2020/10/22</span><br><span class="line">参考链接：https://www.runoob.com/cssref/css3-pr-filter.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="outline（轮廓）"><a href="#outline（轮廓）" class="headerlink" title="outline（轮廓）"></a>outline（轮廓）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">属性值</span><br><span class="line">值	描述</span><br><span class="line">outline-color	规定边框的颜色。参阅：outline-color 中可能的值。</span><br><span class="line">outline-style	规定边框的样式。参阅：outline-style 中可能的值。</span><br><span class="line">outline-width	规定边框的宽度。参阅：outline-width 中可能的值。</span><br><span class="line">inherit	规定应该从父元素继承 outline 属性的设置。</span><br><span class="line"></span><br><span class="line">input&#123;</span><br><span class="line">	outline:#00FF00 dotted thick;</span><br><span class="line">&#125;</span><br><span class="line">————————————————</span><br><span class="line">日期:2020&#x2F;10&#x2F;22</span><br><span class="line">参考链接：https:&#x2F;&#x2F;www.runoob.com&#x2F;cssref&#x2F;pr-outline.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="悬浮按钮"><a href="#悬浮按钮" class="headerlink" title="悬浮按钮"></a>悬浮按钮</h3><blockquote>
+<p>transform: translateX(-50%); 重点，不然左右不能居中</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.float-btn</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">border</span>: solid <span class="number">1px</span> <span class="number">#666</span>;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h2><h3 id="常用"><a href="#常用" class="headerlink" title="常用"></a>常用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符串转数组</span></span><br><span class="line"><span class="string">'nobige.cn'</span>.split(<span class="string">'.'</span>)</span><br><span class="line"><span class="comment">// 数组转字符串	</span></span><br><span class="line">[<span class="string">'nobige'</span>,<span class="string">'cn'</span>].join(<span class="string">'.'</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><blockquote>
+<p>类型转换,Number() 转换为数字， String() 转换为字符串， Boolean() 转化为布尔值。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查看类型</span></span><br><span class="line"><span class="comment">//	typeof 操作符来查看 JavaScript 变量的数据类型</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">"John"</span>                 <span class="comment">// 返回 string</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">3.14</span>                   <span class="comment">// 返回 number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">NaN</span>                    <span class="comment">// 返回 number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">false</span>                  <span class="comment">// 返回 boolean</span></span><br><span class="line"><span class="keyword">typeof</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]              <span class="comment">// 返回 object</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;<span class="attr">name</span>:<span class="string">'John'</span>, <span class="attr">age</span>:<span class="number">34</span>&#125;  <span class="comment">// 返回 object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>()             <span class="comment">// 返回 object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;         <span class="comment">// 返回 function</span></span><br><span class="line"><span class="keyword">typeof</span> myCar                  <span class="comment">// 返回 undefined (如果 myCar 没有声明)</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>                   <span class="comment">// 返回 object</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	constructor 属性返回所有 JavaScript 变量的构造函数。</span></span><br><span class="line"><span class="string">"John"</span>.constructor                 <span class="comment">// 返回函数 String()  &#123; [native code] &#125;</span></span><br><span class="line">(<span class="number">3.14</span>).constructor                 <span class="comment">// 返回函数 Number()  &#123; [native code] &#125;</span></span><br><span class="line"><span class="literal">false</span>.constructor                  <span class="comment">// 返回函数 Boolean() &#123; [native code] &#125;</span></span><br><span class="line">[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>].constructor              <span class="comment">// 返回函数 Array()   &#123; [native code] &#125;</span></span><br><span class="line">&#123;<span class="attr">name</span>:<span class="string">'John'</span>, <span class="attr">age</span>:<span class="number">34</span>&#125;.constructor  <span class="comment">// 返回函数 Object()  &#123; [native code] &#125;</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().constructor             <span class="comment">// 返回函数 Date()    &#123; [native code] &#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;.constructor         <span class="comment">// 返回函数 Function()&#123; [native code] &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将数字,布尔值转换为字符串</span></span><br><span class="line"><span class="comment">//	全局方法 String() 可以将数字转换为字符串。</span></span><br><span class="line"><span class="comment">//	该方法可用于任何类型的数字，字母，变量，表达式：</span></span><br><span class="line"><span class="comment">//实例</span></span><br><span class="line"><span class="built_in">String</span>(x)         <span class="comment">// 将变量 x 转换为字符串并返回</span></span><br><span class="line"><span class="built_in">String</span>(<span class="number">123</span>)       <span class="comment">// 将数字 123 转换为字符串并返回</span></span><br><span class="line"><span class="built_in">String</span>(<span class="number">100</span> + <span class="number">23</span>)  <span class="comment">// 将数字表达式转换为字符串并返回</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">false</span>)        <span class="comment">// 返回 "false"</span></span><br><span class="line"><span class="built_in">String</span>(<span class="literal">true</span>)         <span class="comment">// 返回 "true"</span></span><br><span class="line"><span class="built_in">Date</span>()      <span class="comment">// 返回 Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)</span></span><br><span class="line"><span class="built_in">String</span>(<span class="keyword">new</span> <span class="built_in">Date</span>())      <span class="comment">// 返回 Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将数字,布尔值,日期转换为字符串</span></span><br><span class="line">x.toString()</span><br><span class="line">(<span class="number">123</span>).toString()</span><br><span class="line">(<span class="number">100</span> + <span class="number">23</span>).toString()</span><br><span class="line"><span class="literal">false</span>.toString()     <span class="comment">// 返回 "false"</span></span><br><span class="line"><span class="literal">true</span>.toString()      <span class="comment">// 返回 "true"</span></span><br><span class="line">(<span class="keyword">new</span> <span class="built_in">Date</span>()).toString()   <span class="comment">// 返回 Thu Jul 17 2014 15:38:19 GMT+0200 (W. Europe Daylight Time)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方法	描述</span></span><br><span class="line">toExponential()	把对象的值转换为指数计数法。</span><br><span class="line">toFixed()	把数字转换为字符串，结果的小数点后有指定位数的数字。</span><br><span class="line">toPrecision()	把数字格式化为指定的长度。</span><br><span class="line"></span><br><span class="line"><span class="comment">//Date方法</span></span><br><span class="line"><span class="comment">//方法	描述</span></span><br><span class="line">getDate()	从 <span class="built_in">Date</span> 对象返回一个月中的某一天 (<span class="number">1</span> ~ <span class="number">31</span>)。</span><br><span class="line">getDay()	从 <span class="built_in">Date</span> 对象返回一周中的某一天 (<span class="number">0</span> ~ <span class="number">6</span>)。</span><br><span class="line">getFullYear()	从 <span class="built_in">Date</span> 对象以四位数字返回年份。</span><br><span class="line">getHours()	返回 <span class="built_in">Date</span> 对象的小时 (<span class="number">0</span> ~ <span class="number">23</span>)。</span><br><span class="line">getMilliseconds()	返回 <span class="built_in">Date</span> 对象的毫秒(<span class="number">0</span> ~ <span class="number">999</span>)。</span><br><span class="line">getMinutes()	返回 <span class="built_in">Date</span> 对象的分钟 (<span class="number">0</span> ~ <span class="number">59</span>)。</span><br><span class="line">getMonth()	从 <span class="built_in">Date</span> 对象返回月份 (<span class="number">0</span> ~ <span class="number">11</span>)。</span><br><span class="line">getSeconds()	返回 <span class="built_in">Date</span> 对象的秒数 (<span class="number">0</span> ~ <span class="number">59</span>)。</span><br><span class="line">getTime()	返回 <span class="number">1970</span> 年 <span class="number">1</span> 月 <span class="number">1</span> 日至今的毫秒数。</span><br><span class="line"></span><br><span class="line"><span class="comment">//将字符串转换为数字</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"3.14"</span>)    <span class="comment">// 返回 3.14</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">" "</span>)       <span class="comment">// 返回 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">""</span>)        <span class="comment">// 返回 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="string">"99 88"</span>)   <span class="comment">// 返回 NaN</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方法	描述</span></span><br><span class="line"><span class="built_in">parseFloat</span>()	解析一个字符串，并返回一个浮点数。</span><br><span class="line"><span class="built_in">parseInt</span>()	解析一个字符串，并返回一个整数。</span><br><span class="line"></span><br><span class="line"><span class="comment">//将布尔值转换为数字</span></span><br><span class="line"><span class="comment">//全局方法 Number() 可将布尔值转换为数字。</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>)     <span class="comment">// 返回 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>)      <span class="comment">// 返回 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//将日期转换为数字</span></span><br><span class="line"><span class="comment">//	全局方法 Number() 可将日期转换为数字。</span></span><br><span class="line">d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="built_in">Number</span>(d)          <span class="comment">// 返回 1404568027739</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	日期方法 getTime() 也有相同的效果。</span></span><br><span class="line">d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">d.getTime()        <span class="comment">// 返回 1404568027739</span></span><br><span class="line"></span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:<span class="comment">//www.runoob.com/js/js-type-conversion.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JavaScript-刷新当前页面"><a href="#JavaScript-刷新当前页面" class="headerlink" title="JavaScript 刷新当前页面"></a>JavaScript 刷新当前页面</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">location.reload();</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.location.replace(<span class="string">"https://nobige.cn"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//页面自动刷新：把如下代码加入&lt;head&gt;区域中,content为要等待刷新的秒数</span></span><br><span class="line">&lt;meta http-equiv=<span class="string">"refresh"</span> content=<span class="string">"5"</span>&gt;</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:<span class="comment">//www.runoob.com/w3cnote/js-refresh-current-page.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JavaScript获取时间戳与时间戳转化"><a href="#JavaScript获取时间戳与时间戳转化" class="headerlink" title="JavaScript获取时间戳与时间戳转化"></a>JavaScript获取时间戳与时间戳转化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">Javascript 获取当前时间戳（毫秒级别）：</span><br><span class="line">第一种方法：</span><br><span class="line"><span class="keyword">var</span> timestamp1 = <span class="built_in">Date</span>.parse( <span class="keyword">new</span> <span class="built_in">Date</span>());</span><br><span class="line">结果：<span class="number">1470220594000</span></span><br><span class="line"></span><br><span class="line">第二种方法：</span><br><span class="line"><span class="keyword">var</span> timestamp2 = ( <span class="keyword">new</span> <span class="built_in">Date</span>()).valueOf();</span><br><span class="line">结果：<span class="number">1470220608533</span></span><br><span class="line"></span><br><span class="line">第三种方法：</span><br><span class="line"><span class="keyword">var</span> timestamp3 = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">结果：<span class="number">1470220608533</span></span><br><span class="line">第一种获取的时间戳是精确到秒，第二种和第三种是获取的时间戳精确到毫秒。</span><br><span class="line">获取指定时间的时间戳：</span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>(<span class="string">"2016-08-03 00:00:00"</span>);</span><br><span class="line"></span><br><span class="line">时间戳转化成时间：</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">timetrans</span>(<span class="params">date</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(date*<span class="number">1000</span>);<span class="comment">//如果date为13位不需要乘1000</span></span><br><span class="line"> <span class="keyword">var</span> Y = date.getFullYear() + <span class="string">'-'</span>;</span><br><span class="line"> <span class="keyword">var</span> M = (date.getMonth()+<span class="number">1</span> &lt; <span class="number">10</span> ? <span class="string">'0'</span>+(date.getMonth()+<span class="number">1</span>) : date.getMonth()+<span class="number">1</span>) + <span class="string">'-'</span>;</span><br><span class="line"> <span class="keyword">var</span> D = (date.getDate() &lt; <span class="number">10</span> ? <span class="string">'0'</span> + (date.getDate()) : date.getDate()) + <span class="string">' '</span>;</span><br><span class="line"> <span class="keyword">var</span> h = (date.getHours() &lt; <span class="number">10</span> ? <span class="string">'0'</span> + date.getHours() : date.getHours()) + <span class="string">':'</span>;</span><br><span class="line"> <span class="keyword">var</span> m = (date.getMinutes() &lt;<span class="number">10</span> ? <span class="string">'0'</span> + date.getMinutes() : date.getMinutes()) + <span class="string">':'</span>;</span><br><span class="line"> <span class="keyword">var</span> s = (date.getSeconds() &lt;<span class="number">10</span> ? <span class="string">'0'</span> + date.getSeconds() : date.getSeconds());</span><br><span class="line"> <span class="keyword">return</span> Y+M+D+h+m+s;</span><br><span class="line">&#125;</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:<span class="comment">//segmentfault.com/a/1190000006160703</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JS设置CSS样式的几种方式"><a href="#JS设置CSS样式的几种方式" class="headerlink" title="JS设置CSS样式的几种方式"></a>JS设置CSS样式的几种方式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 直接设置style的属性  某些情况用这个设置 !important值无效</span></span><br><span class="line">	如果属性有<span class="string">'-'</span>号，就写成驼峰的形式（如textAlign）  如果想保留 - 号，就中括号的形式  element.style[<span class="string">'text-align'</span>] = <span class="string">'100px'</span>;</span><br><span class="line">element.style.height = <span class="string">'100px'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 直接设置属性（只能用于某些属性，相关样式会自动识别）</span></span><br><span class="line">element.setAttribute(<span class="string">'height'</span>, <span class="number">100</span>);</span><br><span class="line">element.setAttribute(<span class="string">'height'</span>, <span class="string">'100px'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//3. 设置style的属性</span></span><br><span class="line">element.setAttribute(<span class="string">'style'</span>, <span class="string">'height: 100px !important'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 使用setProperty  如果要设置!important，推荐用这种方法设置第三个参数</span></span><br><span class="line">element.style.setProperty(<span class="string">'height'</span>, <span class="string">'300px'</span>, <span class="string">'important'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//5. 改变class   比如JQ的更改class相关方法</span></span><br><span class="line"><span class="comment">//	因JS获取不到css的伪元素，所以可以通过改变伪元素父级的class来动态更改伪元素的样式</span></span><br><span class="line">element.className = <span class="string">'blue'</span>;</span><br><span class="line">element.className += <span class="string">'blue fb'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//6. 设置cssText</span></span><br><span class="line">element.style.cssText = <span class="string">'height: 100px !important'</span>;</span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:<span class="comment">//www.cnblogs.com/LiuWeiLong/p/6058059.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="骚操作"><a href="#骚操作" class="headerlink" title="骚操作"></a>骚操作</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>==<span class="literal">false</span></span><br><span class="line"><span class="number">1</span>==<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	短路运算-使用||</span></span><br><span class="line"><span class="string">'nobige'</span> || <span class="number">0</span>	<span class="comment">//	"nobige"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	短路运算-使用&amp;&amp;</span></span><br><span class="line"><span class="keyword">if</span> (isOnline) &#123;</span><br><span class="line">  postMessage();</span><br><span class="line">&#125;</span><br><span class="line">isOnline &amp;&amp; postMessage();</span><br><span class="line"></span><br><span class="line"><span class="comment">//	临时变量</span></span><br><span class="line"><span class="keyword">var</span> temp = a; a = b; b = temp;	<span class="comment">// 传统，但需要借助临时变量</span></span><br><span class="line">a ^= b; b ^= a; a ^= b; 	<span class="comment">// 需要两个整数</span></span><br><span class="line"><span class="keyword">void</span> <span class="number">0</span> == <span class="literal">undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	只有0为真</span></span><br><span class="line">!<span class="number">0</span>==<span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 非零都是为假</span></span><br><span class="line">!<span class="number">1</span>==<span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字符查找判断</span></span><br><span class="line">~<span class="string">'nobige.cn'</span>.indexOf(<span class="string">'com'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 浮点转整数,正负数均可.</span></span><br><span class="line"><span class="built_in">parseInt</span>(num)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用情况要看数字是否会溢出，小数字建议使用</span></span><br><span class="line">~~num</span><br><span class="line">num &gt;&gt; <span class="number">0</span></span><br><span class="line">num &lt;&lt; <span class="number">0</span></span><br><span class="line">num | <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//10位随机字符</span></span><br><span class="line"><span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substr(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//	随机颜色</span></span><br><span class="line"><span class="string">'#'</span>+<span class="built_in">Math</span>.random().toString(<span class="number">16</span>).substr(<span class="number">2</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//	美化 console</span></span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">"%cNobige"</span>, <span class="string">"color: #181818; font-size: 30px; font-family: sans-serif"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//	三木运算</span></span><br><span class="line"><span class="keyword">var</span> a = x &gt; <span class="number">0</span> ? !<span class="number">0</span> : !<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	字符串转数字</span></span><br><span class="line">n = +<span class="string">'18'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	数字转字符串</span></span><br><span class="line">n = <span class="number">18</span>+<span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	数组截取</span></span><br><span class="line"><span class="keyword">var</span> array = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">array.length = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(array);	<span class="comment">// [0, 1, 2]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//	批量变量赋值</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>, b = a, c = b;</span><br><span class="line"></span><br><span class="line"><span class="comment">//	闭包</span></span><br><span class="line">!(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//code...</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 滚动条控制</span></span><br><span class="line"><span class="built_in">document</span>.documentElement.scrollTop</span><br></pre></td></tr></table></figure>
+
+<h3 id="奇偶数判断"><a href="#奇偶数判断" class="headerlink" title="奇偶数判断"></a>奇偶数判断</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通写法,多采用取模(%)的方法</span></span><br><span class="line"><span class="number">2</span> % <span class="number">2</span> = <span class="number">0</span> <span class="comment">// 偶数</span></span><br><span class="line"><span class="number">3</span> % <span class="number">2</span> = <span class="number">1</span> <span class="comment">// 奇数</span></span><br><span class="line">num % <span class="number">2</span> === <span class="number">0</span> ? <span class="string">'偶数'</span> : <span class="string">'奇数'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* &amp; 运算符的写法</span></span><br><span class="line"><span class="comment">* &amp;以特定的方式组合操作二进制数中对应的位</span></span><br><span class="line"><span class="comment">* 如果对应的位都为1，那么结果就是1</span></span><br><span class="line"><span class="comment">* 如果任意一个位是0 则结果就是0</span></span><br><span class="line"><span class="comment">* </span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="comment">// 1的二进制表示为: 00000000 00000000 00000000 00000001</span></span><br><span class="line"><span class="comment">// 3的二进制表示为: 00000000 00000000 00000000 00000011</span></span><br><span class="line"><span class="number">2</span> &amp; <span class="number">1</span> = <span class="number">0</span></span><br><span class="line"><span class="number">3</span> &amp; <span class="number">1</span> = <span class="number">1</span></span><br><span class="line">num &amp; <span class="number">1</span> === <span class="number">0</span> ? <span class="string">'偶数'</span> : <span class="string">'奇数'</span></span><br><span class="line">————————————————</span><br><span class="line">日期:<span class="number">2020</span>/<span class="number">10</span>/<span class="number">22</span></span><br><span class="line">参考链接：https:<span class="comment">//my.oschina.net/u/3419683/blog/4354654</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="时间戳转日期"><a href="#时间戳转日期" class="headerlink" title="时间戳转日期"></a>时间戳转日期</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// "2020-10-26 15:23:45"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time</span>(<span class="params">time = +new Date(</span>)) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time + <span class="number">8</span> * <span class="number">3600</span> * <span class="number">1000</span>); <span class="comment">// 增加8小时</span></span><br><span class="line">    <span class="keyword">return</span> date.toJSON().substr(<span class="number">0</span>, <span class="number">19</span>).replace(<span class="string">'T'</span>, <span class="string">' '</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// "2020.10.26 15:23:45"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">time</span>(<span class="params">time = +new Date(</span>)) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time + <span class="number">8</span> * <span class="number">3600</span> * <span class="number">1000</span>);</span><br><span class="line">    <span class="keyword">return</span> date.toJSON().substr(<span class="number">0</span>, <span class="number">19</span>).replace(<span class="string">'T'</span>, <span class="string">' '</span>).replace(<span class="regexp">/-/g</span>, <span class="string">'.'</span>);</span><br><span class="line">&#125;</span><br><span class="line">————————————————</span><br><span class="line">日期:<span class="number">2020</span>/<span class="number">10</span>/<span class="number">26</span></span><br><span class="line">参考链接：https:<span class="comment">//segmentfault.com/a/1190000015992232</span></span><br><span class="line">————————————————</span><br><span class="line">日期:<span class="number">2020</span><span class="number">-10</span><span class="number">-26</span></span><br><span class="line">参考链接：https:<span class="comment">//www.cnblogs.com/CyLee/p/5992673.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="javascript书签"><a href="#javascript书签" class="headerlink" title="javascript书签"></a>javascript书签</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">javascript:(</span><br><span class="line">	<span class="comment">//code...</span></span><br><span class="line">)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 例如</span></span><br><span class="line">javascript:(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> txt = <span class="string">"————————————————\n日期:"</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().toISOString().substr(<span class="number">0</span>,<span class="number">10</span>)+<span class="string">"\n参考链接："</span>+<span class="built_in">window</span>.location.href;prompt(<span class="string">'参考'</span>,txt)</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// https://favor.fund.eastmoney.com/ QDII 参考</span></span><br><span class="line">javascript:(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">var</span> a=<span class="number">0</span>,aN=<span class="number">0</span>;</span><br><span class="line">jQuery.each(jQuery(<span class="string">"#position_shares &gt; div.poptableWrap &gt; table"</span>).find(<span class="string">'tr'</span>), <span class="function"><span class="keyword">function</span>(<span class="params">index, val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x = jQuery(<span class="keyword">this</span>).find(<span class="string">'td:nth-child(2)'</span>).text(),</span><br><span class="line">    y = jQuery(<span class="keyword">this</span>).find(<span class="string">'td:nth-child(3)'</span>).text(),</span><br><span class="line">    xAll = jQuery(<span class="string">"#position_shares &gt; div.poptableWrap &gt; p &gt; span.sum-num"</span>).text();</span><br><span class="line">    y = y.replace(<span class="string">'%'</span>,<span class="string">''</span>);</span><br><span class="line">    xAll = xAll.replace(<span class="string">'%'</span>,<span class="string">''</span>)/<span class="number">100</span>;</span><br><span class="line">    aN = y&gt;<span class="number">0</span>?aN+<span class="number">1</span>:aN;</span><br><span class="line">    a+=x.replace(<span class="string">'%'</span>,<span class="string">''</span>)/<span class="number">10</span>*y*xAll;</span><br><span class="line">&#125;);</span><br><span class="line">alert(<span class="string">'预计涨幅：'</span>+a+<span class="string">'\n涨的个数：'</span>+aN);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<h3 id="html拼接"><a href="#html拼接" class="headerlink" title="html拼接"></a>html拼接</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用引号</span></span><br><span class="line"><span class="string">``</span></span><br><span class="line"><span class="comment">// 变量用 $&#123;&#125;</span></span><br><span class="line"><span class="keyword">var</span> txt = <span class="string">`</span></span><br><span class="line"><span class="string">    ————————————————</span></span><br><span class="line"><span class="string">    日期:<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>().toISOString().substr(<span class="number">0</span>,<span class="number">10</span>)&#125;</span></span></span><br><span class="line"><span class="string">    参考链接：<span class="subst">$&#123;<span class="built_in">window</span>.location.href&#125;</span></span></span><br><span class="line"><span class="string">    `</span></span><br><span class="line"><span class="comment">// 原样输出，换行+制表符</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 字符分割</span></span><br><span class="line"><span class="built_in">String</span>(<span class="string">'nobige.cn'</span>).split(<span class="string">'.'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 跳出当前循环</span></span><br><span class="line"><span class="keyword">continue</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 语言元素 描述 </span></span><br><span class="line">abs <span class="comment">// 方法 返回一个数的绝对值。</span></span><br><span class="line">  </span><br><span class="line">acos <span class="comment">// 方法 返回一个数的反余弦。</span></span><br><span class="line">  </span><br><span class="line">anchor <span class="comment">// 方法 在对象的指定文本两端加上一个带 NAME 属性的 HTML 锚点。</span></span><br><span class="line"> </span><br><span class="line">apply <span class="comment">// 方法 应用对象的一个// 方法，用当前对象代替另一对象。</span></span><br><span class="line"> </span><br><span class="line">asin <span class="comment">// 方法 返回一个数的反正弦。</span></span><br><span class="line">  </span><br><span class="line">atan <span class="comment">// 方法 返回一个数的反正切。</span></span><br><span class="line">  </span><br><span class="line">atan2 <span class="comment">// 方法 返回从 X 轴到点 （y, x）的角度（以弧度为单位）。</span></span><br><span class="line"> </span><br><span class="line">atEnd <span class="comment">// 方法 返回一个表明枚举算子是否处于集合结束处的 Boolean 值。</span></span><br><span class="line"> </span><br><span class="line">big <span class="comment">// 方法 在String 对象的文本两端加入 HTML 的&lt;BIG&gt;标识。</span></span><br><span class="line"> </span><br><span class="line">blink <span class="comment">// 方法 将 HTML 的 &lt;BLINK&gt; 标识添加到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">bold <span class="comment">// 方法 将 HTML 的 &lt;B&gt; 标识添加到String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">call <span class="comment">// 方法 应用对象的一个// 方法，用当前对象代替另一对象。</span></span><br><span class="line"> </span><br><span class="line">ceil <span class="comment">// 方法 返回大于或等于其数值参数的最小整数。</span></span><br><span class="line">  </span><br><span class="line">charAt <span class="comment">// 方法 返回位于指定索引位置的字符。</span></span><br><span class="line"> </span><br><span class="line">charCodeAt <span class="comment">// 方法 返回指定字符的 Unicode 编码。</span></span><br><span class="line"> </span><br><span class="line">compile <span class="comment">// 方法 将一个正则表达式编译为内部格式。</span></span><br><span class="line"> </span><br><span class="line">concat <span class="comment">// 方法（Array） 返回一个由两个数组合并组成的新数组。</span></span><br><span class="line"> </span><br><span class="line">concat <span class="comment">// 方法（String） 返回一个包含给定的两个字符串的连接的 String 对象。</span></span><br><span class="line"> </span><br><span class="line">cos <span class="comment">// 方法 返回一个数的余弦。</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">decodeURI</span> <span class="comment">// 方法 返回一个已编码的通用资源标识符 (URI) 的解码版。</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">decodeURIComponent</span> <span class="comment">// 方法 返回一个已编码的通用资源标识符 (URI) 的解码版。</span></span><br><span class="line"> </span><br><span class="line">dimensions <span class="comment">// 方法 返回 VBArray 的维数。</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">escape</span> <span class="comment">// 方法 对 String 对象编码，以便在所有计算机上都能阅读。</span></span><br><span class="line">  </span><br><span class="line"><span class="built_in">eval</span> <span class="comment">// 方法 对 JScript 代码求值然后执行之。</span></span><br><span class="line"> </span><br><span class="line">exec <span class="comment">// 方法 在指定字符串中执行一个匹配查找。</span></span><br><span class="line"> </span><br><span class="line">exp <span class="comment">// 方法 返回 e （自然对数的底） 的幂。</span></span><br><span class="line">  </span><br><span class="line">fixed <span class="comment">// 方法 将 HTML 的&lt;TT&gt; 标识添加到String 对象中的文本两端。</span></span><br><span class="line">  </span><br><span class="line">floor <span class="comment">// 方法 返回小于或等于其数值参数的最大整数。</span></span><br><span class="line">  </span><br><span class="line">fontcolor <span class="comment">// 方法 将 HTML 带 COLOR 属性的&lt;FONT&gt;标识添加到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">fontsize <span class="comment">// 方法 将 HTML 带 SIZE 属性的&lt;FONT&gt;标识添加到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">fromCharCode <span class="comment">// 方法 返回 Unicode 字符值的字符串。</span></span><br><span class="line"> </span><br><span class="line">getDate <span class="comment">// 方法 使用当地时间返回 Date 对象的月份日期值。</span></span><br><span class="line"> </span><br><span class="line">getDay <span class="comment">// 方法 使用当地时间返回 Date 对象的星期几。</span></span><br><span class="line"> </span><br><span class="line">getFullYear <span class="comment">// 方法 使用当地时间返回 Date 对象的年份。</span></span><br><span class="line"> </span><br><span class="line">getHours <span class="comment">// 方法 使用当地时间返回 Date 对象的小时值。</span></span><br><span class="line"> </span><br><span class="line">getItem <span class="comment">// 方法 返回位于指定位置的项。</span></span><br><span class="line"> </span><br><span class="line">getMilliseconds <span class="comment">// 方法 使用当地时间返回 Date 对象的毫秒值。</span></span><br><span class="line"> </span><br><span class="line">getMinutes <span class="comment">// 方法 使用当地时间返回 Date 对象的分钟值。</span></span><br><span class="line"> </span><br><span class="line">getMonth <span class="comment">// 方法 使用当地时间返回 Date 对象的月份。</span></span><br><span class="line"> </span><br><span class="line">getSeconds <span class="comment">// 方法 使用当地时间返回 Date 对象的秒数。</span></span><br><span class="line"> </span><br><span class="line">getTime <span class="comment">// 方法 返回 Date 对象中的时间。</span></span><br><span class="line"> </span><br><span class="line">getTimezoneOffset <span class="comment">// 方法 返回主机的时间和全球标准时间（UTC）之间的差（以分钟为单位）。</span></span><br><span class="line"> </span><br><span class="line">getUTCDate <span class="comment">// 方法 使用全球标准时间（UTC）返回 Date 对象的日期值。</span></span><br><span class="line"> </span><br><span class="line">getUTCDay <span class="comment">// 方法 使用全球标准时间（UTC）返回 Date 对象的星期几。</span></span><br><span class="line"> </span><br><span class="line">getUTCFullYear <span class="comment">// 方法 使用全球标准时间（UTC）返回 Date 对象的年份。</span></span><br><span class="line"> </span><br><span class="line">getUTCHours <span class="comment">// 方法 使用全球标准时间（UTC）返回Date 对象的小时数。</span></span><br><span class="line"> </span><br><span class="line">getUTCMilliseconds <span class="comment">// 方法 使用全球标准时间（UTC）返回Date 对象的毫秒数。</span></span><br><span class="line"> </span><br><span class="line">getUTCMinutes <span class="comment">// 方法 使用全球标准时间（UTC）返回 Date 对象的分钟数。</span></span><br><span class="line"> </span><br><span class="line">getUTCMonth <span class="comment">// 方法 使用全球标准时间（UTC）返回 Date 对象的月份值。</span></span><br><span class="line"> </span><br><span class="line">getUTCSeconds <span class="comment">// 方法 使用全球标准时间（UTC）返回Date对象的秒数。</span></span><br><span class="line"> </span><br><span class="line">getVarDate <span class="comment">// 方法 返回 Date 对象中的 VT_DATE。</span></span><br><span class="line"> </span><br><span class="line">getYear <span class="comment">// 方法 返回 Date 对象中的年份。</span></span><br><span class="line"> </span><br><span class="line">hasOwnProperty <span class="comment">// 方法 返回一个 Boolean 值，表明对象是否具有指定的名称。</span></span><br><span class="line"> </span><br><span class="line">indexOf <span class="comment">// 方法 返回在 String 对象中第一次出现子字符串的字符位置。</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">isFinite</span> <span class="comment">// 方法 返回一个 Boolean 值，表明某个给定的数是否是有穷的。</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">isNaN</span> <span class="comment">// 方法 返回一个 Boolean 值，表明某个值是否为保留值 NaN （不是一个数）。</span></span><br><span class="line"> </span><br><span class="line">isPrototypeOf <span class="comment">// 方法 返回一个 Boolean 值，表明对象是否存在于另一对象的原型链中。</span></span><br><span class="line"> </span><br><span class="line">italics <span class="comment">// 方法 将 HTML的 &lt;I&gt; 标识添加到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">item <span class="comment">// 方法 返回集合中的当前项。</span></span><br><span class="line"> </span><br><span class="line">join <span class="comment">// 方法 返回一个由数组中的所有元素连接在一起的 String 对象。</span></span><br><span class="line"> </span><br><span class="line">lastIndexOf <span class="comment">// 方法 返回在 String 对象中子字符串最后出现的位置。</span></span><br><span class="line"> </span><br><span class="line">lbound <span class="comment">// 方法 返回在 VBArray 中指定维数所用的最小索引值。</span></span><br><span class="line"> </span><br><span class="line">link <span class="comment">// 方法 将带 HREF 属性的 HTML 锚点添加到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">localeCompare <span class="comment">// 方法 返回一个值，表明两个字符串在当前区域设置下是否相等。</span></span><br><span class="line"> </span><br><span class="line">log <span class="comment">// 方法 返回某个数的自然对数。</span></span><br><span class="line"> </span><br><span class="line">match <span class="comment">// 方法 使用给定的正则表达式对象对字符串进行查找，并将结果作为数组返回。</span></span><br><span class="line"> </span><br><span class="line">max <span class="comment">// 方法 返回给定的两个表达式中的较大者。</span></span><br><span class="line"> </span><br><span class="line">min <span class="comment">// 方法 返回给定的两个数中的较小者。</span></span><br><span class="line"> </span><br><span class="line">moveFirst <span class="comment">// 方法 将集合中的当前项设置为第一项。</span></span><br><span class="line"> </span><br><span class="line">moveNext <span class="comment">// 方法 将当前项设置为集合中的下一项。</span></span><br><span class="line"> </span><br><span class="line">parse <span class="comment">// 方法 对包含日期的字符串进行分析，并返回该日期与1970年1月1日零点之间相差的毫秒数。</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">parseFloat</span> <span class="comment">// 方法 返回从字符串转换而来的浮点数。</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">parseInt</span> <span class="comment">// 方法 返回从字符串转换而来的整数。</span></span><br><span class="line"> </span><br><span class="line">pop <span class="comment">// 方法 删除数组中的最后一个元素并返回该值。</span></span><br><span class="line"> </span><br><span class="line">pow <span class="comment">// 方法 返回一个指定幂次的底表达式的值。</span></span><br><span class="line">  </span><br><span class="line">push <span class="comment">// 方法 向数组中添加新元素，返回数组的新长度。</span></span><br><span class="line"> </span><br><span class="line">random <span class="comment">// 方法 返回一个 0 和 1 之间的伪随机数。</span></span><br><span class="line"> </span><br><span class="line">replace <span class="comment">// 方法 返回根据正则表达式进行文字替换后的字符串的拷贝。</span></span><br><span class="line"> </span><br><span class="line">reverse <span class="comment">// 方法 返回一个元素反序的 Array 对象。</span></span><br><span class="line"> </span><br><span class="line">round <span class="comment">// 方法 将一个指定的数值表达式舍入到最近的整数并将其返回。</span></span><br><span class="line"> </span><br><span class="line">search <span class="comment">// 方法 返回与正则表达式查找内容匹配的第一个子字符串的位置。</span></span><br><span class="line"> </span><br><span class="line">setDate <span class="comment">// 方法 使用当地时间设置 Date 对象的数值日期。</span></span><br><span class="line">  </span><br><span class="line">setFullYear <span class="comment">// 方法 使用当地时间设置 Date 对象的年份。</span></span><br><span class="line"> </span><br><span class="line">setHours <span class="comment">// 方法 使用当地时间设置 Date 对象的小时值。</span></span><br><span class="line"> </span><br><span class="line">setMilliseconds <span class="comment">// 方法 使用当地时间设置 Date 对象的毫秒值。</span></span><br><span class="line"> </span><br><span class="line">setMinutes <span class="comment">// 方法 使用当地时间设置 Date 对象的分钟值。</span></span><br><span class="line">  </span><br><span class="line">setMonth <span class="comment">// 方法 使用当地时间设置 Date 对象的月份。</span></span><br><span class="line">  </span><br><span class="line">setSeconds <span class="comment">// 方法 使用当地时间设置 Date 对象的秒值。</span></span><br><span class="line">  </span><br><span class="line">setTime <span class="comment">// 方法 设置 Date 对象的日期和时间。</span></span><br><span class="line"> </span><br><span class="line">setUTCDate <span class="comment">// 方法 使用全球标准时间（UTC）设置 Date 对象的数值日期。</span></span><br><span class="line"> </span><br><span class="line">setUTCFullYear <span class="comment">// 方法 使用全球标准时间（UTC）设置 Date 对象的年份。</span></span><br><span class="line"> </span><br><span class="line">setUTCHours <span class="comment">// 方法 使用全球标准时间（UTC）设置 Date 对象的小时值。</span></span><br><span class="line"> </span><br><span class="line">setUTCMilliseconds <span class="comment">// 方法 使用全球标准时间（UTC）设置 Date 对象的毫秒值。</span></span><br><span class="line"> </span><br><span class="line">setUTCMinutes <span class="comment">// 方法 使用全球标准时间（UTC）设置 Date 对象的分钟值。</span></span><br><span class="line"> </span><br><span class="line">setUTCMonth <span class="comment">// 方法 使用全球标准时间（UTC）设置 Date 对象的月份。</span></span><br><span class="line"> </span><br><span class="line">setUTCSeconds <span class="comment">// 方法 使用全球标准时间（UTC）设置 Date 对象的秒值。</span></span><br><span class="line"> </span><br><span class="line">setYear <span class="comment">// 方法 使用 Date 对象的年份。</span></span><br><span class="line"> </span><br><span class="line">shift <span class="comment">// 方法 删除数组中的第一个元素并返回该值。</span></span><br><span class="line"> </span><br><span class="line">sin <span class="comment">// 方法 返回一个数的正弦。</span></span><br><span class="line"> </span><br><span class="line">slice <span class="comment">// 方法 (Array) 返回数组的一个片段。</span></span><br><span class="line"> </span><br><span class="line">slice <span class="comment">// 方法 (String) 返回字符串的一个片段。</span></span><br><span class="line"> </span><br><span class="line">small <span class="comment">// 方法 将 HTML 的&lt;SMALL&gt; 标识添加到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">sort <span class="comment">// 方法 返回一个元素被排序了的 Array 对象。</span></span><br><span class="line">  </span><br><span class="line">splice <span class="comment">// 方法 从数组中删除元素，若必要，在相应位置处插入新元素，返回被删除的元素。</span></span><br><span class="line"> </span><br><span class="line">split <span class="comment">// 方法 将一个字符串分割为子字符串，然后将结果作为字符串数组返回。</span></span><br><span class="line"> </span><br><span class="line">sqrt <span class="comment">// 方法 返回一个数的平方根。</span></span><br><span class="line"> </span><br><span class="line">strike <span class="comment">// 方法 将 HTML 的&lt;STRIKE&gt; 标识添加到String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">sub <span class="comment">// 方法 将 HTML 的 &lt;SUB&gt; 标识放置到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">substr <span class="comment">// 方法 返回一个从指定位置开始并具有指定长度的子字符串。</span></span><br><span class="line"> </span><br><span class="line">substring <span class="comment">// 方法 返回位于 String 对象中指定位置的子字符串。</span></span><br><span class="line">  </span><br><span class="line">sup <span class="comment">// 方法 将 HTML 的 &lt;SUP&gt; 标识放置到 String 对象中的文本两端。</span></span><br><span class="line"> </span><br><span class="line">tan <span class="comment">// 方法 返回一个数的正切。</span></span><br><span class="line"> </span><br><span class="line">test <span class="comment">// 方法 返回一个 Boolean 值，表明在被查找的字符串中是否存在某个模式。</span></span><br><span class="line"> </span><br><span class="line">toArray <span class="comment">// 方法 返回一个从 VBArray 转换而来的标准 JScript 数组。</span></span><br><span class="line"> </span><br><span class="line">toDateString <span class="comment">// 方法 返回以字符串形式表示的日期。</span></span><br><span class="line"> </span><br><span class="line">toExponential <span class="comment">// 方法 返回一个字符串，该字符串包含一个以指数形式表示的数字。</span></span><br><span class="line"> </span><br><span class="line">toFixed <span class="comment">// 方法 返回一个字符串，表明一个用 fixed-point 形式表示的数字。</span></span><br><span class="line"> </span><br><span class="line">toGMTString <span class="comment">// 方法 返回一个转换为使用格林威治标准时间（GMT）的字符串的日期。</span></span><br><span class="line">  </span><br><span class="line">toLocaleDateString <span class="comment">// 方法 返回一个以字符串形式表示的日期</span></span><br><span class="line"><span class="comment">//  该日期与主机环境的当前区域设置相适应。</span></span><br><span class="line"> </span><br><span class="line">toLocaleLowercase <span class="comment">// 方法 返回一个字符串，</span></span><br><span class="line"><span class="comment">// 其中所有的字母字符都被转换成小写（考虑主机环境的当前区域设置）。</span></span><br><span class="line"> </span><br><span class="line">toLocaleTimeString <span class="comment">// 方法 返回一个以字符串形式表示的时间，该时间与主机环境当前区域设置相适应。</span></span><br><span class="line"> </span><br><span class="line">toLocaleString <span class="comment">// 方法 返回一个转换为使用当地时间的字符串的日期。</span></span><br><span class="line"> </span><br><span class="line">toLocaleUppercase <span class="comment">// 方法 返回一个字符串，其中所有的字母字符都被转换成大写（考虑主机环境的当前区域设置）。</span></span><br><span class="line"> </span><br><span class="line">toLowerCase <span class="comment">// 方法 返回一个所有的字母字符都被转换为小写字母的字符串。</span></span><br><span class="line"> </span><br><span class="line">toPrecision <span class="comment">// 方法 返回一个字符串，</span></span><br><span class="line"><span class="comment">//  该字符串包含用指定位数的指数或 fixed-point 形式表示的数字。</span></span><br><span class="line"> </span><br><span class="line">toString <span class="comment">// 方法 返回一个对象的字符串表示。</span></span><br><span class="line"> </span><br><span class="line">toTimeString <span class="comment">// 方法 返回一个以字符串形式表示的时间。</span></span><br><span class="line"> </span><br><span class="line">toUpperCase <span class="comment">// 方法 返回一个所有的字母字符都被转换为大写字母的字符串。</span></span><br><span class="line"> </span><br><span class="line">toUTCString <span class="comment">// 方法 返回一个转换为使用全球标准时间（UTC）的字符串的日期。</span></span><br><span class="line"> </span><br><span class="line">ubound <span class="comment">// 方法 返回在 VBArray 的指定维中所使用的最大索引值。</span></span><br><span class="line"> </span><br><span class="line"><span class="built_in">unescape</span> <span class="comment">// 方法 对用escape // 方法编码的 String 对象进行解码。</span></span><br><span class="line">  </span><br><span class="line">unshift <span class="comment">// 方法 返回一个数组，在该数组头部插入了指定的元素。</span></span><br><span class="line"> </span><br><span class="line">UTC <span class="comment">// 方法 返回 1970年1月1日零点的全球标准时间</span></span><br><span class="line">    <span class="comment">//（UTC） （或 GMT）与指定日期之间的毫秒数. </span></span><br><span class="line">valueOf <span class="comment">// 方法 返回指定对象的原始值。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Document"><a href="#Document" class="headerlink" title="Document"></a>Document</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.activeElement  <span class="comment">// 返回当前获取焦点元素</span></span><br><span class="line"><span class="built_in">document</span>.addEventListener() <span class="comment">// 向文档添加句柄</span></span><br><span class="line"><span class="built_in">document</span>.adoptNode(node)    <span class="comment">// 从另外一个文档返回 adapded 节点到当前文档。</span></span><br><span class="line"><span class="built_in">document</span>.anchors    <span class="comment">// 返回对文档中所有 Anchor 对象的引用。</span></span><br><span class="line"><span class="built_in">document</span>.baseURI    <span class="comment">// 返回文档的绝对基础 URI</span></span><br><span class="line"><span class="built_in">document</span>.body   <span class="comment">// 返回文档的body元素</span></span><br><span class="line"><span class="built_in">document</span>.close()    <span class="comment">// 关闭用 document.open() 方法打开的输出流，并显示选定的数据。</span></span><br><span class="line"><span class="built_in">document</span>.cookie <span class="comment">// 设置或返回与当前文档有关的所有 cookie。</span></span><br><span class="line"><span class="built_in">document</span>.createAttribute()  <span class="comment">// 创建一个属性节点</span></span><br><span class="line"><span class="built_in">document</span>.createComment()    <span class="comment">// createComment() 方法可创建注释节点。</span></span><br><span class="line"><span class="built_in">document</span>.createDocumentFragment()   <span class="comment">// 创建空的 DocumentFragment 对象，并// 返回此对象。</span></span><br><span class="line"><span class="built_in">document</span>.createElement()    <span class="comment">// 创建元素节点。</span></span><br><span class="line"><span class="built_in">document</span>.createTextNode()   <span class="comment">// 创建文本节点。</span></span><br><span class="line"><span class="built_in">document</span>.doctype    <span class="comment">// 返回与文档相关的文档类型声明 (DTD)。</span></span><br><span class="line"><span class="built_in">document</span>.documentElement    <span class="comment">// 返回文档的根节点</span></span><br><span class="line"><span class="built_in">document</span>.documentMode   <span class="comment">// 返回用于通过浏览器渲染文档的模式</span></span><br><span class="line"><span class="built_in">document</span>.documentURI    <span class="comment">// 设置或返回文档的位置</span></span><br><span class="line"><span class="built_in">document</span>.domain <span class="comment">// 返回当前文档的域名。</span></span><br><span class="line"><span class="built_in">document</span>.embeds <span class="comment">// 返回文档中所有嵌入的内容（embed）集合</span></span><br><span class="line"><span class="built_in">document</span>.forms  <span class="comment">// 返回对文档中所有 Form 对象引用。</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByClassName()   <span class="comment">// 返回文档中所有指定类名的元素集合，作为 NodeList 对象。</span></span><br><span class="line"><span class="built_in">document</span>.getElementById()   <span class="comment">// 返回对拥有指定 id 的第一个对象的引用。</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByName()    <span class="comment">// 返回带有指定名称的对象集合。</span></span><br><span class="line"><span class="built_in">document</span>.getElementsByTagName() <span class="comment">// 返回带有指定标签名的对象集合。</span></span><br><span class="line"><span class="built_in">document</span>.images <span class="comment">// 返回对文档中所有 Image 对象引用。</span></span><br><span class="line"><span class="built_in">document</span>.implementation <span class="comment">// 返回处理该文档的 DOMImplementation 对象。</span></span><br><span class="line"><span class="built_in">document</span>.importNode()   <span class="comment">// 把一个节点从另一个文档复制到该文档以便应用。</span></span><br><span class="line"><span class="built_in">document</span>.inputEncoding  <span class="comment">// 返回用于文档的编码方式（在解析时）。</span></span><br><span class="line"><span class="built_in">document</span>.lastModified   <span class="comment">// 返回文档被最后修改的日期和时间。</span></span><br><span class="line"><span class="built_in">document</span>.links  <span class="comment">// 返回对文档中所有 Area 和 Link 对象引用。</span></span><br><span class="line"><span class="built_in">document</span>.normalize()    <span class="comment">// 删除空文本节点，并连接相邻节点</span></span><br><span class="line"><span class="built_in">document</span>.normalizeDocument()    <span class="comment">// 删除空文本节点，并连接相邻节点的</span></span><br><span class="line"><span class="built_in">document</span>.open() <span class="comment">// 打开一个流，以收集来自任何 document.write() 或 document.writeln() 方法的输出。</span></span><br><span class="line"><span class="built_in">document</span>.querySelector()    <span class="comment">// 返回文档中匹配指定的CSS选择器的第一元素</span></span><br><span class="line"><span class="built_in">document</span>.querySelectorAll() <span class="comment">// 是 HTML5中引入的新方法，// 返回文档中匹配的CSS选择器的所有元素节点列表</span></span><br><span class="line"><span class="built_in">document</span>.readyState <span class="comment">// 返回文档状态 (载入中……)</span></span><br><span class="line"><span class="built_in">document</span>.referrer   <span class="comment">// 返回载入当前文档的文档的 URL。</span></span><br><span class="line"><span class="built_in">document</span>.removeEventListener()  <span class="comment">// 移除文档中的事件句柄(由 addEventListener() 方法添加)</span></span><br><span class="line"><span class="built_in">document</span>.renameNode()   <span class="comment">// 重命名元素或者属性节点。</span></span><br><span class="line"><span class="built_in">document</span>.scripts    <span class="comment">// 返回页面中所有脚本的集合。</span></span><br><span class="line"><span class="built_in">document</span>.strictErrorChecking    <span class="comment">// 设置或返回是否强制进行错误检查。</span></span><br><span class="line"><span class="built_in">document</span>.title  <span class="comment">// 返回当前文档的标题。</span></span><br><span class="line"><span class="built_in">document</span>.URL    <span class="comment">// 返回文档完整的URL</span></span><br><span class="line"><span class="built_in">document</span>.write()    <span class="comment">// 向文档写 HTML 表达式 或 JavaScript 代码。</span></span><br><span class="line"><span class="built_in">document</span>.writeln()  <span class="comment">// 等同于 write() 方法，不同的是在每个表达式之后写一个换行符。</span></span><br><span class="line"><span class="comment">// ————————————————</span></span><br><span class="line"><span class="comment">// 日期:2021-03-25</span></span><br><span class="line"><span class="comment">// 参考链接：https://www.runoob.com/jsref/dom-obj-document.html</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Jquery"><a href="#Jquery" class="headerlink" title="Jquery"></a>Jquery</h2><h3 id="代替js字符拼接"><a href="#代替js字符拼接" class="headerlink" title="代替js字符拼接"></a>代替js字符拼接</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">'&lt;div/&gt;'</span>,&#123;</span><br><span class="line">    text: <span class="string">'Div text'</span>,</span><br><span class="line">    class: 'className'</span><br><span class="line">&#125;).appendTo(<span class="string">'#parentDiv'</span>);</span><br><span class="line">————————————————</span><br><span class="line">日期:<span class="number">2020</span>/<span class="number">10</span>/<span class="number">22</span></span><br><span class="line">参考链接：https:<span class="comment">//stackoverflow.com/questions/268490/jquery-document-createelement-equivalent</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Layui"><a href="#Layui" class="headerlink" title="Layui"></a>Layui</h2><h3 id="layui清空-重置表单数据的数据"><a href="#layui清空-重置表单数据的数据" class="headerlink" title="layui清空,重置表单数据的数据"></a>layui清空,重置表单数据的数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layui.form.render();</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/css/" rel="tag"># css</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20200727-Java_cuo_wu_ji_he/" rel="prev" title="Java错误集合">
+      <i class="fa fa-chevron-left"></i> Java错误集合
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20200808-android_cuo_wu_bi_ji/" rel="next" title="android错误笔记">
+      android错误笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html"><span class="nav-number">1.</span> <span class="nav-text">Html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#禁用referer"><span class="nav-number">1.1.</span> <span class="nav-text">禁用referer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表单禁止自动填写"><span class="nav-number">1.2.</span> <span class="nav-text">表单禁止自动填写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Css"><span class="nav-number">2.</span> <span class="nav-text">Css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文字水平居中"><span class="nav-number">2.1.</span> <span class="nav-text">文字水平居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本垂直水平居中"><span class="nav-number">2.2.</span> <span class="nav-text">文本垂直水平居中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#div居中的几种方法"><span class="nav-number">2.3.</span> <span class="nav-text">div居中的几种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改变input框中placeholder颜色的方法"><span class="nav-number">2.4.</span> <span class="nav-text">改变input框中placeholder颜色的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除超链接A标签下划线"><span class="nav-number">2.5.</span> <span class="nav-text">删除超链接A标签下划线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css3圆角"><span class="nav-number">2.6.</span> <span class="nav-text">css3圆角</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css3盒子阴影"><span class="nav-number">2.7.</span> <span class="nav-text">css3盒子阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rgba"><span class="nav-number">2.8.</span> <span class="nav-text">rgba</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#filter-滤镜"><span class="nav-number">2.9.</span> <span class="nav-text">filter(滤镜)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#outline（轮廓）"><span class="nav-number">2.10.</span> <span class="nav-text">outline（轮廓）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#悬浮按钮"><span class="nav-number">2.11.</span> <span class="nav-text">悬浮按钮</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Js"><span class="nav-number">3.</span> <span class="nav-text">Js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用"><span class="nav-number">3.1.</span> <span class="nav-text">常用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">3.2.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript-刷新当前页面"><span class="nav-number">3.3.</span> <span class="nav-text">JavaScript 刷新当前页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaScript获取时间戳与时间戳转化"><span class="nav-number">3.4.</span> <span class="nav-text">JavaScript获取时间戳与时间戳转化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS设置CSS样式的几种方式"><span class="nav-number">3.5.</span> <span class="nav-text">JS设置CSS样式的几种方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#骚操作"><span class="nav-number">3.6.</span> <span class="nav-text">骚操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇偶数判断"><span class="nav-number">3.7.</span> <span class="nav-text">奇偶数判断</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间戳转日期"><span class="nav-number">3.8.</span> <span class="nav-text">时间戳转日期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#javascript书签"><span class="nav-number">3.9.</span> <span class="nav-text">javascript书签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html拼接"><span class="nav-number">3.10.</span> <span class="nav-text">html拼接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关键词"><span class="nav-number">3.11.</span> <span class="nav-text">关键词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-number">3.12.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Document"><span class="nav-number">3.13.</span> <span class="nav-text">Document</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jquery"><span class="nav-number">4.</span> <span class="nav-text">Jquery</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#代替js字符拼接"><span class="nav-number">4.1.</span> <span class="nav-text">代替js字符拼接</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layui"><span class="nav-number">5.</span> <span class="nav-text">Layui</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#layui清空-重置表单数据的数据"><span class="nav-number">5.1.</span> <span class="nav-text">layui清空,重置表单数据的数据</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.min.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://duosuo.nobige.cn/' || 'https://disqus.com/api/',
+      apikey    : 'Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m',
+      shortname : 'nobige',
+      url       : "https://nobige.cn/post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/",
+      identifier: "post/20200727-Html_he_Css_ji_Js_cuo_wu_chang_yong_ji_he/",
+      title     : "Html和Css及Js错误常用集合",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+</body>
+</html>

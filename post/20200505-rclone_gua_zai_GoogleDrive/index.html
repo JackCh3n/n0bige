@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="适用于 Windows[Linux]系统下使用rclone挂载GoogleDrive  特点 网络运行的情况下，将GoogleDrive当硬盘使用。  准备 rclone ： https:&#x2F;&#x2F;rclone.org&#x2F;downloads&#x2F; winfsp (rclone依赖库)： http:&#x2F;&#x2F;www.secfs.net&#x2F;winfsp&#x2F;download&#x2F; Google Api：第一次需要启用然后再点击创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rclone挂载GoogleDrive">
+<meta property="og:url" content="https://nobige.cn/post/20200505-rclone_gua_zai_GoogleDrive/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="适用于 Windows[Linux]系统下使用rclone挂载GoogleDrive  特点 网络运行的情况下，将GoogleDrive当硬盘使用。  准备 rclone ： https:&#x2F;&#x2F;rclone.org&#x2F;downloads&#x2F; winfsp (rclone依赖库)： http:&#x2F;&#x2F;www.secfs.net&#x2F;winfsp&#x2F;download&#x2F; Google Api：第一次需要启用然后再点击创">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200505-rclone_gua_zai_GoogleDrive/api_drive_enable.png">
+<meta property="article:published_time" content="2020-05-05T02:03:58.000Z">
+<meta property="article:modified_time" content="2021-07-19T03:31:37.051Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="drive">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="windows">
+<meta property="article:tag" content="rclone">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200505-rclone_gua_zai_GoogleDrive/api_drive_enable.png">
+
+<link rel="canonical" href="https://nobige.cn/post/20200505-rclone_gua_zai_GoogleDrive/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>rclone挂载GoogleDrive | NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20200505-rclone_gua_zai_GoogleDrive/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          rclone挂载GoogleDrive
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-05-05 10:03:58" itemprop="dateCreated datePublished" datetime="2020-05-05T10:03:58+08:00">2020-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index">
+                    <span itemprop="name">技巧</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="适用于"><a href="#适用于" class="headerlink" title="适用于"></a>适用于</h2><ul>
+<li>Windows[Linux]系统下使用rclone挂载GoogleDrive</li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>网络运行的情况下，将GoogleDrive当硬盘使用。</li>
+</ul>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>rclone ： <a href="https://rclone.org/downloads/" target="_blank" rel="noopener">https://rclone.org/downloads/</a></li>
+<li>winfsp (rclone依赖库)： <a href="http://www.secfs.net/winfsp/download/" target="_blank" rel="noopener">http://www.secfs.net/winfsp/download/</a></li>
+<li><a href="/go.html?u=https://console.developers.google.com/apis/credentials/oauthclient">Google Api</a>：第一次需要<a href="/go.html?u=https://console.developers.google.com/apis/api/drive.googleapis.com/overview">启用</a>然后再点击创建</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20200505-rclone_gua_zai_GoogleDrive/api_drive_enable.png" alt="api_drive_enable"></p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>Windows下：rclone和winfsp根据自己系统版本选择。下载winfsp 依赖库后正常安装即可，rclone 则解压到某个文件夹即可</p>
+<p>Linux下：安装可以参考<a href="https://nobige.cn/post/20200222-linux_chang_yong_he_cuo_wu_ji/#Rclone">linux常用和错误集</a></p>
+<p><strong>创建配置文件过程通用</strong>，可以参考下面配置，需要手动操作的地方搜索 <code>#</code> </p>
+<p>总需要输入api ID和 api token,目录文件夹，两个N即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">rclone config <span class="comment">#设置配置文件</span></span><br><span class="line">No remotes found - make a new one</span><br><span class="line">n) New remote</span><br><span class="line">s) Set configuration password</span><br><span class="line">q) Quit config</span><br><span class="line">n/s/q&gt; n</span><br><span class="line">name&gt; fuckbaidu <span class="comment">#命名，记住这个后期还会用到！</span></span><br><span class="line">Type of storage to configure.</span><br><span class="line">Enter a string value. Press Enter <span class="keyword">for</span> the default (<span class="string">""</span>).</span><br><span class="line">Choose a number from below, or <span class="built_in">type</span> <span class="keyword">in</span> your own value</span><br><span class="line"> 1 / 1Fichier</span><br><span class="line">   \ <span class="string">"fichier"</span></span><br><span class="line"> 2 / Alias <span class="keyword">for</span> an existing remote</span><br><span class="line">   \ <span class="string">"alias"</span></span><br><span class="line"> 3 / Amazon Drive</span><br><span class="line">   \ <span class="string">"amazon cloud drive"</span></span><br><span class="line"> 4 / Amazon S3 Compliant Storage Provider (AWS, Alibaba, Ceph, Digital Ocean, Dreamhost, IBM COS, Minio, etc)</span><br><span class="line">   \ <span class="string">"s3"</span></span><br><span class="line"> 5 / Backblaze B2</span><br><span class="line">   \ <span class="string">"b2"</span></span><br><span class="line"> 6 / Box</span><br><span class="line">   \ <span class="string">"box"</span></span><br><span class="line"> 7 / Cache a remote</span><br><span class="line">   \ <span class="string">"cache"</span></span><br><span class="line"> 8 / Citrix Sharefile</span><br><span class="line">   \ <span class="string">"sharefile"</span></span><br><span class="line"> 9 / Dropbox</span><br><span class="line">   \ <span class="string">"dropbox"</span></span><br><span class="line">10 / Encrypt/Decrypt a remote</span><br><span class="line">   \ <span class="string">"crypt"</span></span><br><span class="line">11 / FTP Connection</span><br><span class="line">   \ <span class="string">"ftp"</span></span><br><span class="line">12 / Google Cloud Storage (this is not Google Drive)</span><br><span class="line">   \ <span class="string">"google cloud storage"</span></span><br><span class="line">13 / Google Drive</span><br><span class="line">   \ <span class="string">"drive"</span></span><br><span class="line">14 / Google Photos</span><br><span class="line">   \ <span class="string">"google photos"</span></span><br><span class="line">15 / Hubic</span><br><span class="line">   \ <span class="string">"hubic"</span></span><br><span class="line">16 / JottaCloud</span><br><span class="line">   \ <span class="string">"jottacloud"</span></span><br><span class="line">17 / Koofr</span><br><span class="line">   \ <span class="string">"koofr"</span></span><br><span class="line">18 / Local Disk</span><br><span class="line">   \ <span class="string">"local"</span></span><br><span class="line">19 / Mail.ru Cloud</span><br><span class="line">   \ <span class="string">"mailru"</span></span><br><span class="line">20 / Mega</span><br><span class="line">   \ <span class="string">"mega"</span></span><br><span class="line">21 / Microsoft Azure Blob Storage</span><br><span class="line">   \ <span class="string">"azureblob"</span></span><br><span class="line">22 / Microsoft OneDrive</span><br><span class="line">   \ <span class="string">"onedrive"</span></span><br><span class="line">23 / OpenDrive</span><br><span class="line">   \ <span class="string">"opendrive"</span></span><br><span class="line">24 / Openstack Swift (Rackspace Cloud Files, Memset Memstore, OVH)</span><br><span class="line">   \ <span class="string">"swift"</span></span><br><span class="line">25 / Pcloud</span><br><span class="line">   \ <span class="string">"pcloud"</span></span><br><span class="line">26 / Put.io</span><br><span class="line">   \ <span class="string">"putio"</span></span><br><span class="line">27 / QingCloud Object Storage</span><br><span class="line">   \ <span class="string">"qingstor"</span></span><br><span class="line">28 / SSH/SFTP Connection</span><br><span class="line">   \ <span class="string">"sftp"</span></span><br><span class="line">29 / Transparently chunk/split large files</span><br><span class="line">   \ <span class="string">"chunker"</span></span><br><span class="line">30 / Union merges the contents of several remotes</span><br><span class="line">   \ <span class="string">"union"</span></span><br><span class="line">31 / Webdav</span><br><span class="line">   \ <span class="string">"webdav"</span></span><br><span class="line">32 / Yandex Disk</span><br><span class="line">   \ <span class="string">"yandex"</span></span><br><span class="line">33 / http Connection</span><br><span class="line">   \ <span class="string">"http"</span></span><br><span class="line">34 / premiumize.me</span><br><span class="line">   \ <span class="string">"premiumizeme"</span></span><br><span class="line">Storage&gt; 13 <span class="comment">#选择GoogleDrive</span></span><br><span class="line">** See <span class="built_in">help</span> <span class="keyword">for</span> drive backend at: https://rclone.org/drive/ **</span><br><span class="line">Google Application Client Id</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">See https://rclone.org/drive/<span class="comment">#making-your-own-client-id for how to create your own.</span></span><br><span class="line">If you leave this blank, it will use an internal key <span class="built_in">which</span> is low performance.</span><br><span class="line">Enter a string value. Press Enter <span class="keyword">for</span> the default (<span class="string">""</span>).</span><br><span class="line">client_id&gt; xxxxxxxxxxxxx <span class="comment">#输入刚刚得到的ID</span></span><br><span class="line">Google Application Client Secret</span><br><span class="line">Setting your own is recommended.</span><br><span class="line">Enter a string value. Press Enter <span class="keyword">for</span> the default (<span class="string">""</span>).</span><br><span class="line">client_secret&gt; xxxxxxxxxxxxxxxx <span class="comment">#输入刚刚得到的Key</span></span><br><span class="line">Scope that rclone should use when requesting access from drive.</span><br><span class="line">Enter a string value. Press Enter <span class="keyword">for</span> the default (<span class="string">""</span>).</span><br><span class="line">Choose a number from below, or <span class="built_in">type</span> <span class="keyword">in</span> your own value</span><br><span class="line"> 1 / Full access all files, excluding Application Data Folder.</span><br><span class="line">   \ <span class="string">"drive"</span></span><br><span class="line"> 2 / Read-only access to file metadata and file contents.</span><br><span class="line">   \ <span class="string">"drive.readonly"</span></span><br><span class="line">   / Access to files created by rclone only.</span><br><span class="line"> 3 | These are visible <span class="keyword">in</span> the drive website.</span><br><span class="line">   | File authorization is revoked when the user deauthorizes the app.</span><br><span class="line">   \ <span class="string">"drive.file"</span></span><br><span class="line">   / Allows <span class="built_in">read</span> and write access to the Application Data folder.</span><br><span class="line"> 4 | This is not visible <span class="keyword">in</span> the drive website.</span><br><span class="line">   \ <span class="string">"drive.appfolder"</span></span><br><span class="line">   / Allows <span class="built_in">read</span>-only access to file metadata but</span><br><span class="line"> 5 | does not allow any access to <span class="built_in">read</span> or download file content.</span><br><span class="line">   \ <span class="string">"drive.metadata.readonly"</span></span><br><span class="line">scope&gt; 1 <span class="comment">#选择第一个全部权限</span></span><br><span class="line">ID of the root folder</span><br><span class="line">Leave blank normally.</span><br><span class="line">Fill <span class="keyword">in</span> to access <span class="string">"Computers"</span> folders (see docs), or <span class="keyword">for</span> rclone to use</span><br><span class="line">a non root folder as its starting point.</span><br><span class="line">Note that <span class="keyword">if</span> this is blank, the first time rclone runs it will fill it</span><br><span class="line"><span class="keyword">in</span> with the ID of the root folder.</span><br><span class="line">Enter a string value. Press Enter <span class="keyword">for</span> the default (<span class="string">""</span>).</span><br><span class="line">root_folder_id&gt; xxxxxxxxxxxxxx  <span class="comment">#指定一个文件夹（该文件夹为URL后一个唯一串字符）</span></span><br><span class="line">Service Account Credentials JSON file path </span><br><span class="line">Leave blank normally.</span><br><span class="line">Needed only <span class="keyword">if</span> you want use SA instead of interactive login.</span><br><span class="line">Enter a string value. Press Enter <span class="keyword">for</span> the default (<span class="string">""</span>).</span><br><span class="line">service_account_file&gt; </span><br><span class="line">Edit advanced config? (y/n)</span><br><span class="line">y) Yes</span><br><span class="line">n) No</span><br><span class="line">y/n&gt; n <span class="comment">#选no</span></span><br><span class="line">Remote config</span><br><span class="line">Use auto config?</span><br><span class="line"> * Say Y <span class="keyword">if</span> not sure</span><br><span class="line"> * Say N <span class="keyword">if</span> you are working on a remote or headless machine</span><br><span class="line">y) Yes</span><br><span class="line">n) No </span><br><span class="line">y/n&gt; n <span class="comment">#取消自动配置，改为下面的手动配置</span></span><br><span class="line">If your browser doesn<span class="string">'t open automatically go to the following link: https://accounts.google.com/o/oauth2/auth?xxxxxxxxxxxx #复制这个链接后到你的浏览器打开</span></span><br><span class="line"><span class="string">Log in and authorize rclone for access</span></span><br><span class="line"><span class="string">Enter verification code&gt; xxxxxxxxxx #输入验证后的字符串</span></span><br><span class="line"><span class="string">Configure this as a team drive?</span></span><br><span class="line"><span class="string">y) Yes</span></span><br><span class="line"><span class="string">n) No</span></span><br><span class="line"><span class="string">y/n&gt; n</span></span><br></pre></td></tr></table></figure>
+
+<p>VBS脚本，使用方法:新建一个<code>rclone.vbs</code>,将下面根据自身情况修改代码粘贴即可。</p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Option</span> <span class="keyword">Explicit</span></span><br><span class="line"><span class="keyword">Dim</span> WMIService, Process, Processes, Flag, WS</span><br><span class="line"><span class="keyword">Set</span> WMIService = <span class="built_in">GetObject</span>(<span class="string">"winmgmts:&#123;impersonationlevel=impersonate&#125;!\\.\root\cimv2"</span>)</span><br><span class="line"><span class="keyword">Set</span> Processes = WMIService.ExecQuery(<span class="string">"select * from win32_process"</span>)</span><br><span class="line">Flag = <span class="literal">true</span></span><br><span class="line"><span class="keyword">for</span> <span class="keyword">each</span> Process <span class="keyword">in</span> Processes</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">strcomp</span>(Process.name, <span class="string">"rclone.exe"</span>) = <span class="number">0</span> <span class="keyword">then</span></span><br><span class="line">        Flag = <span class="literal">false</span></span><br><span class="line">        <span class="keyword">exit</span> <span class="keyword">for</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="keyword">next</span></span><br><span class="line"><span class="keyword">Set</span> WMIService = <span class="literal">nothing</span></span><br><span class="line"><span class="keyword">if</span> Flag <span class="keyword">then</span></span><br><span class="line">    <span class="keyword">Set</span> WS = Wscript.<span class="built_in">CreateObject</span>(<span class="string">"Wscript.Shell"</span>)</span><br><span class="line">    <span class="comment">'注意修改,下面的一行代码</span></span><br><span class="line">    <span class="comment">'fuckbaidu 为配置创建的名字</span></span><br><span class="line">    <span class="comment">':/则是指配置文件指定路径的当前文件夹，也可以修改成 :/dir1 :/dir2 等</span></span><br><span class="line">    <span class="comment">'L: 则是值要挂载的盘符</span></span><br><span class="line">    <span class="comment">'--cache-dir d:\tmp\rclone 顾名思义就是缓存的目录</span></span><br><span class="line">    WS.Run <span class="string">"rclone mount fuckbaidu:/ L: --cache-dir d:\tmp\rclone --vfs-cache-mode writes"</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">if</span></span><br></pre></td></tr></table></figure>
+
+<p>会出现类似错误，那是因为没有开通Google Drive API根据给出网址打开，根据提示开通即可。</p>
+<blockquote>
+<p>2020/03/05 13:18:23 ERROR : IO error: couldn’t list directory: googleapi: Error403: Project 916908456673 is not found and cannot be used for API calls. If it is recently created, enable Drive API by visiting <a href="https://console.developers.google.com/apis/api/drive.googleapis.com/overview?project=XXXXXX" target="_blank" rel="noopener">https://console.developers.google.com/apis/api/drive.googleapis.com/overview?project=XXXXXX</a> then retry. If you enabled this API recently, wait a few minutes for the action to propagateto our systems and retry., accessNotConfigured</p>
+</blockquote>
+<p>网速测试，1m左右</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="/go.html?u=https://wzfou.com/linux-vps-beifen/">Linux VPS主机自动备份网站和数据库脚本通用版-自动备份谷歌网盘,阿里云OSS等 - 挖站否-挖掘建站的乐趣</a></li>
+<li><a href="/go.html?u=https://blog.rhilip.info/archives/874/">使用rclone在Windows下挂载Google个人/团队云盘 - R酱小窝 ~ 个人博客</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/drive/" rel="tag"># drive</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
+              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/rclone/" rel="tag"># rclone</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20200327-Copy_to_My_Google_Drive/" rel="prev" title="Copy to My Google Drive">
+      <i class="fa fa-chevron-left"></i> Copy to My Google Drive
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/" rel="next" title="GitHub_Actions部署Hexo博客">
+      GitHub_Actions部署Hexo博客 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#适用于"><span class="nav-number">1.</span> <span class="nav-text">适用于</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特点"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">3.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始"><span class="nav-number">4.</span> <span class="nav-text">开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.min.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://duosuo.nobige.cn/' || 'https://disqus.com/api/',
+      apikey    : 'Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m',
+      shortname : 'nobige',
+      url       : "https://nobige.cn/post/20200505-rclone_gua_zai_GoogleDrive/",
+      identifier: "post/20200505-rclone_gua_zai_GoogleDrive/",
+      title     : "rclone挂载GoogleDrive",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+</body>
+</html>

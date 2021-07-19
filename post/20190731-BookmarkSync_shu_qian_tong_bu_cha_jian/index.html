@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/css/main.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"nobige.cn","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"https:/cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/sitemap.xml"};
+  </script>
+
+  <meta name="description" content="BookmarkSync书签同步插件​    chrome书签同步，基于天命签插件修改 缘由​    原插件不管是登陆还是gitee都无法正常使用，故修改使其可以正常上传，下载，同步书签。因为不会js，改的很糟糕。 ​    原插件作者在gitee上说是有更新但是找不到插件下载的地址。 续集​    折腾了一天算是折腾的差不多了，可以正常的同步（上传，下载）书签。实现了正常的功能（注册，登陆，同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BookmarkSync书签同步插件">
+<meta property="og:url" content="https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="BookmarkSync书签同步插件​    chrome书签同步，基于天命签插件修改 缘由​    原插件不管是登陆还是gitee都无法正常使用，故修改使其可以正常上传，下载，同步书签。因为不会js，改的很糟糕。 ​    原插件作者在gitee上说是有更新但是找不到插件下载的地址。 续集​    折腾了一天算是折腾的差不多了，可以正常的同步（上传，下载）书签。实现了正常的功能（注册，登陆，同">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/harley-davidson-npZR4G67ev8-unsplash.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/xiao_20190731103527.png">
+<meta property="article:published_time" content="2019-07-31T12:42:32.000Z">
+<meta property="article:modified_time" content="2021-07-19T03:31:37.011Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="插件">
+<meta property="article:tag" content="chrome">
+<meta property="article:tag" content="书签">
+<meta property="article:tag" content="同步">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/harley-davidson-npZR4G67ev8-unsplash.jpg">
+
+<link rel="canonical" href="https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>BookmarkSync书签同步插件 | NoBige-JackCh3n</title>
+  
+    <script>
+      function sendPageView() {
+        if (CONFIG.hostname !== location.hostname) return;
+        var uid = localStorage.getItem('uid') || (Math.random() + '.' + Math.random());
+        localStorage.setItem('uid', uid);
+        navigator.sendBeacon('https://www.google-analytics.com/collect', new URLSearchParams({
+          v  : 1,
+          tid: 'UA-122817633-1',
+          cid: uid,
+          t  : 'pageview',
+          dp : encodeURIComponent(location.pathname)
+        }));
+      }
+      document.addEventListener('pjax:complete', sendPageView);
+      sendPageView();
+    </script>
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NoBige-JackCh3n</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right"></div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          BookmarkSync书签同步插件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-07-31 20:42:32" itemprop="dateCreated datePublished" datetime="2019-07-31T20:42:32+08:00">2019-07-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%B0%8F%E7%8E%A9%E6%84%8F/" itemprop="url" rel="index">
+                    <span itemprop="name">小玩意</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/harley-davidson-npZR4G67ev8-unsplash.jpg" alt="Road"></p>
+<h2 id="BookmarkSync书签同步插件"><a href="#BookmarkSync书签同步插件" class="headerlink" title="BookmarkSync书签同步插件"></a>BookmarkSync书签同步插件</h2><p>​    chrome书签同步，基于<code>天命签</code>插件修改</p>
+<h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>​    原插件不管是登陆还是gitee都无法正常使用，故修改使其可以正常上传，下载，同步书签。因为不会js，改的很糟糕。</p>
+<p>​    原插件作者在gitee上说是有更新但是找不到插件下载的地址。</p>
+<h2 id="续集"><a href="#续集" class="headerlink" title="续集"></a>续集</h2><p>​    折腾了一天算是折腾的差不多了，可以正常的同步（上传，下载）书签。实现了正常的功能（注册，登陆，同步）再也不用担心重装系统或是其他问题而导致书签丢失的问题了。</p>
+<p>​    很是看不到前端写的东西，像是什么异步插件之类的，没接触过，看着两眼抓瞎。修改的过程也是很痛苦，原来插件使用的Gitee不知道是怎么搞的，死活登不上去，无法正常使用，也许是关闭了相关的API服务吧。在没有接口可以抄的基础上简直就是盲人摸象（不懂前端），感觉懂前端的人还是很牛逼的，一个插件都可以运用Vue来开发，这是我都不敢想象的。</p>
+<p>​    本是想在腾讯的无服务器函数上搭建下，但是COS资源包好像过期了，穷屌丝用不起付费版的，买的备案域名也掉备案了，api网关的方案也没办法了，索性丢在XREA的免费空间，还套了个介绍单页，看起来有点<del>（装逼）</del>味道。</p>
+<h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><a id="more"></a>
+
+<p>安装提示【程序包无效：”CRX_ <em>REQUIRED</em> <em>PROOF</em> MISSING”.】</p>
+<p>​    1.将<code>BookmarkSync.crx</code>改成<code>BookmarkSync_v102.crx.rar</code>并解压到某个目录例如<code>C:\BookmarkSync</code></p>
+<p>​    2.浏览器-&gt;更多工具-&gt;扩展程序。开启【开发模式】-&gt;加载已解压的扩展程序，选择刚才解压的目录<em>（C:\BookmarkSync）</em></p>
+<p><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige@master/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/xiao_20190731103527.png" alt="程序包无效"></p>
+<ol>
+<li>​    BookmarkSync插件可以免注册么？<ol>
+<li>答：可以免费注册</li>
+</ol>
+</li>
+<li>一个人可以注册几个BookmarkSync账号？<ol>
+<li>答：理论上无限，但是为了防止不法分子破坏BookmarkSync平稳的环境，进行了一定的限制。</li>
+</ol>
+</li>
+<li>BookmarkSync插件收费么？<ol>
+<li>答：没有暂时收费的计划。</li>
+</ol>
+</li>
+<li>BookmarkSync插件同步书签有数量限制么？<ol>
+<li>答：同步没有上限，XREA空间限制为1000M。但是正常情况下书签最大也就10M，完全不用担心。</li>
+</ol>
+</li>
+<li>BookmarkSync插件限制同时在线的设备数量么？<ol>
+<li>答：无上限，可以99台，也可以999台设备同时在线</li>
+</ol>
+</li>
+<li>BookmarkSync后面会更新么？<ol>
+<li>答：博主一直在用便会更新，如果有更好的替代方式或其他情况会发布信息。</li>
+</ol>
+</li>
+<li>BookmarkSync插件的下载地址？<ol>
+<li>答：在线免费下载地址<a href="/go.html?u=https://bookmarksync.tiiao.cn/?f=nobige.cn">《bookmarkSync-书签同步-chrome-免费-软件-插件-crx-下载》</a></li>
+</ol>
+</li>
+<li>BookmarkSync插件稳定么？<ol>
+<li>答：提供不保证的免费服务，美国商业银行都不敢保障数据泄露。</li>
+</ol>
+</li>
+<li>BookmarkSync插件会泄露我的书签么？<ol>
+<li>答：提供不保证的免费服务，如有隐私性质或者安全性质书签等，请慎用！</li>
+</ol>
+</li>
+<li>Linux系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>ubuntu系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>mac os系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>xp系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>win7系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>win8系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>win10系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持360极速浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持360安全浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持QQ浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持猎豹浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持搜狗高速浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持UC浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持谷歌浏览器么？<ol>
+<li>答：支持，官方浏览器，第一时间适配。</li>
+</ol>
+</li>
+<li>支持百度浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持火狐浏览器(Firefox)么？<ol>
+<li>答：暂时支持chrome内核浏览器，Firefox浏览器发开计划正在紧张进行中。</li>
+</ol>
+</li>
+<li>支持Chrome安全浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持2345加速浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持搜狗浏览器（搜狗高速浏览器）么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持傲游浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持百分浏览器么？</li>
+<li>答：支持，博主使用的浏览器，第一时间适配。</li>
+</ol>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="/go.html?u=https://bookmarksync.tiiao.cn/?f=nobige.cn">《bookmarkSync-书签同步-chrome-免费-软件-插件-crx-下载》</a></p>
+<h2 id="源"><a href="#源" class="headerlink" title="源"></a>源</h2><p>地址：<a href="/go.html?u=https://ext.chrome.360.cn/webstore/detail/fobjlbjogabaofdigjjejlkicapckkoh">https://ext.chrome.360.cn/webstore/detail/fobjlbjogabaofdigjjejlkicapckkoh</a></p>
+<p>作者：<a href="/go.html?u=https://gitee.com/lyxfj/projects">https://gitee.com/lyxfj/projects</a></p>
+<p><a href="/go.html?u=https://unsplash.com/photos/npZR4G67ev8">壁纸-Road, freeway, overpass and bike | HD photo by Harley-Davidson (@harleydavidson) on Unsplash</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag"># 插件</a>
+              <a href="/tags/chrome/" rel="tag"># chrome</a>
+              <a href="/tags/%E4%B9%A6%E7%AD%BE/" rel="tag"># 书签</a>
+              <a href="/tags/%E5%90%8C%E6%AD%A5/" rel="tag"># 同步</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/" rel="prev" title="如有乐享被黑跳转页面分析">
+      <i class="fa fa-chevron-left"></i> 如有乐享被黑跳转页面分析
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/20190803-rk3128_shua_an_zhuo_gu_jian/" rel="next" title="rk3128刷安卓固件">
+      rk3128刷安卓固件 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BookmarkSync书签同步插件"><span class="nav-number">1.</span> <span class="nav-text">BookmarkSync书签同步插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缘由"><span class="nav-number">2.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#续集"><span class="nav-number">3.</span> <span class="nav-text">续集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#帮助"><span class="nav-number">4.</span> <span class="nav-text">帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载地址"><span class="nav-number">5.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源"><span class="nav-number">6.</span> <span class="nav-text">源</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">118</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">238</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige.cn" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige.cn" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige.cn" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige.cn" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige.cn" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige.cn" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.1
+  </div>
+  <br/>Powerful CDN service provided by 
+  <a href="https://www.upyun.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/upyun_logo.png" height="35" width="90" style="display: inline;" alt="upyun"></a> or 
+  <a href="https://www.jsdelivr.com" target="_blank" rel="noopener"><img src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/images/jsdelivr_logo.svg" height="30" style="display: inline;" alt="JsDelivr"></a>
+  <br/><a href="https://coding.net" target="_blank" rel="noopener">Coding</a> or
+  <a href="https://vercel.com" target="_blank" rel="noopener">Vercel</a> or
+  provides static Publishing<br/>
+  <div class="theme-info">Theme – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/anime.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/utils.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/motion.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/schemes/pisces.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/next-boot.min.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/JackCh3n/n0bige/js/local-search.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.min.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://duosuo.nobige.cn/' || 'https://disqus.com/api/',
+      apikey    : 'Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m',
+      shortname : 'nobige',
+      url       : "https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/",
+      identifier: "post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/",
+      title     : "BookmarkSync书签同步插件",
+    });
+  }, window.DisqusJS);
+});
+</script>
+
+</body>
+</html>
