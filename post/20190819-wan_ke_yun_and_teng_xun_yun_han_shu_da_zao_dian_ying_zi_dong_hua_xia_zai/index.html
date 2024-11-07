@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="缘由​	之前有写过用python抓取电影天堂的最新电影并通过迅雷进行下载，虽说也是达到了类似的效果但是一直都是运行在台式机上，感觉耗电量有点大，虽说pc上有更多的权限方式，如迅雷可以用破解版，python也可以自定义安装需要的插件扩展，但心里总是觉得不大满足，特别是有的电影会——“应版权方要求，无法下载”若是换成其他的软件则又没有速度，无奈之下想到了迅雷下载宝，可淘宝上所售的数量并不是很多价格也">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩客云and腾讯云函数打造电影自动化下载">
+<meta property="og:url" content="https://nobige.cn/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="缘由​	之前有写过用python抓取电影天堂的最新电影并通过迅雷进行下载，虽说也是达到了类似的效果但是一直都是运行在台式机上，感觉耗电量有点大，虽说pc上有更多的权限方式，如迅雷可以用破解版，python也可以自定义安装需要的插件扩展，但心里总是觉得不大满足，特别是有的电影会——“应版权方要求，无法下载”若是换成其他的软件则又没有速度，无奈之下想到了迅雷下载宝，可淘宝上所售的数量并不是很多价格也">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/carolyn-v-c5VxsEJOKWE-unsplash.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/xiao2019-08-19-21-15-52-66.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/xiao2019-08-19-21-17-22-275.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/xiao2019-08-19-21-34-38-732.jpg">
+<meta property="article:published_time" content="2019-08-19T12:21:04.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.266Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="电影">
+<meta property="article:tag" content="玩客云">
+<meta property="article:tag" content="自动化">
+<meta property="article:tag" content="腾讯云">
+<meta property="article:tag" content="云函数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/carolyn-v-c5VxsEJOKWE-unsplash.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/","path":"post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/","title":"玩客云and腾讯云函数打造电影自动化下载"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>玩客云and腾讯云函数打造电影自动化下载 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%98%E7%94%B1"><span class="nav-number">1.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">设备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC"><span class="nav-number">3.</span> <span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">5.</span> <span class="nav-text">部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">7.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%A5%E5%BF%97"><span class="nav-number">8.</span> <span class="nav-text">运行日志</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A3%81%E7%BA%B8"><span class="nav-number">9.</span> <span class="nav-text">壁纸</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="玩客云and腾讯云函数打造电影自动化下载 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          玩客云and腾讯云函数打造电影自动化下载
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-19 20:21:04" itemprop="dateCreated datePublished" datetime="2019-08-19T20:21:04+08:00">2019-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/carolyn-v-c5VxsEJOKWE-unsplash.jpg" alt="Book"></p>
+<h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>​	之前有写过用python抓取电影天堂的最新电影并通过迅雷进行下载，虽说也是达到了类似的效果但是一直都是运行在台式机上，感觉耗电量有点大，虽说pc上有更多的权限方式，如迅雷可以用破解版，python也可以自定义安装需要的插件扩展，但心里总是觉得不大满足，特别是有的电影会——“应版权方要求，无法下载”若是换成其他的软件则又没有速度，无奈之下想到了迅雷下载宝，可淘宝上所售的数量并不是很多价格也不低，苦于无法之后又欲寻NAS，看到了矿难之作——星际蜗牛，性价比好像也不错的样子，可不是迅雷的亲儿子，最终入手了玩客云3。</p>
+<h2 id="设备"><a href="#设备" class="headerlink" title="设备"></a>设备</h2><p>下载设备有几种选择，再次我简单说下各种的优点</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>玩客云</td>
+<td>迅雷亲儿子，不受版权问题影响，下载速度基本满速</td>
+<td>USB2.0</td>
+</tr>
+<tr>
+<td>迅雷下载宝</td>
+<td>USB3.0，迅雷远程</td>
+<td>基本被迅雷抛弃，远程下载，速度没有保障，需要VIP才有高速</td>
+</tr>
+<tr>
+<td>newifi3路由器</td>
+<td>不仅仅是路由器，迅雷远程</td>
+<td>如迅雷下载宝一般</td>
+</tr>
+<tr>
+<td>小米pro</td>
+<td>内置硬盘</td>
+<td>随着时间的流逝，下载速度现在已没有开那般，基本为0（论坛所传）</td>
+</tr>
+<tr>
+<td>NAS</td>
+<td>扩展性强，不仅仅是下载</td>
+<td>迅雷客户端受版权限制</td>
+</tr>
+<tr>
+<td>PC</td>
+<td>扩展性强，不仅仅是下载</td>
+<td>耗电量大，迅雷客户端受版权限制</td>
+</tr>
+</tbody></table>
+<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>​	玩客云脚本模块使用了@<a href="/go.html?u=https://github.com/mzeyong">mzeyong</a>&#x2F;python_onethingcloudApi ，根据玩客云Windows_V1.4.5.112实际情况修改了部分参数，然后结合上次写的python脚本完成的，本是想实现硬盘情况但是苦于SIGN签名算法不会，也未能找到相应的资料便未能实现。电影天堂API接口也是同样的问题——签名算法不会，在Github上一个第三方客户端倒是看到相应的算法却没有公开，实在是可惜。</p>
+<p>​	腾讯云COS因为免费额度更新了便没有用，而是用免费空间来实现相应的功能。</p>
+<p>​	python脚本是部署在腾讯云函数上，python脚本依赖打包可以查看《<a href="https://nobige.cn/post/20190818-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/">腾讯Python云函数打包依赖扩展</a>》</p>
+<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul>
+<li>2022-02-14更新</li>
+<li>玩客云网页版-<a target="_blank" rel="noopener" href="https://h5-ocapp.onethingpcs.com/vPages/webapp/#/login">https://h5-ocapp.onethingpcs.com/vPages/webapp/#/login</a></li>
+<li>玩客云PC版已经不能登录</li>
+<li>玩客云IOS-APP可以正常登录，修改密码</li>
+</ul>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/xiao2019-08-19-21-15-52-66.jpg" alt="新建腾讯云函数"></p>
+<ol>
+<li>在<a href="/go.html?u=https://console.cloud.tencent.com/scf/">腾讯云函数</a>新建一个python3的函数，配置将运行时间改到120或是300</li>
+<li>修改源码并上传源码</li>
+<li>保存，测试一下</li>
+<li>若没有错误情况则可以添加触发情况，定时触发，自定义触发周期，如<code>0 0 23 * * * *</code>每天23点运行一次，详细配置策略请参考<a href="/go.html?u=https://cloud.tencent.com/document/product/583/9708#cron-.E8.A1.A8.E8.BE.BE.E5.BC.8F">Cron相关文档</a></li>
+</ol>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/xiao2019-08-19-21-17-22-275.jpg" alt="腾讯云函数配置"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>​	放在<a href="/go.html?u=https://github.com/JackCh3n/Python_learning/blob/master/2019/07/dytt/wanke.py">Github</a>上，若有更新不在新开文章，而是直接更新代码（一般不能用时更新）</p>
+<p>​	依赖为：requests，bs4 。python脚本依赖打包可以查看《<a href="https://nobige.cn/post/20190818-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/">腾讯Python云函数打包依赖扩展</a>》，不会？那便下载整个dytt文件夹吧。</p>
+<p>​	<a href="/go.html?u=https://github.com/JackCh3n/Python_learning/blob/master/2019/07/dytt/dytt.php">php文件</a>只要放在一个腾讯云函数可以访问的空间或是服务器，然后修改脚本中的对于地址。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
+<li><a href="/go.html?u=https://github.com/JackCh3n/Python_learning/blob/master/2019/07/dytt/wanke.py">python脚本</a></li>
+<li><a href="/go.html?u=https://github.com/JackCh3n/Python_learning/blob/master/2019/07/dytt/dytt.php">php辅助脚本</a></li>
+</ul>
+<h2 id="运行日志"><a href="#运行日志" class="headerlink" title="运行日志"></a>运行日志</h2><p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/xiao2019-08-19-21-34-38-732.jpg" alt="运行日志"></p>
+<h2 id="壁纸"><a href="#壁纸" class="headerlink" title="壁纸"></a>壁纸</h2><p><a href="/go.html?u=https://unsplash.com/photos/c5VxsEJOKWE">Book, text, page and prayer | HD photo by Carolyn V (@sixteenmilesout) on Unsplash</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag"># 电影</a>
+              <a href="/tags/%E7%8E%A9%E5%AE%A2%E4%BA%91/" rel="tag"># 玩客云</a>
+              <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag"># 自动化</a>
+              <a href="/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/" rel="tag"># 腾讯云</a>
+              <a href="/tags/%E4%BA%91%E5%87%BD%E6%95%B0/" rel="tag"># 云函数</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190818-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/" rel="prev" title="腾讯Python云函数打包依赖扩展">
+                  <i class="fa fa-chevron-left"></i> 腾讯Python云函数打包依赖扩展
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190826-2019_IOS_jiu_ban_ben_ying_yong_APP_xia_zai/" rel="next" title="2019IOS旧版本应用APP下载">
+                  2019IOS旧版本应用APP下载 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

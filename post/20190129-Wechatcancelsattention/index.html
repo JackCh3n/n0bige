@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="由来​	可能是真的太闲了，在整理微信小号的时候发现之前几个在挂机赚钱的几个号，不管是微信订阅号还是公众号都关注了一大堆有的没的，消息不停，看着都难受，便是突发其想将其订阅号批量取关，搜索了下没有类似的软件，也害怕（期中一个号还因为登录环境问题今天刚辅助验证了）于是便动手录个脚本，可以运行但其效率不高，又看着是vb语言便生写脚本的冲动。 ​	时间太久了Vb的语法基本都忘光了，用的是按键精灵（老版破">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信公众订阅号批量取消脚本软件">
+<meta property="og:url" content="https://nobige.cn/post/20190129-Wechatcancelsattention/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="由来​	可能是真的太闲了，在整理微信小号的时候发现之前几个在挂机赚钱的几个号，不管是微信订阅号还是公众号都关注了一大堆有的没的，消息不停，看着都难受，便是突发其想将其订阅号批量取关，搜索了下没有类似的软件，也害怕（期中一个号还因为登录环境问题今天刚辅助验证了）于是便动手录个脚本，可以运行但其效率不高，又看着是vb语言便生写脚本的冲动。 ​	时间太久了Vb的语法基本都忘光了，用的是按键精灵（老版破">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_22-56-13.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_22-55-43.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_21-51-38.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_22-24-54.jpg">
+<meta property="article:published_time" content="2019-01-29T14:33:44.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.214Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="微信">
+<meta property="article:tag" content="脚本">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_22-56-13.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190129-Wechatcancelsattention/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190129-Wechatcancelsattention/","path":"post/20190129-Wechatcancelsattention/","title":"微信公众订阅号批量取消脚本软件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>微信公众订阅号批量取消脚本软件 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B1%E6%9D%A5"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BUG"><span class="nav-number">3.</span> <span class="nav-text">BUG</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">4.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">源码</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190129-Wechatcancelsattention/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="微信公众订阅号批量取消脚本软件 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微信公众订阅号批量取消脚本软件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-01-29 22:33:44" itemprop="dateCreated datePublished" datetime="2019-01-29T22:33:44+08:00">2019-01-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_22-56-13.jpg" alt="软件界面"></p>
+<h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>​	可能是真的太闲了，在整理微信小号的时候发现之前几个在挂机赚钱的几个号，不管是微信订阅号还是公众号都关注了一大堆有的没的，消息不停，看着都难受，便是突发其想将其订阅号批量取关，搜索了下没有类似的软件，也害怕（期中一个号还因为登录环境问题今天刚辅助验证了）于是便动手录个脚本，可以运行但其效率不高，又看着是vb语言便生写脚本的冲动。</p>
+<p>​	时间太久了Vb的语法基本都忘光了，用的是按键精灵（老版破解），语法提示不是很清楚（真的忘得差不多了），且其语法应该是修改过的，与Vb大有不同。</p>
+<p>​	这个脚本软件做的过程还是挺有趣的，一开始是纯录制接着是指定x,y坐标，最后才是句柄的相对坐标和位置，还通过颜色来实现（图片错误率高），一点点升级</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>软件分自动挡和手动挡，推荐手动挡</p>
+<ol>
+<li><p>自动挡则是登录微信pc版，开启软件，选中对应的公众号类别就可以了</p>
+</li>
+<li><p>手动挡则是登录微信pc版，手动点开对应的公众号类别，开启软件，再选中对应的公众号类别就可以了</p>
+</li>
+</ol>
+<p><strong>手动挡使用</strong></p>
+<p>手动点开公众号或是订阅号</p>
+<p>   <img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_22-55-43.jpg" alt="手动挡使用"></p>
+<p><strong>停止</strong></p>
+<p>双击exit.bat 批处理结束</p>
+<h2 id="BUG"><a href="#BUG" class="headerlink" title="BUG"></a>BUG</h2><ol>
+<li>自动挡，即自动寻找公众号和订阅号可能出现找不准确的情况，颜色干扰</li>
+<li>不能停止？？？不知道怎么写热键停止，尝试了下无果便用批处理来直接结束进程</li>
+</ol>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a target="_blank" rel="noopener" href="https://f.tiiao.cn/2019/01/29/quxiao.zip">quxiao.zip (2.57 MB)包含源码</a></p>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>使用前</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_21-51-38.jpg" alt="使用前"></p>
+<p>使用后</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190129-Wechatcancelsattention/xiao2019-01-29_22-24-54.jpg" alt="使用后"></p>
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">Function</span> quxiao(n, z)</span><br><span class="line">Form1.ProgressBar1.Value =<span class="number">0</span></span><br><span class="line">	<span class="keyword">For</span> n</span><br><span class="line">	i=i+<span class="number">1</span></span><br><span class="line"> 	Form1.ProgressBar1.Value = <span class="number">100</span> * i / n //进度条</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Bkgnd.RightClick(WeChat, <span class="number">415</span>, <span class="number">100</span>)//第一个公众号的位置</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	CMenuWnd = Plugin.Window.Find(<span class="string">&quot;CMenuWnd&quot;</span>, <span class="string">&quot;CMenuWnd&quot;</span>)</span><br><span class="line">	<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(CMenuWnd, <span class="number">25</span>, z)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	ConfirmDialog = Plugin.Window.Find(<span class="string">&quot;ConfirmDialog&quot;</span>, <span class="string">&quot;微信&quot;</span>)</span><br><span class="line">	<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(ConfirmDialog, <span class="number">222</span>, <span class="number">188</span>)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Next</span></span><br><span class="line"><span class="keyword">End</span> <span class="keyword">Function</span></span><br><span class="line">Event Form1.Button1.Click</span><br><span class="line">	<span class="keyword">Dim</span> index,n,z,p,s</span><br><span class="line">	index = <span class="built_in">Split</span>(Form1.ComboBox1.List, <span class="string">&quot;|&quot;</span>)</span><br><span class="line">	n = index(Form1.ComboBox1.ListIndex)</span><br><span class="line">	MessageBox (<span class="string">&quot;即将取消关注&quot;</span> + n + <span class="string">&quot;个公众号&quot;</span>)</span><br><span class="line">	WeChat = Plugin.Window.Find(<span class="string">&quot;WeChatMainWndForPC&quot;</span>, <span class="string">&quot;微信&quot;</span>)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Window.Max(WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	Plugin.Window.Show(WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Window.Max(WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">If</span> Form1.OptionBox1.Value = <span class="number">1</span> <span class="keyword">Then</span> //公众号</span><br><span class="line">		z = <span class="number">65</span></span><br><span class="line">		s=<span class="string">&quot;公众号&quot;</span></span><br><span class="line">		<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(WeChat, <span class="number">25</span>, <span class="number">140</span>)//通讯录</span><br><span class="line">	<span class="keyword">Else</span> </span><br><span class="line">		z = <span class="number">45</span></span><br><span class="line">		s=<span class="string">&quot;订阅号&quot;</span></span><br><span class="line">		<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(WeChat, <span class="number">25</span>, <span class="number">90</span>)//聊天</span><br><span class="line">	<span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line">	XY = Plugin.Bkgnd.FindColor(WeChat, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1024</span>, <span class="number">310</span>, <span class="string">&quot;D6852F&quot;</span>)</span><br><span class="line">	ZB = <span class="built_in">InStr</span>(XY, <span class="string">&quot;|&quot;</span>)</span><br><span class="line">	X = <span class="built_in">Clng</span>(<span class="built_in">Left</span>(XY, ZB - <span class="number">1</span>)): Y = <span class="built_in">Clng</span>(<span class="built_in">Right</span>(XY, <span class="built_in">Len</span>(XY) - ZB))</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(WeChat, X, Y)</span><br><span class="line">	<span class="keyword">Call</span> Plugin.Bkgnd.MoveTo(WeChat, X, Y)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	Plugin.Window.Restore (WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Window.Size(WeChat, <span class="number">1024</span>, <span class="number">678</span>)</span><br><span class="line">	p=quxiao(n,z)</span><br><span class="line">	MessageBox(n + <span class="string">&quot;个&quot;</span>+s+<span class="string">&quot;已经取消关注了&quot;</span>)</span><br><span class="line"><span class="keyword">End</span> Event</span><br><span class="line">Event Form1.Button2.Click</span><br><span class="line">	<span class="keyword">Dim</span> index,n,z,p,s</span><br><span class="line">	index = <span class="built_in">Split</span>(Form1.ComboBox1.List, <span class="string">&quot;|&quot;</span>)</span><br><span class="line">	n = index(Form1.ComboBox1.ListIndex)</span><br><span class="line">	MessageBox (<span class="string">&quot;即将取消关注&quot;</span> + n + <span class="string">&quot;个公众号&quot;</span>)</span><br><span class="line">	WeChat = Plugin.Window.Find(<span class="string">&quot;WeChatMainWndForPC&quot;</span>, <span class="string">&quot;微信&quot;</span>)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Window.Max(WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	Plugin.Window.Show(WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Window.Max(WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">If</span> Form1.OptionBox1.Value = <span class="number">1</span> <span class="keyword">Then</span> //公众号</span><br><span class="line">		z = <span class="number">65</span></span><br><span class="line">		s=<span class="string">&quot;公众号&quot;</span></span><br><span class="line">		<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(WeChat, <span class="number">25</span>, <span class="number">140</span>)//通讯录</span><br><span class="line">	<span class="keyword">Else</span> </span><br><span class="line">		z = <span class="number">45</span></span><br><span class="line">		s=<span class="string">&quot;订阅号&quot;</span></span><br><span class="line">		<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(WeChat, <span class="number">25</span>, <span class="number">90</span>)//聊天</span><br><span class="line">	<span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"></span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Bkgnd.LeftClick(WeChat, X, Y)</span><br><span class="line">	<span class="keyword">Call</span> Plugin.Bkgnd.MoveTo(WeChat, X, Y)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	Plugin.Window.Restore (WeChat)</span><br><span class="line">	Delay <span class="number">500</span></span><br><span class="line">	<span class="keyword">Call</span> Plugin.Window.Size(WeChat, <span class="number">1024</span>, <span class="number">678</span>)</span><br><span class="line">	p=quxiao(n,z)</span><br><span class="line">	MessageBox(n + <span class="string">&quot;个&quot;</span>+s+<span class="string">&quot;已经取消关注了&quot;</span>)</span><br><span class="line"><span class="keyword">End</span> Event</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag"># 技巧</a>
+              <a href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag"># 微信</a>
+              <a href="/tags/%E8%84%9A%E6%9C%AC/" rel="tag"># 脚本</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190126-SQLServerBatStartupservice/" rel="prev" title="SQL Server 脚本代替开机自动启动">
+                  <i class="fa fa-chevron-left"></i> SQL Server 脚本代替开机自动启动
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190202-360F4FirmwareUpdate/" rel="next" title="360F4刷机经历教程">
+                  360F4刷机经历教程 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

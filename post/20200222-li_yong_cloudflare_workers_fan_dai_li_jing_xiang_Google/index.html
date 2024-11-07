@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="实现本文可以最低成本使用世界上优秀的搜索引擎,而非竞价排名的毒瘤.  多说两句​	反代理技术很多,如Nginx,caddy,或是使用php脚本等,都需要一个合格的外国服务器或是虚拟主机,而cloudflare workers边缘计算则可以无需任何服务器或是虚拟主机,只需要一个邮箱就可以. ​	嫌麻烦可以直接看福利部分,若嫌弃不稳定则可以使用多吉搜索(国产版duckduckgo) 步骤1.注册cl">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用cloudflare_workers反代理镜像Google">
+<meta property="og:url" content="https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="实现本文可以最低成本使用世界上优秀的搜索引擎,而非竞价排名的毒瘤.  多说两句​	反代理技术很多,如Nginx,caddy,或是使用php脚本等,都需要一个合格的外国服务器或是虚拟主机,而cloudflare workers边缘计算则可以无需任何服务器或是虚拟主机,只需要一个邮箱就可以. ​	嫌麻烦可以直接看福利部分,若嫌弃不稳定则可以使用多吉搜索(国产版duckduckgo) 步骤1.注册cl">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_15_58_24.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_15_58_41.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_15_59_39.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_16_04_11.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_16_06_55.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_16_21_28.png">
+<meta property="article:published_time" content="2020-02-22T07:44:07.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.290Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="google">
+<meta property="article:tag" content="镜像">
+<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="代理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_15_58_24.png">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/","path":"post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/","title":"利用cloudflare_workers反代理镜像Google"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>利用cloudflare_workers反代理镜像Google | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E8%AF%B4%E4%B8%A4%E5%8F%A5"><span class="nav-number">1.</span> <span class="nav-text">多说两句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A6%8F%E5%88%A9"><span class="nav-number">3.</span> <span class="nav-text">福利</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%BA%BB%E7%83%A6"><span class="nav-number">4.</span> <span class="nav-text">麻烦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">5.</span> <span class="nav-text">提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E4%BC%BC"><span class="nav-number">7.</span> <span class="nav-text">类似</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="利用cloudflare_workers反代理镜像Google | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          利用cloudflare_workers反代理镜像Google
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-22 15:44:07" itemprop="dateCreated datePublished" datetime="2020-02-22T15:44:07+08:00">2020-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>实现本文可以最低成本使用世界上优秀的搜索引擎,而非竞价排名的毒瘤.</p>
+</blockquote>
+<h2 id="多说两句"><a href="#多说两句" class="headerlink" title="多说两句"></a>多说两句</h2><p>​	反代理技术很多,如Nginx,caddy,或是使用php脚本等,都需要一个合格的外国服务器或是虚拟主机,而cloudflare workers边缘计算则可以无需任何服务器或是虚拟主机,只需要一个邮箱就可以.</p>
+<p>​	嫌麻烦可以直接看福利部分,若嫌弃不稳定则可以使用<a href="/go.html?u=https://www.dogedoge.com/">多吉搜索</a>(<em>国产版duckduckgo</em>)</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.注册<a href="/go.html?u=https://dash.cloudflare.com/sign-up">cloudflare</a> 账号,并验证邮箱</p>
+<p>2.登录cloudflare 后进入,点击右上角的人像图标,点击 <code>Account Home</code></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_15_58_24.png" alt="Account Home"></p>
+<p>3.点击<code>Workers</code></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_15_58_41.png" alt="Workers"></p>
+<p>4.注册一个你喜欢二级域名,如我的是<code>fuckqq</code>,点Set up,再次确认再点<code>Confirm</code></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_15_59_39.png" alt="fuckqq"></p>
+<p>5.选择<strong>Free</strong>的套餐,点击<code>Continue with Free</code></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_16_04_11.png" alt="free"></p>
+<p>6.点击<code>Create a Worker</code></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_16_06_55.png" alt="Create a Worker"></p>
+<p>7.在编辑页面的左上角修改下项目名称,如<strong>g</strong>,粘贴代码(<em>代码在最下面</em>)</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/fuckqq_2020_02-22_16_21_28.png" alt="步骤"></p>
+<p>9.点击<code>Save and Deploy</code>即可部署完毕,要求再次确认点击<code>Save and Deploy</code>即可.</p>
+<h2 id="福利"><a href="#福利" class="headerlink" title="福利"></a>福利</h2><p>​	通过类似关键词(<em>google workers 反代理</em>)可以找到别的博主已经部署好的网站,如下</p>
+<ul>
+<li><a href="/go.html?u=http://bili33.top/2019/10/25/CloudFlare-Workers-Section1">Cloudflare Workers反代实战（上） | GamerNoTitle</a>-<a href="/go.html?u=https://g.bili33.workers.dev">g.bili33.workers.dev</a></li>
+<li><a href="/go.html?u=http://google.infi.workers.dev">google.infi.workers.dev</a></li>
+<li><a href="/go.html?u=https://www.529i.com/archives/767.html">用CloudFlare Workers反代Google - 憶の年</a>-<a href="/go.html?u=https://1.555555.workers.dev">1.555555.workers.dev</a></li>
+<li><a href="/go.html?u=https://jinsblog.me/2019/11/05/cdn-google/">基于 CF Workers 反代 Google 制作镜像站 - YJ的博客 | Jin’s Blog</a>-<a href="/go.html?u=https://google.jinsblog.workers.dev">google.jinsblog.workers.dev</a></li>
+<li><a href="/go.html?u=https://go.judd.workers.dev/">go.judd.workers.dev</a></li>
+</ul>
+<h2 id="麻烦"><a href="#麻烦" class="headerlink" title="麻烦"></a>麻烦</h2><p>老是出现流量异常？不能访问？打开漫长？不想折腾？可以使用Chrome的两款插件</p>
+<ol>
+<li><a href="/go.html?u=https://crx.tiiao.cn/recommend.html">谷歌访问助手-破解版</a></li>
+<li><a href="/go.html?u=https://crx.tiiao.cn/recommend.html">集装箱-内含Google助手</a></li>
+</ol>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><ul>
+<li>若为公开,建议开启搜索安全模式</li>
+<li>出现验证码,则可以修改 <code>upstream</code>的域名,如<code>www.google.com.hk</code>或是在<a href="/go.html?u=https://nuorw.com/support/company/81.html">google全球各国域名与各国使用语言</a>中随便找一个.</li>
+<li>为了不必要的麻烦建议开启对地区或IP进行限制,如默认代码中就对中国,朝鲜,叙利亚等地区进行禁止访问限制</li>
+<li>如果默认的域名被污染可以尝试绑定域名进行解决</li>
+<li>每日的流量有限制,需求大的可以多创建几个账号做好负载均衡</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><ul>
+<li><strong>最新代码</strong><a href="/go.html?u=https://github.com/Siujoeng-Lau/Workers-Proxy">@Siujoeng-Lau&#x2F;Workers-Proxy</a></li>
+<li>本站备份</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Website you intended to retrieve for users.</span></span><br><span class="line"><span class="keyword">const</span> upstream = <span class="string">&#x27;www.google.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Custom pathname for the upstream website.</span></span><br><span class="line"><span class="keyword">const</span> upstream_path = <span class="string">&#x27;/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Website you intended to retrieve for users using mobile devices.</span></span><br><span class="line"><span class="keyword">const</span> upstream_mobile = <span class="string">&#x27;www.google.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Countries and regions where you wish to suspend your service.</span></span><br><span class="line"><span class="keyword">const</span> blocked_region = [<span class="string">&#x27;CN&#x27;</span>, <span class="string">&#x27;KP&#x27;</span>, <span class="string">&#x27;SY&#x27;</span>, <span class="string">&#x27;PK&#x27;</span>, <span class="string">&#x27;CU&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// IP addresses which you wish to block from using your service.</span></span><br><span class="line"><span class="keyword">const</span> blocked_ip_address = [<span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="string">&#x27;127.0.0.1&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">// Whether to use HTTPS protocol for upstream address.</span></span><br><span class="line"><span class="keyword">const</span> https = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Replace texts.</span></span><br><span class="line"><span class="keyword">const</span> replace_dict = &#123;</span><br><span class="line">    <span class="string">&#x27;$upstream&#x27;</span>: <span class="string">&#x27;$custom_domain&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;//google.com&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">addEventListener</span>(<span class="string">&#x27;fetch&#x27;</span>, <span class="function"><span class="params">event</span> =&gt;</span> &#123;</span><br><span class="line">    event.<span class="title function_">respondWith</span>(<span class="title function_">fetchAndApply</span>(event.<span class="property">request</span>));</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">fetchAndApply</span>(<span class="params">request</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> region = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;cf-ipcountry&#x27;</span>).<span class="title function_">toUpperCase</span>();</span><br><span class="line">    <span class="keyword">const</span> ip_address = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;cf-connecting-ip&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> user_agent = request.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;user-agent&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> response = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">let</span> url = <span class="keyword">new</span> <span class="title function_">URL</span>(request.<span class="property">url</span>);</span><br><span class="line">    <span class="keyword">let</span> url_hostname = url.<span class="property">hostname</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (https == <span class="literal">true</span>) &#123;</span><br><span class="line">        url.<span class="property">protocol</span> = <span class="string">&#x27;https:&#x27;</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        url.<span class="property">protocol</span> = <span class="string">&#x27;http:&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">await</span> <span class="title function_">device_status</span>(user_agent)) &#123;</span><br><span class="line">        <span class="keyword">var</span> upstream_domain = upstream;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">var</span> upstream_domain = upstream_mobile;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    url.<span class="property">host</span> = upstream_domain;</span><br><span class="line">    <span class="keyword">if</span> (url.<span class="property">pathname</span> == <span class="string">&#x27;/&#x27;</span>) &#123;</span><br><span class="line">        url.<span class="property">pathname</span> = upstream_path;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        url.<span class="property">pathname</span> = upstream_path + url.<span class="property">pathname</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (blocked_region.<span class="title function_">includes</span>(region)) &#123;</span><br><span class="line">        response = <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">&#x27;Access denied: WorkersProxy is not available in your region yet.&#x27;</span>, &#123;</span><br><span class="line">            <span class="attr">status</span>: <span class="number">403</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (blocked_ip_address.<span class="title function_">includes</span>(ip_address)) &#123;</span><br><span class="line">        response = <span class="keyword">new</span> <span class="title class_">Response</span>(<span class="string">&#x27;Access denied: Your IP address is blocked by WorkersProxy.&#x27;</span>, &#123;</span><br><span class="line">            <span class="attr">status</span>: <span class="number">403</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> method = request.<span class="property">method</span>;</span><br><span class="line">        <span class="keyword">let</span> request_headers = request.<span class="property">headers</span>;</span><br><span class="line">        <span class="keyword">let</span> new_request_headers = <span class="keyword">new</span> <span class="title class_">Headers</span>(request_headers);</span><br><span class="line"></span><br><span class="line">        new_request_headers.<span class="title function_">set</span>(<span class="string">&#x27;Host&#x27;</span>, url.<span class="property">hostname</span>);</span><br><span class="line">        new_request_headers.<span class="title function_">set</span>(<span class="string">&#x27;Referer&#x27;</span>, url.<span class="property">hostname</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> original_response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url.<span class="property">href</span>, &#123;</span><br><span class="line">            <span class="attr">method</span>: method,</span><br><span class="line">            <span class="attr">headers</span>: new_request_headers</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> original_response_clone = original_response.<span class="title function_">clone</span>();</span><br><span class="line">        <span class="keyword">let</span> original_text = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">let</span> response_headers = original_response.<span class="property">headers</span>;</span><br><span class="line">        <span class="keyword">let</span> new_response_headers = <span class="keyword">new</span> <span class="title class_">Headers</span>(response_headers);</span><br><span class="line">        <span class="keyword">let</span> status = original_response.<span class="property">status</span>;</span><br><span class="line"></span><br><span class="line">        new_response_headers.<span class="title function_">set</span>(<span class="string">&#x27;access-control-allow-origin&#x27;</span>, <span class="string">&#x27;*&#x27;</span>);</span><br><span class="line">        new_response_headers.<span class="title function_">set</span>(<span class="string">&#x27;access-control-allow-credentials&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">        new_response_headers.<span class="title function_">delete</span>(<span class="string">&#x27;content-security-policy&#x27;</span>);</span><br><span class="line">        new_response_headers.<span class="title function_">delete</span>(<span class="string">&#x27;content-security-policy-report-only&#x27;</span>);</span><br><span class="line">        new_response_headers.<span class="title function_">delete</span>(<span class="string">&#x27;clear-site-data&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> content_type = new_response_headers.<span class="title function_">get</span>(<span class="string">&#x27;content-type&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (content_type.<span class="title function_">includes</span>(<span class="string">&#x27;text/html&#x27;</span>) &amp;&amp; content_type.<span class="title function_">includes</span>(<span class="string">&#x27;UTF-8&#x27;</span>)) &#123;</span><br><span class="line">            original_text = <span class="keyword">await</span> <span class="title function_">replace_response_text</span>(original_response_clone, upstream_domain, url_hostname);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            original_text = original_response_clone.<span class="property">body</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        response = <span class="keyword">new</span> <span class="title class_">Response</span>(original_text, &#123;</span><br><span class="line">            status,</span><br><span class="line">            <span class="attr">headers</span>: new_response_headers</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> response;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">replace_response_text</span>(<span class="params">response, upstream_domain, host_name</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> text = <span class="keyword">await</span> response.<span class="title function_">text</span>()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> replace_dict) &#123;</span><br><span class="line">        j = replace_dict[i]</span><br><span class="line">        <span class="keyword">if</span> (i == <span class="string">&#x27;$upstream&#x27;</span>) &#123;</span><br><span class="line">            i = upstream_domain</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == <span class="string">&#x27;$custom_domain&#x27;</span>) &#123;</span><br><span class="line">            i = host_name</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (j == <span class="string">&#x27;$upstream&#x27;</span>) &#123;</span><br><span class="line">            j = upstream_domain</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="string">&#x27;$custom_domain&#x27;</span>) &#123;</span><br><span class="line">            j = host_name</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> re = <span class="keyword">new</span> <span class="title class_">RegExp</span>(i, <span class="string">&#x27;g&#x27;</span>)</span><br><span class="line">        text = text.<span class="title function_">replace</span>(re, j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">device_status</span>(<span class="params">user_agent_info</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> agents = [<span class="string">&quot;Android&quot;</span>, <span class="string">&quot;iPhone&quot;</span>, <span class="string">&quot;SymbianOS&quot;</span>, <span class="string">&quot;Windows Phone&quot;</span>, <span class="string">&quot;iPad&quot;</span>, <span class="string">&quot;iPod&quot;</span>];</span><br><span class="line">    <span class="keyword">var</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> v = <span class="number">0</span>; v &lt; agents.<span class="property">length</span>; v++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (user_agent_info.<span class="title function_">indexOf</span>(agents[v]) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            flag = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> flag;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类似"><a href="#类似" class="headerlink" title="类似"></a>类似</h2><ul>
+<li><a href="/go.html?u=https://github.com/VPN-V2Ray/Mirror">VPN-V2Ray&#x2F;Mirror:  免费使用 now.sh 批量搭建谷歌、维基百科等镜像，只需一条命令。Deploy Google and Wikipedia mirror with one command using now.sh.</a></li>
+<li><a href="/go.html?u=https://googles.now.sh">疑似演示站</a></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="/go.html?u=https://github.com/Siujoeng-Lau/Workers-Proxy">GitHub - Siujoeng-Lau&#x2F;Workers-Proxy: Lightweight reverse proxy implemented with Cloudflare Workers.</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/google/" rel="tag"># google</a>
+              <a href="/tags/%E9%95%9C%E5%83%8F/" rel="tag"># 镜像</a>
+              <a href="/tags/nginx/" rel="tag"># nginx</a>
+              <a href="/tags/%E4%BB%A3%E7%90%86/" rel="tag"># 代理</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20200214-2020_zai_zhan_lang_chao_ipbs9505/" rel="prev" title="2020再战浪潮ipbs9505">
+                  <i class="fa fa-chevron-left"></i> 2020再战浪潮ipbs9505
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/" rel="next" title="python3错误集不定时更新">
+                  python3错误集不定时更新 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

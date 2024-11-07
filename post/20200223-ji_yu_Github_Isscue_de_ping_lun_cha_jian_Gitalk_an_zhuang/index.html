@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="基于Github_Isscue的评论插件Gitalk安装 闲着将Next主题升到目前最新的7.7.1,并更换了一些插件,如评论插件,不蒜子统计.  安装GitalkNext主题已经内置集成了Gitalk,只需要在Github上创建一个 GitHub Application,然后在主题配置文件中启用并修改配置文件即可. 1.创建 GitHub Application需要 GitHub Applica">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Github_Isscue的评论插件Gitalk安装">
+<meta property="og:url" content="https://nobige.cn/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="基于Github_Isscue的评论插件Gitalk安装 闲着将Next主题升到目前最新的7.7.1,并更换了一些插件,如评论插件,不蒜子统计.  安装GitalkNext主题已经内置集成了Gitalk,只需要在Github上创建一个 GitHub Application,然后在主题配置文件中启用并修改配置文件即可. 1.创建 GitHub Application需要 GitHub Applica">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_36_58.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_39_42.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_57_21.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_22_07.png">
+<meta property="article:published_time" content="2020-02-23T11:31:43.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.294Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="技巧">
+<meta property="article:tag" content="错误">
+<meta property="article:tag" content="评论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_36_58.png">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/","path":"post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/","title":"基于Github_Isscue的评论插件Gitalk安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>基于Github_Isscue的评论插件Gitalk安装 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EGithub-Isscue%E7%9A%84%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6Gitalk%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">基于Github_Isscue的评论插件Gitalk安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Gitalk"><span class="nav-number">2.</span> <span class="nav-text">安装Gitalk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E8%92%9C%E5%AD%90%E7%BB%9F%E8%AE%A1"><span class="nav-number">3.</span> <span class="nav-text">不蒜子统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF"><span class="nav-number">5.</span> <span class="nav-text">错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number"></span> <span class="nav-text">参考</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基于Github_Isscue的评论插件Gitalk安装 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于Github_Isscue的评论插件Gitalk安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-23 19:31:43" itemprop="dateCreated datePublished" datetime="2020-02-23T19:31:43+08:00">2020-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="基于Github-Isscue的评论插件Gitalk安装"><a href="#基于Github-Isscue的评论插件Gitalk安装" class="headerlink" title="基于Github_Isscue的评论插件Gitalk安装"></a>基于Github_Isscue的评论插件Gitalk安装</h2><blockquote>
+<p>闲着将Next主题升到目前最新的7.7.1,并更换了一些插件,如评论插件,不蒜子统计.</p>
+</blockquote>
+<h2 id="安装Gitalk"><a href="#安装Gitalk" class="headerlink" title="安装Gitalk"></a>安装Gitalk</h2><p>Next主题已经内置集成了Gitalk,只需要在Github上创建一个 <strong>GitHub Application</strong>,然后在主题配置文件中启用并修改配置文件即可.</p>
+<p>1.创建 <strong>GitHub Application</strong>需要 <strong>GitHub Application</strong>，如果没有 <a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">点击这里申请</a>，<code>Authorization callback URL</code> 填写博客域名域名.其他随便填写均可.</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_36_58.png" alt="GitHub Application"></p>
+<p>之后会得到<code>Client ID</code>和<code>Client Secret</code></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_39_42.png" alt="Client ID"></p>
+<p>修改主题配置文件,如<code>D:\wwwroot\nobige\themes\next\_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">gitalk:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">github_id:</span> <span class="string">jackch3n</span> <span class="comment"># GitHub 账号id,如我的github主页为https://github.com/JackCh3n id便是:JackCh3n</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">aiguo_jingye</span> <span class="comment"># issues所属的那个仓</span></span><br><span class="line">  <span class="attr">client_id:</span> <span class="string">7uYxGE9VCeQObg0Z1pfF2yiq8RHUwdl6</span> <span class="comment"># GitHub Application Client ID</span></span><br><span class="line">  <span class="attr">client_secret:</span> <span class="string">Ta0YwizufyUEHb7mpIjCQ2SV5JvXKo6eOdG1ZqW8rMlBchtLR94DgPAks3NFxn5a</span> <span class="comment"># GitHub Application Client Secret</span></span><br><span class="line">  <span class="attr">admin_user:</span> <span class="string">jackch3n</span> <span class="comment"># 管理员账号,通账号ID即可</span></span><br><span class="line">  <span class="attr">distraction_free_mode:</span> <span class="literal">true</span> <span class="comment"># Facebook-like distraction free mode</span></span><br><span class="line">  <span class="comment"># Gitalk&#x27;s display language depends on user&#x27;s browser or system environment</span></span><br><span class="line">  <span class="comment"># If you want everyone visiting your site to see a uniform language, you can set a force language value</span></span><br><span class="line">  <span class="comment"># Available values: en | es-ES | fr | ru | zh-CN | zh-TW</span></span><br><span class="line">  <span class="attr">language:</span> <span class="string">en</span> <span class="comment">#语言</span></span><br></pre></td></tr></table></figure>
+
+<p>修改成类似上面的配置就已经可以正常的使用了,如需使用更高级的方法可以参考<a href="/go.html?u=https://github.com/gitalk/gitalk/blob/master/readme-cn.md">开发者文档</a>,其js文件在<code>D:\wwwroot\nobige\themes\next\layout\_third-party\comments\gitalk.swig</code></p>
+<p>已知的几个问题,其一每篇文章需要在发布后由管理员手动开启.如下图</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_57_21.png" alt="管理员开启评论"></p>
+<p>其二,可能会出现网络问题,暂时没有很好地解决方法.理论上可以用cdn或是反代理的方式来解决问题.</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/fuckqq_2020_02-23_19_22_07.png" alt="网络错误"></p>
+<h2 id="不蒜子统计"><a href="#不蒜子统计" class="headerlink" title="不蒜子统计"></a>不蒜子统计</h2><p>​	不蒜子统计更为简单,只需将其false改成true即可.</p>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 图片处理插件</span></span><br><span class="line">npm install git+https://github.com/JackCh3n/hexo-asset-image.git</span><br><span class="line"><span class="comment"># 本地搜索</span></span><br><span class="line">npm install hexo-generator-searchdb --save</span><br><span class="line"><span class="comment"># 地图生成</span></span><br><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>​	在升级的过程中出现雷士下面的错误,找了半天都没有很好地解决,一开始猜测是主题修改的问题在新建的干净环境中还是存在一样的问题就,认为是文章的,虽说文章不多但还是花了点时间来找到对应的2篇,其原因在于</p>
+<p>​	可能有大括号之类或是格式不正确,如图片是<code>[]()</code>漏了某一个符号就报错了,hexo也没有指明哪一篇文章的错误这点相当的坑.也是很奇怪昨天写的文章都可以正常的发布,但今天居然找到的是两篇之前很久的文章,蜜汁操作.</p>
+<p>问题原因:文章中谋篇可能有大括号之类或是格式不正确,如图片是<code>[]()</code>漏了某一个符号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">TypeError [ERR_INVALID_URL]: Invalid URL: http://host:port/jsonrpc</span><br><span class="line">    at onParseError (internal/url.js:243:9)</span><br><span class="line">    at new URL (internal/url.js:319:5)</span><br><span class="line">    at D:\wwwroot\nobige\node_modules\hexo-util\lib\is_external_link.js:21:18</span><br><span class="line">    at Cache.apply (D:\wwwroot\nobige\node_modules\hexo-util\lib\cache.js:27:46)</span><br><span class="line">    at isExternalLink (D:\wwwroot\nobige\node_modules\hexo-util\lib\is_external_</span><br><span class="line">link.js:19:16)</span><br><span class="line">    at D:\wwwroot\nobige\node_modules\hexo\lib\plugins\filter\after_render\exter</span><br><span class="line">nal_link.js:23:35</span><br><span class="line">    at String.replace (&lt;anonymous&gt;)</span><br><span class="line">    at Hexo.externalLinkFilter (D:\wwwroot\nobige\node_modules\hexo\lib\plugins\</span><br><span class="line">filter\after_render\external_link.js:22:15)</span><br><span class="line">    at Hexo.tryCatcher (D:\wwwroot\nobige\node_modules\bluebird\js\release\util.</span><br><span class="line">js:16:23)</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (D:\wwwroot\nobige\node_modules\bluebird\js\release\meth</span><br><span class="line">od.js:15:34)</span><br><span class="line">    at D:\wwwroot\nobige\node_modules\hexo\lib\extend\filter.js:62:52</span><br><span class="line">    at tryCatcher (D:\wwwroot\nobige\node_modules\bluebird\js\release\util.js:16</span><br><span class="line">:23)</span><br><span class="line">    at Object.gotValue (D:\wwwroot\nobige\node_modules\bluebird\js\release\reduc</span><br><span class="line">e.js:166:18)</span><br><span class="line">    at Object.gotAccum (D:\wwwroot\nobige\node_modules\bluebird\js\release\reduc</span><br><span class="line">e.js:155:25)</span><br><span class="line">    at Object.tryCatcher (D:\wwwroot\nobige\node_modules\bluebird\js\release\uti</span><br><span class="line">l.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\wwwroot\nobige\node_modules\bluebir</span><br><span class="line">d\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\wwwroot\nobige\node_modules\bluebird\js\releas</span><br><span class="line">e\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromiseCtx (D:\wwwroot\nobige\node_modules\bluebird\js\rel</span><br><span class="line">ease\promise.js:641:10)</span><br><span class="line">    at _drainQueueStep (D:\wwwroot\nobige\node_modules\bluebird\js\release\async</span><br><span class="line">.js:97:12)</span><br><span class="line">    at _drainQueue (D:\wwwroot\nobige\node_modules\bluebird\js\release\async.js:</span><br><span class="line">86:9)</span><br><span class="line">    at Async._drainQueues (D:\wwwroot\nobige\node_modules\bluebird\js\release\as</span><br><span class="line">ync.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\wwwroot\nobige\node_mod</span><br><span class="line">ules\bluebird\js\release\async.js:15:14)</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="/go.html?u=https://github.com/gitalk/gitalk">gitalk&#x2F;readme-cn.md at master · gitalk&#x2F;gitalk</a></li>
+<li><a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/third-party-services.html">第三方服务集成 - NexT 使用文档</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8A%80%E5%B7%A7/" rel="tag"># 技巧</a>
+              <a href="/tags/%E9%94%99%E8%AF%AF/" rel="tag"># 错误</a>
+              <a href="/tags/%E8%AF%84%E8%AE%BA/" rel="tag"># 评论</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20200222-xiao_xue_sheng_xue_xi_zi_yuan_bu_ding_qi_geng_xin/" rel="prev" title="小学生学习资源不定期更新">
+                  <i class="fa fa-chevron-left"></i> 小学生学习资源不定期更新
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20200302-Telegram_yong_jiu_shan_chu_zhang_hao/" rel="next" title="Telegram永久删除账号">
+                  Telegram永久删除账号 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

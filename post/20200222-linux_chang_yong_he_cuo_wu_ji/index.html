@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="SSH工具1234567891011121314151617181920# FinalShell # FinalShell是一体化的的服务器,网络管理软件,不仅是ssh客户端,# 还是功能强大的开发,运维工具,充分满足开发,运维需求.# # 特色功能:# 免费海外服务器远程桌面加速,ssh加速,本地化命令输入框,支持自动补全,命令历史,自定义命令参数# # Windows版下载地址:# http:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用和错误集">
+<meta property="og:url" content="https://nobige.cn/post/20200222-linux_chang_yong_he_cuo_wu_ji/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="SSH工具1234567891011121314151617181920# FinalShell # FinalShell是一体化的的服务器,网络管理软件,不仅是ssh客户端,# 还是功能强大的开发,运维工具,充分满足开发,运维需求.# # 特色功能:# 免费海外服务器远程桌面加速,ssh加速,本地化命令输入框,支持自动补全,命令历史,自定义命令参数# # Windows版下载地址:# http:">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-linux_chang_yong_he_cuo_wu_ji/fuckqq_2020_04-03_14_00_30.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-linux_chang_yong_he_cuo_wu_ji/fuckqq_2020_04-03_14_05_54.png">
+<meta property="article:published_time" content="2020-02-22T11:53:54.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.290Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="软件">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-linux_chang_yong_he_cuo_wu_ji/fuckqq_2020_04-03_14_00_30.png">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20200222-linux_chang_yong_he_cuo_wu_ji/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20200222-linux_chang_yong_he_cuo_wu_ji/","path":"post/20200222-linux_chang_yong_he_cuo_wu_ji/","title":"linux常用和错误集"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>linux常用和错误集 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">SSH工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Aria2"><span class="nav-number">2.</span> <span class="nav-text">Aria2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lnmp%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">lnmp一键安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Screen"><span class="nav-number">4.</span> <span class="nav-text">Screen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rclone"><span class="nav-number">5.</span> <span class="nav-text">Rclone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98"><span class="nav-number">6.</span> <span class="nav-text">虚拟内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%AA%92%E4%BD%93"><span class="nav-number">7.</span> <span class="nav-text">多媒体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">8.</span> <span class="nav-text">Nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx%E9%85%8D%E7%BD%AE"><span class="nav-number">9.</span> <span class="nav-text">Nginx配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Caddy"><span class="nav-number">10.</span> <span class="nav-text">Caddy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Caddy%E9%85%8D%E7%BD%AE"><span class="nav-number">11.</span> <span class="nav-text">Caddy配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yum%E6%BA%90"><span class="nav-number">12.</span> <span class="nav-text">yum源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A5%9E%E5%A5%87%E7%9A%84%E8%84%9A%E6%9C%AC"><span class="nav-number">13.</span> <span class="nav-text">神奇的脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SELinux"><span class="nav-number">13.1.</span> <span class="nav-text">SELinux</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">14.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%9F%A5%E8%AF%A2"><span class="nav-number">14.1.</span> <span class="nav-text">端口查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88"><span class="nav-number">14.2.</span> <span class="nav-text">目录浏览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">14.3.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mount%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">14.4.</span> <span class="nav-text">mount的基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99"><span class="nav-number">14.5.</span> <span class="nav-text">防火墙</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%B5%8B%E8%AF%95%E6%96%87%E4%BB%B6"><span class="nav-number">14.6.</span> <span class="nav-text">生成测试文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF"><span class="nav-number">15.</span> <span class="nav-text">错误</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx%E7%9B%AE%E5%BD%95%E5%88%97%E8%A1%A8-403-%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA"><span class="nav-number">15.1.</span> <span class="nav-text">Nginx目录列表 403 无法显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">16.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20200222-linux_chang_yong_he_cuo_wu_ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="linux常用和错误集 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          linux常用和错误集
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-02-22 19:53:54" itemprop="dateCreated datePublished" datetime="2020-02-22T19:53:54+08:00">2020-02-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%94%99%E8%AF%AF/" itemprop="url" rel="index"><span itemprop="name">错误</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="SSH工具"><a href="#SSH工具" class="headerlink" title="SSH工具"></a>SSH工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># FinalShell </span></span><br><span class="line"><span class="comment"># FinalShell是一体化的的服务器,网络管理软件,不仅是ssh客户端,</span></span><br><span class="line"><span class="comment"># 还是功能强大的开发,运维工具,充分满足开发,运维需求.</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># 特色功能:</span></span><br><span class="line"><span class="comment"># 免费海外服务器远程桌面加速,ssh加速,本地化命令输入框,支持自动补全,命令历史,自定义命令参数</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># Windows版下载地址:</span></span><br><span class="line"><span class="comment"># http://www.hostbuf.com/downloads/finalshell_install.exe</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># macOS版下载地址:</span></span><br><span class="line"><span class="comment"># http://www.hostbuf.com/downloads/finalshell_install.pkg</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"><span class="comment"># mac版安装路径</span></span><br><span class="line"><span class="comment"># /Applications/FinalShell.app/Contents/Java/</span></span><br><span class="line"><span class="comment"># 配置文件路径</span></span><br><span class="line"><span class="comment"># /Users/$USER/Library/FinalShell/</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># xshell5</span></span><br><span class="line"><span class="comment"># https://f.tiiao.cn/soft/exe/xshell/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Aria2"><a href="#Aria2" class="headerlink" title="Aria2"></a>Aria2</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/P3TERX/aria2.sh/master/aria2.sh &amp;&amp; bash aria2.sh</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="lnmp一键安装包"><a href="#lnmp一键安装包" class="headerlink" title="lnmp一键安装包"></a>lnmp一键安装包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://soft.vpser.net/lnmp/lnmp1.7beta.tar.gz -cO lnmp1.7beta.tar.gz &amp;&amp; tar zxf lnmp1.7beta.tar.gz &amp;&amp; <span class="built_in">cd</span> lnmp1.7</span><br><span class="line"></span><br><span class="line"><span class="comment"># 无人值守参数生成 https://lnmp.org/auto.html</span></span><br><span class="line">wget http://soft.vpser.net/lnmp/lnmp1.6.tar.gz -cO lnmp1.6.tar.gz &amp;&amp; tar zxf lnmp1.6.tar.gz &amp;&amp; <span class="built_in">cd</span> lnmp1.6 &amp;&amp; LNMP_Auto=<span class="string">&quot;y&quot;</span> DBSelect=<span class="string">&quot;2&quot;</span> DB_Root_Password=<span class="string">&quot;lnmp.org&quot;</span> InstallInnodb=<span class="string">&quot;y&quot;</span> PHPSelect=<span class="string">&quot;5&quot;</span> SelectMalloc=<span class="string">&quot;1&quot;</span> ./install.sh lnmp</span><br></pre></td></tr></table></figure>
+
+<h2 id="Screen"><a href="#Screen" class="headerlink" title="Screen"></a>Screen</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#https://www.runoob.com/linux/linux-comm-screen.html</span></span><br><span class="line"><span class="comment">#Linux screen命令用于多重视窗管理程序。</span></span><br><span class="line"><span class="comment">#screen为多重视窗管理程序。此处所谓的视窗，是指一个全屏幕的文字模式画面。</span></span><br><span class="line"><span class="comment">#通常只有在使用telnet登入主机或是使用老式的终端机时，才有可能用到screen程序。</span></span><br><span class="line"><span class="comment">#语法</span></span><br><span class="line"><span class="comment">#screen [-AmRvx -ls -wipe][-d &lt;作业名称&gt;][-h &lt;行数&gt;]</span></span><br><span class="line"><span class="comment">#[-r &lt;作业名称&gt;][-s &lt;shell&gt;][-S &lt;作业名称&gt;]</span></span><br><span class="line"><span class="comment">#参数说明：</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#-A 　将所有的视窗都调整为目前终端机的大小。</span></span><br><span class="line"><span class="comment">#-d&lt;作业名称&gt; 　将指定的screen作业离线。</span></span><br><span class="line"><span class="comment">#-h&lt;行数&gt; 　指定视窗的缓冲区行数。</span></span><br><span class="line"><span class="comment">#-m 　即使目前已在作业中的screen作业，仍强制建立新的screen作业。</span></span><br><span class="line"><span class="comment">#-r&lt;作业名称&gt; 　恢复离线的screen作业。</span></span><br><span class="line"><span class="comment">#-R 　先试图恢复离线的作业。若找不到离线的作业，即建立新的screen作业。</span></span><br><span class="line"><span class="comment">#-s&lt;shell&gt; 　指定建立新视窗时，所要执行的shell。</span></span><br><span class="line"><span class="comment">#-S&lt;作业名称&gt; 　指定screen作业的名称。</span></span><br><span class="line"><span class="comment">#-v 　显示版本信息。</span></span><br><span class="line"><span class="comment">#-x 　恢复之前离线的screen作业。</span></span><br><span class="line"><span class="comment">#-ls或--list 　显示目前所有的screen作业。</span></span><br><span class="line"><span class="comment">#-wipe 　检查目前所有的screen作业，并删除已经无法使用的screen作业。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 如果提示screen: command not found 命令不存在可以执行：</span></span><br><span class="line">yum install screen </span><br><span class="line"><span class="comment">#或 apt-get install </span></span><br><span class="line"><span class="comment"># 创建</span></span><br><span class="line">screen -S t1</span><br><span class="line"><span class="comment"># 挂起，后台运行</span></span><br><span class="line">ctrl+a d</span><br><span class="line"><span class="comment"># 恢复指定窗口，后台到前台</span></span><br><span class="line">screen -r t1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Rclone"><a href="#Rclone" class="headerlink" title="Rclone"></a>Rclone</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line"><span class="comment"># 安装依赖</span></span><br><span class="line">yum install fuse fuse-devel -y</span><br><span class="line">curl https://rclone.org/install.sh | sudo bash</span><br><span class="line"><span class="comment"># 创建配置文件</span></span><br><span class="line">rclone config</span><br><span class="line"><span class="comment"># 查看配置文件路径</span></span><br><span class="line">rclone config file</span><br><span class="line"><span class="comment"># 更多操作或帮助 https://rclone.org/docs/</span></span><br><span class="line"><span class="comment"># 设置开机自启：</span></span><br><span class="line">systemctl <span class="built_in">enable</span> rclone</span><br><span class="line"><span class="comment"># 重启：</span></span><br><span class="line">systemctl restart rclone</span><br><span class="line"><span class="comment"># 停止：</span></span><br><span class="line">systemctl stop rclone</span><br><span class="line"><span class="comment"># 状态：</span></span><br><span class="line">systemctl status rclone</span><br><span class="line"><span class="comment"># 查看挂载</span></span><br><span class="line"><span class="built_in">df</span> -h</span><br><span class="line"><span class="comment"># 卸载磁盘</span></span><br><span class="line">fusermount -qzu LocalFolder</span><br><span class="line"><span class="comment"># 挂载网盘，googleDrive 为你配置文件取的名称，/test为要挂载目录，可以整个网盘/</span></span><br><span class="line"><span class="comment">#, /home/00 为本地挂载路径</span></span><br><span class="line">/usr/bin/rclone mount googleDrive:/test /home/00 \</span><br><span class="line"> --<span class="built_in">umask</span> 0000 \</span><br><span class="line"> --default-permissions \</span><br><span class="line"> --allow-non-empty \</span><br><span class="line"> --allow-other \</span><br><span class="line"> --buffer-size 32M \</span><br><span class="line"> --dir-cache-time 12h \</span><br><span class="line"> --vfs-read-chunk-size 64M \</span><br><span class="line"> --vfs-read-chunk-size-limit 1G</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意挂载的路径，如/root/test 则某些软件可能无法正确的读取！</span></span><br><span class="line"><span class="comment"># 如果出现挂载后崩溃或是软件退出，可以尝试增加虚拟内存</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="虚拟内存"><a href="#虚拟内存" class="headerlink" title="虚拟内存"></a>虚拟内存</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://www.moerats.com/archives/722/</span></span><br><span class="line"><span class="comment">#Linux VPS一键添加/删除Swap虚拟内存</span></span><br><span class="line"><span class="comment">#脚本不支持OpenVZ架构，安装会自动退出。</span></span><br><span class="line"><span class="comment">#然后根据选项进行操作，记得添加swap的时候填写纯数字，默认单位为M。</span></span><br><span class="line">wget https://www.moerats.com/usr/shell/swap.sh &amp;&amp; bash swap.sh</span><br><span class="line"></span><br><span class="line"><span class="comment">#———————————————————————————————————————</span></span><br><span class="line"><span class="comment">#Linux VPS一键添加/删除swap脚本</span></span><br><span class="line"><span class="comment">#1、添加swap</span></span><br><span class="line"><span class="comment">#2、删除swap</span></span><br><span class="line"><span class="comment">#———————————————————————————————————————</span></span><br><span class="line"><span class="comment">#请输入数字 [1-2]:1</span></span><br><span class="line"><span class="comment">#请输入需要添加的swap，建议为内存的2倍！</span></span><br><span class="line"><span class="comment">#请输入swap数值:2048</span></span><br><span class="line"><span class="comment">#swapfile未发现，正在为其创建swapfile</span></span><br><span class="line"><span class="comment">#Setting up swapspace version 1, size = 2097148 KiB</span></span><br><span class="line"><span class="comment">#no label, UUID=e556830d-aa98-41cf-b8a5-14dad33a144d</span></span><br><span class="line"><span class="comment">#swap创建成功，并查看信息：</span></span><br><span class="line"><span class="comment">#Filename                Type        Size    Used    Priority</span></span><br><span class="line"><span class="comment">#/swapfile                               file        2097148 0   -1</span></span><br><span class="line"><span class="comment">#SwapCached:            0 kB</span></span><br><span class="line"><span class="comment">#SwapTotal:       2097148 kB</span></span><br><span class="line"><span class="comment">#SwapFree:        2097148 kB</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># emby</span></span><br><span class="line"><span class="comment"># https://emby.media/linux-server.html</span></span><br><span class="line">yum install https://github.com/MediaBrowser/Emby.Releases/releases/download/4.4.0.40/emby-server-rpm_4.4.0.40_x86_64.rpm</span><br><span class="line"><span class="comment"># 安装完后打开 http://localhost:8096</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启、开启、状态、停止命令</span></span><br><span class="line">/usr/sbin/service emby-server restart</span><br><span class="line">/usr/sbin/service emby-server start</span><br><span class="line">/usr/sbin/service emby-server status</span><br><span class="line">/usr/sbin/service emby-server stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># plex</span></span><br><span class="line"><span class="comment"># https://www.plex.tv/zh/media-server-downloads/#plex-media-server</span></span><br><span class="line">yum install https://downloads.plex.tv/plex-media-server-new/1.18.9.2578-513b381af/redhat/plexmediaserver-1.18.9.2578-513b381af.x86_64.rpm</span><br><span class="line"><span class="comment">#设置Plex开机启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> plexmediaserver.service</span><br><span class="line">systemctl start plexmediaserver.service</span><br><span class="line"><span class="comment">#检查运行状态。</span></span><br><span class="line">systemctl status plexmediaserver</span><br><span class="line"><span class="comment"># 需要开放的端口</span></span><br><span class="line"><span class="comment"># TCP:32400</span></span><br><span class="line"><span class="comment"># TCP:3005</span></span><br><span class="line"><span class="comment"># TCP:8324</span></span><br><span class="line"><span class="comment"># TCP:32469</span></span><br><span class="line"><span class="comment"># UDP:1900</span></span><br><span class="line"><span class="comment"># UDP:32410</span></span><br><span class="line"><span class="comment"># UDP:32412</span></span><br><span class="line"><span class="comment"># UDP:32413</span></span><br><span class="line"><span class="comment"># UDP:32414</span></span><br><span class="line"><span class="comment"># UDP:5353</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动、停止、重启命令</span></span><br><span class="line">service plexmediaserver start</span><br><span class="line">service plexmediaserver stop</span><br><span class="line">service plexmediaserver restart</span><br><span class="line"><span class="comment"># 第一次访问需要内网打开 localhost:32400/web 完成安装的操作</span></span><br><span class="line"><span class="comment"># 可以通过Xshell或putty进行端口映射完成</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 EPEL</span></span><br><span class="line">yum install epel-release</span><br><span class="line"><span class="comment"># 安装</span></span><br><span class="line">yum install nginx</span><br><span class="line"><span class="comment"># 卸载</span></span><br><span class="line">yum remove nginx</span><br><span class="line"><span class="comment"># 启动服务</span></span><br><span class="line">sudo systemctl start nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 Nginx 的运行状态：</span></span><br><span class="line">sudo systemctl status nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查 Nginx 配置</span></span><br><span class="line">nginx -t</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> nginx</span><br><span class="line"><span class="comment"># 关闭开机启动 Nginx</span></span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止服务</span></span><br><span class="line">sudo systemctl stop nginx</span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">sudo systemctl restart nginx</span><br><span class="line"><span class="comment"># 重新加载</span></span><br><span class="line">sudo systemctl reload nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启目录浏览</span></span><br><span class="line">autoindex on;</span><br><span class="line"><span class="comment"># 默认为on，显示出文件的确切大小，单位是bytes</span></span><br><span class="line"><span class="comment"># 显示出文件的大概大小，单位是kB或者MB或者GB</span></span><br><span class="line">autoindex_exact_size off;</span><br><span class="line"><span class="comment"># 默认为off，显示的文件时间为GMT时间。</span></span><br><span class="line"><span class="comment"># 改为on后，显示的文件时间为文件的服务器时间</span></span><br><span class="line">autoindex_localtime on;</span><br><span class="line"><span class="comment"># 让浏览器不保存临时文件</span></span><br><span class="line">add_header Cache-Control no-store;</span><br><span class="line"><span class="comment"># 避免中文乱码</span></span><br><span class="line">charset utf-8,gbk;</span><br><span class="line"><span class="comment"># 希望请求文件是下载而不是显示内容</span></span><br><span class="line">add_header Content-Disposition attachment;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看 nginx 服务进程</span></span><br><span class="line">ps -ef | grep nginx </span><br><span class="line"><span class="comment"># 重新加载，因为一般重新配置之后，不希望重启服务，这时可以使用重新加载。</span></span><br><span class="line">sudo systemctl reload nginx</span><br><span class="line"></span><br><span class="line"><span class="comment">#Nginx 的配置文件和最佳实践</span></span><br><span class="line"><span class="comment">#所有相关的配置文件都在 /etc/nginx/ 目录中。</span></span><br><span class="line"><span class="comment">#Nginx 的主配置文件是 /etc/nginx/nginx.conf。</span></span><br><span class="line"><span class="comment">#为了使 Nginx 配置更易于维护，建议为每个服务（域名）创建一个单独的配置文件。</span></span><br><span class="line"><span class="comment">#每一个独立的 Nginx 服务配置文件都必须以 .conf 结尾，并存储在 /etc/nginx/conf.d 目录中。</span></span><br><span class="line"><span class="comment">#您可以根据需求，创建任意多个独立的配置文件。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#独立的配置文件，建议遵循以下命名约定，比如你的域名是 domain.com，那么你的配置文件的应该是这样的</span></span><br><span class="line"><span class="comment">#/etc/nginx/conf.d/domain.com.conf，如果你在一个服务器中部署多个服务，</span></span><br><span class="line"><span class="comment">#当然你也可以在文件名中加上 Nginx 转发的端口号，比如 domain.com.3000.conf，这样做看起来会更加友好。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#如果你的配置中有很多重复的代码，那么建议你创建一个 /etc/nginx/snippets 文件夹，</span></span><br><span class="line"><span class="comment">#在这里面存放所有会被复用的代码块，然后在各个需要用到的 Nginx 的配置文件中引用进去，</span></span><br><span class="line"><span class="comment">#这样可以更方便管理和修改。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#Nginx 日志文件（access.log 和 error.log ）位于 /var/log/nginx/ 目录中。</span></span><br><span class="line"><span class="comment">#建议为每个独立的服务配置不同的访问权限和错误日志文件，这样查找错误时，会更加方便快捷。</span></span><br><span class="line"><span class="comment">#你可以将要部署的代码文件，存储在任何你想的位置，但是一般推荐存放在下列位置中的其中一个：</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#/home/&lt;user_name&gt;/&lt;site_name&gt;</span></span><br><span class="line"><span class="comment">#/var/www/&lt;site_name&gt;</span></span><br><span class="line"><span class="comment">#/var/www/html/&lt;site_name&gt;</span></span><br><span class="line"><span class="comment">#/opt/&lt;site_name&gt;</span></span><br><span class="line"><span class="comment">#/usr/share/nginx/html</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 10808;</span><br><span class="line">        server_name us-nat.tiiao.cn us-nat.tiiao.cn;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root /var/www/main;</span><br><span class="line">            autoindex on;</span><br><span class="line">            autoindex_exact_size off;</span><br><span class="line">            autoindex_localtime on;</span><br><span class="line">            charset utf-8,gbk;</span><br><span class="line">        &#125;</span><br><span class="line">        location /d &#123;</span><br><span class="line">        	root /usr/share/nginx/html/d;</span><br><span class="line">            autoindex on;</span><br><span class="line">            autoindex_exact_size off;</span><br><span class="line">            autoindex_localtime on;</span><br><span class="line">            charset utf-8,gbk;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Caddy"><a href="#Caddy" class="headerlink" title="Caddy"></a>Caddy</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Caddy 配置文件路径：/etc/caddy/Caddyfile</span></span><br><span class="line"><span class="comment"># 启动</span></span><br><span class="line">sudo systemctl start caddy.service </span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">sudo systemctl restart caddy.service </span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">sudo systemctl stop caddy.service </span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">sudo systemctl status caddy.service</span><br><span class="line"><span class="comment"># 开机启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> caddy.service </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="Caddy配置"><a href="#Caddy配置" class="headerlink" title="Caddy配置"></a>Caddy配置</h2><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># https<span class="punctuation">:</span><span class="comment">//caddyserver.com/docs/</span></span><br><span class="line"># 配置文件路径 /etc/caddy/Caddyfile</span><br><span class="line"># 开启目录浏览，gzip</span><br><span class="line">down.nobige.cn<span class="punctuation">&#123;</span></span><br><span class="line">    root /var/www/main</span><br><span class="line">    gzip</span><br><span class="line">    browse</span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">railgun.moe <span class="punctuation">&#123;</span></span><br><span class="line">    gzip</span><br><span class="line">    log /var/log/caddy/railgun_moe.log</span><br><span class="line">    tls lengz@lengzzz.com</span><br><span class="line">    root /var/www/</span><br><span class="line">    header /api <span class="punctuation">&#123;</span></span><br><span class="line">        Access-Control-Allow-Origin  *</span><br><span class="line">        Access-Control-Allow-Methods <span class="string">&quot;GET, POST, OPTIONS&quot;</span></span><br><span class="line">        -Server</span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    fastcgi / <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="punctuation">:</span><span class="number">9000</span> php <span class="punctuation">&#123;</span></span><br><span class="line">        index index.php</span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    rewrite <span class="punctuation">&#123;</span></span><br><span class="line">        to <span class="punctuation">&#123;</span>path<span class="punctuation">&#125;</span> <span class="punctuation">&#123;</span>path<span class="punctuation">&#125;</span>/ /index.php?<span class="punctuation">&#123;</span>query<span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line">lengzzz.com <span class="punctuation">&#123;</span></span><br><span class="line">    tls lengz@lengzzz.com</span><br><span class="line">    log /var/log/caddy/lengzzz_com.log</span><br><span class="line">    redir / https<span class="punctuation">:</span><span class="comment">//railgun.moe/&#123;uri&#125; 301</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="yum源"><a href="#yum源" class="headerlink" title="yum源"></a>yum源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 备份yum源</span></span><br><span class="line"><span class="built_in">cd</span> /etc/yum.repos.d/</span><br><span class="line"><span class="built_in">mv</span> CentOS-Base.repo CentOS-Base.repo_bak</span><br><span class="line"><span class="comment"># 阿里云yum源：</span></span><br><span class="line"><span class="comment"># centos7</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># centos6</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># contos5</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-5.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 网易yum源：</span></span><br><span class="line"><span class="comment"># centos7</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS7-Base-163.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># centos6</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS6-Base-163.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># contos5</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.163.com/.help/CentOS5-Base-163.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 中科大yum源：</span></span><br><span class="line"><span class="comment"># centos7</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo https://lug.ustc.edu.cn/wiki/_export/code/mirrors/help/centos?codeblock=3</span><br><span class="line"></span><br><span class="line"><span class="comment"># centos6</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo https://lug.ustc.edu.cn/wiki/_export/code/mirrors/help/centos?codeblock=2</span><br><span class="line"></span><br><span class="line"><span class="comment"># contos5</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo https://lug.ustc.edu.cn/wiki/_export/code/mirrors/help/centos?codeblock=1</span><br><span class="line"></span><br><span class="line">epel源:</span><br><span class="line">yum -y install epel-release</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新元数据,先清除原来的元数据缓存</span></span><br><span class="line">sudo yum clean all</span><br><span class="line"><span class="comment"># 更新新的元数据缓存</span></span><br><span class="line">sudo yum makecache</span><br></pre></td></tr></table></figure>
+
+<h2 id="神奇的脚本"><a href="#神奇的脚本" class="headerlink" title="神奇的脚本"></a>神奇的脚本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://github.com/233boy/v2ray/wiki</span></span><br><span class="line">bash &lt;(curl -s -L https://git.io/v2ray.sh)</span><br><span class="line"></span><br><span class="line"><span class="comment"># https://github.com/ToyoDAdoubi/doubi</span></span><br><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; <span class="built_in">chmod</span> +x ssr.sh &amp;&amp; bash ssr.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装 4合1 bbr 锐速安装脚本</span></span><br><span class="line">wget -N --no-check-certificate <span class="string">&quot;https://raw.githubusercontent.com/ylx2016/Linux-NetSpeed/master/tcp.sh&quot;</span> &amp;&amp; <span class="built_in">chmod</span> +x tcp.sh &amp;&amp; ./tcp.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># https://github.com/wulabing/V2Ray_ws-tls_bash_onekey</span></span><br><span class="line">wget -N --no-check-certificate -q -O install.sh <span class="string">&quot;https://raw.githubusercontent.com/wulabing/V2Ray_ws-tls_bash_onekey/master/install.sh&quot;</span> &amp;&amp; <span class="built_in">chmod</span> +x install.sh &amp;&amp; bash install.sh</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 南琴浪版暴力魔改BBR一键安装脚本</span></span><br><span class="line"><span class="comment"># https://github.com/tcp-nanqinlang/wiki/wiki/general</span></span><br><span class="line"><span class="comment"># Debian版：</span></span><br><span class="line">wget --no-check-certificate https://github.com/tcp-nanqinlang/general/releases/download/3.4.2.1/tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line">bash tcp_nanqinlang-fool-1.3.0.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS版：</span></span><br><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/tcp-nanqinlang/general/master/General/CentOS/bash/tcp_nanqinlang-1.3.2.sh</span><br><span class="line">bash tcp_nanqinlang-1.3.2.sh</span><br><span class="line"><span class="comment">#根据步骤走，安装完内核后重启</span></span><br><span class="line">shutdown -r now</span><br><span class="line"><span class="comment"># 南琴浪版暴力魔改BBR一键安装脚本-end</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># https://github.com/ellermister/mtproxy</span></span><br><span class="line"><span class="built_in">mkdir</span> /home/mtproxy &amp;&amp; <span class="built_in">cd</span> /home/mtproxy</span><br><span class="line">curl -s -o mtproxy.sh https://raw.githubusercontent.com/ellermister/mtproxy/master/mtproxy.sh &amp;&amp; <span class="built_in">chmod</span> +x mtproxy.sh &amp;&amp; bash mtproxy.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 网速测试</span></span><br><span class="line"><span class="comment"># https://bench.sh/</span></span><br><span class="line"><span class="comment"># 你可以使用以下命令来查看您的 Linux 系统信息，还可以测试网络带宽及硬盘读写速率</span></span><br><span class="line">wget -qO- bench.sh | bash</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">curl -Lso- bench.sh | bash</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="SELinux"><a href="#SELinux" class="headerlink" title="SELinux"></a>SELinux</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0 <span class="comment"># 临时生效可以直接用setenforce 0 </span></span><br><span class="line">	<span class="comment"># 1 启用</span></span><br><span class="line">	<span class="comment"># 0 告警 不启用</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="端口查询"><a href="#端口查询" class="headerlink" title="端口查询"></a>端口查询</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat -ntlp   //查看当前所有tcp端口</span><br><span class="line">netstat -ntulp | grep 80   //查看所有80端口使用情况</span><br><span class="line">netstat -ntulp | grep 3306   //查看所有3306端口使用情况</span><br></pre></td></tr></table></figure>
+
+<h3 id="目录浏览"><a href="#目录浏览" class="headerlink" title="目录浏览"></a>目录浏览</h3><p><strong>nginx[宝塔]开启目录浏览模式</strong>(nginx autoindex)</p>
+<p>在网站 设置 伪静态里边设置如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">autoindex on;</span><br><span class="line">autoindex_exact_size off;</span><br><span class="line">autoindex_localtime on;</span><br><span class="line">charset utf-8,gbk;</span><br></pre></td></tr></table></figure>
+
+<h3 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a><strong>端口映射</strong></h3><p>Xshell</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-linux_chang_yong_he_cuo_wu_ji/fuckqq_2020_04-03_14_00_30.png" alt="Xshell"></p>
+<p>putty</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20200222-linux_chang_yong_he_cuo_wu_ji/fuckqq_2020_04-03_14_05_54.png" alt="putty"></p>
+<h3 id="mount的基本用法"><a href="#mount的基本用法" class="headerlink" title="mount的基本用法"></a>mount的基本用法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://wangchujiang.com/linux-command/c/mount.html</span></span><br><span class="line"><span class="comment"># mount命令 Linux mount命令是经常会使用到的命令，它用于挂载Linux系统外的文件。</span></span><br><span class="line"><span class="comment"># 格式：mount [-参数] [设备名称] [挂载点]</span></span><br><span class="line"><span class="comment"># 其中常用的参数有：</span></span><br><span class="line"><span class="comment"># -a 安装在/etc/fstab文件中类出的所有文件系统</span></span><br><span class="line"><span class="comment"># -f 伪装mount，作出检查设备和目录的样子，但并不真正挂载文件系统。</span></span><br><span class="line"><span class="comment"># -n 不把安装记录在/etc/mtab 文件中</span></span><br><span class="line"><span class="comment"># -r 讲文件系统安装为只读</span></span><br><span class="line"><span class="comment"># -v 详细显示安装信息</span></span><br><span class="line"><span class="comment"># -w 将文件系统安装为可写，为命令默认情况。</span></span><br><span class="line"><span class="comment"># -t &lt;文件系统类型&gt; 指定设备的文件系统类型</span></span><br><span class="line"><span class="comment"># msdos MS-DOS的fat，就是fat16</span></span><br><span class="line"><span class="comment"># vfat windows98常用的fat32</span></span><br><span class="line"><span class="comment"># nfs 网络文件系统</span></span><br><span class="line"><span class="comment"># iso9660 CD-ROM光盘标准文件系统</span></span><br><span class="line"><span class="comment"># ntfs windows NT/2000/XP的文件系统</span></span><br><span class="line"><span class="comment"># auto 自动检测文件系统</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 永久的开放需要的端口</span></span><br><span class="line"></span><br><span class="line">sudo firewall-cmd --zone=public --add-port=6800/tcp --permanent</span><br><span class="line">sudo firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">sudo firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 临时关闭防火墙,重启后会重新自动打开</span></span><br><span class="line">systemctl restart firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查防火墙状态</span></span><br><span class="line">firewall-cmd --state</span><br><span class="line">firewall-cmd --list-all</span><br><span class="line"></span><br><span class="line"><span class="comment"># Disable firewall</span></span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl status firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable firewall</span></span><br><span class="line">systemctl <span class="built_in">enable</span> firewalld</span><br><span class="line">systemctl start firewalld</span><br><span class="line">systemctl status firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-01-15</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.jianshu.com/p/bad33004bb4f</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="生成测试文件"><a href="#生成测试文件" class="headerlink" title="生成测试文件"></a>生成测试文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#32M</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=32M.bin bs=1M count=32 conv=fdatasync</span><br><span class="line"><span class="comment">#64M</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=64M.bin bs=1M count=64 conv=fdatasync</span><br><span class="line"><span class="comment">#128M</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=128M.bin bs=1M count=128 conv=fdatasync</span><br><span class="line"><span class="comment">#256M</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=256M.bin bs=1M count=256 conv=fdatasync</span><br><span class="line"><span class="comment">#512M</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=512M.bin bs=1M count=512 conv=fdatasync</span><br><span class="line"><span class="comment">#1GB</span></span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero of=1024M.bin bs=1M count=1024 conv=fdatasync</span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-01-18</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.runoob.com/linux/linux-comm-dd.html</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><blockquote>
+<p>-bash: wget: command not found</p>
+</blockquote>
+<p>解决:<code>yum -y install wget</code></p>
+<blockquote>
+<p>Try ‘chmod –help’ for more information.</p>
+</blockquote>
+<p>解决:<code>chmod +x xx.sh</code>或是<code>bash xx.sh</code></p>
+<blockquote>
+<p>None of the supported tools for extracting zip archives (unzip 7z busybox) were found. Please install one of them and try agai</p>
+</blockquote>
+<p>解决:<code>yum install -y unzip</code></p>
+<blockquote>
+<p>The nameserver prefix is invalid.</p>
+</blockquote>
+<p>解决:只填NS Prefix前缀，不填.com域名之类，随意填写一些任意单词字母</p>
+<blockquote>
+<p>umount 时出现的 “Device is busy”</p>
+<p>umount, 老是提示：device is busy， 服务又不能停止的。</p>
+</blockquote>
+<p>解决:用”umount -fl”解决</p>
+<blockquote>
+<p>mount error(13): Permission denied</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 原</span></span><br><span class="line">mount.cifs //192.168.123.13/dwonload /home/download/  --verbose -o username=root,password=root,iocharset=utf8,uid=0,gid=0</span><br><span class="line"><span class="comment"># 添加sec=ntlmssp</span></span><br><span class="line">mount.cifs //192.168.123.13/dwonload /home/download/  --verbose -o username=root,password=root,sec=ntlmssp,iocharset=utf8,uid=0,gid=0</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>-bash: netstat: command not found</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y net-tools</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>No package nginx available.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、备份原来的 CentOS-Base.repo</span></span><br><span class="line"><span class="built_in">mv</span> /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2、下载新的 CentOS-Base.repo 到 / etc/yum.repos.d/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">####centos 6版本</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line"> </span><br><span class="line"><span class="comment">####centos 7版本</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"> </span><br><span class="line"><span class="comment">####centos 8版本</span></span><br><span class="line">wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-8.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3、运行</span></span><br><span class="line">yum makecache</span><br><span class="line"></span><br><span class="line"><span class="comment"># 作用：就是把服务器的包信息下载到本地电脑缓存起来，makecache 建立一个缓存，以后用 install 时就在缓存中搜索，提高了速度。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4、安装 epel 源</span></span><br><span class="line"></span><br><span class="line">yum -y install epel-release </span><br><span class="line"></span><br><span class="line"><span class="comment"># 5、安装 NGINX 服务</span></span><br><span class="line"></span><br><span class="line">yum -y install nginx</span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2020-12-01</span></span><br><span class="line"><span class="comment"># 参考链接：https://blog.csdn.net/l_liangkk/article/details/105003088</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Nginx目录列表-403-无法显示"><a href="#Nginx目录列表-403-无法显示" class="headerlink" title="Nginx目录列表 403 无法显示"></a>Nginx目录列表 403 无法显示</h3><ol>
+<li>权限问题，可以尝试添加权限解决问题，即 <code>chmod -R 755 /var/www/main</code> 修改这个目录或者权限和其他目录</li>
+<li>SELinux策略问题，可以通过<code>sestatus</code>查看SELinux是否有开启，用<code>sudo setenforce 0</code>可以临时关闭SELinux模式，用<code>vim /etc/selinux/config</code>将SELINUX&#x3D;enforcing改为SELINUX&#x3D;disabled永可以永久关闭，具体详细可以Google一下，你就知道。</li>
+<li>用户权限问题，<code>vim /etc/nginx/nginx.conf</code> 修改<em>user 用户名</em>改为<em>user root</em></li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="/go.html?u=https://rclone.org/downloads/">rclone - rsync for cloud storage</a></li>
+<li><a href="/go.html?u=https://www.moerats.com/archives/722/">Linux VPS一键添加&#x2F;删除Swap虚拟内存 - Rat’s Blog</a></li>
+<li><a href="/go.html?u=https://segmentfault.com/a/1190000018109309">2019 年如何在 CentOS 7 上安装最新版 Nginx - 开发指南 - SegmentFault 思否</a></li>
+<li><a href="/go.html?u=https://juejin.im/post/5d1e1e9451882518fd49160a">CentOS修改各大yum源(centos5,centos6,centos7) - 掘金</a></li>
+<li><a href="/go.html?u=https://www.cnblogs.com/dkblog/archive/2012/07/18/2597192.html">解决 umount 时出现的 “Device is busy” - dkcndk - 博客园</a></li>
+<li><a href="/go.html?u=https://my.oschina.net/CasparLi/blog/1548154">mount.cifs出现 mount error(13): Permission denied 错误的解决 - CasparLi的个人空间 - OSCHINA</a></li>
+<li><a href="/go.html?u=https://segmentfault.com/a/1190000039420612">Nginx配置静态文件服务从入门到精通 - SegmentFault 思否</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AF%E4%BB%B6/" rel="tag"># 软件</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/" rel="prev" title="python3错误集不定时更新">
+                  <i class="fa fa-chevron-left"></i> python3错误集不定时更新
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20200222-xiao_xue_sheng_xue_xi_zi_yuan_bu_ding_qi_geng_xin/" rel="next" title="小学生学习资源不定期更新">
+                  小学生学习资源不定期更新 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

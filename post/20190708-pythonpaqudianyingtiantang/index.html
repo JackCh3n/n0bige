@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="借口​	《高清MP4吧》的链接都是磁力链接，要么就是种子，对于python调用迅雷很不友好，于是找到著名的站点《电影天堂》，电影天堂的链接都是FTP格式的而且只能用于迅雷下载，正好符合我用迅雷来下载电影的需求 ​	电影天堂比高清MP4吧多了一个APP，而且APP都是Json格式传输数据的，减少不少的代码量，但是本着学习的态度还是写了两套方案，防止某天接口被封了。抓取页面也用了两种方式，1Beau">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python爬取电影天堂">
+<meta property="og:url" content="https://nobige.cn/post/20190708-pythonpaqudianyingtiantang/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="借口​	《高清MP4吧》的链接都是磁力链接，要么就是种子，对于python调用迅雷很不友好，于是找到著名的站点《电影天堂》，电影天堂的链接都是FTP格式的而且只能用于迅雷下载，正好符合我用迅雷来下载电影的需求 ​	电影天堂比高清MP4吧多了一个APP，而且APP都是Json格式传输数据的，减少不少的代码量，但是本着学习的态度还是写了两套方案，防止某天接口被封了。抓取页面也用了两种方式，1Beau">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190708-pythonpaqudianyingtiantang/5d0b51c40a658e23d8d85ac8.png">
+<meta property="article:published_time" content="2019-07-08T06:03:04.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.266Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="api">
+<meta property="article:tag" content="迅雷">
+<meta property="article:tag" content="爬虫">
+<meta property="article:tag" content="电影">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190708-pythonpaqudianyingtiantang/5d0b51c40a658e23d8d85ac8.png">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190708-pythonpaqudianyingtiantang/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190708-pythonpaqudianyingtiantang/","path":"post/20190708-pythonpaqudianyingtiantang/","title":"python爬取电影天堂"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>python爬取电影天堂 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%80%9F%E5%8F%A3"><span class="nav-number">1.</span> <span class="nav-text">借口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">2.</span> <span class="nav-text">Python</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#API"><span class="nav-number">3.</span> <span class="nav-text">API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">4.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190708-pythonpaqudianyingtiantang/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="python爬取电影天堂 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          python爬取电影天堂
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-08 14:03:04" itemprop="dateCreated datePublished" datetime="2019-07-08T14:03:04+08:00">2019-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190708-pythonpaqudianyingtiantang/5d0b51c40a658e23d8d85ac8.png" alt="python"></p>
+<h2 id="借口"><a href="#借口" class="headerlink" title="借口"></a>借口</h2><p>​	《高清MP4吧》的链接都是磁力链接，要么就是种子，对于python调用迅雷很不友好，于是找到著名的站点《电影天堂》，电影天堂的链接都是FTP格式的而且只能用于迅雷下载，正好符合我用迅雷来下载电影的需求</p>
+<p>​	<del>电影天堂比高清MP4吧多了一个APP，而且APP都是Json格式传输数据的，减少不少的代码量，但是本着学习的态度还是写了两套方案，防止某天接口被封了。抓取页面也用了两种方式，1BeautifulSoup，2正则<em>（写的一手烂正则）</em></del>能力有限未能破解x-header-request-key 的生成规则</p>
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding:gb18030-*-</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="comment">#获取电影列表</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_page</span>(<span class="params">url,movie_list</span>):</span><br><span class="line">    headers = &#123;<span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36&#x27;</span>&#125;</span><br><span class="line">    html = requests.get(url,headers=headers)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        html.encoding = <span class="string">&#x27;gb18030&#x27;</span></span><br><span class="line">        bsObj = BeautifulSoup(html.text,<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> bsObj.find_all(<span class="string">&#x27;a&#x27;</span>,&#123;<span class="string">&#x27;class&#x27;</span>:<span class="string">&#x27;ulink&#x27;</span>&#125;):</span><br><span class="line">            <span class="built_in">print</span>(i.get_text())</span><br><span class="line">            link = html_de_link(<span class="string">&#x27;https://www.ygdy8.net&#x27;</span>+i.attrs[<span class="string">&#x27;href&#x27;</span>])</span><br><span class="line">            <span class="comment"># print(&#x27;https://www.ygdy8.net&#x27;+i.attrs[&#x27;href&#x27;])</span></span><br><span class="line">            <span class="keyword">if</span> link:</span><br><span class="line">                movie_list.append(&#123;i.get_text():link&#125;)</span><br><span class="line">    <span class="keyword">except</span> ArithmeticError <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"><span class="comment">#获取电影下载链接</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">html_de_link</span>(<span class="params">url</span>):</span><br><span class="line">    headers = &#123;<span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36&#x27;</span>&#125;</span><br><span class="line">    html = requests.get(url,headers=headers)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        html.encoding = <span class="string">&#x27;gb18030&#x27;</span></span><br><span class="line">        bsObj = BeautifulSoup(html.text,<span class="string">&#x27;lxml&#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> bsObj.title:</span><br><span class="line">            <span class="keyword">return</span> bsObj.find(<span class="string">&#x27;td&#x27;</span>,&#123;<span class="string">&#x27;style&#x27;</span>:<span class="string">&#x27;WORD-WRAP: break-word&#x27;</span>&#125;).a.attrs[<span class="string">&#x27;href&#x27;</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">except</span> ArithmeticError <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line"><span class="comment">#用正则匹配</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">html_de_link_regex</span>(<span class="params">url</span>):</span><br><span class="line">    headers = &#123;<span class="string">&#x27;user-agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36&#x27;</span>&#125;</span><br><span class="line">    html = requests.get(url,headers=headers)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        html.encoding = <span class="string">&#x27;gb18030&#x27;</span></span><br><span class="line">        pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;ftp+://[^s]*(avi|rmvb|mp4|mov|flv|wmv|mkv)&#x27;</span>)</span><br><span class="line">        <span class="comment"># url = pattern.search(html.text).group(0)</span></span><br><span class="line">        <span class="built_in">print</span>(pattern.search(html.text).group())</span><br><span class="line">    <span class="keyword">except</span> ArithmeticError <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line"><span class="comment"># get_page(&#x27;https://www.ygdy8.net/html/gndy/dyzz/list_23_1.html&#x27;)</span></span><br><span class="line"><span class="comment"># pattern = re.compile(r&#x27;ftp+://[^s]*(avi|mpeg|rmvb|mp4|mov|flv|wmv|mkv)&#x27;)</span></span><br><span class="line"><span class="comment"># str = &#x27;&#x27;</span></span><br><span class="line"><span class="comment"># print(pattern.search(str))</span></span><br><span class="line"><span class="comment"># html_de_link(&#x27;https://www.ygdy8.net/html/gndy/dyzz/20190702/58768.html&#x27;)</span></span><br><span class="line"><span class="comment"># html_de_link_regex(&#x27;https://www.ygdy8.net/html/gndy/dyzz/20190702/58768.html&#x27;)</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    movie_list=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">2</span>):</span><br><span class="line">        get_page(<span class="string">&#x27;https://www.ygdy8.net/html/gndy/dyzz/list_23_&#x27;</span>+<span class="built_in">str</span>(i)+<span class="string">&#x27;.html&#x27;</span>,movie_list)</span><br><span class="line">    <span class="built_in">print</span>(movie_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><p><strong>电影列表</strong></p>
+<p>URL <code>http://m.dydytt.net:8080/adminapi/api/movieList.json?categoryId=9&amp;page=1&amp;searchContent=</code></p>
+<ul>
+<li><p>page - 页面</p>
+</li>
+<li><p>categoryId - 分类</p>
+</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">categoryDtoList<span class="string">&quot;: [&#123;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>最新电影<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 10,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>综合电影<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 1,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>华语电影<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 2,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>欧美电影<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 3,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>日韩电影<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 4,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>华语电视<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 5,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>欧美电视<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 6,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>日韩电视<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 7,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>综艺<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;, &#123;</span></span><br><span class="line"><span class="string">		&quot;</span>id<span class="string">&quot;: 8,</span></span><br><span class="line"><span class="string">		&quot;</span>name<span class="string">&quot;: &quot;</span>动漫<span class="string">&quot;</span></span><br><span class="line"><span class="string">	&#125;]</span></span><br></pre></td></tr></table></figure>
+
+<p>请求头</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /adminapi/api/movieList.json?categoryId=9&amp;page=1&amp;searchContent= HTTP/1.1</span><br><span class="line">x-header-request-timestamp: 1562565140</span><br><span class="line">x-header-request-imei: </span><br><span class="line">x-header-request-key: 68134c60606fa1677e43b080aced00c8</span><br><span class="line">Host: m.dydytt.net:8080</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">User-Agent: okhttp/3.8.0</span><br><span class="line">Connection: keep-alive</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;total&quot;</span><span class="punctuation">:</span> <span class="number">3000</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;rows&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24304</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年科幻战争《狼之歌》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-05&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24305</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2018年高分获奖《大象席地而坐》BD国语中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-05&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24303</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2018年高分获奖《恐怖分子的孩子》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-04&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24302</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年剧情音乐《少年追梦情》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-04&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24288</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年动作《恶人传》BD韩语中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-02&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24287</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年剧情传记《最佳敌人》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-02&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24286</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年战争剧情《余波/敌人妻》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-01&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24281</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年科幻动作《阿丽塔：战斗天使》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-30&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24279</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年动作《夏福特/杀戮战警2》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-29&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24278</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年喜剧动作《如珠如宝的人生》HD国粤双语中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-29&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24276</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年悬疑动作《反贪风暴4》BD国粤中英双字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-28&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24274</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年奇幻动作《雷霆沙赞！》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-27&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24273</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年剧情《野马》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-27&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24272</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年剧情爱情《之后》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-27&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24268</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年惊悚恐怖《宠物坟场》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-26&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24271</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2017年动作战争《怒战狂心》BD俄语中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-26&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24267</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年剧情《蜂鸟计划》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-24&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">22870</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2017年剧情爱情《昼颜电影版》BD国日双语中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-24&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24262</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2018年悬疑剧情《一个母亲的复仇》BD中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-22&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24261</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2018年悬疑剧情《完美的他人》BD韩语中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-22&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24256</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年惊悚《极端邪恶/极恶人魔》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-21&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24252</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年奇幻冒险《小飞象》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-20&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24246</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年动作喜剧《谋杀疑云》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-17&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24238</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2018年剧情冒险《米娅和白狮》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-16&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24237</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年科幻惊悚《惊天复制》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-16&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24234</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年悬疑惊悚《教授与疯子》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-15&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24233</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2018年奇幻喜剧《这个男人来自疯狂世界》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-15&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24231</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年悬疑动作《雪暴》HD国语中英双字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-14&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24230</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2018年获奖剧情《逆流大叔》BD国粤双语中字&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-14&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24226</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年高分剧情爱情《五尺天涯》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-06-12&quot;</span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>电影信息</strong></p>
+<p>URL <code>http://m.dydytt.net:8080/adminapi/api/movieDetail.json?categoryId=9&amp;movieDetailId=24304</code></p>
+<ul>
+<li>categoryId - 分类</li>
+<li>movieDetailId - 电影ID</li>
+</ul>
+<p>请求头</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">GET /adminapi/api/movieDetail.json?categoryId=9&amp;movieDetailId=24304 HTTP/1.1</span><br><span class="line">x-header-request-timestamp: 1562565148</span><br><span class="line">x-header-request-imei: </span><br><span class="line">x-header-request-key: 476324e92fbd9fe590f36ecabc1ebde7</span><br><span class="line">Host: m.dydytt.net:8080</span><br><span class="line">Accept-Encoding: gzip</span><br><span class="line">User-Agent: okhttp/3.8.0</span><br><span class="line">Connection: keep-alive</span><br></pre></td></tr></table></figure>
+
+<p>返回</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="number">24304</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;categoryId&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019年科幻战争《狼之歌》BD中英双字幕&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;publishTime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2019-07-05&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;homePicUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://extraimage.net/images/2019/07/05/3fab8a0e36ef4c074b299dfa2dec60de.jpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;content&quot;</span><span class="punctuation">:</span> <span class="string">&quot;◎译　　名　狼之歌\r\n◎片　　名　Le chant du loup / The Song of the Wolf / The Wolf&#x27;s Call\r\n◎年　　代　2019\r\n◎产　　地　法国\r\n◎类　　别　战争/灾难/科幻\r\n◎语　　言　法语\r\n◎字　　幕　中英双字幕\r\n◎上映日期　2019-02-20(法国)\r\n◎IMDb评分  7.2/10 from 2861 users\r\n◎豆瓣评分　7.1/10 from 106 users\r\n◎文件格式　x264 + aac\r\n◎视频尺寸　1280 x 720\r\n◎文件大小　1CD\r\n◎导　　演　Antonin Baudry\r\n◎编　　剧　Antonin Baudry\r\n◎主　　演　弗朗索瓦·西维尔 François Civil\r\n　　　　　　奥玛·希 Omar Sy\r\n　　　　　　马修·卡索维茨 Mathieu Kassovitz\r\n　　　　　　勒达·卡代布 Reda Kateb\r\n　　　　　　葆拉·贝尔 Paula Beer\r\n\r\n◎标　　签　战争 | 法国 | 潜艇 | 法国电影 | 2019 | 电影 | 科幻 | 剧情\r\n\r\n◎简　　介  \r\n\r\n　　一个年轻人有一种罕见的礼物，可以识别他听到的每一个声音。在一艘法国核潜艇上，一切都依赖于他，金耳朵。\r\n看上去绝对可靠，他犯了一个错误，让船员处于死亡的危险之中。他希望重新获得同志的信任，但他的追求会让他们陷入更加戏剧化的境地。\r\n在核威慑和错误信息的世界中，他们发现自己被困在一个无法控制的装备中。&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;pics&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://lookimg.com/images/2019/07/05/N79so.jpg&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;downloadUrl&quot;</span><span class="punctuation">:</span> <span class="string">&quot;magnet:?xt=urn:btih:892ca4995b3da5107bcacd4ed3af31e30b6ca04f&amp;dn=%e9%98%b3%e5%85%89%e7%94%b5%e5%bd%b1www.ygdy8.com.%e7%8b%bc%e4%b9%8b%e6%ad%8c.BD.720p.%e4%b8%ad%e8%8b%b1%e5%8f%8c%e5%ad%97%e5%b9%95.mkv&amp;tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&amp;tr=udp%3a%2f%2fexplodie.org%3a6969%2fannounce&amp;tr=udp%3a%2f%2fcarapax.net%3a6969%2fannounce;ftp://ygdy8:ygdy8@yg72.dydytt.net:8370/阳光电影www.ygdy8.com.狼之歌.BD.720p.中英双字幕.mkv;&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2019</span>年动作《恶人传》BD韩语中字</span><br><span class="line"><span class="number">2019</span>年剧情传记《最佳敌人》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年战争剧情《余波/敌人妻》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年科幻动作《阿丽塔：战斗天使》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年动作《夏福特/杀戮战警<span class="number">2</span>》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年喜剧动作《如珠如宝的人生》HD国粤双语中字</span><br><span class="line"><span class="number">2019</span>年悬疑动作《反贪风暴<span class="number">4</span>》BD国粤中英双字</span><br><span class="line"><span class="number">2019</span>年奇幻动作《雷霆沙赞！》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年剧情《野马》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年剧情爱情《之后》BD中英双字幕</span><br><span class="line"><span class="number">2017</span>年动作战争《怒战狂心》BD俄语中字</span><br><span class="line"><span class="number">2019</span>年惊悚恐怖《宠物坟场》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年剧情《蜂鸟计划》BD中英双字幕</span><br><span class="line"><span class="number">2018</span>年悬疑剧情《一个母亲的复仇》BD中字</span><br><span class="line"><span class="number">2018</span>年悬疑剧情《完美的他人》BD韩语中字</span><br><span class="line"><span class="number">2019</span>年惊悚《极端邪恶/极恶人魔》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年奇幻冒险《小飞象》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年动作喜剧《谋杀疑云》BD中英双字幕</span><br><span class="line"><span class="number">2018</span>年剧情冒险《米娅和白狮》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年科幻惊悚《惊天复制》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年悬疑惊悚《教授与疯子》BD中英双字幕</span><br><span class="line"><span class="number">2018</span>年奇幻喜剧《这个男人来自疯狂世界》BD中英双字幕</span><br><span class="line"><span class="number">2019</span>年悬疑动作《雪暴》HD国语中英双字</span><br><span class="line"><span class="number">2018</span>年获奖剧情《逆流大叔》BD国粤双语中字</span><br><span class="line"><span class="number">2019</span>年高分剧情爱情《五尺天涯》BD中英双字幕</span><br><span class="line">[[<span class="string">&#x27;2019年动作《恶人传》BD韩语中字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8469/阳光电影www.ygdy8.com.恶人传.BD.720p.韩语中字.mkv&#x27;</span>], [<span class="string">&#x27;2019年剧情传记《最佳敌人》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:7469/阳光电影www.ygdy8.com.最佳敌人.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年战争剧情《余波/敌人妻》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg90.dydytt.net:8565/阳光电影www.ygdy8.com.余波.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年科幻动作《阿丽塔：战斗天使》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:5053/阳光电影www.ygdy8.com.阿丽塔：战斗天使.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年动作《夏福特/杀戮战警2》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8467/阳光电影www.ygdy8.com.夏福特.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年喜剧动作《如珠如宝的人生》HD国粤双语中字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:7467/阳光电影www.ygdy8.com.如珠如宝的人生.HD.720p.国粤双语中字.mkv&#x27;</span>], [<span class="string">&#x27;2019年悬疑动作《反贪风暴4》BD国粤中英双字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:6172/阳光电影www.ygdy8.com.反贪风暴4.BD.720p.国粤双语中字.mkv&#x27;</span>], [<span class="string">&#x27;2019年奇幻动作《雷霆沙赞！》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8466/阳光电影www.ygdy8.com.雷霆沙赞！.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年剧情《野马》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:7466/阳光电影www.ygdy8.com.野马.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年剧情爱情《之后》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg90.dydytt.net:8561/阳光电影www.ygdy8.com.之后.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2017年动作战争《怒战狂心》BD俄语中字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg90.dydytt.net:8560/阳光电影www.ygdy8.com.怒战狂心.BD.720p.俄语中字.mkv&#x27;</span>], [<span class="string">&#x27;2019年惊悚恐怖《宠物坟场》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:3217/阳光电影www.ygdy8.com.宠物坟场.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年剧情《蜂鸟计划》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:4201/阳光电影www.ygdy8.com.蜂鸟计划.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2018年悬疑剧情《一个母亲的复仇》BD中字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8464/阳光电影www.ygdy8.com.一个母亲的复仇.BD.720p.印地语中字.mkv&#x27;</span>], [<span class="string">&#x27;2018年悬疑剧情《完美的他人》BD韩语中字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:7464/阳光电影www.ygdy8.com.完美的他人.BD.720p.韩语中字.mkv&#x27;</span>], [<span class="string">&#x27;2019年惊悚《极端邪恶/极恶人魔》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8463/阳光电影www.ygdy8.com.极端邪恶.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年奇幻冒险《小飞象》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8462/阳光电影www.ygdy8.com.小飞象.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年动作喜剧《谋杀疑云》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg72.dydytt.net:8367/阳光电影www.ygdy8.com.谋杀疑云.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2018年剧情冒险《米娅和白狮》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg90.dydytt.net:8556/阳光电影www.ygdy8.com.米娅和白狮.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年科幻惊悚《惊天复制》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8460/阳光电影www.ygdy8.com.惊天复制.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年悬疑惊悚《教授与疯子》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:8459/阳光电影www.ygdy8.com.教授与疯子.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2018年奇幻喜剧《这个男人来自疯狂世界》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg90.dydytt.net:8555/阳光电影www.ygdy8.com.这个男人来自疯狂世界.BD.720p.中英双字幕.mkv&#x27;</span>], [<span class="string">&#x27;2019年悬疑动作《雪暴》HD国语中英双字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:4135/阳光电影www.ygdy8.com.雪暴.HD.720p.国语中英双字.mkv&#x27;</span>], [<span class="string">&#x27;2018年获奖剧情《逆流大叔》BD国粤双语中字&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg90.dydytt.net:8554/阳光电影www.ygdy8.com.逆流大叔.BD.720p.国粤双语中字.mkv&#x27;</span>], [<span class="string">&#x27;2019年高分剧情爱情《五尺天涯》BD中英双字幕&#x27;</span>, <span class="string">&#x27;ftp://ygdy8:ygdy8@yg45.dydytt.net:3215/阳光电影www.ygdy8.com.五尺天涯.BD.720p.中英双字幕.mkv&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<li>urlopen在获取页面的时候发现只能获取部分的html源码，暂不知是什么问题，换成requests解决问题</li>
+<li>乱码，用了requests后发现乱码，用requests.encoding指定编码解决问题</li>
+<li>正则本地测试没有问题，网页获取后就变成这样，暂时不会解（正则没有写好的原因）<ol>
+<li><code>ftp://ygdy8:ygdy8@yg45.dydytt.net:8469/阳光电影www.ygdy8.com.恶人传.BD.720p.韩语中字.mkv&quot;&gt;ftp://ygdy8:ygdy8@yg45.dydytt.net:8469/阳光电影www.ygdy8.com.恶人传.BD.720p.韩语中字.mkv</code></li>
+</ol>
+</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="/go.html?u=https://2.python-requests.org//zh_CN/latest/user/quickstart.html#id3">快速上手 — Requests 2.18.1 文档</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/api/" rel="tag"># api</a>
+              <a href="/tags/%E8%BF%85%E9%9B%B7/" rel="tag"># 迅雷</a>
+              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
+              <a href="/tags/%E7%94%B5%E5%BD%B1/" rel="tag"># 电影</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190707-pythontiaoyongxunleixiazai/" rel="prev" title="python调用迅雷下载">
+                  <i class="fa fa-chevron-left"></i> python调用迅雷下载
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190718-pythonpaquaomendiyiduchangzanzhushipinwangzhan/" rel="next" title="python爬取澳门第一赌场赞助视频网站">
+                  python爬取澳门第一赌场赞助视频网站 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

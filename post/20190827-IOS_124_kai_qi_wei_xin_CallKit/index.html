@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="什么是CallKit？​	显示应用程序VoIP服务的系统调用UI，并与其他应用程序和系统协调您的呼叫服务。 人话：在iphone上，别人和你语音就像是给你打电话一样，不用点开软件就可以接听。 锁屏下Callkit通话  未锁屏下Callkit通话  发展​	CallKit是在IOS 10上发布的，CallKit在国内发展也是一波三折，比较出名而且现在还能用的便是微信了。先是在2017年12月11">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS12.4开启微信CallKit">
+<meta property="og:url" content="https://nobige.cn/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="什么是CallKit？​	显示应用程序VoIP服务的系统调用UI，并与其他应用程序和系统协调您的呼叫服务。 人话：在iphone上，别人和你语音就像是给你打电话一样，不用点开软件就可以接听。 锁屏下Callkit通话  未锁屏下Callkit通话  发展​	CallKit是在IOS 10上发布的，CallKit在国内发展也是一波三折，比较出名而且现在还能用的便是微信了。先是在2017年12月11">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/pascal-meier-QU6B63EDfD0-unsplash.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/E84A7870-3AF7-4F48-A148-7A5D1AABA780.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/AC912393-0012-4F2C-A355-708F5590453F.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/xiao_20190827023307.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/918DEC79-4A79-4382-8209-316465D0BC45.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/A3E904BB-F4C2-48C3-8E2F-F99B20518D9C.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/E70735D0-F4D2-455A-A3E0-79C0B6F85533.png">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-1.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-2.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-3.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-4.jpg">
+<meta property="article:published_time" content="2019-08-27T05:44:12.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.274Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="微信">
+<meta property="article:tag" content="callkit">
+<meta property="article:tag" content="越狱">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/pascal-meier-QU6B63EDfD0-unsplash.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/","path":"post/20190827-IOS_124_kai_qi_wei_xin_CallKit/","title":"IOS12.4开启微信CallKit"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>IOS12.4开启微信CallKit | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCallKit%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是CallKit？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95"><span class="nav-number">2.</span> <span class="nav-text">发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%90%AF"><span class="nav-number">3.</span> <span class="nav-text">开启</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%B6%8A%E7%8B%B1"><span class="nav-number">3.1.</span> <span class="nav-text">1.越狱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%97%A7%E7%89%88%E6%9C%ACAPP"><span class="nav-number">3.2.</span> <span class="nav-text">2.旧版本APP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9B%BD%E5%A4%96%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E6%B3%A8%E5%86%8C%E6%96%B0%E7%9A%84%E5%BE%AE%E4%BF%A1%EF%BC%88%E6%9C%AA%E6%B5%8B%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">3.国外手机号码注册新的微信（未测）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E7%82%B9%E4%B8%8E%E4%B8%8D%E8%B6%B3"><span class="nav-number">4.</span> <span class="nav-text">优点与不足</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="IOS12.4开启微信CallKit | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IOS12.4开启微信CallKit
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-27 13:44:12" itemprop="dateCreated datePublished" datetime="2019-08-27T13:44:12+08:00">2019-08-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/iphone/" itemprop="url" rel="index"><span itemprop="name">iphone</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/pascal-meier-QU6B63EDfD0-unsplash.jpg" alt="Rechtswissenschaftliches Institut UZH"></p>
+<h2 id="什么是CallKit？"><a href="#什么是CallKit？" class="headerlink" title="什么是CallKit？"></a>什么是CallKit？</h2><p>​	显示应用程序VoIP服务的系统调用UI，并与其他应用程序和系统协调您的呼叫服务。</p>
+<p>人话：在iphone上，别人和你语音就像是给你打电话一样，不用点开软件就可以接听。</p>
+<p>锁屏下Callkit通话</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/E84A7870-3AF7-4F48-A148-7A5D1AABA780.png" alt="锁屏下Callkit"></p>
+<p>未锁屏下Callkit通话</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/AC912393-0012-4F2C-A355-708F5590453F.png" alt="未锁屏下Callkit"></p>
+<h2 id="发展"><a href="#发展" class="headerlink" title="发展"></a>发展</h2><p>​	CallKit是在IOS 10上发布的，CallKit在国内发展也是一波三折，比较出名而且现在还能用的便是微信了。先是在2017年12月11日上架CallKit版本，之后遭到工信部的叫停。最后在2018年1月31日删除了CallKit的相关框架。现在大陆用户能用CallKit的旧版本也就只有6.6.0和6.6.1，港澳台用户好像不受限制。</p>
+<h2 id="开启"><a href="#开启" class="headerlink" title="开启"></a>开启</h2><p>现在都2019年快9月了，还有什么方法开通微信的CallKit？</p>
+<p>​	博主经过一个晚上的折腾算是找到了两条可行的道路。</p>
+<span id="more"></span>
+
+<h3 id="1-越狱"><a href="#1-越狱" class="headerlink" title="1.越狱"></a>1.越狱</h3><ul>
+<li>博主设备: iphone7 </li>
+<li>博主IOS: 12.4</li>
+<li>越狱软件: unc0ver <ul>
+<li>CPU支持：A8X~A11的</li>
+<li>iOS支持:11.0 - 12.4</li>
+</ul>
+</li>
+</ul>
+<p>保险起见，用爱思助手对进行备份操作。然后在刷机越狱中选择对应的版本，如我的是<code>IOS11.4~12.4</code></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/xiao_20190827023307.png" alt="爱思助手越狱"></p>
+<p>当然爱思助手只是安装越狱软件unc0ver，你也可以到官网下载ipa文件然后用Itunes或者爱思助手进行安装</p>
+<p>之后的步骤为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">越狱未完成，请在设备上继续进行以下操作：</span><br><span class="line">1、在设备上依次进入“设置 - 通用 - 设备管理”。</span><br><span class="line">2、依次点击“vti5b929yubh5xbn_3... - 信任vti5b929yubh5xbn_3... - 信任”（设备须保持联网状态）。</span><br><span class="line">3、安装 屏蔽iOS更新 。</span><br><span class="line">4、运行设备上的 unc0ver 应用。</span><br><span class="line">5、点击 unc0ver 应用上的 Jailbreak 按钮，</span><br><span class="line">6、点击 unc0ver 应用上的 OK 按钮，等待设备自行重启。</span><br><span class="line">7、重启完成后，设备桌面如果生成 Cydia 图标则越狱成功，否则请重新执行4、5步骤。</span><br><span class="line">这是不完美越狱，若设备重启，则会恢复到未越狱状态，已装的越狱应用会闪退请按以下方法进行修复：</span><br><span class="line">1、运行设备上的 unc0ver 应用。</span><br><span class="line">2、点击 unc0ver 应用上的 Re-Jailbreak 按钮，等待设备自行重启。</span><br></pre></td></tr></table></figure>
+
+<p>越狱成功后桌面会出现Cydia，但是首次打开Cydia会有“Host Unreachable”无法联网的现象。</p>
+<p>可以在爱思助手中下载安装【乐网】然后开启“全局拦截”，或者通过AppStore 下载【iCareFone】也是可以达到相同的效果</p>
+<p>正常连接网络后，安装插件“Netflix Cydia 联网修正”也可以修正该问题，以此替代乐网的全局拦截功能。之后便不用开启乐网了。</p>
+<p><strong>软件源</strong></p>
+<p>这里放两个博主用过的源<em>（好与坏自测）</em></p>
+<p>​	源的添加，Cydia&#x3D;&#x3D;》软件源&#x3D;&#x3D;》编辑&#x3D;&#x3D;》左上角添加&#x3D;&#x3D;》输入源地址&#x3D;&#x3D;》添加源</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/918DEC79-4A79-4382-8209-316465D0BC45.png" alt="源的添加"></p>
+<ul>
+<li>雷锋源地址 <a href="/go.html?u=http://apt.abcydia.com">http://apt.abcydia.com</a></li>
+<li>多米诺骨牌软件源<a href="/go.html?u=https://apt.wxhbts.com/">https://apt.wxhbts.com</a></li>
+</ul>
+<p>之后在搜索中搜索【微信 Callkit 通话功能<em>（多米诺骨牌软件源</em>）】或者【微信助手<em>（多米诺骨牌软件源）</em>】</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/A3E904BB-F4C2-48C3-8E2F-F99B20518D9C.png" alt="微信助手菜单"></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/E70735D0-F4D2-455A-A3E0-79C0B6F85533.png" alt="微信助手常用功能"></p>
+<p>在IOS12.4中均可开启微信Callkit，即使是开启了省电模式或者关闭了后台应用刷新也是可以的（不给微信开启通知权限也可以）</p>
+<p>这里推荐一个【GestureX 手势插件<em>（多米诺骨牌软件源）</em>】可以开启Iphone X的手势插件，手势真牛逼都有一种想换X的冲动了，其他插件自测。</p>
+<p><strong>越狱问题</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">2.Cydia 商店打开闪退。</span><br><span class="line">遇到这种情况需要打开 unc0ver 点击“Jailbreak”按钮再次越狱；如果多次越狱后仍然无法打开，可以进入 unc0ver 的 Settings 选项，打开 Reinstall Cydia 关闭 Reinstall System Daemons，然后再次点击“Jailbreak”越狱，自动注销并重启后即可解决。</span><br><span class="line"></span><br><span class="line">3.本次越狱是完美越狱吗?</span><br><span class="line">本次越狱依旧不是完美越狱，也就是说成功越狱后重启 iPhone，需要再次使用工具引导越狱。</span><br><span class="line"></span><br><span class="line">4.本次越狱稳定吗?</span><br><span class="line">相比于 RootlessJB 半越狱来说比较稳定， unc0ver 越狱成功率也更高。</span><br><span class="line"></span><br><span class="line">5.越狱后还可以升级系统吗？</span><br><span class="line">越狱后还可以升级系统，但是不要使用“还原”功能；连接爱思助手一键刷机即可。</span><br><span class="line"></span><br><span class="line">6.越狱后影响保修吗？</span><br><span class="line">越狱状态下的 iPhone 可能会被拒绝保修，使用爱思助手重新刷机后可以去除越狱环境，恢复正常后可以继续享受保修。</span><br><span class="line"></span><br><span class="line">7.本次越狱会不安全吗？</span><br><span class="line">越狱是通过 iOS 现有的漏洞进行沙盒逃逸，沙盒是指 iOS 基于安全机制特别规划出一块独立的区域，让指定程序只在这个被隔离的区域中运行、读写信息等。</span><br><span class="line">但这并不代表任意 App 获得 root 权限后就会被放开访问权限，也不代表隐私会曝光，越狱后在 iOS 上发现的漏洞或 BUG，越狱开发者也会在第一时间发布修补漏洞，所以越狱后的不安全绝大部分来自用户滥装来历不明的应用和插件。</span><br><span class="line">因此不要安装来历不明的插件，并在爱思助手上安装软件。</span><br><span class="line"></span><br><span class="line">8.越狱或者关机过程中遇到无限“白圈”怎么办？</span><br><span class="line">强制重启，重新越狱或者强制重启后可以尝试在 unc0ver 的 Setting 选项中关闭 Increase Memory Limit 和 Reload System Daemons 后再越狱。</span><br><span class="line"></span><br><span class="line">9.降级到 iOS 12.1.1 Beta 3 有系统更新弹窗如何解决？</span><br><span class="line">越狱后安装“NoBetaAlert”等插件即可屏蔽。</span><br><span class="line"></span><br><span class="line">10. iPhone XS/MAX/XR 可以越狱吗？</span><br><span class="line">目前仅支持 A8X - A11 处理器的设备，其他设备之后会支持，当前工具暂时无法在 iPhone XS/MAX/XR 上实现越狱。</span><br><span class="line"># 爱思助手发布【iOS 12 越狱后 Cydia 无法联网、闪退等问题汇总】</span><br></pre></td></tr></table></figure>
+
+<p><strong>退出，关闭，取消，移除Unc0ver越狱工具</strong></p>
+<p>​	越狱后手机可以变得很强大，但一重启就没了，还要折腾这些那些，就像是大变安卓一般失去了那种懒人的优势，若是喜欢折腾还不如买安卓手机。于是博主在试完后便将越狱给删了。</p>
+<p>1.开启Unc0ver越狱工具，点击右上角齿轮切换至<code>Settings</code>设定页面，将<code>Restore RootFS</code>和<code>Refresh Cydia Cache</code>这两个功能开启。</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-1.jpg" alt="how-to-remove-unc0ver"></p>
+<p>2.切回<code>Jailbreak</code>越狱页面，点选<code>Jailbreak</code>或<code>Re-Jailbreak</code>开始越狱。</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-2.jpg" alt="how-to-remove-unc0ver"></p>
+<p>3.此时，越狱工具会如同以往一样先跑越狱过程，然后会跳出<code>RootFS has been successfully restored.</code>意思为<code>RootFS</code> 已经恢复成功，点击<code>OK</code>继续。</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-3.jpg" alt="how-to-remove-unc0ver"></p>
+<p>4.接下来过程只要等待即可，完成后，就会看见<code>Will restore RootFS. This may take a while. Don&#39;t exit the app and don&#39;t let the device lock.</code>讯息，意思为<code>将会开始恢复RootFS。可能还要等一下。先不要退出App，也不要让设备锁定</code>，点选OK会开始跑完，设备跑完后就会自动重开机一次。</p>
+<p>回到iOS 环境后，系统上就不会有相关越狱档案，删除Unc0ver 越狱工具已经成功。</p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/how-to-remove-unc0ver-0730-4.jpg" alt="how-to-remove-unc0ver"></p>
+<p><strong>Cydia 图案还存在？</strong></p>
+<p>​	如果还发现到Cydia 图示还存在桌面上，那并不用担心，实际上Cydia 已经被删除，只是Cydia 的图示快取还没有被清除，才会导致图示还能看见，这问题最主要是由于Unc0ver 越狱的Bug 上，没有顺便清除Cydia 的图示快取而导致，要解决此问题，可以使用【爱思助手-工具箱-删除顽固图标】尝试一下或者参考《<a href="/go.html?u=https://mrmad.com.tw/unc0ver-jailbreak-cydia-uicache">解决移除unc0ver 越狱后，无法清除Cydia App 图示暂存方法</a>》</p>
+<h3 id="2-旧版本APP"><a href="#2-旧版本APP" class="headerlink" title="2.旧版本APP"></a>2.旧版本APP</h3><p>​	微信6.6.1版 ID:<code>825429952</code> 有小程序下拉，无账号切换</p>
+<p>​	微信6.6.0版 ID:<code>825229845</code> 无小程序下拉，无账号切换</p>
+<p>ID的使用方法《<a target="_blank" rel="noopener" href="https://www.nobige.cn/post/20190826-2019_IOS_jiu_ban_ben_ying_yong_APP_xia_zai/">2019IOS旧版本应用APP下载</a>》或者使用PP助手下载历史版本</p>
+<h3 id="3-国外手机号码注册新的微信（未测）"><a href="#3-国外手机号码注册新的微信（未测）" class="headerlink" title="3.国外手机号码注册新的微信（未测）"></a>3.国外手机号码注册新的微信（未测）</h3><p>据网上说国外的手机注册的微信可以实现新版本CallKit，像是中国香港的手机号码也是可以开启的等云云，具体情况自测，与一朋友交流得知国外的手机号注册被封的情况很严重<em>（柬埔寨手机号）</em></p>
+<h2 id="优点与不足"><a href="#优点与不足" class="headerlink" title="优点与不足"></a>优点与不足</h2><table>
+<thead>
+<tr>
+<th>方式</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>越狱</td>
+<td>多完性，微信最新版本也可以使用CallKit</td>
+<td>折腾，重启又要再次折腾</td>
+</tr>
+<tr>
+<td>旧版</td>
+<td>官方性质，会太复杂</td>
+<td>小程序等其他最新功能无法享受</td>
+</tr>
+<tr>
+<td>国外手机号</td>
+<td>不用越狱，即可享受越狱后的CallKit功能</td>
+<td>风险，成本较大，需要重新添加朋友，可能被封</td>
+</tr>
+</tbody></table>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="/go.html?u=https://developer.apple.com/documentation/callkit">CallKit | Apple Developer Documentation</a></li>
+<li><a href="/go.html?u=https://github.com/pwn20wndstuff/Undecimus">GitHub - pwn20wndstuff&#x2F;Undecimus: unc0ver jailbreak for iOS 11.0 - 12.4</a></li>
+<li><a href="/go.html?u=https://m.i4.cn/article/29026.html">iOS 12 越狱后 Cydia 无法联网、闪退等问题汇总iPhone玩机技巧_爱思助手</a></li>
+<li><a href="/go.html?u=https://www.abcydia.com/read-16707.html">iOS12越狱 注意事项 简单自救 各种技巧分享 图文教程 | 雷锋源中文网</a></li>
+<li><a href="/go.html?u=https://apt.wxhbts.com/pc/2020">微信助手 | 多米诺骨牌源 | 最简洁的中文源</a></li>
+<li><a href="/go.html?u=https://apt.wxhbts.com/pc/1250">微信 Callkit 通话功能 | 多米诺骨牌源 | 最简洁的中文源</a></li>
+<li><a href="/go.html?u=https://apt.wxhbts.com/pc/1842">GestureX 手势插件 | 多米诺骨牌源 | 最简洁的中文源</a></li>
+<li><a href="/go.html?u=https://mrmad.com.tw/how-to-remove-unc0ver">如何移除iOS 11 ~ iOS 12 越狱工具Unc0ver 教学- 疯先生</a></li>
+<li><a href="/go.html?u=https://unsplash.com/photos/QU6B63EDfD0">壁纸-Rechtswissenschaftliches Institut UZH… | HD photo by Pascal Meier (@zhpix) on Unsplash</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%BE%AE%E4%BF%A1/" rel="tag"># 微信</a>
+              <a href="/tags/callkit/" rel="tag"># callkit</a>
+              <a href="/tags/%E8%B6%8A%E7%8B%B1/" rel="tag"># 越狱</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190826-2019_IOS_jiu_ban_ben_ying_yong_APP_xia_zai/" rel="prev" title="2019IOS旧版本应用APP下载">
+                  <i class="fa fa-chevron-left"></i> 2019IOS旧版本应用APP下载
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190827-Win10_LTSC_kai_qi_SMB_gong_xiang/" rel="next" title="Win10LTSC开启SMB共享">
+                  Win10LTSC开启SMB共享 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

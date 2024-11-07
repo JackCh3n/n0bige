@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="前引 为了配合随身WIFI特地买的小米路由器，但是现在SSH工具包啥的都不管用了或者是不读U盘，然后就无法正常的刷机，本文中的方法可以实现免SSH或者U盘进行刷机。  教程 以下步骤请在miwifi_r1cm_firmware_2.7.11版本下进行（文件夹有）如版本不对，请按照下列步骤完成更新连接小米mini的wifi，地址栏搜192.168.31.1，进入后台，选择系统更新，选用miwifi_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小米路由器mini(R1C)刷机">
+<meta property="og:url" content="https://nobige.cn/post/20240207-xiao_mi_lu_you_qi_mini(R1C)_shua_ji/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="前引 为了配合随身WIFI特地买的小米路由器，但是现在SSH工具包啥的都不管用了或者是不读U盘，然后就无法正常的刷机，本文中的方法可以实现免SSH或者U盘进行刷机。  教程 以下步骤请在miwifi_r1cm_firmware_2.7.11版本下进行（文件夹有）如版本不对，请按照下列步骤完成更新连接小米mini的wifi，地址栏搜192.168.31.1，进入后台，选择系统更新，选用miwifi_">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-07T08:34:14.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.334Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="刷机">
+<meta property="article:tag" content="路由器">
+<meta property="article:tag" content="小米">
+<meta property="article:tag" content="mini">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20240207-xiao_mi_lu_you_qi_mini(R1C)_shua_ji/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20240207-xiao_mi_lu_you_qi_mini(R1C)_shua_ji/","path":"post/20240207-xiao_mi_lu_you_qi_mini(R1C)_shua_ji/","title":"小米路由器mini(R1C)刷机"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>小米路由器mini(R1C)刷机 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E5%BC%95"><span class="nav-number">1.</span> <span class="nav-text">前引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">教程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%BC%8C%E7%99%BB%E5%BD%95%E8%B7%AF%E7%94%B1%E7%AE%A1%E7%90%86%E7%95%8C%E9%9D%A2"><span class="nav-number">2.1.</span> <span class="nav-text">1，登录路由管理界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%BC%8C%E6%9B%B4%E6%94%B9%E7%AE%A1%E7%90%86%E5%91%98%E5%AF%86%E7%A0%81%E5%92%8C%E7%B3%BB%E7%BB%9F%E7%9A%84root%E5%AF%86%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">2，更改管理员密码和系统的root密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%BC%8C%E5%90%AF%E7%94%A8%E8%B7%AF%E7%94%B1%E7%9A%84telnet%E7%99%BB%E5%BD%95%E6%96%B9%E5%BC%8F"><span class="nav-number">2.3.</span> <span class="nav-text">3，启用路由的telnet登录方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%EF%BC%8C%E7%94%A8putty%E7%9A%84telnet%E6%96%B9%E5%BC%8F%E7%99%BB%E5%BD%95"><span class="nav-number">2.4.</span> <span class="nav-text">4，用putty的telnet方式登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%EF%BC%8C%E5%88%B7%E5%85%A5breed"><span class="nav-number">2.5.</span> <span class="nav-text">5，刷入breed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6%EF%BC%8C%E8%BF%9B%E5%85%A5breed%E6%8E%A7%E5%88%B6%E5%8F%B0"><span class="nav-number">2.6.</span> <span class="nav-text">6，进入breed控制台</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20240207-xiao_mi_lu_you_qi_mini(R1C)_shua_ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="小米路由器mini(R1C)刷机 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          小米路由器mini(R1C)刷机
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-02-07 16:34:14" itemprop="dateCreated datePublished" datetime="2024-02-07T16:34:14+08:00">2024-02-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前引"><a href="#前引" class="headerlink" title="前引"></a>前引</h2><blockquote>
+<p>为了配合随身WIFI特地买的小米路由器，但是现在SSH工具包啥的都不管用了或者是不读U盘，然后就无法正常的刷机，本文中的方法可以实现免SSH或者U盘进行刷机。</p>
+</blockquote>
+<h2 id="教程"><a href="#教程" class="headerlink" title="教程"></a>教程</h2><blockquote>
+<p>以下步骤请在miwifi_r1cm_firmware_2.7.11版本下进行（文件夹有）<br>如版本不对，请按照下列步骤完成更新<br>连接小米mini的wifi，地址栏搜192.168.31.1，进入后台，选择系统更新，选用miwifi_r1cm_firmware_2.7.11文件进行更新，后根据指示操作</p>
+</blockquote>
+<h3 id="1，登录路由管理界面"><a href="#1，登录路由管理界面" class="headerlink" title="1，登录路由管理界面"></a>1，登录路由管理界面</h3><p>地址栏输入192.168.31.1，输入账号密码后，地址栏会多了一串参数，类似于</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.31.1/cgi-bin/luci/;stok=075a9192918557c27cdbcae2175281d9/web/home#router">http://192.168.31.1/cgi-bin/luci/;stok=075a9192918557c27cdbcae2175281d9/web/home#router</a></p>
+<h3 id="2，更改管理员密码和系统的root密码"><a href="#2，更改管理员密码和系统的root密码" class="headerlink" title="2，更改管理员密码和系统的root密码"></a>2，更改管理员密码和系统的root密码</h3><p>将以上的地址URL中&#x2F;web&#x2F;home#router改成&#x2F;api&#x2F;xqsystem&#x2F;set_name_password?oldPwd&#x3D;当前路由的密码&amp;newPwd&#x3D;新的路由密码，<br>然后查看网页的返回结果，如果返回的JSON字符串是{“code”:0}，那就任务完成，如果返回是说参数错误的，那十有八九是系统是新版，小米官方修补了这个漏洞。<br>解决办法就是刷回旧版系统</p>
+<h3 id="3，启用路由的telnet登录方式"><a href="#3，启用路由的telnet登录方式" class="headerlink" title="3，启用路由的telnet登录方式"></a>3，启用路由的telnet登录方式</h3><p>同第二步中的修改网址URL，把&#x2F;web&#x2F;home#router改为&#x2F;api&#x2F;xqnetwork&#x2F;set_wifi_ap?ssid&#x3D;xiaomi&amp;encryption&#x3D;NONE&amp;enctype&#x3D;NONE&amp;channel&#x3D;1%3B%2Fusr%2Fsbin%2Ftelnetd，然后查看返回的JSON数据{“msg”:”未能连接到指定WiFi(Probe timeout)”,”code”:1616}，（若返回码为1617结尾，则表示你的开发板系统不支持，请更换为文件夹内的2.7.11版本），返回码有可能不同，但是这里已经可以通过telnet的方式来登录路由器了</p>
+<h3 id="4，用putty的telnet方式登录"><a href="#4，用putty的telnet方式登录" class="headerlink" title="4，用putty的telnet方式登录"></a>4，用putty的telnet方式登录</h3><p>打开Putty ，然后打开选填以下参数，连接类型：telnet;主机名称：192.168.31.1.打开后看到login，输入root，密码则为以上第二步中修改的新密码。然后依次执行下面的三条指令（数字不需要复制）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&quot;:x;N;s/if \[.*\; then\n.*return 0\n.*fi/#tb/;b x&quot;</span> /etc/init.d/dropbear</span><br><span class="line">/etc/init.d/dropbear start</span><br><span class="line">nvram <span class="built_in">set</span> ssh_en=1; nvram commit</span><br></pre></td></tr></table></figure>
+
+<h3 id="5，刷入breed"><a href="#5，刷入breed" class="headerlink" title="5，刷入breed"></a>5，刷入breed</h3><p>通过WinScp把breed.bin，传入到&#x2F;tmp中。然后通过Putty，输入命令mtd -r write &#x2F;tmp&#x2F;breed.bin Bootloader写入Breed，刷入成功后会提示重启，putty和WinScp都会断开，关闭了即可。</p>
+<h3 id="6，进入breed控制台"><a href="#6，进入breed控制台" class="headerlink" title="6，进入breed控制台"></a>6，进入breed控制台</h3><p>把电源拔了，使路由关机，用牙签或者其他尖锐物戳着reset键，然后插上插头，待路由器后方的灯（非正前方的灯）闪烁时松开reset键即可，然后用一条网线把电脑和路由器的WAN口相连接，打开浏览器访问192.168.1.1，即可进入breed控制台了。</p>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><ul>
+<li>不死Breed<ul>
+<li><a target="_blank" rel="noopener" href="https://breed.hackpascal.net/">https://breed.hackpascal.net/</a></li>
+<li><a target="_blank" rel="noopener" href="https://breed.hackpascal.net/breed-mt7620-xiaomi-mini.bin">https://breed.hackpascal.net/breed-mt7620-xiaomi-mini.bin</a></li>
+<li><a target="_blank" rel="noopener" href="https://bytedance.nobige.eu.org/mir1c/breed-mt7620-xiaomi-mini.bin">https://bytedance.nobige.eu.org/mir1c/breed-mt7620-xiaomi-mini.bin</a></li>
+<li>文件：	breed-mt7620-xiaomi-mini.bin</li>
+<li>大小：	90, 455 字节</li>
+<li>MD5：	95ED514E89BACE9726142CDE060D9C59</li>
+<li>SHA1：	5CAC24E06E98E668F5D9D0E3B630F5D802E80FD9</li>
+<li>CRC32：F7D64F82</li>
+</ul>
+</li>
+<li>老毛子padavan<ul>
+<li><a target="_blank" rel="noopener" href="https://opt.cn2qq.com/padavan/">https://opt.cn2qq.com/padavan/</a></li>
+<li><a target="_blank" rel="noopener" href="https://opt.cn2qq.com/padavan/RT-AC54U-GPIO-30-xiaomimini-128M_3.4.3.9-099.trx">https://opt.cn2qq.com/padavan/RT-AC54U-GPIO-30-xiaomimini-128M_3.4.3.9-099.trx</a></li>
+<li><a target="_blank" rel="noopener" href="https://bytedance.nobige.eu.org/mir1c/RT-AC54U-GPIO-30-xiaomimini-128M_3.4.3.9-099.trx">https://bytedance.nobige.eu.org/mir1c/RT-AC54U-GPIO-30-xiaomimini-128M_3.4.3.9-099.trx</a></li>
+<li>文件：	RT-AC54U-GPIO-30-xiaomimini-128M_3.4.3.9-099.trx</li>
+<li>大小：	14, 284, 714 字节</li>
+<li>MD5：	637CBCFAC1A34EBC97DEBA921C078CB8</li>
+<li>SHA1：	2507087244257EC3990EDD63C3F6F7CA91D0A1E7</li>
+<li>CRC32：32428D0C</li>
+</ul>
+</li>
+<li>miwifi_r1cm_firmware_2.7.11版本<ul>
+<li><a target="_blank" rel="noopener" href="https://bytedance.nobige.eu.org/mir1c/miwifi_r1cm_firmware_2.7.11.bin">https://bytedance.nobige.eu.org/mir1c/miwifi_r1cm_firmware_2.7.11.bin</a></li>
+<li>文件：	miwifi_r1cm_firmware_2.7.11.bin</li>
+<li>大小：	12, 321, 716 字节</li>
+<li>修改时间：2023-11-22 15:49:06</li>
+<li>MD5：	8FFE8099696204546EF4D9298C8B9D56</li>
+<li>SHA1：	19EF09B0D93995DA83204C3AB2317E1279C92A33</li>
+<li>CRC32：76E5F2AD</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-8313648-1-1.html">https://www.right.com.cn/forum/thread-8313648-1-1.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/thread-5662043-1-1.html">https://www.right.com.cn/forum/thread-5662043-1-1.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51385685/article/details/112471777">https://blog.csdn.net/qq_51385685/article/details/112471777</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag"># 刷机</a>
+              <a href="/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="tag"># 路由器</a>
+              <a href="/tags/%E5%B0%8F%E7%B1%B3/" rel="tag"># 小米</a>
+              <a href="/tags/mini/" rel="tag"># mini</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20240206-ChromeOS_zhe_teng/" rel="prev" title="ChromeOS折腾">
+                  <i class="fa fa-chevron-left"></i> ChromeOS折腾
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20240320-VN007+_chao_ji_mi_ma_ji_suan_qi_suan_fa/" rel="next" title="VN007+超级密码计算器算法">
+                  VN007+超级密码计算器算法 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

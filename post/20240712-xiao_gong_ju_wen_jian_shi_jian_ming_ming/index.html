@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="需求 有的时候需要频繁的修改一个文档或者是基于某份模板进行每天的复制然后再进行修改，这种场景一般都是对源文件进行修改然后手动修改文件名再加上时间，脚本就是解决这个需求。本来之前有一个基于易语言写的软件，但是易语言的特性（会报毒）就又找GPT探讨了一下，然后自己再完善最后有了这个bat脚本  用法 新建一个fileAddDateVersion.bat脚本然后把脚本内容复制粘贴进去，以【管理员】角色">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小工具-文件时间命名">
+<meta property="og:url" content="https://nobige.cn/post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="需求 有的时候需要频繁的修改一个文档或者是基于某份模板进行每天的复制然后再进行修改，这种场景一般都是对源文件进行修改然后手动修改文件名再加上时间，脚本就是解决这个需求。本来之前有一个基于易语言写的软件，但是易语言的特性（会报毒）就又找GPT探讨了一下，然后自己再完善最后有了这个bat脚本  用法 新建一个fileAddDateVersion.bat脚本然后把脚本内容复制粘贴进去，以【管理员】角色">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/marek-piwnicki-aZxYjgudDdQ-unsplash.jpg">
+<meta property="article:published_time" content="2024-07-12T03:16:53.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.338Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="时间">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/marek-piwnicki-aZxYjgudDdQ-unsplash.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/","path":"post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/","title":"小工具-文件时间命名"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>小工具-文件时间命名 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC"><span class="nav-number">4.</span> <span class="nav-text">脚本</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="小工具-文件时间命名 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          小工具-文件时间命名
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-07-12 11:16:53" itemprop="dateCreated datePublished" datetime="2024-07-12T11:16:53+08:00">2024-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20240712-xiao_gong_ju_wen_jian_shi_jian_ming_ming/marek-piwnicki-aZxYjgudDdQ-unsplash.jpg" alt="marek-piwnicki-aZxYjgudDdQ-unsplash.jpg"></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
+<p>有的时候需要频繁的修改一个文档或者是基于某份模板进行每天的复制然后再进行修改，这种场景一般都是对源文件进行修改然后手动修改文件名再加上时间，脚本就是解决这个需求。本来之前有一个基于易语言写的软件，但是易语言的特性（会报毒）就又找GPT探讨了一下，然后自己再完善最后有了这个bat脚本</p>
+</blockquote>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ol>
+<li>新建一个<code>fileAddDateVersion.bat</code>脚本然后把脚本内容复制粘贴进去，以【<strong>管理员</strong>】角色运行即可</li>
+<li>对要修改的文件名右键-&gt;发送到<code>fCopy</code>或者是<code>fMove</code>区别就是一个是复制、一个是移动</li>
+</ol>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件</span></span><br><span class="line">工作日报--张得帅.xlsx</span><br><span class="line"></span><br><span class="line"><span class="comment"># fCopy</span></span><br><span class="line">工作日报--张得帅.xlsx</span><br><span class="line">工作日报--张得帅V.2024_0712_1110.xlsx</span><br><span class="line"></span><br><span class="line"><span class="comment"># fMove</span></span><br><span class="line">工作日报--张得帅V.2024_0712_1110.xlsx</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h2><p>文件名：<code>fileAddDateVersion.bat</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">rem 获取当前日期</span><br><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1-3 delims=/: &quot;</span> %%a <span class="keyword">in</span> (<span class="string">&#x27;echo %date%&#x27;</span>) <span class="keyword">do</span> (</span><br><span class="line">    <span class="built_in">set</span> year=%%a</span><br><span class="line">    <span class="built_in">set</span> month=%%b</span><br><span class="line">    <span class="built_in">set</span> day=%%c</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">rem 获取当前时间</span><br><span class="line"><span class="built_in">set</span> hour=%time:~0,2%</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%hour:~0,1%&quot;</span>==<span class="string">&quot; &quot;</span> <span class="built_in">set</span> hour=0%hour:~1,1%</span><br><span class="line"><span class="built_in">set</span> minute=%time:~3,2%</span><br><span class="line"></span><br><span class="line">rem 年月日时分补零</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%month:~0,1%&quot;</span>==<span class="string">&quot; &quot;</span> <span class="built_in">set</span> month=0%month:~1,1%</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%day:~0,1%&quot;</span>==<span class="string">&quot; &quot;</span> <span class="built_in">set</span> day=0%day:~1,1%</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%month:~0,1%&quot;</span>==<span class="string">&quot;0&quot;</span> <span class="built_in">set</span> month=0%month:~1,1%</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%day:~0,1%&quot;</span>==<span class="string">&quot;0&quot;</span> <span class="built_in">set</span> day=0%day:~1,1%</span><br><span class="line"></span><br><span class="line">rem 构造时间戳</span><br><span class="line"><span class="built_in">set</span> timestamp=%year%_%month%%day%_%hour%%minute%</span><br><span class="line"><span class="built_in">echo</span> %timestamp%</span><br><span class="line"><span class="built_in">set</span> sendto_path=%APPDATA%\Microsoft\Windows\SendTo</span><br><span class="line"><span class="built_in">echo</span> %sendto_path%</span><br><span class="line">rem 判断参数个数</span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%~1&quot;</span>==<span class="string">&quot;&quot;</span> (</span><br><span class="line">    rem 创建脚本的快捷方式</span><br><span class="line">    <span class="built_in">set</span> bat_dir=%~dp0</span><br><span class="line">    <span class="built_in">set</span> bat_file=%~nx0</span><br><span class="line">    <span class="built_in">echo</span> %sendto_path%</span><br><span class="line">    call :createShortcut <span class="string">&quot;fCopy&quot;</span> <span class="string">&quot;c&quot;</span> <span class="string">&quot;%sendto_path%&quot;</span></span><br><span class="line">    ping 127.0.0.1 -n 1 &gt;nul</span><br><span class="line">    move <span class="string">&quot;fCopy.lnk&quot;</span> %sendto_path%\&quot;fCopy.lnk<span class="string">&quot;</span></span><br><span class="line"><span class="string">    call :createShortcut &quot;</span>fMove<span class="string">&quot; &quot;</span>m<span class="string">&quot; &quot;</span>%sendto_path%<span class="string">&quot;</span></span><br><span class="line"><span class="string">    ping 127.0.0.1 -n 1 &gt;nul</span></span><br><span class="line"><span class="string">    move &quot;</span>fMove.lnk<span class="string">&quot; %sendto_path%\&quot;fMove.lnk&quot;</span></span><br><span class="line">    explorer shell:sendto</span><br><span class="line">    goto :eof</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="string">&quot;%~2&quot;</span>==<span class="string">&quot;&quot;</span> (</span><br><span class="line">    <span class="built_in">echo</span> 请输入第二个参数: 文件路径</span><br><span class="line">    goto :eof</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">rem 提取参数</span><br><span class="line"><span class="built_in">set</span> operation=%~1</span><br><span class="line"><span class="built_in">set</span> sourceFile=%~2</span><br><span class="line"></span><br><span class="line">rem 确保文件存在</span><br><span class="line"><span class="keyword">if</span> not exist <span class="string">&quot;%sourceFile%&quot;</span> (</span><br><span class="line">    <span class="built_in">echo</span> 文件不存在: %sourceFile%</span><br><span class="line">    goto :eof</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">rem 获取文件的目录、文件名和扩展名</span><br><span class="line"><span class="built_in">set</span> fileDir=%~dp2</span><br><span class="line"><span class="built_in">set</span> fileName=%~n2</span><br><span class="line"><span class="built_in">set</span> fileExt=%~x2</span><br><span class="line"></span><br><span class="line">rem 检查文件名中是否包含 V.，如果有则去除旧的时间戳</span><br><span class="line"><span class="keyword">for</span> /f <span class="string">&quot;tokens=1 delims=V.&quot;</span> %%a <span class="keyword">in</span> (<span class="string">&quot;%fileName%&quot;</span>) <span class="keyword">do</span> (</span><br><span class="line">    <span class="built_in">set</span> updatedName=%%a</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">rem 添加新的时间戳</span><br><span class="line"><span class="built_in">set</span> newName=%updatedName%V.%timestamp%%fileExt%</span><br><span class="line">rem 目标文件路径</span><br><span class="line"><span class="built_in">set</span> targetFile=%fileDir%%newName%</span><br><span class="line"></span><br><span class="line">rem 选择操作</span><br><span class="line"><span class="keyword">if</span> /i <span class="string">&quot;%operation%&quot;</span>==<span class="string">&quot;c&quot;</span> (</span><br><span class="line">    copy /y <span class="string">&quot;%sourceFile%&quot;</span> <span class="string">&quot;%targetFile%&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> 文件已复制到: %targetFile%</span><br><span class="line">) <span class="keyword">else</span> <span class="keyword">if</span> /i <span class="string">&quot;%operation%&quot;</span>==<span class="string">&quot;m&quot;</span> (</span><br><span class="line">    move /y <span class="string">&quot;%sourceFile%&quot;</span> <span class="string">&quot;%targetFile%&quot;</span></span><br><span class="line">    <span class="built_in">echo</span> 文件已移动到: %targetFile%</span><br><span class="line">) <span class="keyword">else</span> (</span><br><span class="line">    <span class="built_in">echo</span> 无效的操作参数，请使用 c 或 m</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">endlocal</span><br><span class="line">goto :eof</span><br><span class="line"></span><br><span class="line">:createShortcut</span><br><span class="line">rem 创建快捷方式的子例程</span><br><span class="line">rem 参数：1-快捷方式名称，2-传递的参数，3-目标路径</span><br><span class="line"><span class="built_in">set</span> shortcutName=%1</span><br><span class="line"><span class="built_in">set</span> shortcutArgs=%2</span><br><span class="line"><span class="built_in">set</span> targetPath=%3</span><br><span class="line"><span class="built_in">set</span> shortcutName2=%1.lnk</span><br><span class="line"><span class="built_in">set</span> shortcutName2=%shortcutName2:<span class="string">&quot;=%</span></span><br><span class="line"><span class="string">rem 创建快捷方式.vbs文件</span></span><br><span class="line"><span class="string">(</span></span><br><span class="line"><span class="string">echo Set WshShell = CreateObject(&quot;</span>WScript.Shell<span class="string">&quot;^)</span></span><br><span class="line"><span class="string">echo Set oShellLink = WshShell.CreateShortcut(&quot;</span>%shortcutName2%<span class="string">&quot;^)</span></span><br><span class="line"><span class="string">echo oShellLink.TargetPath = &quot;</span>%bat_dir%%bat_file%<span class="string">&quot;</span></span><br><span class="line"><span class="string">echo oShellLink.Arguments = %shortcutArgs%</span></span><br><span class="line"><span class="string">echo oShellLink.WorkingDirectory = &quot;</span>%bat_dir%<span class="string">&quot;</span></span><br><span class="line"><span class="string">echo oShellLink.Save</span></span><br><span class="line"><span class="string">) &gt; &quot;</span>%temp%\createShortcut_%shortcutName%.vbs<span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">rem 运行.vbs文件创建快捷方式</span></span><br><span class="line"><span class="string">cscript //nologo &quot;</span>%temp%\createShortcut_%shortcutName%.vbs<span class="string">&quot;</span></span><br><span class="line"><span class="string">del &quot;</span>%temp%\createShortcut_%shortcutName%.vbs<span class="string">&quot;</span></span><br><span class="line"><span class="string">goto :eof</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%97%B6%E9%97%B4/" rel="tag"># 时间</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/" rel="prev" title="阿里云FC函数PHP运行环境如何增加或删除内置扩展">
+                  <i class="fa fa-chevron-left"></i> 阿里云FC函数PHP运行环境如何增加或删除内置扩展
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20240712-Oracle_qian_bao_wallet_jia_mi_he_mi_ma_xiu_gai/" rel="next" title="Oracle钱包wallet加密和密码修改">
+                  Oracle钱包wallet加密和密码修改 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

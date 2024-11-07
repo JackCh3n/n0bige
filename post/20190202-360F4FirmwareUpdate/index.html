@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="由来​	网络上一大堆刷机教程，我也是按着他们的方法来进行刷机的，但是找了几个教程都是老的，哟哟几个关键性的问题都没有解决，使刷机过程不能正常的进行，而我写这个则是为了填那些之前人挖的坑。（线刷，其他未试） 刷机​	三步走，装驱动，下固件，刷机 驱动和固件官方和论坛都有提供，为此我也在网盘上做了备份。 刷机教程可以按着软件来走，所提供的软甲和驱动都安装完成且可以正常打开。 我这边引用了360论坛@S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="360F4刷机经历教程">
+<meta property="og:url" content="https://nobige.cn/post/20190202-360F4FirmwareUpdate/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="由来​	网络上一大堆刷机教程，我也是按着他们的方法来进行刷机的，但是找了几个教程都是老的，哟哟几个关键性的问题都没有解决，使刷机过程不能正常的进行，而我写这个则是为了填那些之前人挖的坑。（线刷，其他未试） 刷机​	三步走，装驱动，下固件，刷机 驱动和固件官方和论坛都有提供，为此我也在网盘上做了备份。 刷机教程可以按着软件来走，所提供的软甲和驱动都安装完成且可以正常打开。 我这边引用了360论坛@S">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_19-52-48.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_19-52-57.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_19-53-13.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_20-34-21.jpg">
+<meta property="article:published_time" content="2019-02-02T08:34:56.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.214Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="340">
+<meta property="article:tag" content="F4">
+<meta property="article:tag" content="刷机">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_19-52-48.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190202-360F4FirmwareUpdate/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190202-360F4FirmwareUpdate/","path":"post/20190202-360F4FirmwareUpdate/","title":"360F4刷机经历教程"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>360F4刷机经历教程 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%B1%E6%9D%A5"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B7%E6%9C%BA"><span class="nav-number">2.</span> <span class="nav-text">刷机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">3.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E5%92%8C%E9%83%A8%E5%88%86%E5%AE%98%E7%BD%91%E9%93%BE%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">参考和部分官网链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190202-360F4FirmwareUpdate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="360F4刷机经历教程 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          360F4刷机经历教程
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-02 16:34:56" itemprop="dateCreated datePublished" datetime="2019-02-02T16:34:56+08:00">2019-02-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>​	网络上一大堆刷机教程，我也是按着他们的方法来进行刷机的，但是找了几个教程都是老的，哟哟几个关键性的问题都没有解决，使刷机过程不能正常的进行，而我写这个则是为了填那些之前人挖的坑。（线刷，其他未试）</p>
+<h2 id="刷机"><a href="#刷机" class="headerlink" title="刷机"></a>刷机</h2><p>​	三步走，装驱动，下固件，刷机</p>
+<p>驱动和固件官方和论坛都有提供，为此我也在网盘上做了备份。</p>
+<p>刷机教程可以按着软件来走，所提供的软甲和驱动都安装完成且可以正常打开。</p>
+<p>我这边引用了<a href="/go.html?u=https://bbs.360.cn/thread-320217-1-1.html">360论坛@Smile草莓</a>所写的线刷部分正确教程，作为备份。</p>
+<p><strong>打开线刷工具</strong></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_19-52-48.jpg" alt="打开线刷工具"></p>
+<p><strong>校验固件</strong></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_19-52-57.jpg" alt="校验固件"></p>
+<p><strong>错误的过程</strong></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_19-53-13.jpg" alt="错误的过程"></p>
+<p>​	我一直错误第6步，不管是如何的重启还是换电脑，换端口换数据线都是不行，后面再论坛上有要按音量键和开机键 再插入也是没有效果，更有有人说是驱动没有装，要插入电脑的几秒内在设备管理器里面将带有感叹号的驱动给装上，奈何手速不如人家，多个USB口都没有实现。不过这位小老弟的思路是对的，确实是驱动没有完全的安装完。</p>
+<p>​	我后面再在找到了<a href="/go.html?u=https://bbs.360.cn/thread-14997949-1-1.html">360F4完美强刷教程</a>，说是不用退出云账号等云云都是可以的，抱着死马当活马医的心态我还是试了一下。结果还是可以的。在第六步校验完后用MTK软件进行强刷。</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
+<li>驱动<ul>
+<li>链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1oLHO-jW4_bHSK7vpwb0NRQ">https://pan.baidu.com/s/1oLHO-jW4_bHSK7vpwb0NRQ</a></li>
+</ul>
+</li>
+<li>flash_tool工具<ul>
+<li>提取码: 2bzg</li>
+</ul>
+</li>
+</ul>
+<p>在装完强刷驱动和软件后</p>
+<p>​	在校验完后电脑的C盘下，具体目录如下：</p>
+<p>64位</p>
+<p><code>C:\Program Files (x86)\QiKU Download Assistant\DownFiles</code></p>
+<p>32位</p>
+<p><code>C:\Program Files \QiKU Download Assistant\DownFiles</code></p>
+<p>DownFiles 这个就是强刷的固件包文件夹，值得一提的是这个文件夹是隐藏的。</p>
+<p>在用flash_tool工具进行刷机（修改成中文options[option]-&gt;General[Language]-&gt;English改成简体中文）</p>
+<p>下载DA选的是<strong>flash_tool工具</strong>文件夹下面的*<code>MTK_AllInOne_DA.bin</code>*</p>
+<p>配置文件则是校验包里面复制出来的<em>\1501_M02\MT6753_Android_scatter.txt</em>文件</p>
+<p>校验没的选，下载不便（说是改成“全部格式化和下载”有可能需要拆机拆电池🔋才可以连上电脑）</p>
+<p><strong>配置图</strong></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190202-360F4FirmwareUpdate/xiao2019-02-02_20-34-21.jpg" alt="配置图"></p>
+<p>操作完以上,关机插上电脑，就可以点击下载了。</p>
+<p>​	软件和单片机刷写固件差不多，等到进度条走完，弹出绿色的弹窗就可以关掉软件，断开数据线开机了。第一次开机时间比较久。</p>
+<p>​	我第一次刷为体验最新版的（2018-03-20 16:46 V1.0.09稳定版）看了下没有什么特色还是5.1的就想刷A版035 版说是可以用联通4G，我刷完了也没有什么效果。还好只是备用机接收短信的。</p>
+<p>​	<em>只要强刷一次后后续就可以用官方的软件进行正常的升级和降级了（强刷装驱动？？？）</em></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​	360F4 可以算是酷派和360分手前的最后一步产品，酷派和360都不是什么好货，大部分国产手机都有一个类似的毛病，就是后期的软件升级还是售后太差<em>（价格摆在那）</em>，不管是我之前用的台电还是360都是如此，sony z3v<em>（美版）</em>都是没有系统升级，到了后面完全抛弃了，这点还是得像某果和某哥再不行某米学习，买此类产品还是得看后期的服务支持。</p>
+<p>​	<em>善用搜索引擎</em>（<del>百度</del>）</p>
+<h2 id="参考和部分官网链接"><a href="#参考和部分官网链接" class="headerlink" title="参考和部分官网链接"></a>参考和部分官网链接</h2><ul>
+<li><a href="/go.html?u=https://bbs.360.cn/forum.php?mod=romdetail&productid=18">系统下载（360手机f4移动版）</a></li>
+<li><a href="/go.html?u=https://bbs.360.cn/thread-320217-1-1.html">【刷机必看】360手机f4刷机教程（卡刷和线刷前必须退出云账号）</a></li>
+<li><a href="/go.html?u=https://bbs.360.cn/thread-14997949-1-1.html">360F4完美强刷教程</a>—<a href="bak1.png">网页备份</a></li>
+<li><a href="/go.html?u=https://bbs.360.cn/thread-14777044-1-1.html">【教程】360f4 MTK强刷 刷机、升级 教程</a>—<a href="bak2.png">网页备份</a></li>
+<li><a href="/go.html?u=https://bbs.360.cn/thread-14728461-1-1.html">【版本合集】360手机f4&#x2F;f4s历史版本全收录</a></li>
+<li><a href="/go.html?u=https://spflashtool.com/">SP Flash Tool</a></li>
+<li><a href="/go.html?u=https://pan.baidu.com/s/1F85buW-d_xB05VMR9JoFKw">所有驱动和固件（不包含强刷）</a> 提取码: wsg4</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/340/" rel="tag"># 340</a>
+              <a href="/tags/F4/" rel="tag"># F4</a>
+              <a href="/tags/%E5%88%B7%E6%9C%BA/" rel="tag"># 刷机</a>
+              <a href="/tags/%E6%95%99%E7%A8%8B/" rel="tag"># 教程</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190129-Wechatcancelsattention/" rel="prev" title="微信公众订阅号批量取消脚本软件">
+                  <i class="fa fa-chevron-left"></i> 微信公众订阅号批量取消脚本软件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190204-TortoiseGitPlinkFatalError/" rel="next" title="TortoiseGitPlink Fatal Error">
+                  TortoiseGitPlink Fatal Error <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

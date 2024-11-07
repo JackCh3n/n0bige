@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="PPDuck3破解算法解析 此算法非软件注册码算法，而是其中使用的第三方库参数  猜测通过PPDuck3压缩图片然后进行文件哈希校验，再通过第三方库参数暴力遍历压缩最终进行哈希值比较 PNG压缩遍历脚本 pngquant-mod.exe   12345678910111213@echo offsetlocal enabledelayedexpansionset &quot;PNGQUANT_PA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PPDuck3破解算法解析">
+<meta property="og:url" content="https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="PPDuck3破解算法解析 此算法非软件注册码算法，而是其中使用的第三方库参数  猜测通过PPDuck3压缩图片然后进行文件哈希校验，再通过第三方库参数暴力遍历压缩最终进行哈希值比较 PNG压缩遍历脚本 pngquant-mod.exe   12345678910111213@echo offsetlocal enabledelayedexpansionset &quot;PNGQUANT_PA">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/maria-sher-XIcGt71p3vs-unsplash.jpg">
+<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/240522/2e2dbeb1857542e18b350732a3eb99e16443.png">
+<meta property="article:published_time" content="2024-05-22T07:50:15.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.338Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="破解">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/maria-sher-XIcGt71p3vs-unsplash.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/","path":"post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/","title":"PPDuck3破解算法解析"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PPDuck3破解算法解析 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PPDuck3%E7%A0%B4%E8%A7%A3%E7%AE%97%E6%B3%95%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">PPDuck3破解算法解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8C%9C%E6%B5%8B"><span class="nav-number">2.</span> <span class="nav-text">猜测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PNG%E5%8E%8B%E7%BC%A9"><span class="nav-number">3.</span> <span class="nav-text">PNG压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E8%84%9A%E6%9C%AC"><span class="nav-number">3.1.</span> <span class="nav-text">遍历脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%AF%94%E8%BE%83"><span class="nav-number">3.2.</span> <span class="nav-text">第一次比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%AF%94%E8%BE%83"><span class="nav-number">3.3.</span> <span class="nav-text">第二次比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%AF%94%E8%BE%83-1"><span class="nav-number">3.4.</span> <span class="nav-text">第一次比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E7%BB%93%E6%9E%9C"><span class="nav-number">3.5.</span> <span class="nav-text">最终结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JPG%E5%8E%8B%E7%BC%A9"><span class="nav-number">4.</span> <span class="nav-text">JPG压缩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%84%9A%E8%A0%A2"><span class="nav-number">4.1.</span> <span class="nav-text">愚蠢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9%E5%8F%82%E6%95%B0"><span class="nav-number">4.2.</span> <span class="nav-text">压缩参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PPDuck3破解算法解析 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PPDuck3破解算法解析
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-05-22 15:50:15" itemprop="dateCreated datePublished" datetime="2024-05-22T15:50:15+08:00">2024-05-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/maria-sher-XIcGt71p3vs-unsplash.jpg" alt="maria-sher-XIcGt71p3vs-unsplash.jpg"></p>
+<h2 id="PPDuck3破解算法解析"><a href="#PPDuck3破解算法解析" class="headerlink" title="PPDuck3破解算法解析"></a>PPDuck3破解算法解析</h2><blockquote>
+<p>此算法非软件注册码算法，而是其中使用的第三方库参数</p>
+</blockquote>
+<h2 id="猜测"><a href="#猜测" class="headerlink" title="猜测"></a>猜测</h2><p>通过PPDuck3压缩图片然后进行文件哈希校验，再通过第三方库参数暴力遍历压缩最终进行哈希值比较</p>
+<h2 id="PNG压缩"><a href="#PNG压缩" class="headerlink" title="PNG压缩"></a>PNG压缩</h2><h3 id="遍历脚本"><a href="#遍历脚本" class="headerlink" title="遍历脚本"></a>遍历脚本</h3><blockquote>
+<p>pngquant-mod.exe </p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">set &quot;PNGQUANT_PATH=C:\Users\nobige\AppData\Local\Programs\PPDuck3\resources\app\bin\win32\pngquant-mod.exe&quot;</span><br><span class="line">set &quot;SOURCE_IMAGE=C:\Users\nobige\Desktop\vm-arc-s\testpng (1).png&quot;</span><br><span class="line"></span><br><span class="line">for /l %%i in (1,1,100) do (</span><br><span class="line">    set &quot;OUTPUT_IMAGE=C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-%%i.png&quot;</span><br><span class="line">    &quot;!PNGQUANT_PATH!&quot; --quality %%i &quot;!SOURCE_IMAGE!&quot; --output &quot;!OUTPUT_IMAGE!&quot; --force</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">endlocal</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>advpng.exe</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@echo off</span><br><span class="line">setlocal enabledelayedexpansion</span><br><span class="line"></span><br><span class="line">set &quot;PNGQUANT_PATH=C:\Users\Jia\AppData\Local\Programs\PPDuck3\resources\app\bin\win32\advpng.exe&quot;</span><br><span class="line">set &quot;SOURCE_IMAGE=C:\Users\Jia\Desktop\vm-arc\testpng.png&quot;</span><br><span class="line"></span><br><span class="line">for /l %%i in (80,1,100) do (</span><br><span class="line">    set &quot;OUTPUT_IMAGE=C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-%%i.png&quot;</span><br><span class="line">    &quot;!PNGQUANT_PATH!&quot;  -z -3 -f &quot;!OUTPUT_IMAGE!&quot;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">endlocal</span><br><span class="line">pause</span><br></pre></td></tr></table></figure>
+
+<h3 id="第一次比较"><a href="#第一次比较" class="headerlink" title="第一次比较"></a>第一次比较</h3><blockquote>
+<p>这图片比较特殊82到97都跟ppduck3 压缩后的文件哈希一样</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-3\testpng.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 15:59:49</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-91.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:51</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-92.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:54</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-93.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:57</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-94.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:56:00</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-95.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:56:02</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-96.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:56:05</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-97.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:56:08</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-77.png</span><br><span class="line">大小：	426, 856 字节</span><br><span class="line">修改时间：2024-05-22 14:55:13</span><br><span class="line">MD5：	7CB648C1ACF9293164E057AE1F1CCEEE</span><br><span class="line">SHA1：	0A11526B1352F11791BDE76311DEA6C30D053012</span><br><span class="line">CRC32：180F4697</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-78.png</span><br><span class="line">大小：	434, 771 字节</span><br><span class="line">修改时间：2024-05-22 14:55:16</span><br><span class="line">MD5：	0356BC12058C05DAE688AD3BA46A8637</span><br><span class="line">SHA1：	E4D47CCA6FC13A8351644BFAA1EEAC866A1F06DE</span><br><span class="line">CRC32：DD8A73E8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-79.png</span><br><span class="line">大小：	442, 759 字节</span><br><span class="line">修改时间：2024-05-22 14:55:19</span><br><span class="line">MD5：	75284EC79364BA44FA95F9F2469AEB75</span><br><span class="line">SHA1：	E3A96E3894F1BA506D6C19E0C51FC6544FB018C3</span><br><span class="line">CRC32：CC71338E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-80.png</span><br><span class="line">大小：	447, 771 字节</span><br><span class="line">修改时间：2024-05-22 14:55:21</span><br><span class="line">MD5：	A13A095E0402DB4CAEDAB62681C40C60</span><br><span class="line">SHA1：	B3EBE3CEBD8D5A7568FA6099B435FC8D7C490F77</span><br><span class="line">CRC32：2FD38BFC</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-81.png</span><br><span class="line">大小：	452, 561 字节</span><br><span class="line">修改时间：2024-05-22 14:55:24</span><br><span class="line">MD5：	8F6E22F5FD52BF04E011EE82EF183B29</span><br><span class="line">SHA1：	4D22C11CC0CC69C230A0AD23DC4EFA78D638CE30</span><br><span class="line">CRC32：5F1825B5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-82.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:27</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-83.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:30</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-84.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:33</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-85.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:35</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-86.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:38</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-87.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:41</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-88.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:43</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-89.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:46</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc\testpng-Quality-90.png</span><br><span class="line">大小：	452, 576 字节</span><br><span class="line">修改时间：2024-05-22 14:55:49</span><br><span class="line">MD5：	093E279C6F2B72A6FE052E903664901A</span><br><span class="line">SHA1：	20A3B305AA96CC2CFB958C809482872C9A6AE435</span><br><span class="line">CRC32：97389B5E</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="第二次比较"><a href="#第二次比较" class="headerlink" title="第二次比较"></a>第二次比较</h3><blockquote>
+<p>值为98</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-p\testpng (1).png</span><br><span class="line">大小：	7, 361 字节</span><br><span class="line">修改时间：2024-05-22 15:05:18</span><br><span class="line">MD5：	68CAD515235377F1C1E12363B4E401C2</span><br><span class="line">SHA1：	9EF7A615EB792515F39B24ED55ABF09ABC2A9EE9</span><br><span class="line">CRC32：08E1BD67</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-80.png</span><br><span class="line">大小：	6, 336 字节</span><br><span class="line">修改时间：2024-05-22 15:42:20</span><br><span class="line">MD5：	14A9FF9C5A914BE81BD17E8B6048D302</span><br><span class="line">SHA1：	F4907B91039F1BEB005034408D4A8BAE2B1225CF</span><br><span class="line">CRC32：EE0A94CB</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-81.png</span><br><span class="line">大小：	6, 336 字节</span><br><span class="line">修改时间：2024-05-22 15:42:21</span><br><span class="line">MD5：	14A9FF9C5A914BE81BD17E8B6048D302</span><br><span class="line">SHA1：	F4907B91039F1BEB005034408D4A8BAE2B1225CF</span><br><span class="line">CRC32：EE0A94CB</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-82.png</span><br><span class="line">大小：	6, 327 字节</span><br><span class="line">修改时间：2024-05-22 15:42:22</span><br><span class="line">MD5：	8E5C06D8685F0F9B3F0101BC6AE409EB</span><br><span class="line">SHA1：	B590B415E37EB16A057A703C5B47E50ACBA25928</span><br><span class="line">CRC32：05CA60BF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-83.png</span><br><span class="line">大小：	6, 468 字节</span><br><span class="line">修改时间：2024-05-22 15:42:23</span><br><span class="line">MD5：	BC7C8DA311F4D6508282BAB258A061E0</span><br><span class="line">SHA1：	F7F18AB57F9B1F88592C2CA6FAA49B98B5D0A609</span><br><span class="line">CRC32：70990123</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-84.png</span><br><span class="line">大小：	6, 471 字节</span><br><span class="line">修改时间：2024-05-22 15:42:24</span><br><span class="line">MD5：	A4C4C36A08D08300C5C80B9798499D1C</span><br><span class="line">SHA1：	01A2526681E4AB75EFF5DF195C580603DBE0C00D</span><br><span class="line">CRC32：DBB500F2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-85.png</span><br><span class="line">大小：	6, 471 字节</span><br><span class="line">修改时间：2024-05-22 15:42:25</span><br><span class="line">MD5：	A4C4C36A08D08300C5C80B9798499D1C</span><br><span class="line">SHA1：	01A2526681E4AB75EFF5DF195C580603DBE0C00D</span><br><span class="line">CRC32：DBB500F2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-86.png</span><br><span class="line">大小：	6, 471 字节</span><br><span class="line">修改时间：2024-05-22 15:42:26</span><br><span class="line">MD5：	A4C4C36A08D08300C5C80B9798499D1C</span><br><span class="line">SHA1：	01A2526681E4AB75EFF5DF195C580603DBE0C00D</span><br><span class="line">CRC32：DBB500F2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-87.png</span><br><span class="line">大小：	6, 471 字节</span><br><span class="line">修改时间：2024-05-22 15:42:27</span><br><span class="line">MD5：	A4C4C36A08D08300C5C80B9798499D1C</span><br><span class="line">SHA1：	01A2526681E4AB75EFF5DF195C580603DBE0C00D</span><br><span class="line">CRC32：DBB500F2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-88.png</span><br><span class="line">大小：	6, 468 字节</span><br><span class="line">修改时间：2024-05-22 15:42:28</span><br><span class="line">MD5：	6918A53B9509E7AFD08D58CD6AB113F4</span><br><span class="line">SHA1：	E94CB5E3E9F32238FB8E45BDA15214D3439C744D</span><br><span class="line">CRC32：CEBB9C56</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-89.png</span><br><span class="line">大小：	6, 673 字节</span><br><span class="line">修改时间：2024-05-22 15:42:29</span><br><span class="line">MD5：	ACEDFA7018553FEA1413CE27472B7EBC</span><br><span class="line">SHA1：	FF09F6623A7E7760604D4C3D48E476EDB9D10329</span><br><span class="line">CRC32：04A0C28F</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-90.png</span><br><span class="line">大小：	6, 664 字节</span><br><span class="line">修改时间：2024-05-22 15:42:30</span><br><span class="line">MD5：	7FD5F12CF0AB1E20FB1D8BC6EE374727</span><br><span class="line">SHA1：	2A0EFE8828AAD42D5DAE8BB90EBCA5117CB013F0</span><br><span class="line">CRC32：89086BEF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-91.png</span><br><span class="line">大小：	6, 664 字节</span><br><span class="line">修改时间：2024-05-22 15:42:31</span><br><span class="line">MD5：	7FD5F12CF0AB1E20FB1D8BC6EE374727</span><br><span class="line">SHA1：	2A0EFE8828AAD42D5DAE8BB90EBCA5117CB013F0</span><br><span class="line">CRC32：89086BEF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-92.png</span><br><span class="line">大小：	6, 664 字节</span><br><span class="line">修改时间：2024-05-22 15:42:32</span><br><span class="line">MD5：	7FD5F12CF0AB1E20FB1D8BC6EE374727</span><br><span class="line">SHA1：	2A0EFE8828AAD42D5DAE8BB90EBCA5117CB013F0</span><br><span class="line">CRC32：89086BEF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-93.png</span><br><span class="line">大小：	6, 750 字节</span><br><span class="line">修改时间：2024-05-22 15:42:32</span><br><span class="line">MD5：	2205B097E74094CE99E200F4700DFED6</span><br><span class="line">SHA1：	C94E013FFE528979E534E51353AE1C3705DD2BB6</span><br><span class="line">CRC32：DC7CCD42</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-94.png</span><br><span class="line">大小：	6, 750 字节</span><br><span class="line">修改时间：2024-05-22 15:42:33</span><br><span class="line">MD5：	2205B097E74094CE99E200F4700DFED6</span><br><span class="line">SHA1：	C94E013FFE528979E534E51353AE1C3705DD2BB6</span><br><span class="line">CRC32：DC7CCD42</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-95.png</span><br><span class="line">大小：	6, 766 字节</span><br><span class="line">修改时间：2024-05-22 15:42:34</span><br><span class="line">MD5：	7AC1ABAA9C76B7BCF767439A28148455</span><br><span class="line">SHA1：	34902EEDACD7D38251D4205EA793A31D85909A1F</span><br><span class="line">CRC32：B57CA7B9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-96.png</span><br><span class="line">大小：	6, 839 字节</span><br><span class="line">修改时间：2024-05-22 15:42:35</span><br><span class="line">MD5：	F6C527551FC0551169F5CDD3E09BC89E</span><br><span class="line">SHA1：	314C31CE437745D05250F961C971CC9772D9CFA1</span><br><span class="line">CRC32：506E352D</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-97.png</span><br><span class="line">大小：	7, 070 字节</span><br><span class="line">修改时间：2024-05-22 15:42:36</span><br><span class="line">MD5：	A8BF54F426D2F04BDB50246E30B5ED54</span><br><span class="line">SHA1：	FE08A397FCFDC1F3895677F2C527090EF49162FB</span><br><span class="line">CRC32：8342B4E8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-98.png</span><br><span class="line">大小：	7, 361 字节</span><br><span class="line">修改时间：2024-05-22 15:42:37</span><br><span class="line">MD5：	68CAD515235377F1C1E12363B4E401C2</span><br><span class="line">SHA1：	9EF7A615EB792515F39B24ED55ABF09ABC2A9EE9</span><br><span class="line">CRC32：08E1BD67</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-99.png</span><br><span class="line">大小：	7, 958 字节</span><br><span class="line">修改时间：2024-05-22 15:42:38</span><br><span class="line">MD5：	79F600A76A0D3D3F41F3831A0BA9F59C</span><br><span class="line">SHA1：	2754A0BEBA3365E530033E89A130DD467B2454D2</span><br><span class="line">CRC32：ABDA414A</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-100.png</span><br><span class="line">大小：	10, 948 字节</span><br><span class="line">修改时间：2024-05-22 15:42:39</span><br><span class="line">MD5：	143776BDCE33EDF0AF58960BE3577CB9</span><br><span class="line">SHA1：	0950B035741069A7920C889FA8FD7F4B270376ED</span><br><span class="line">CRC32：669595E7</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="第一次比较-1"><a href="#第一次比较-1" class="headerlink" title="第一次比较"></a>第一次比较</h3><blockquote>
+<p>值为98</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-p\testpng (2).png</span><br><span class="line">大小：	16, 363 字节</span><br><span class="line">修改时间：2024-05-22 15:05:22</span><br><span class="line">MD5：	65BC43DE4E024BAC161F8A37BA76B2B0</span><br><span class="line">SHA1：	1DD2C1A6EB4BA7C0D8EB0E808697B2A6A17E7B98</span><br><span class="line">CRC32：7D364587</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-90.png</span><br><span class="line">大小：	15, 384 字节</span><br><span class="line">修改时间：2024-05-22 15:46:37</span><br><span class="line">MD5：	5CB7AA74A5403DD75CED8F6D6C71FB64</span><br><span class="line">SHA1：	7F53DF4B3BD55C09EA5682CFDF0063D49A53EF70</span><br><span class="line">CRC32：C4367187</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-91.png</span><br><span class="line">大小：	15, 443 字节</span><br><span class="line">修改时间：2024-05-22 15:46:39</span><br><span class="line">MD5：	C78F53E9A12391B0C19878C22A16B71B</span><br><span class="line">SHA1：	C9C0FB87F93BC332FACC3B0A39814707E69B4026</span><br><span class="line">CRC32：85451CAE</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-92.png</span><br><span class="line">大小：	15, 406 字节</span><br><span class="line">修改时间：2024-05-22 15:46:41</span><br><span class="line">MD5：	DE9263537AC00EAE18606C3DEC64965C</span><br><span class="line">SHA1：	9F60A3A82DBE6188847B656F386AB0C7FF9C122A</span><br><span class="line">CRC32：D098BD77</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-93.png</span><br><span class="line">大小：	15, 520 字节</span><br><span class="line">修改时间：2024-05-22 15:46:42</span><br><span class="line">MD5：	5F5F401EE0C3770278E3703BB91AE929</span><br><span class="line">SHA1：	9E6C4D924382C4C338EC00192B702C7ACE55AC86</span><br><span class="line">CRC32：E25519B9</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-94.png</span><br><span class="line">大小：	15, 626 字节</span><br><span class="line">修改时间：2024-05-22 15:46:44</span><br><span class="line">MD5：	DBD1D4C9EFF2BFD1454E0F8716F5189B</span><br><span class="line">SHA1：	EB5383B6C102E523A21C7DCDB60DE1790AF499A3</span><br><span class="line">CRC32：4A9D9680</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-95.png</span><br><span class="line">大小：	15, 722 字节</span><br><span class="line">修改时间：2024-05-22 15:46:46</span><br><span class="line">MD5：	A8661E0BF4419DA7E687546668F9525A</span><br><span class="line">SHA1：	D5EF8CC3E886E3EAC2CAEAA76FFBE5F1C3CB4FB3</span><br><span class="line">CRC32：766A0D6D</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-96.png</span><br><span class="line">大小：	15, 884 字节</span><br><span class="line">修改时间：2024-05-22 15:46:48</span><br><span class="line">MD5：	97B9678026CBF317784071533E62E647</span><br><span class="line">SHA1：	97FFE5038B99B7B9EF2AC816A55A32734D6DB2AD</span><br><span class="line">CRC32：4E5F6EFA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-97.png</span><br><span class="line">大小：	16, 028 字节</span><br><span class="line">修改时间：2024-05-22 15:46:49</span><br><span class="line">MD5：	DD3B5168FA3151A3649322C74B60B1E6</span><br><span class="line">SHA1：	B369321FFAD69347F4156591AABBF26AEE84A365</span><br><span class="line">CRC32：7260632C</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-98.png</span><br><span class="line">大小：	16, 363 字节</span><br><span class="line">修改时间：2024-05-22 15:46:51</span><br><span class="line">MD5：	65BC43DE4E024BAC161F8A37BA76B2B0</span><br><span class="line">SHA1：	1DD2C1A6EB4BA7C0D8EB0E808697B2A6A17E7B98</span><br><span class="line">CRC32：7D364587</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-99.png</span><br><span class="line">大小：	16, 537 字节</span><br><span class="line">修改时间：2024-05-22 15:46:53</span><br><span class="line">MD5：	3A194837D13DC0355D583BB92C1627DC</span><br><span class="line">SHA1：	0FBA888761A76966794FDC6461D6BF93143B2E01</span><br><span class="line">CRC32：33E91ADF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-100.png</span><br><span class="line">大小：	16, 660 字节</span><br><span class="line">修改时间：2024-05-22 15:46:55</span><br><span class="line">MD5：	85625ED7297FE4CCB6A6F07F5D58DED2</span><br><span class="line">SHA1：	A6513386D5DB45985B6E38F0B7F9F480ED0A3790</span><br><span class="line">CRC32：1D30A8A8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-80.png</span><br><span class="line">大小：	15, 051 字节</span><br><span class="line">修改时间：2024-05-22 15:46:20</span><br><span class="line">MD5：	4C122A473642B18D68E03228A1345E00</span><br><span class="line">SHA1：	029EDB663F660B9115C01987BC16E761C8A66EC4</span><br><span class="line">CRC32：6888A166</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-81.png</span><br><span class="line">大小：	15, 039 字节</span><br><span class="line">修改时间：2024-05-22 15:46:21</span><br><span class="line">MD5：	88224F2B9515C6014C46651B709A36C7</span><br><span class="line">SHA1：	25AF13531D8CEDCEBB4AC8B79673F9CF5F614C44</span><br><span class="line">CRC32：167EF8C7</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-82.png</span><br><span class="line">大小：	15, 086 字节</span><br><span class="line">修改时间：2024-05-22 15:46:23</span><br><span class="line">MD5：	076407AF32E1A2D6C52D1B8046F34320</span><br><span class="line">SHA1：	D446DADFC5D728EDC1B205C15AEA557B5658BA4D</span><br><span class="line">CRC32：C6FE317E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-83.png</span><br><span class="line">大小：	15, 173 字节</span><br><span class="line">修改时间：2024-05-22 15:46:25</span><br><span class="line">MD5：	886354F0D95FF6006493ED7C58B6054B</span><br><span class="line">SHA1：	C95A4516BB1E6F846DB70669CEB5AB093288C658</span><br><span class="line">CRC32：A31C8238</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-84.png</span><br><span class="line">大小：	15, 168 字节</span><br><span class="line">修改时间：2024-05-22 15:46:27</span><br><span class="line">MD5：	9934014FAC7906995F4F9653E3C242D4</span><br><span class="line">SHA1：	4A82FD113EF4C5679E037CF0C4635C0B92533EB3</span><br><span class="line">CRC32：DE5C1FCA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-85.png</span><br><span class="line">大小：	15, 251 字节</span><br><span class="line">修改时间：2024-05-22 15:46:28</span><br><span class="line">MD5：	4E05314A8A10B9F3E61458C94FF3F4BA</span><br><span class="line">SHA1：	96FCE561BB672B3EE83A64CDED1A50138421E301</span><br><span class="line">CRC32：8BEB4C81</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-86.png</span><br><span class="line">大小：	14, 929 字节</span><br><span class="line">修改时间：2024-05-22 15:46:30</span><br><span class="line">MD5：	9359A5CE8E573CF39E115D14B50214FF</span><br><span class="line">SHA1：	FE748F36F72556AE5699E38C6DDEC751DB26B877</span><br><span class="line">CRC32：A4E0E2C4</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-87.png</span><br><span class="line">大小：	15, 170 字节</span><br><span class="line">修改时间：2024-05-22 15:46:32</span><br><span class="line">MD5：	615831E4C82D1D9B9C90A4FA62EE7AD6</span><br><span class="line">SHA1：	C2FD0AFB00A3A65AA97CC9965134F977509CD351</span><br><span class="line">CRC32：2EA8D111</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-88.png</span><br><span class="line">大小：	15, 243 字节</span><br><span class="line">修改时间：2024-05-22 15:46:34</span><br><span class="line">MD5：	579160A0BE843616F3773E3C7A77D793</span><br><span class="line">SHA1：	A35007CF24F14814488341FDD556FAB1E78C0931</span><br><span class="line">CRC32：FE23CDFF</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件：	C:\Users\Jia\Desktop\vm-arc-s\testpng-Quality-89.png</span><br><span class="line">大小：	15, 292 字节</span><br><span class="line">修改时间：2024-05-22 15:46:35</span><br><span class="line">MD5：	9935563EB5BD730819C832456036A7C2</span><br><span class="line">SHA1：	5D14DA4FE367939F83D04C0C3505C4FD466C8F8D</span><br><span class="line">CRC32：CC2F7B9E</span><br></pre></td></tr></table></figure>
+
+<h3 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h3><ol>
+<li>pngquant-mod.exe 压缩到98</li>
+<li>advpng.exe 压缩级别3</li>
+</ol>
+<h2 id="JPG压缩"><a href="#JPG压缩" class="headerlink" title="JPG压缩"></a>JPG压缩</h2><blockquote>
+<p>cjpeg-mod.exe</p>
+</blockquote>
+<h3 id="愚蠢"><a href="#愚蠢" class="headerlink" title="愚蠢"></a>愚蠢</h3><blockquote>
+<p>本来JPG也想通过相同的方法进行暴力遍历参数值，但是试了下几个压缩值都没有匹配到正确的值，就试图另寻他法，最后想起了火绒剑，软件一开这可以直接看到答案的界面真是让人感觉是蠢到家了，明明简简单单的事情被我搞的那么复杂。</p>
+</blockquote>
+<p><img src="https://pic.rmb.bdstatic.com/bjh/240522/2e2dbeb1857542e18b350732a3eb99e16443.png"></p>
+<h3 id="压缩参数"><a href="#压缩参数" class="headerlink" title="压缩参数"></a>压缩参数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># JPG</span></span><br><span class="line">parent_pid:760</span><br><span class="line">cmdline:<span class="string">&#x27;C:\Users\Jia\AppData\Local\Programs\PPDuck3\resources\app\bin\win32\cjpeg-mod.exe -optimize -quant-baseline -quality 67 -sample 1x1 -quant-table 3 C:\Users\Jia\Desktop\pp-j-6\15e47143-9500-4d66-ab5f-9dbd120232ef.jpg&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># PNG</span></span><br><span class="line">target_pid:4652</span><br><span class="line">cmdline:<span class="string">&#x27;C:\Users\Jia\AppData\Local\Programs\PPDuck3\resources\app\bin\win32\pngquant-mod.exe C:\Users\Jia\Desktop\a51e25d6-84b1-4481-a827-937d4f022a25.png --output=C:\Users\Jia\Desktop\a51e25d6-84b1-4481-a827-937d4f022a25.png.out --quality=10-98 -f --strip&#x27;</span></span><br><span class="line">target_pid:3368</span><br><span class="line">cmdline:<span class="string">&#x27;C:\Users\Jia\AppData\Local\Programs\PPDuck3\resources\app\bin\win32\advpng.exe -z -3 C:\Users\Jia\Desktop\a51e25d6-84b1-4481-a827-937d4f022a25.png.out&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># GIF</span></span><br><span class="line">target_pid:5948</span><br><span class="line">cmdline:<span class="string">&#x27;C:\Users\Jia\AppData\Local\Programs\PPDuck3\resources\app\bin\win32\gifsicle.exe -O5 --lossy=30 -o C:\Users\Jia\Desktop\bf33e548-866d-4852-8bfd-34b84bef1c8a.gif.out C:\Users\Jia\Desktop\bf33e548-866d-4852-8bfd-34b84bef1c8a.gif&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>可以基于此“算法”再写一个图片压缩软件，例如取个叫<code>QQCHICK</code>画个界面然后用压缩参数一搞，这不就是纯正的破解版了么？等我哪天“吃饱了”我把这个坑填上，算是此系列的终结。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A0%B4%E8%A7%A3/" rel="tag"># 破解</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20240513-nei_wang_shi_jian_tong_bu_fang_an/" rel="prev" title="NTP内网时间同步方案chronyc">
+                  <i class="fa fa-chevron-left"></i> NTP内网时间同步方案chronyc
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/" rel="next" title="阿里云FC函数PHP运行环境如何增加或删除内置扩展">
+                  阿里云FC函数PHP运行环境如何增加或删除内置扩展 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

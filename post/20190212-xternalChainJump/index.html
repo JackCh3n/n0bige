@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="效果​	保护域名权重（虽然权重都是0） 使用1.复制复制代码,按需要修改 域名和http 或是https 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768&lt;html&gt;&lt;head">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HEXO下js实现外链跳转html-php页面效果代码">
+<meta property="og:url" content="https://nobige.cn/post/20190212-xternalChainJump/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="效果​	保护域名权重（虽然权重都是0） 使用1.复制复制代码,按需要修改 域名和http 或是https 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768&lt;html&gt;&lt;head">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190212-xternalChainJump/xiao2019-02-12_15-10-04.jpg">
+<meta property="article:published_time" content="2019-02-12T07:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.230Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="js">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="外链">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190212-xternalChainJump/xiao2019-02-12_15-10-04.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190212-xternalChainJump/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190212-xternalChainJump/","path":"post/20190212-xternalChainJump/","title":"HEXO下js实现外链跳转html-php页面效果代码"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>HEXO下js实现外链跳转html-php页面效果代码 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">1.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%A4%8D%E5%88%B6"><span class="nav-number">2.1.</span> <span class="nav-text">1.复制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%B2%98%E8%B4%B4"><span class="nav-number">2.2.</span> <span class="nav-text">2.粘贴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%99%BD%E5%90%8D%E5%8D%95"><span class="nav-number">2.3.</span> <span class="nav-text">3.白名单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="nav-number">2.4.</span> <span class="nav-text">3.使用</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190212-xternalChainJump/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="HEXO下js实现外链跳转html-php页面效果代码 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HEXO下js实现外链跳转html-php页面效果代码
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-02-12 15:00:00" itemprop="dateCreated datePublished" datetime="2019-02-12T15:00:00+08:00">2019-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>​	保护域名权重<em>（虽然权重都是0）</em></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="1-复制"><a href="#1-复制" class="headerlink" title="1.复制"></a>1.复制</h3><p>复制代码,按需要修改 域名和http 或是https</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=UTF-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;noindex, nofollow&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//base64加密解密函数</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> base64EncodeChars=<span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;</span>;<span class="keyword">var</span> base64DecodeChars=<span class="keyword">new</span> <span class="title class_">Array</span>(-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,<span class="number">62</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,<span class="number">63</span>,<span class="number">52</span>,<span class="number">53</span>,<span class="number">54</span>,<span class="number">55</span>,<span class="number">56</span>,<span class="number">57</span>,<span class="number">58</span>,<span class="number">59</span>,<span class="number">60</span>,<span class="number">61</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span>,<span class="number">23</span>,<span class="number">24</span>,<span class="number">25</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,<span class="number">26</span>,<span class="number">27</span>,<span class="number">28</span>,<span class="number">29</span>,<span class="number">30</span>,<span class="number">31</span>,<span class="number">32</span>,<span class="number">33</span>,<span class="number">34</span>,<span class="number">35</span>,<span class="number">36</span>,<span class="number">37</span>,<span class="number">38</span>,<span class="number">39</span>,<span class="number">40</span>,<span class="number">41</span>,<span class="number">42</span>,<span class="number">43</span>,<span class="number">44</span>,<span class="number">45</span>,<span class="number">46</span>,<span class="number">47</span>,<span class="number">48</span>,<span class="number">49</span>,<span class="number">50</span>,<span class="number">51</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>,-<span class="number">1</span>);<span class="keyword">function</span> <span class="title function_">base64encode</span>(<span class="params">str</span>)&#123;<span class="keyword">var</span> out,i,len;<span class="keyword">var</span> c1,c2,c3;len=str.<span class="property">length</span>;i=<span class="number">0</span>;out=<span class="string">&quot;&quot;</span>;<span class="keyword">while</span>(i&lt;len)&#123;c1=str.<span class="title function_">charCodeAt</span>(i++)&amp;<span class="number">255</span>;<span class="keyword">if</span>(i==len)&#123;out+=base64EncodeChars.<span class="title function_">charAt</span>(c1&gt;&gt;<span class="number">2</span>);out+=base64EncodeChars.<span class="title function_">charAt</span>((c1&amp;<span class="number">3</span>)&lt;&lt;<span class="number">4</span>);out+=<span class="string">&quot;==&quot;</span>;<span class="keyword">break</span>&#125;c2=str.<span class="title function_">charCodeAt</span>(i++);<span class="keyword">if</span>(i==len)&#123;out+=base64EncodeChars.<span class="title function_">charAt</span>(c1&gt;&gt;<span class="number">2</span>);out+=base64EncodeChars.<span class="title function_">charAt</span>(((c1&amp;<span class="number">3</span>)&lt;&lt;<span class="number">4</span>)|((c2&amp;<span class="number">240</span>)&gt;&gt;<span class="number">4</span>));out+=base64EncodeChars.<span class="title function_">charAt</span>((c2&amp;<span class="number">15</span>)&lt;&lt;<span class="number">2</span>);out+=<span class="string">&quot;=&quot;</span>;<span class="keyword">break</span>&#125;c3=str.<span class="title function_">charCodeAt</span>(i++);out+=base64EncodeChars.<span class="title function_">charAt</span>(c1&gt;&gt;<span class="number">2</span>);out+=base64EncodeChars.<span class="title function_">charAt</span>(((c1&amp;<span class="number">3</span>)&lt;&lt;<span class="number">4</span>)|((c2&amp;<span class="number">240</span>)&gt;&gt;<span class="number">4</span>));out+=base64EncodeChars.<span class="title function_">charAt</span>(((c2&amp;<span class="number">15</span>)&lt;&lt;<span class="number">2</span>)|((c3&amp;<span class="number">192</span>)&gt;&gt;<span class="number">6</span>));out+=base64EncodeChars.<span class="title function_">charAt</span>(c3&amp;<span class="number">63</span>)&#125;<span class="keyword">return</span> out&#125;<span class="keyword">function</span> <span class="title function_">base64decode</span>(<span class="params">str</span>)&#123;<span class="keyword">var</span> c1,c2,c3,c4;<span class="keyword">var</span> i,len,out;len=str.<span class="property">length</span>;i=<span class="number">0</span>;out=<span class="string">&quot;&quot;</span>;<span class="keyword">while</span>(i&lt;len)&#123;<span class="keyword">do</span>&#123;c1=base64DecodeChars[str.<span class="title function_">charCodeAt</span>(i++)&amp;<span class="number">255</span>]&#125;<span class="keyword">while</span>(i&lt;len&amp;&amp;c1==-<span class="number">1</span>);<span class="keyword">if</span>(c1==-<span class="number">1</span>)&#123;<span class="keyword">break</span>&#125;<span class="keyword">do</span>&#123;c2=base64DecodeChars[str.<span class="title function_">charCodeAt</span>(i++)&amp;<span class="number">255</span>]&#125;<span class="keyword">while</span>(i&lt;len&amp;&amp;c2==-<span class="number">1</span>);<span class="keyword">if</span>(c2==-<span class="number">1</span>)&#123;<span class="keyword">break</span>&#125;out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>((c1&lt;&lt;<span class="number">2</span>)|((c2&amp;<span class="number">48</span>)&gt;&gt;<span class="number">4</span>));<span class="keyword">do</span>&#123;c3=str.<span class="title function_">charCodeAt</span>(i++)&amp;<span class="number">255</span>;<span class="keyword">if</span>(c3==<span class="number">61</span>)&#123;<span class="keyword">return</span> out&#125;c3=base64DecodeChars[c3]&#125;<span class="keyword">while</span>(i&lt;len&amp;&amp;c3==-<span class="number">1</span>);<span class="keyword">if</span>(c3==-<span class="number">1</span>)&#123;<span class="keyword">break</span>&#125;out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(((c2&amp;<span class="number">15</span>)&lt;&lt;<span class="number">4</span>)|((c3&amp;<span class="number">60</span>)&gt;&gt;<span class="number">2</span>));<span class="keyword">do</span>&#123;c4=str.<span class="title function_">charCodeAt</span>(i++)&amp;<span class="number">255</span>;<span class="keyword">if</span>(c4==<span class="number">61</span>)&#123;<span class="keyword">return</span> out&#125;c4=base64DecodeChars[c4]&#125;<span class="keyword">while</span>(i&lt;len&amp;&amp;c4==-<span class="number">1</span>);<span class="keyword">if</span>(c4==-<span class="number">1</span>)&#123;<span class="keyword">break</span>&#125;out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(((c3&amp;<span class="number">3</span>)&lt;&lt;<span class="number">6</span>)|c4)&#125;<span class="keyword">return</span> out&#125;<span class="keyword">function</span> <span class="title function_">utf16to8</span>(<span class="params">str</span>)&#123;<span class="keyword">var</span> out,i,len,c;out=<span class="string">&quot;&quot;</span>;len=str.<span class="property">length</span>;<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)&#123;c=str.<span class="title function_">charCodeAt</span>(i);<span class="keyword">if</span>((c&gt;=<span class="number">1</span>)&amp;&amp;(c&lt;=<span class="number">127</span>))&#123;out+=str.<span class="title function_">charAt</span>(i)&#125;<span class="keyword">else</span>&#123;<span class="keyword">if</span>(c&gt;<span class="number">2047</span>)&#123;out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">224</span>|((c&gt;&gt;<span class="number">12</span>)&amp;<span class="number">15</span>));out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">128</span>|((c&gt;&gt;<span class="number">6</span>)&amp;<span class="number">63</span>));out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">128</span>|((c&gt;&gt;<span class="number">0</span>)&amp;<span class="number">63</span>))&#125;<span class="keyword">else</span>&#123;out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">192</span>|((c&gt;&gt;<span class="number">6</span>)&amp;<span class="number">31</span>));out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">128</span>|((c&gt;&gt;<span class="number">0</span>)&amp;<span class="number">63</span>))&#125;&#125;&#125;<span class="keyword">return</span> out&#125;<span class="keyword">function</span> <span class="title function_">utf8to16</span>(<span class="params">str</span>)&#123;<span class="keyword">var</span> out,i,len,c;<span class="keyword">var</span> char2,char3;out=<span class="string">&quot;&quot;</span>;len=str.<span class="property">length</span>;i=<span class="number">0</span>;<span class="keyword">while</span>(i&lt;len)&#123;c=str.<span class="title function_">charCodeAt</span>(i++);<span class="keyword">switch</span>(c&gt;&gt;<span class="number">4</span>)&#123;<span class="keyword">case</span> <span class="number">0</span>:<span class="keyword">case</span> <span class="number">1</span>:<span class="keyword">case</span> <span class="number">2</span>:<span class="keyword">case</span> <span class="number">3</span>:<span class="keyword">case</span> <span class="number">4</span>:<span class="keyword">case</span> <span class="number">5</span>:<span class="keyword">case</span> <span class="number">6</span>:<span class="keyword">case</span> <span class="number">7</span>:out+=str.<span class="title function_">charAt</span>(i-<span class="number">1</span>);<span class="keyword">break</span>;<span class="keyword">case</span> <span class="number">12</span>:<span class="keyword">case</span> <span class="number">13</span>:char2=str.<span class="title function_">charCodeAt</span>(i++);out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(((c&amp;<span class="number">31</span>)&lt;&lt;<span class="number">6</span>)|(char2&amp;<span class="number">63</span>));<span class="keyword">break</span>;<span class="keyword">case</span> <span class="number">14</span>:char2=str.<span class="title function_">charCodeAt</span>(i++);char3=str.<span class="title function_">charCodeAt</span>(i++);out+=<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(((c&amp;<span class="number">15</span>)&lt;&lt;<span class="number">12</span>)|((char2&amp;<span class="number">63</span>)&lt;&lt;<span class="number">6</span>)|((char3&amp;<span class="number">63</span>)&lt;&lt;<span class="number">0</span>));<span class="keyword">break</span>&#125;&#125;<span class="keyword">return</span> out&#125;<span class="keyword">function</span> <span class="title function_">doit</span>(<span class="params"></span>)&#123;<span class="keyword">var</span> f=<span class="variable language_">document</span>.<span class="property">f</span>;f.<span class="property">output</span>.<span class="property">value</span>=<span class="title function_">base64encode</span>(<span class="title function_">utf16to8</span>(f.<span class="property">source</span>.<span class="property">value</span>));f.<span class="property">decode</span>.<span class="property">value</span>=<span class="title function_">utf8to16</span>(<span class="title function_">base64decode</span>(f.<span class="property">output</span>.<span class="property">value</span>))&#125;;</span></span><br><span class="line"><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript"><span class="comment">//获取请求参数,支持伪静态</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">GetQueryString</span>(<span class="params">name</span>)</span></span><br><span class="line"><span class="language-javascript">&#123;</span></span><br><span class="line"><span class="language-javascript">     <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;(^|&amp;)&quot;</span>+ name +<span class="string">&quot;=(.*)$&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">     <span class="keyword">var</span> r = <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">search</span>.<span class="title function_">substr</span>(<span class="number">1</span>).<span class="title function_">match</span>(reg);</span></span><br><span class="line"><span class="language-javascript">     <span class="keyword">if</span>(r!=<span class="literal">null</span>) &#123; </span></span><br><span class="line"><span class="language-javascript">         <span class="keyword">return</span>  <span class="built_in">unescape</span>(r[<span class="number">2</span>]);</span></span><br><span class="line"><span class="language-javascript">     &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">         <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">pathname</span>.<span class="title function_">replace</span>(<span class="string">&#x27;/go/&#x27;</span>,<span class="string">&#x27;&#x27;</span>); <span class="comment">//注意代码中的/goto/和跳转地址/goto/保持一致，请记得自行修改！</span></span></span><br><span class="line"><span class="language-javascript">     &#125;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> jump_url = <span class="title class_">GetQueryString</span>(<span class="string">&quot;u&quot;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//若传入的是base加密数据，则进行解密处理</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>( jump_url == <span class="title function_">base64encode</span>(<span class="title function_">base64decode</span>(jump_url))) &#123;</span></span><br><span class="line"><span class="language-javascript">    jump_url = <span class="title function_">base64decode</span>(jump_url);</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//url简单正则</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">var</span> <span class="title class_">UrlReg</span> = <span class="string">&quot;^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)&quot;</span>;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//自定义一些跳转字符串，请根据实际需求自行发挥</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// if(jump_url==&quot;baidu&quot;) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//   var jump_url=&quot;https://www.baidu.com/&quot;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="comment">// &#125;</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//网址校验</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">if</span>(jump_url == <span class="literal">null</span> || jump_url.<span class="title function_">toString</span>().<span class="property">length</span>&lt;<span class="number">1</span> || !jump_url.<span class="title function_">match</span>(<span class="title class_">UrlReg</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">document</span>.<span class="property">title</span> = <span class="string">&#x27;参数错误，正在返回首页...&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">    jump_url = location.<span class="property">origin</span>;</span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="comment">//延时执行跳转</span></span></span><br><span class="line"><span class="language-javascript"><span class="built_in">setTimeout</span>(</span></span><br><span class="line"><span class="language-javascript"><span class="keyword">function</span> <span class="title function_">link_jump</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="language-javascript">&#123;   </span></span><br><span class="line"><span class="language-javascript"><span class="comment">//非本站域名不允许使用此跳转页面，请自行修改域名</span></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> <span class="title class_">MyHOST</span> = <span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;nobige.cn&quot;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">if</span> (!<span class="title class_">MyHOST</span>.<span class="title function_">test</span>(<span class="variable language_">document</span>.<span class="property">referrer</span>)) &#123;</span></span><br><span class="line"><span class="language-javascript">        location.<span class="property">href</span> = <span class="string">&quot;https://&quot;</span> + <span class="title class_">MyHOST</span>;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">return</span>;</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    location.<span class="property">href</span> = jump_url;</span></span><br><span class="line"><span class="language-javascript">&#125;, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>)&#123;<span class="variable language_">window</span>.<span class="property">opener</span>=<span class="literal">null</span>;<span class="variable language_">window</span>.<span class="title function_">close</span>();&#125;, <span class="number">50000</span>);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>页面加载中，请稍候...<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-tag">body</span>&#123;<span class="attribute">background</span>:<span class="number">#555</span>&#125;<span class="selector-class">.loading</span>&#123;-webkit-<span class="attribute">animation</span>:fadein <span class="number">2s</span>;-moz-<span class="attribute">animation</span>:fadein <span class="number">2s</span>;-o-<span class="attribute">animation</span>:fadein <span class="number">2s</span>;<span class="attribute">animation</span>:fadein <span class="number">2s</span>&#125;<span class="keyword">@-moz-keyframes</span> fadein&#123;<span class="selector-tag">from</span>&#123;<span class="attribute">opacity</span>:<span class="number">0</span>&#125;<span class="selector-tag">to</span>&#123;<span class="attribute">opacity</span>:<span class="number">1</span>&#125;&#125;<span class="keyword">@-webkit-keyframes</span> fadein&#123;<span class="selector-tag">from</span>&#123;<span class="attribute">opacity</span>:<span class="number">0</span>&#125;<span class="selector-tag">to</span>&#123;<span class="attribute">opacity</span>:<span class="number">1</span>&#125;&#125;<span class="keyword">@-o-keyframes</span> fadein&#123;<span class="selector-tag">from</span>&#123;<span class="attribute">opacity</span>:<span class="number">0</span>&#125;<span class="selector-tag">to</span>&#123;<span class="attribute">opacity</span>:<span class="number">1</span>&#125;&#125;<span class="keyword">@keyframes</span> fadein&#123;<span class="selector-tag">from</span>&#123;<span class="attribute">opacity</span>:<span class="number">0</span>&#125;<span class="selector-tag">to</span>&#123;<span class="attribute">opacity</span>:<span class="number">1</span>&#125;&#125;<span class="selector-class">.spinner-wrapper</span>&#123;<span class="attribute">position</span>:absolute;<span class="attribute">top</span>:<span class="number">0</span>;<span class="attribute">left</span>:<span class="number">0</span>;<span class="attribute">z-index</span>:<span class="number">300</span>;<span class="attribute">height</span>:<span class="number">100%</span>;<span class="attribute">min-width</span>:<span class="number">100%</span>;<span class="attribute">min-height</span>:<span class="number">100%</span>;<span class="attribute">background</span>:<span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">0.93</span>)&#125;<span class="selector-class">.spinner-text</span>&#123;<span class="attribute">position</span>:absolute;<span class="attribute">top</span>:<span class="number">45%</span>;<span class="attribute">left</span>:<span class="number">50%</span>;<span class="attribute">margin-left</span>:-<span class="number">100px</span>;<span class="attribute">margin-top</span>:<span class="number">2px</span>;<span class="attribute">color</span>:<span class="number">#000</span>;<span class="attribute">letter-spacing</span>:<span class="number">1px</span>;<span class="attribute">font-size</span>:<span class="number">20px</span>;<span class="attribute">font-family</span>:Arial&#125;<span class="selector-class">.spinner</span>&#123;<span class="attribute">position</span>:absolute;<span class="attribute">top</span>:<span class="number">45%</span>;<span class="attribute">left</span>:<span class="number">50%</span>;<span class="attribute">display</span>:block;<span class="attribute">margin-left</span>:-<span class="number">160px</span>;<span class="attribute">width</span>:<span class="number">1px</span>;<span class="attribute">height</span>:<span class="number">1px</span>;<span class="attribute">border</span>:<span class="number">20px</span> solid <span class="built_in">rgba</span>(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>);-webkit-<span class="attribute">border-radius</span>:<span class="number">50px</span>;-moz-<span class="attribute">border-radius</span>:<span class="number">50px</span>;<span class="attribute">border-radius</span>:<span class="number">50px</span>;<span class="attribute">border-left-color</span>:transparent;<span class="attribute">border-right-color</span>:transparent;-webkit-<span class="attribute">animation</span>:spin <span class="number">1.5s</span> infinite;-moz-<span class="attribute">animation</span>:spin <span class="number">1.5s</span> infinite;<span class="attribute">animation</span>:spin <span class="number">1.5s</span> infinite&#125;<span class="keyword">@-webkit-keyframes</span> spin&#123;<span class="number">0%</span>,<span class="number">100%</span>&#123;-webkit-<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">scale</span>(<span class="number">1</span>)&#125;<span class="number">50%</span>&#123;-webkit-<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">720deg</span>) <span class="built_in">scale</span>(<span class="number">0.6</span>)&#125;&#125;<span class="keyword">@-moz-keyframes</span> spin&#123;<span class="number">0%</span>,<span class="number">100%</span>&#123;-moz-<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">scale</span>(<span class="number">1</span>)&#125;<span class="number">50%</span>&#123;-moz-<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">720deg</span>) <span class="built_in">scale</span>(<span class="number">0.6</span>)&#125;&#125;<span class="keyword">@-o-keyframes</span> spin&#123;<span class="number">0%</span>,<span class="number">100%</span>&#123;-o-<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">scale</span>(<span class="number">1</span>)&#125;<span class="number">50%</span>&#123;-o-<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">720deg</span>) <span class="built_in">scale</span>(<span class="number">0.6</span>)&#125;&#125;<span class="keyword">@keyframes</span> spin&#123;<span class="number">0%</span>,<span class="number">100%</span>&#123;<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">0deg</span>) <span class="built_in">scale</span>(<span class="number">1</span>)&#125;<span class="number">50%</span>&#123;<span class="attribute">transform</span>:<span class="built_in">rotate</span>(<span class="number">720deg</span>) <span class="built_in">scale</span>(<span class="number">0.6</span>)&#125;&#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;loading&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;spinner-wrapper&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;spinner-text&quot;</span>&gt;</span>页面加载中，请稍候...<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;spinner&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-粘贴"><a href="#2-粘贴" class="headerlink" title="2.粘贴"></a>2.粘贴</h3><p>​	粘贴成 go.html HEXO静态博客存放目录是 <strong>根\source\go.html</strong> 或是自行建立go文件夹则目录路径是根<strong>\source\go\go.html</strong></p>
+<h3 id="3-白名单"><a href="#3-白名单" class="headerlink" title="3.白名单"></a>3.白名单</h3><p>​	编辑根目录下的 <strong>_config.yml</strong> 在<strong>skip_render</strong> 下添加 go.html 如图</p>
+<p> <img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190212-xternalChainJump/xiao2019-02-12_15-10-04.jpg" alt="_config.ym skip_render"></p>
+<h3 id="3-使用"><a href="#3-使用" class="headerlink" title="3.使用"></a>3.使用</h3><p>​	使用方法</p>
+<p><a href="/go.html?u=https://www.google.com/?gws_rd=ssl">&#x2F;go.html?u&#x3D;https://www.google.com/?gws_rd&#x3D;ssl</a><br><a href="/go.html?u=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8/Z3dzX3JkPXNzbA==">&#x2F;go.html?u&#x3D;aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&#x2F;Z3dzX3JkPXNzbA&#x3D;&#x3D;</a></p>
+<p>代码原自《<a href="/go.html?u=https://cloud.tencent.com/developer/article/1068470">分享最近对网站外链跳转页面代码的一些改善</a>》</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/js/" rel="tag"># js</a>
+              <a href="/tags/html/" rel="tag"># html</a>
+              <a href="/tags/%E5%A4%96%E9%93%BE/" rel="tag"># 外链</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190204-TortoiseGitPlinkFatalError/" rel="prev" title="TortoiseGitPlink Fatal Error">
+                  <i class="fa fa-chevron-left"></i> TortoiseGitPlink Fatal Error
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190214-HostedPlatformMigration/" rel="next" title="Coding迁移GitHub-Git仓库迁移保留commit历史记录">
+                  Coding迁移GitHub-Git仓库迁移保留commit历史记录 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="安装官方 1curl -fsSL https:&#x2F;&#x2F;get.docker.com | bash -s docker --mirror Aliyun  国内 daocloud 一键安装命令 1curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh  错误 docker: Cannot connect to the Docker daemon at unix:&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="好玩的Docker容器">
+<meta property="og:url" content="https://nobige.cn/post/20220309-hao_wan_de_Docker_rong_qi/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="安装官方 1curl -fsSL https:&#x2F;&#x2F;get.docker.com | bash -s docker --mirror Aliyun  国内 daocloud 一键安装命令 1curl -sSL https:&#x2F;&#x2F;get.daocloud.io&#x2F;docker | sh  错误 docker: Cannot connect to the Docker daemon at unix:&amp;#x">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20220309-hao_wan_de_Docker_rong_qi/refargotohp-29JBoNy1rhE-unsplash.jpg">
+<meta property="article:published_time" content="2022-03-09T06:35:24.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.314Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="容器">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20220309-hao_wan_de_Docker_rong_qi/refargotohp-29JBoNy1rhE-unsplash.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20220309-hao_wan_de_Docker_rong_qi/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20220309-hao_wan_de_Docker_rong_qi/","path":"post/20220309-hao_wan_de_Docker_rong_qi/","title":"好玩的Docker容器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>好玩的Docker容器 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%94%99%E8%AF%AF"><span class="nav-number">2.</span> <span class="nav-text">错误</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Aria2Pro"><span class="nav-number">3.</span> <span class="nav-text">Aria2Pro</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">3.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8"><span class="nav-number">3.2.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Qbittorrent"><span class="nav-number">4.</span> <span class="nav-text">Qbittorrent</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E7%82%B9-1"><span class="nav-number">4.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-1"><span class="nav-number">4.2.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nginx"><span class="nav-number">5.</span> <span class="nav-text">Nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-number">5.1.</span> <span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="nav-number">5.1.1.</span> <span class="nav-text">1.拉取镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E7%BD%91%E7%AB%99%E7%9B%AE%E5%BD%95"><span class="nav-number">5.1.2.</span> <span class="nav-text">2.创建配置文件夹和网站目录</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-2"><span class="nav-number">5.2.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T"><span class="nav-number">6.</span> <span class="nav-text">T</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20220309-hao_wan_de_Docker_rong_qi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="好玩的Docker容器 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          好玩的Docker容器
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-03-09 14:35:24" itemprop="dateCreated datePublished" datetime="2022-03-09T14:35:24+08:00">2022-03-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%88%86%E4%BA%AB/" itemprop="url" rel="index"><span itemprop="name">分享</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20220309-hao_wan_de_Docker_rong_qi/refargotohp-29JBoNy1rhE-unsplash.jpg" alt="refargotohp-29JBoNy1rhE-unsplash.jpg"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>官方</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+
+<p><strong>国内</strong></p>
+<p><em>daocloud 一键安装命令</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><blockquote>
+<p>docker: Cannot connect to the Docker daemon at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock. Is the docker daemon running?.<br>See ‘docker run –help’.</p>
+</blockquote>
+<p>问题：没有启动，找不到线程</p>
+<p>解决：启动Docker即可</p>
+<p><code>service docker start</code> </p>
+<h2 id="Aria2Pro"><a href="#Aria2Pro" class="headerlink" title="Aria2Pro"></a>Aria2Pro</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><blockquote>
+<p>使用 Aria2 完美配置方案<br>BT 下载率高、速度快<br>重启后不丢失任务进度、不重复下载<br>删除正在下载的任务自动删除未完成的文件<br>下载错误自动删除未完成的文件<br>下载完成自动删除控制文件(.aria2后缀名文件)<br>下载完成自动删除种子文件(.torrent后缀名文件)<br>下载完成自动删除空目录<br>BT 下载完成自动清除垃圾文件(文件类型过滤功能)<br>BT 下载完成自动清除小文件(文件大小过滤功能)<br>有一定的防版权投诉、防迅雷吸血效果<br>更好的 PT 下载支持<br>使用 Aria2 Pro Core 项目最新静态编译二进制文件<br>多平台：amd64, i386, arm64, armhf（VPS、群辉、树莓派等常见平台完美支持）<br>全功能：Async DNS, BitTorrent, Firefox3 Cookie, GZip, HTTPS, Message Digest, Metalink, XML-RPC, SFTP<br>单服务器线程数最大值无上限（已破解线程数限制）<br>防掉线程优化<br>内存消耗优化<br>读写性能优化<br>最新依赖库，下载更安全、稳定、快速<br>持续更新最新版本<br>支持与 RCLONE 联动<br>自动上传 OneDrive 、Google Drive 等网盘<br>百度网盘转存到其它网盘<br>多网盘自由选择<br>支持新一代互联网协议 IPv6<br>下载完成自动移动文件到指定目录（文件自动归档&#x2F;分类）<br>定时自动更新 BT tracker 列表（无感知、无重启），保持 BT 下载高速率<br>用户文件权限自动配置功能<br>配置文件持久化，支持使用 watchtower 更新容器。<br>极简设计，专注下载，简单易用，少即是多。</p>
+</blockquote>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name aria2-pro \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --network host \</span><br><span class="line">    -e PUID=<span class="variable">$UID</span> \</span><br><span class="line">    -e PGID=<span class="variable">$GID</span> \</span><br><span class="line">    -e RPC_SECRET=e28B41F3dkotu0RPvKgOGYXcDrJlHpwN \</span><br><span class="line">    -e RPC_PORT=6800 \</span><br><span class="line">    -e LISTEN_PORT=6888 \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-config:/config \</span><br><span class="line">    -v /var/www/download:/downloads \</span><br><span class="line">    p3terx/aria2-pro</span><br></pre></td></tr></table></figure>
+
+<h2 id="Qbittorrent"><a href="#Qbittorrent" class="headerlink" title="Qbittorrent"></a>Qbittorrent</h2><h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><blockquote>
+<p>全平台架构x86-64、arm64、arm32<br>默认简体中文<br>做了usermapping，使用你自己的账户权限来运行，这点对于群辉来说尤其重要<br>纯qBittorrent，没有包含多于的服务<br>基于linuxserver&#x2F;qbittorrent,每周构建一次，同步更新最新版本qbittorrent<br>开放了BT下载DTH监听端口、BT下载监听端口（TCP&#x2F;UDP 6881），加快下载速度<br>默认开启DHT，加速下载<br>内置400多条最新trackers（来自XIU2 &#x2F; TrackersListCollection，感谢）<br>默认上海时区 Asia&#x2F;Shanghai</p>
+</blockquote>
+<h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">docker run -d  \</span><br><span class="line">    --name=qbittorrent  \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --network host \</span><br><span class="line">    -e WEBUIPORT=8080  \</span><br><span class="line">    -e PUID=1026 \</span><br><span class="line">    -e PGID=100 \</span><br><span class="line">    -e TZ=Asia/Shanghai \</span><br><span class="line">    -p 6881:6881  \</span><br><span class="line">    -p 6881:6881/udp  \</span><br><span class="line">    -p 8080:8080  \</span><br><span class="line">    -v <span class="variable">$PWD</span>/qbittorrent-config:/config  \</span><br><span class="line">    -v /var/www/download:/downloads  \</span><br><span class="line">    --restart unless-stopped  \</span><br><span class="line">    superng6/qbittorrent:latest</span><br><span class="line"> <span class="comment">#NLbMEPFSa6gDd1J39oAjWmk5pRvyTH2c</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><h4 id="1-拉取镜像"><a href="#1-拉取镜像" class="headerlink" title="1.拉取镜像"></a>1.拉取镜像</h4><p><code>docker pull nginx:latest</code></p>
+<h4 id="2-创建配置文件夹和网站目录"><a href="#2-创建配置文件夹和网站目录" class="headerlink" title="2.创建配置文件夹和网站目录"></a>2.创建配置文件夹和网站目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动一个容器</span></span><br><span class="line"> docker run -d --name nginx nginx</span><br><span class="line"><span class="comment"># 查看 容器 获取容器ID 或直接使用名字</span></span><br><span class="line"> docker ps</span><br><span class="line"><span class="comment"># 在当前目录下创建目录：conf </span></span><br><span class="line"><span class="built_in">mkdir</span> -p /docker-config/nginx</span><br><span class="line"><span class="comment"># 拷贝容器内 Nginx 默认配置文件到本地当前目录下的 conf 目录（$PWD 当前全路径）</span></span><br><span class="line">docker <span class="built_in">cp</span> nginx:/etc/nginx/nginx.conf /docker-config/nginx</span><br><span class="line">docker <span class="built_in">cp</span> nginx:/etc/nginx/conf.d /docker-config/nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line"> docker container stop nginx</span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line"> docker container <span class="built_in">rm</span> nginxs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建目录网站目录</span></span><br><span class="line"> <span class="built_in">mkdir</span> -p /var/www/download</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 修改配置文件 /docker-config/nginx/conf.d/default.conf</span></span><br><span class="line"><span class="comment"># 开启目录浏览</span></span><br><span class="line">autoindex on;</span><br><span class="line">autoindex_exact_size off;</span><br><span class="line">autoindex_localtime on;</span><br><span class="line">charset utf-8,gbk;</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动-2"><a href="#启动-2" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 80:80  \</span><br><span class="line"> --name nginxweb \</span><br><span class="line"> -v /var/www/download:/usr/share/nginx/html \</span><br><span class="line"> -v /docker-config/nginx/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line"> -v /docker-config/nginx/conf.d:/etc/nginx/conf.d \</span><br><span class="line"> -v /docker-config/nginx/logs:/var/log/nginx \</span><br><span class="line"> nginx </span><br></pre></td></tr></table></figure>
+
+<h2 id="T"><a href="#T" class="headerlink" title="T"></a>T</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#启动一个容器</span><br><span class="line">secret=$(head -c <span class="number">16</span> /dev/urandom | xxd -ps)</span><br><span class="line">tag=&quot;<span class="number">12345678901234567890121231231231</span>&quot;</span><br><span class="line">domain=&quot;intl.cloud.tencent.com&quot;</span><br><span class="line">docker run --name mtproxy -d -e tag=&quot;$tag&quot; -e secret=&quot;$secret&quot; -e domain=&quot;$domain&quot; -e ip_white_list=&quot;OFF&quot; -p <span class="number">8088</span>:<span class="number">80</span> -p <span class="number">8083</span>:<span class="number">443</span> ellermister/nginx-mtproxy:latest</span><br><span class="line"></span><br><span class="line"># ip_white_list 可选参数为:</span><br><span class="line"># IP 允许单个 IP 访问</span><br><span class="line"># IPSEG 允许 IP 段访问</span><br><span class="line"># OFF 允许所有 IP 访问</span><br><span class="line"># 查看 容器 获取容器ID 或直接使用名字</span><br><span class="line">docker logs mtproxy</span><br><span class="line"># 在当前目录下创建目录：conf </span><br><span class="line"><span class="built_in">mkdir</span> -p /docker-config/mtg</span><br><span class="line"># 拷贝容器内 Nginx 默认配置文件到本地当前目录下的 conf 目录（$PWD 当前全路径）</span><br><span class="line">docker cp mtg:/config.toml /docker-config/mtg</span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">https://<span class="title">t.me</span>/<span class="title">proxy</span>?<span class="title">server</span>=&lt;<span class="title">YOUR_IP</span>&gt;&amp;<span class="title">port</span>=&lt;<span class="title">PORT</span>&gt;&amp;<span class="title">secret</span>=&lt;<span class="title">SECRET</span>&gt;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">https</span>://<span class="title">github.com</span>/<span class="title">ellermister</span>/<span class="title">mtproxy</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://p3terx.com/archives/docker-aria2-pro.html">https://p3terx.com/archives/docker-aria2-pro.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://sleele.com/2020/04/09/docker-qbittorrent-optimizing/">https://sleele.com/2020/04/09/docker-qbittorrent-optimizing/</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/114603487">https://zhuanlan.zhihu.com/p/114603487</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/%E5%AE%B9%E5%99%A8/" rel="tag"># 容器</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20220118-PHP_you_hua_ji_qiao/" rel="prev" title="PHP优化技巧">
+                  <i class="fa fa-chevron-left"></i> PHP优化技巧
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20220708-cloudflare_mo_ren_huan_cun_biao_zhun/" rel="next" title="cloudflare默认缓存标准">
+                  cloudflare默认缓存标准 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>

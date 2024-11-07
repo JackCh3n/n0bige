@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"https://www.wulihub.com.cn/gc/Wez0VG/images","scheme":"Gemini","darkmode":false,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/config.js"></script>
+
+    <meta name="description" content="BookmarkSync书签同步插件​	chrome书签同步，基于天命签插件修改 缘由​	原插件不管是登陆还是gitee都无法正常使用，故修改使其可以正常上传，下载，同步书签。因为不会js，改的很糟糕。 ​	原插件作者在gitee上说是有更新但是找不到插件下载的地址。 续集​	折腾了一天算是折腾的差不多了，可以正常的同步（上传，下载）书签。实现了正常的功能（注册，登陆，同步）再也不用担心重装系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BookmarkSync书签同步插件">
+<meta property="og:url" content="https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="BookmarkSync书签同步插件​	chrome书签同步，基于天命签插件修改 缘由​	原插件不管是登陆还是gitee都无法正常使用，故修改使其可以正常上传，下载，同步书签。因为不会js，改的很糟糕。 ​	原插件作者在gitee上说是有更新但是找不到插件下载的地址。 续集​	折腾了一天算是折腾的差不多了，可以正常的同步（上传，下载）书签。实现了正常的功能（注册，登陆，同步）再也不用担心重装系统">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/harley-davidson-npZR4G67ev8-unsplash.jpg">
+<meta property="og:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/xiao_20190731103527.png">
+<meta property="article:published_time" content="2019-07-31T12:42:32.000Z">
+<meta property="article:modified_time" content="2024-11-07T02:59:06.266Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="插件">
+<meta property="article:tag" content="chrome">
+<meta property="article:tag" content="书签">
+<meta property="article:tag" content="同步">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/harley-davidson-npZR4G67ev8-unsplash.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/","path":"post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/","title":"BookmarkSync书签同步插件"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>BookmarkSync书签同步插件 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true}</script>
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/google-analytics.js"></script>
+
+  <script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="https://www.wulihub.com.cn/gc/Wez0VG/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BookmarkSync%E4%B9%A6%E7%AD%BE%E5%90%8C%E6%AD%A5%E6%8F%92%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">BookmarkSync书签同步插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%98%E7%94%B1"><span class="nav-number">2.</span> <span class="nav-text">缘由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%AD%E9%9B%86"><span class="nav-number">3.</span> <span class="nav-text">续集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%AE%E5%8A%A9"><span class="nav-number">4.</span> <span class="nav-text">帮助</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">下载地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">源</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">146</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">279</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="BookmarkSync书签同步插件 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          BookmarkSync书签同步插件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-31 20:42:32" itemprop="dateCreated datePublished" datetime="2019-07-31T20:42:32+08:00">2019-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 10:59:06" itemprop="dateModified" datetime="2024-11-07T10:59:06+08:00">2024-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B0%8F%E7%8E%A9%E6%84%8F/" itemprop="url" rel="index"><span itemprop="name">小玩意</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/harley-davidson-npZR4G67ev8-unsplash.jpg" alt="Road"></p>
+<h2 id="BookmarkSync书签同步插件"><a href="#BookmarkSync书签同步插件" class="headerlink" title="BookmarkSync书签同步插件"></a>BookmarkSync书签同步插件</h2><p>​	chrome书签同步，基于<code>天命签</code>插件修改</p>
+<h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>​	原插件不管是登陆还是gitee都无法正常使用，故修改使其可以正常上传，下载，同步书签。因为不会js，改的很糟糕。</p>
+<p>​	原插件作者在gitee上说是有更新但是找不到插件下载的地址。</p>
+<h2 id="续集"><a href="#续集" class="headerlink" title="续集"></a>续集</h2><p>​	折腾了一天算是折腾的差不多了，可以正常的同步（上传，下载）书签。实现了正常的功能（注册，登陆，同步）再也不用担心重装系统或是其他问题而导致书签丢失的问题了。</p>
+<p>​	很是看不到前端写的东西，像是什么异步插件之类的，没接触过，看着两眼抓瞎。修改的过程也是很痛苦，原来插件使用的Gitee不知道是怎么搞的，死活登不上去，无法正常使用，也许是关闭了相关的API服务吧。在没有接口可以抄的基础上简直就是盲人摸象（不懂前端），感觉懂前端的人还是很牛逼的，一个插件都可以运用Vue来开发，这是我都不敢想象的。</p>
+<p>​	本是想在腾讯的无服务器函数上搭建下，但是COS资源包好像过期了，穷屌丝用不起付费版的，买的备案域名也掉备案了，api网关的方案也没办法了，索性丢在XREA的免费空间，还套了个介绍单页，看起来有点<del>（装逼）</del>味道。</p>
+<h2 id="帮助"><a href="#帮助" class="headerlink" title="帮助"></a>帮助</h2><span id="more"></span>
+
+<p>安装提示【程序包无效：”CRX_ <em>REQUIRED</em> <em>PROOF</em> MISSING”.】</p>
+<p>​	1.将<code>BookmarkSync.crx</code>改成<code>BookmarkSync_v102.crx.rar</code>并解压到某个目录例如<code>C:\BookmarkSync</code></p>
+<p>​	2.浏览器-&gt;更多工具-&gt;扩展程序。开启【开发模式】-&gt;加载已解压的扩展程序，选择刚才解压的目录<em>（C:\BookmarkSync）</em></p>
+<p><img src="https://blog-static.nobige.cn/gh/JackCh3n/n0bige/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/xiao_20190731103527.png" alt="程序包无效"></p>
+<ol>
+<li>​	BookmarkSync插件可以免注册么？<ol>
+<li>答：可以免费注册</li>
+</ol>
+</li>
+<li>一个人可以注册几个BookmarkSync账号？<ol>
+<li>答：理论上无限，但是为了防止不法分子破坏BookmarkSync平稳的环境，进行了一定的限制。</li>
+</ol>
+</li>
+<li>BookmarkSync插件收费么？<ol>
+<li>答：没有暂时收费的计划。</li>
+</ol>
+</li>
+<li>BookmarkSync插件同步书签有数量限制么？<ol>
+<li>答：同步没有上限，XREA空间限制为1000M。但是正常情况下书签最大也就10M，完全不用担心。</li>
+</ol>
+</li>
+<li>BookmarkSync插件限制同时在线的设备数量么？<ol>
+<li>答：无上限，可以99台，也可以999台设备同时在线</li>
+</ol>
+</li>
+<li>BookmarkSync后面会更新么？<ol>
+<li>答：博主一直在用便会更新，如果有更好的替代方式或其他情况会发布信息。</li>
+</ol>
+</li>
+<li>BookmarkSync插件的下载地址？<ol>
+<li>答：在线免费下载地址<a href="/go.html?u=https://bookmarksync.tiiao.cn/?f=nobige.cn">《bookmarkSync-书签同步-chrome-免费-软件-插件-crx-下载》</a></li>
+</ol>
+</li>
+<li>BookmarkSync插件稳定么？<ol>
+<li>答：提供不保证的免费服务，美国商业银行都不敢保障数据泄露。</li>
+</ol>
+</li>
+<li>BookmarkSync插件会泄露我的书签么？<ol>
+<li>答：提供不保证的免费服务，如有隐私性质或者安全性质书签等，请慎用！</li>
+</ol>
+</li>
+<li>Linux系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>ubuntu系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>mac os系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>xp系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>win7系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>win8系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>win10系统上可以用么？<ol>
+<li>答：理论上支持所有所有平台的Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持360极速浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持360安全浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持QQ浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持猎豹浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持搜狗高速浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持UC浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持谷歌浏览器么？<ol>
+<li>答：支持，官方浏览器，第一时间适配。</li>
+</ol>
+</li>
+<li>支持百度浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持火狐浏览器(Firefox)么？<ol>
+<li>答：暂时支持chrome内核浏览器，Firefox浏览器发开计划正在紧张进行中。</li>
+</ol>
+</li>
+<li>支持Chrome安全浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持2345加速浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持搜狗浏览器（搜狗高速浏览器）么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持傲游浏览器么？<ol>
+<li>答：理论上支持所有Chrome内核的浏览器，具体是否支持可以自行尝试。</li>
+</ol>
+</li>
+<li>支持百分浏览器么？</li>
+<li>答：支持，博主使用的浏览器，第一时间适配。</li>
+</ol>
+<h2 id="下载地址"><a href="#下载地址" class="headerlink" title="下载地址"></a>下载地址</h2><p><a href="/go.html?u=https://bookmarksync.tiiao.cn/?f=nobige.cn">《bookmarkSync-书签同步-chrome-免费-软件-插件-crx-下载》</a></p>
+<h2 id="源"><a href="#源" class="headerlink" title="源"></a>源</h2><p>地址：<a href="/go.html?u=https://ext.chrome.360.cn/webstore/detail/fobjlbjogabaofdigjjejlkicapckkoh">https://ext.chrome.360.cn/webstore/detail/fobjlbjogabaofdigjjejlkicapckkoh</a></p>
+<p>作者：<a href="/go.html?u=https://gitee.com/lyxfj/projects">https://gitee.com/lyxfj/projects</a></p>
+<p><a href="/go.html?u=https://unsplash.com/photos/npZR4G67ev8">壁纸-Road, freeway, overpass and bike | HD photo by Harley-Davidson (@harleydavidson) on Unsplash</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8F%92%E4%BB%B6/" rel="tag"># 插件</a>
+              <a href="/tags/chrome/" rel="tag"># chrome</a>
+              <a href="/tags/%E4%B9%A6%E7%AD%BE/" rel="tag"># 书签</a>
+              <a href="/tags/%E5%90%8C%E6%AD%A5/" rel="tag"># 同步</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/" rel="prev" title="如有乐享被黑跳转页面分析">
+                  <i class="fa fa-chevron-left"></i> 如有乐享被黑跳转页面分析
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190803-rk3128_shua_an_zhuo_gu_jian/" rel="next" title="rk3128刷安卓固件">
+                  rk3128刷安卓固件 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+    <br/>Powerful CDN service provided by 
+  <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/upyun_logo.png" height="66" style="display: list-item;" alt="upyun"></a> 
+  <a target="_blank" rel="noopener" href="https://www.jsdelivr.com" style="border:none"><img src="https://www.wulihub.com.cn/gc/Wez0VG/images/jsdelivr_logo.svg" height="50" style="display: list-item;" alt="JsDelivr"></a>
+  <p>
+  <br/><a target="_blank" rel="noopener" href="https://pages.github.com/?f=nobige">Github Pages</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://vercel.com/?f=nobige">Vercel</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://www.netlify.com/?f=nobige">Netlify</a>&nbsp;&nbsp;<a target="_blank" rel="noopener" href="https://coding.net/?f=nobige">coding</a>&nbsp;&nbsp;provides static publishing
+  </p>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/comments.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/utils.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/motion.js"></script><script src="https://www.wulihub.com.cn/gc/Wez0VG/js/next-boot.js"></script>
+
+  
+<script src="https://npm.elemecdn.com/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqusjs.css" integrity="sha256-GxdCIOyfxQ1OBfS99qAIJDoGK1ADuBsxhMTqXG82fAY=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://duosuo.nobige.cn/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://npm.elemecdn.com/disqusjs@1.3.0/dist/disqus.js","integrity":"sha256-LVaMHPQ2zLqOc5rXSAfr4d1PIkEGNLyyUTDNPZmTtUw="}}</script>
+<script src="https://www.wulihub.com.cn/gc/Wez0VG/js/third-party/comments/disqusjs.js"></script>
+
+</body>
+</html>
