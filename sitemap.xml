@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://nobige.cn/tags/index.html</loc>
+    <loc>https://nobige.cn/about/index.html</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/about/index.html</loc>
+    <loc>https://nobige.cn/tags/index.html</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/</loc>
+    <loc>https://nobige.cn/post/20240712-Oracle_qian_bao_wallet_jia_mi_he_mi_ma_xiu_gai/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20240712-Oracle_qian_bao_wallet_jia_mi_he_mi_ma_xiu_gai/</loc>
+    <loc>https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -92,15 +92,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20240206-ChromeOS_zhe_teng/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/post/20240207-xiao_mi_lu_you_qi_mini(R1C)_shua_ji/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -119,6 +110,15 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/post/20240206-ChromeOS_zhe_teng/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/post/20230908-sui_shen_WIFI_zhong_xing_wei_pian/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20230720-Hutool_HttpRequest_POST_GET_bian_ma_zhuan_ma_wen_ti/</loc>
+    <loc>https://nobige.cn/post/20230907-qing_que_bao_ASP.NET_StateService_yi_qi_dong/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20230907-qing_que_bao_ASP.NET_StateService_yi_qi_dong/</loc>
+    <loc>https://nobige.cn/post/20230720-Hutool_HttpRequest_POST_GET_bian_ma_zhuan_ma_wen_ti/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -191,34 +191,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20220309-hao_wan_de_Docker_rong_qi/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/post/20220727-Centos_pei_zhi_an_zhuang_Tomcat/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20210528-bat_pi_chu_li_gei_zip_wen_jian_ming_tian_jia_hou_zhui/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20220118-Jquery_shu_xing_xuan_ze_qi_yu_huo_fei_shi_li/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -236,7 +209,34 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/post/20220118-Jquery_shu_xing_xuan_ze_qi_yu_huo_fei_shi_li/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/post/20220118-PHP_you_hua_ji_qiao/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20220309-hao_wan_de_Docker_rong_qi/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20210528-bat_pi_chu_li_gei_zip_wen_jian_ming_tian_jia_hou_zhui/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20211015-Spring_JdbcTemplate_chang_yong_fang_fa/</loc>
+    <loc>https://nobige.cn/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20211015-gao_xiao_de_SQLSERVER_fen_ye_cha_xun/</loc>
+    <loc>https://nobige.cn/post/20211015-Spring_JdbcTemplate_chang_yong_fang_fa/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -326,7 +326,16 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/</loc>
+    <loc>https://nobige.cn/post/20211015-gao_xiao_de_SQLSERVER_fen_ye_cha_xun/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20200815-yong_shuo_E_pan_mei_hua_yang_shi/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -363,15 +372,6 @@
   
   <url>
     <loc>https://nobige.cn/post/20200815-mei_ri_bi_ying_bi_zhi_gong_ju/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20200815-yong_shuo_E_pan_mei_hua_yang_shi/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -425,15 +425,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20200314-AZW3_wen_jian_po_jie_zhi_qu_chu_D_R_M_ban_quan_bao_hu/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/post/20200311-xiao_mi_shou_ji_an_zhuang_Charles_zheng_shu/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -443,16 +434,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/</loc>
+    <loc>https://nobige.cn/post/20200314-AZW3_wen_jian_po_jie_zhi_qu_chu_D_R_M_ban_quan_bao_hu/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -470,7 +452,25 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20200204-python3Unicode_he_zi_fu_shi_ti_zhuan_zhong_wen/</loc>
+    <loc>https://nobige.cn/post/20200223-ji_yu_Github_Isscue_de_ping_lun_cha_jian_Gitalk_an_zhuang/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -488,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/</loc>
+    <loc>https://nobige.cn/post/20200204-python3Unicode_he_zi_fu_shi_ti_zhuan_zhong_wen/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -533,6 +533,15 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/post/20200128-yi_yu_yan_5_jing_tai_bian_yi_cuo_wu/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/post/20201125-H_e_x_o_ping_lun_cha_jian_zhi_lu/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -552,15 +561,6 @@
   
   <url>
     <loc>https://nobige.cn/post/20200128-xshell_jiu_ban_ben_da_kai_cuo_wu/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20200128-yi_yu_yan_5_jing_tai_bian_yi_cuo_wu/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -677,7 +677,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/</loc>
+    <loc>https://nobige.cn/post/20190707-PythonliyongBeautifulSouppamaoyanTop100/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -686,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20190707-PythonliyongBeautifulSouppamaoyanTop100/</loc>
+    <loc>https://nobige.cn/post/20190731-BookmarkSync_shu_qian_tong_bu_cha_jian/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -785,6 +785,15 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/post/20191007-shell_jiao_ben_ming_ling_bao_cuo/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/post/20191108-mysql_delete_in_cuo_wu/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -795,15 +804,6 @@
   
   <url>
     <loc>https://nobige.cn/post/20191108-selenium_an_zhuang_he_Chromedriver/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20191007-shell_jiao_ben_ming_ling_bao_cuo/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -831,15 +831,6 @@
   
   <url>
     <loc>https://nobige.cn/post/20191007-coding_chi_xu_ji_cheng_bu_shu_hexo_bo_ke/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20190410-VerifyWhetherItIsFromZhejiangUniversity/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -902,6 +893,15 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/post/20190410-VerifyWhetherItIsFromZhejiangUniversity/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/post/20190409-Composer-SSL-TLS-Problem/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -929,7 +929,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20190313-Win7HasNoSound/</loc>
+    <loc>https://nobige.cn/post/20190214-ipbs9505CrackResearch/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -938,7 +938,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20190214-ipbs9505CrackResearch/</loc>
+    <loc>https://nobige.cn/post/20190225-javaRuntimeEnvironmentForSublime/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -956,7 +956,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20190225-javaRuntimeEnvironmentForSublime/</loc>
+    <loc>https://nobige.cn/post/20190313-Win7HasNoSound/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1064,15 +1064,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20180826-blogAllFileDownloadNetdisc/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/post/20180904-MacOSXUninstallMysql/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -1091,7 +1082,16 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20180809-windowsWampserverError/</loc>
+    <loc>https://nobige.cn/post/20180818-aria2ForCentosInstall/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20180826-blogAllFileDownloadNetdisc/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1109,7 +1109,25 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20180818-aria2ForCentosInstall/</loc>
+    <loc>https://nobige.cn/post/20180804-InstallJavaprompterror/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20180809-windowsWampserverError/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20180802-aliyunLogouterror/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1136,16 +1154,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20180804-InstallJavaprompterror/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20180802-aliyunLogouterror/</loc>
+    <loc>https://nobige.cn/post/20180802-macOsEnableApache/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1155,15 +1164,6 @@
   
   <url>
     <loc>https://nobige.cn/post/20180802-SublimeTextForMacCrack/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20180802-macOsEnableApache/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1190,6 +1190,15 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/post/20180725-hackintoshBCM94352zwifi/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/post/20180727-360RemoveAd/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -1208,7 +1217,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20180725-hackintoshBCM94352zwifi/</loc>
+    <loc>https://nobige.cn/post/20180725-AppleRepairVideo/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1218,15 +1227,6 @@
   
   <url>
     <loc>https://nobige.cn/post/20180725-forHexoAddValine/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/post/20180725-AppleRepairVideo/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1325,15 +1325,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/post/20170926-phpUniqueMark/</loc>
-    
-    <lastmod>2026-05-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/post/20171020-Cleverbingtheprogrammer/</loc>
     
     <lastmod>2026-05-25</lastmod>
@@ -1344,6 +1335,15 @@
   
   <url>
     <loc>https://nobige.cn/post/20170926-0902jqueryLearn/</loc>
+    
+    <lastmod>2026-05-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/post/20170926-phpUniqueMark/</loc>
     
     <lastmod>2026-05-25</lastmod>
     
@@ -1816,20 +1816,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/sublime-text/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E5%A2%9E%E5%BC%BA/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/tags/apache/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1845,6 +1831,20 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E8%99%9A%E6%8B%9F%E4%B8%BB%E6%9C%BA/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/sublime-text/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%A2%9E%E5%BC%BA/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2145,13 +2145,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/coding/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/tags/%E6%B5%AA%E6%BD%AE/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -2160,6 +2153,20 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E7%9B%92%E5%AD%90/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/sublime/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2181,6 +2188,13 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E5%A1%AB%E5%9D%91/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/coding/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2209,20 +2223,6 @@
   
   <url>
     <loc>https://nobige.cn/tags/ssl/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/sublime/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2306,7 +2306,14 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/chrome/</loc>
+    <loc>https://nobige.cn/tags/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2327,14 +2334,28 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/%E6%8C%81%E7%BB%AD%E9%83%A8%E7%BD%B2/</loc>
+    <loc>https://nobige.cn/tags/chrome/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/</loc>
+    <loc>https://nobige.cn/tags/shell/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E6%A0%BC%E5%BC%8F/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/ubuntu/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2363,27 +2384,6 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E5%B8%B8%E7%94%A8/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/shell/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E6%A0%BC%E5%BC%8F/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/ubuntu/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2433,27 +2433,6 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E8%AF%84%E8%AE%BA/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E5%85%8D%E8%B4%B9/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E5%9B%BE%E7%89%87/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E5%8E%8B%E7%BC%A9/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2510,6 +2489,27 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E6%BF%80%E6%B4%BB/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%85%8D%E8%B4%B9/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%9B%BE%E7%89%87/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%8E%8B%E7%BC%A9/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2614,6 +2614,34 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/tags/app/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E6%8A%93%E5%8C%85/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E6%97%A7%E7%89%88/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/itunes/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/tags/callkit/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -2622,6 +2650,62 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E8%B6%8A%E7%8B%B1/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E9%99%90%E9%80%9F/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E8%80%81%E6%AF%9B%E5%AD%90/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/padavan/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%8F%88%E6%8B%8D%E4%BA%91/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%A4%87%E6%A1%88/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/rom/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E8%85%BE%E8%AE%AF/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E9%98%B2%E6%B0%B4%E5%A2%99/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2656,91 +2740,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/app/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E6%8A%93%E5%8C%85/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E6%97%A7%E7%89%88/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/itunes/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E9%99%90%E9%80%9F/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E8%80%81%E6%AF%9B%E5%AD%90/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/padavan/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/rom/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E8%85%BE%E8%AE%AF/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E9%98%B2%E6%B0%B4%E5%A2%99/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/tags/%E7%8E%AF%E8%81%8A/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E5%8F%88%E6%8B%8D%E4%BA%91/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E5%A4%87%E6%A1%88/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2880,13 +2880,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/telegram/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/tags/spring/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -2909,6 +2902,13 @@
   
   <url>
     <loc>https://nobige.cn/tags/drive/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/telegram/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2957,13 +2957,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/%E5%90%88%E9%9B%86/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/tags/%E4%B9%B1%E7%A0%81/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -2978,20 +2971,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/%E5%88%86%E9%A1%B5/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/zTree/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/tags/%E8%80%83%E9%A2%98/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -3000,6 +2979,27 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E7%AD%94%E6%A1%88/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%90%88%E9%9B%86/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E5%88%86%E9%A1%B5/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/zTree/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3055,6 +3055,41 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/tags/ip/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E6%8E%A5%E5%8F%A3/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E9%80%89%E6%8B%A9%E5%99%A8/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E9%AB%98%E6%95%88/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/tags/%E6%89%B9%E5%A4%84%E7%90%86/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -3076,35 +3111,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/%E9%80%89%E6%8B%A9%E5%99%A8/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/ip/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E6%8E%A5%E5%8F%A3/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E4%BC%98%E5%8C%96/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/%E9%AB%98%E6%95%88/</loc>
+    <loc>https://nobige.cn/tags/elasticsearch/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3118,7 +3125,7 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/elasticsearch/</loc>
+    <loc>https://nobige.cn/tags/theme/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3126,13 +3133,6 @@
   
   <url>
     <loc>https://nobige.cn/tags/tomcat/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/theme/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3154,13 +3154,6 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E6%8A%A5%E9%94%99/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/tags/hutool/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3210,6 +3203,13 @@
   
   <url>
     <loc>https://nobige.cn/tags/md5/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/hutool/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3272,13 +3272,6 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://nobige.cn/tags/oracle/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -3308,6 +3301,13 @@
   
   <url>
     <loc>https://nobige.cn/tags/%E5%86%85%E7%BD%AE%E6%89%A9%E5%B1%95/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://nobige.cn/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3512,6 +3512,13 @@
   </url>
   
   <url>
+    <loc>https://nobige.cn/categories/%E8%AF%95%E9%A2%98/</loc>
+    <lastmod>2026-05-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://nobige.cn/categories/sql/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -3520,13 +3527,6 @@
   
   <url>
     <loc>https://nobige.cn/categories/html/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://nobige.cn/categories/%E8%AF%95%E9%A2%98/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3547,14 +3547,14 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/categories/bat/</loc>
+    <loc>https://nobige.cn/categories/jquery/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nobige.cn/categories/jquery/</loc>
+    <loc>https://nobige.cn/categories/bat/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3575,14 +3575,14 @@
   </url>
   
   <url>
-    <loc>https://nobige.cn/categories/%E6%8A%80%E6%9C%AF/</loc>
+    <loc>https://nobige.cn/categories/wifi/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://nobige.cn/categories/wifi/</loc>
+    <loc>https://nobige.cn/categories/%E6%8A%80%E6%9C%AF/</loc>
     <lastmod>2026-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
