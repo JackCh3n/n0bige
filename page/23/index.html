@@ -270,7 +270,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,29 +306,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>减少不必要的内存和电池电量，让电池🔋支撑整个课程。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>先找到开机自启动的服务，记录并转成脚本的形式来按需要运行，具体如下。</p>
-<p>徽标键+R 输入<strong>Services.msc</strong>运行<strong>服务管理器</strong></p>
-<p>直接输入Sql快速定位到SQL开头的服务，找到自动启动的服务。（多个）</p>
-<p>双击对应的服务，并将服务名称复制到记事本先记录下</p>
-<p><img src="/post/20190126-SQLServerBatStartupservice/xiao2019-01-25_15-23-02.jpg" alt="SQL开头的服务"></p>
-<p>停止对应的服务，并把对应的服务<strong>启动类型</strong>全部设置为“手动”</p>
-<p>复制以下文本，并将对应的服务改成你刚记录的服务名称</p>
-<p>例如：MSSQLFDLauncher服务则改成 NET START MSSQLFDLauncher</p>
-<p>保存为Start SQL Server.bat文件（启动服务）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> 正在启动 SQL Server 服务</span><br><span class="line">NET START MSSQLFDLauncher</span><br><span class="line">NET START MSSQLSERVER</span><br><span class="line">NET START MSSQLServerOLAPService</span><br><span class="line">NET START MsDtsServer110</span><br><span class="line">NET START ReportServer</span><br></pre></td></tr></table></figure>
-
-<p>例如：MSSQLFDLauncher服务则改成 NET STOP MSSQLFDLauncher</p>
-<p>保存为Stop SQL Server.bat文件(关闭服务)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line"><span class="built_in">echo</span> 正在停止 SQL Server 服务</span><br><span class="line">NET STOP MSSQLFDLauncher</span><br><span class="line">NET STOP MSSQLSERVER</span><br><span class="line">NET STOP MSSQLServerOLAPService</span><br><span class="line">NET STOP MsDtsServer110</span><br><span class="line">NET STOP ReportServer</span><br></pre></td></tr></table></figure>
-
-<p>bat演示停止SQL Server服务</p>
-<p><img src="/post/20190126-SQLServerBatStartupservice/xiao2019-01-25_15-29-21.jpg" alt="bat演示停止SQL Server服务"></p>
-<p>bat演示启动SQL Server服务</p>
-<p><img src="/post/20190126-SQLServerBatStartupservice/xiao2019-01-25_15-29-58.jpg" alt="bat演示启动SQL Server服务"></p>
-<p><em>如果出现启动失败问题，请自行手动启动。或Google对应的解决方法。</em></p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20190126-SQLServerBatStartupservice/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -390,7 +374,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -426,15 +410,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20181105-SQLServerPermissiondenied/xiao2018-11-04_19-12-38.jpg" alt="此数据库没有有效所有者"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>标题: Microsoft SQL Server Management Studio此数据库没有有效所有者，因此无法安装数据库关系图支持对象。若要继续，请首先使用“数据库属性”对话框的“文件”页或 ALTER AUTHORIZATION 语句将数据库所有者设置为有效登录名，然后再添加数据库关系图支持对象。</p>
-<hr>
-<p>按钮:</p>
-<p>确定</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>use [数据库名]<br>EXEC sp_changedbowner ‘sa’</p>
-<p>意思就是把数据库的权限给sa</p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20181105-SQLServerPermissiondenied/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -496,7 +478,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -532,36 +514,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20181028-hackintoshWhitewashingSiri/15324141354377.jpg" alt="hackintosh"></p>
-<p>本文适用于Clover启动的黑苹果，并在10.13.3上成功启用Siri iMessage FaceTime</p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>MacOS每次开机时ROM（UUID生成，最后12位）和MLB（Board Serial Number）是标准和唯一的OS值。如果该值从开机启动发生变化，那么iMessage会无法激活，苹果将把你的UUID、序列号或苹果ID拉入黑名单，三叶草生成的ROM和MLB值也自动列入黑名单。而黑苹果没有官方授予的这些值，如果不手工设置，则被列入黑名单，无法使用iMessage，FaceTime和Siri。</p>
-<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><p>1.打开clover configurator挂载EFI，打开config.plist</p>
-<p>2.保证Rt Variables里里面都是空白的</p>
-<p>3.去SMBIOS里面点击下拉选项</p>
-<p><img src="/post/20181028-hackintoshWhitewashingSiri/xiao2018-10-28-14-15-27.jpg" alt="SMBIOS"></p>
-<p>4.初步选择机型，组装机推荐选择iMac，根据自己的平台选择具体型号</p>
-<p>5点击Generate New随机生成Serial Number，自动生成Board Serial Number （无需修改）</p>
-<p><img src="/post/20181028-hackintoshWhitewashingSiri/xiao2018-10-28-14-16-45.jpg" alt="Serial"></p>
-<p>6复制生成的Serial码去苹果官网<a href="https://checkcoverage.apple.com查询,如果你能查到相关信息,继续点击shake随机生成,直到查询结果为“很抱歉,此序列号无效.请检查您的信息,然后再试.”为止./">https://checkcoverage.apple.com查询，如果你能查到相关信息，继续点击shake随机生成，直到查询结果为“很抱歉，此序列号无效。请检查您的信息，然后再试。”为止。</a></p>
-<p>这说明这个序列号没有被白苹果用户占有，你可以使用它作为自己的序列号。</p>
-<p>7在System Parameters 中的Custom UUID 新生成一个UUID </p>
-<p><img src="/post/20181028-hackintoshWhitewashingSiri/xiao2018-10-28-14-19-21.jpg" alt="Custom UUID "></p>
-<p>8.复制此UUID和粘贴在“Smuuid”字段中的SMBIOS节,保存config.plist</p>
-<p>10在终端运行<code>defaults write com.apple.finder AppleShowAllFiles Yes &amp;&amp; killall Finder</code>（意思是显示隐藏文件）</p>
-<p>继续运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">su</span><br><span class="line"><span class="built_in">cd</span> ~/Library/Caches/</span><br><span class="line"><span class="built_in">rm</span> -R com.apple.Messages*</span><br><span class="line"><span class="built_in">rm</span> -R com.apple.imfoundation*</span><br><span class="line"><span class="built_in">cd</span> ~/Library/Preferences/</span><br><span class="line"><span class="built_in">rm</span> com.apple.iChat*</span><br><span class="line"><span class="built_in">rm</span> com.apple.imagent*</span><br><span class="line"><span class="built_in">rm</span> com.apple.imessage*</span><br><span class="line"><span class="built_in">rm</span> com.apple.imservice*</span><br><span class="line"><span class="built_in">rm</span> -R ~/Library/Messages/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>11.清空垃圾桶。如果说文件仍在使用，立即启动后清空</p>
-<p>12.打开磁盘工具，选择你的系统分区，并重建权限。完成后重启（磁盘工具里面的急救就可以了），或者用软件<strong>Kext Wizard</strong>重建权限也可以</p>
-<p>13.重启完成后会重新设置一些内容</p>
-<p>14.在终端运行<code>defaults write com.apple.finder AppleShowAllFiles No &amp;&amp; killall Finder</code> (意思是不显示隐藏文件，喜欢显示的可以不运行此项)</p>
-<p>另外：一些用户指出，你的网络必须设置en0。你可以用关于本机－系统报告，点击任一以太网或WiFi，确保您的 BSD 设备名称为en0。如果不是，重新设置您的网络进&#x2F;Library&#x2F;Preferences&#x2F;SystemConfiguration和删除”NetworkInterfaces.plist”和“”preferences.plist”</p>
-<p>正常状态下只要iPhone或者iPad有开通iMessage 和FaceTime 一般都是可以正常使用的</p>
-<p>参考<a href="http://bufans.cn/?p=163">http://bufans.cn/?p=163</a> 按实际操作过程进行修改</p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20181028-hackintoshWhitewashingSiri/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -623,7 +582,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -659,18 +618,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p>不允许保存更改。您所做的更改要求删除并重新创建以下表。您对无法重新创建的标进行了更改或者启用了“阻止保存要求重新创建表的更改”选项。</p>
-<p><img src="/post/20181022-SQLServerPreventSaving/xiao2018-11-04_19-54-15.jpg" alt="不允许保存更改"></p>
-<p><strong>SQL Server 2008</strong></p>
-<p>工具 - 选项 - 设计器 - 表设计器和数据库设计器 - 阻止保存要求重新创建表</p>
-<p>取消勾选☑️</p>
-<p><strong>SQL Server 2012</strong></p>
-<p>工具 - 选项 - Designer - 表设计器和数据库设计器 -  阻止保存要求重新创建表</p>
-<p>取消勾选☑️</p>
-<p>取消勾选后再次操作修改即可保存修改，如果不行则可以尝试重新打开SQL Server</p>
-<p><img src="/post/20181022-SQLServerPreventSaving/xiao2018-10-19_14-52-18.jpg" alt="SQL Server"></p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20181022-SQLServerPreventSaving/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -732,7 +686,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -768,23 +722,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20180916-iosCloseUpdate/xiao2018-09-14_21-33-50.jpg" alt="ios"></p>
-<h2 id="食用过程"><a href="#食用过程" class="headerlink" title="食用过程"></a>食用过程</h2><p>一、该工具主要功能如下：<br>1.	屏蔽iOS系统的更新提示<br>2.	屏蔽系统自动下载最新版固件</p>
-<p>二、该工具安装步骤如下<br>1、首先需要到“设置-&gt; 通用 -&gt; iPhone存储空间”*（iOS 11以下系统为“设置 -&gt; 通用-&gt;存储空间与iCloud用量-&gt;管理存储空间”）*中查看系统是否已经自动下载了最新版的固件，如果有，请删除后重启手机。如果没有，请直接进行第2步。</p>
-<p><img src="/post/20180916-iosCloseUpdate/closeIOSUpdate_img1.png" alt="closeIOSUpdate"></p>
-<p>2、安装描述文件，在弹窗中点击“允许”；</p>
-<p>描述文件下载地址(更多地址参考博客文章): <a href="https://f.tiiao.cn/2018/09/15/tvos.mobileconfig">https://f.tiiao.cn/2018/09/15/tvos.mobileconfig</a></p>
-<p><img src="/post/20180916-iosCloseUpdate/closeIOSUpdate_img2.png" alt="closeIOSUpdate"></p>
-<p>3、接下来会弹出安装描述文件的界面，点击右上角“安装”，输入设备“锁屏密码”后按提示完成操作并重启设备；</p>
-<p><img src="/post/20180916-iosCloseUpdate/closeIOSUpdate_img3.png" alt="closeIOSUpdate"></p>
-<p>4、重启设备后，桌面会出现“Feedback”图标表示成功*（此图标无法删除，可以将其移入文件夹中隐藏）*，此时系统将不会检测到iOS系统更新，也不会自动下载固件；</p>
-<p><img src="/post/20180916-iosCloseUpdate/closeIOSUpdate_img4.png" alt="closeIOSUpdate"></p>
-<p>提示1：安装成功后，在“设置 -&gt; 通用 -&gt; 软件更新”菜单如果还有提示更新的图标，点进去之后依然提示是最新版，这是正常的，无需处理。</p>
-<p>提示2：如果需要重新打开检查更新的功能，需要进入“设置 -&gt; 通用 -&gt; 描述文件与设备管理 -&gt; tvOS 11 Beta Software Profile”，点击“删除描述文件”然后再点击“删除”，重启手机后即可。</p>
-<h2 id="升级ios12"><a href="#升级ios12" class="headerlink" title="升级ios12"></a>升级ios12</h2><p>如果安装了屏蔽更新需要先卸载屏蔽更新描述文件，然后再安装更新的描述文件，没有安装屏蔽更新则直接安装根据提示操作然后重启，重启设备后，在设备上依次打开“设置-&gt;通用-&gt;软件更新”，检测到iOS 12更新后点击下方“下载并安装”按钮，保持网络连接等待安装包下载完成后自动更新。</p>
-<p>更新描述文件：<a href="https://f.tiiao.cn/2018/09/15/iOS12.mobileconfig">https://f.tiiao.cn/2018/09/15/iOS12.mobileconfig</a></p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20180916-iosCloseUpdate/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 

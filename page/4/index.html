@@ -270,7 +270,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,21 +306,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
-<p>对客户上传的图片进行压缩，方便前端展示加载速度效果</p>
-</blockquote>
-<p>已知图片为jpg，可能png等主流图片格式，基本为手机拍照或者是相机拍照的实体照片。照片分辨率普遍过大（像素垃圾图不清晰但文件大），压缩策略修改图片大小，然后进行”无损压缩“。需求网站为面向微信的小程序页面，800*600的分辨率应该够用。</p>
-<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--            图片压缩--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.jpedal<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>OpenViewerFX<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.6.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--            图片大小修改--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.coobird<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>thumbnailator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.4.17<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">File</span> <span class="variable">dest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(applicationConfig.getUploadDir() + filePath);</span><br><span class="line"><span class="comment">// 调整图片大小</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * size(width,height) 若图片横比200小，高比300小，不变</span></span><br><span class="line"><span class="comment"> * 若图片横比200小，高比300大，高缩小到300，图片比例不变 若图片横比200大，高比300小，横缩小到200，图片比例不变</span></span><br><span class="line"><span class="comment"> * 若图片横比200大，高比300大，图片按比例缩小，横为200或高为300</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Thumbnails.of(dest).size(<span class="number">800</span>,<span class="number">600</span>).toFile(dest);</span><br><span class="line"><span class="comment">//图片压缩,直接覆盖</span></span><br><span class="line">PngCompressor.compress(dest,dest);</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://github.com/coobird/thumbnailator/wiki/Examples">Examples · coobird&#x2F;thumbnailator Wiki · GitHub</a></li>
-<li><a href="https://www.cnblogs.com/linkstar/p/7412012.html">java使用google开源工具实现图片压缩 - LinkinStar - 博客园 (cnblogs.com)</a></li>
-<li><a href="https://blog.csdn.net/MAYHENG/article/details/118965415">Java压缩png图片文件大小，效果跟Tinypng压缩效果大致一样_MAYHENG的博客-CSDN博客_java png图片压缩</a></li>
-</ul>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20220919-Java_tiao_zheng_ya_suo_tu_pian/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -382,7 +374,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -418,27 +410,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>本地 md文件 + coding 持续集成 + github 持续集成 + vercel</p>
-<h2 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h2><h3 id="启动报错"><a href="#启动报错" class="headerlink" title="启动报错"></a>启动报错</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">FATAL Cannot find module &#x27;../../package.json&#x27;</span><br><span class="line">Require stack:</span><br><span class="line">- D:\wwwroot\hexoT\themes\next-8.12.1\scripts\events\index.js</span><br><span class="line">Error: Cannot find module &#x27;../../package.json&#x27;</span><br><span class="line">Require stack:</span><br><span class="line">- D:\wwwroot\hexoT\themes\next-8.12.1\scripts\events\index.js</span><br><span class="line">    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)</span><br><span class="line">    at Function.Module._load (node:internal/modules/cjs/loader:778:27)</span><br><span class="line">    at Module.require (node:internal/modules/cjs/loader:1005:19)</span><br><span class="line">    at require (D:\wwwroot\hexoT\node_modules\hexo\lib\hexo\index.js:280:23)</span><br><span class="line">    at Hexo.&lt;anonymous&gt; (D:\wwwroot\hexoT\themes\next-8.12.1\scripts\events\index.js:20:23)</span><br><span class="line">    at Hexo.emit (node:events:390:28)</span><br><span class="line">    at D:\wwwroot\hexoT\node_modules\hexo\lib\hexo\index.js:234:12</span><br><span class="line">    at tryCatcher (D:\wwwroot\hexoT\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (D:\wwwroot\hexoT\node_modules\bluebird\js\release\promise.js:547:31)</span><br><span class="line">    at Promise._settlePromise (D:\wwwroot\hexoT\node_modules\bluebird\js\release\promise.js:604:18)</span><br><span class="line">    at Promise._settlePromise0 (D:\wwwroot\hexoT\node_modules\bluebird\js\release\promise.js:649:10)</span><br><span class="line">    at Promise._settlePromises (D:\wwwroot\hexoT\node_modules\bluebird\js\release\promise.js:729:18)</span><br><span class="line">    at _drainQueueStep (D:\wwwroot\hexoT\node_modules\bluebird\js\release\async.js:93:12)</span><br><span class="line">    at _drainQueue (D:\wwwroot\hexoT\node_modules\bluebird\js\release\async.js:86:9)</span><br><span class="line">    at Async._drainQueues (D:\wwwroot\hexoT\node_modules\bluebird\js\release\async.js:102:5)</span><br><span class="line">    at Immediate.Async.drainQueues [as _onImmediate] (D:\wwwroot\hexoT\node_modules\bluebird\js\release\async.js:15:14)</span><br><span class="line">    at processImmediate (node:internal/timers:464:21)</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>没有找到相关的解决文档，可能是hexo-cli 版本有关</p>
-</blockquote>
-<p><strong>解决</strong></p>
-<p>更新hexo-cli 6和node.js 18解决问题</p>
-<h3 id="图床问题"><a href="#图床问题" class="headerlink" title="图床问题"></a>图床问题</h3><blockquote>
-<p>使用hexo-asset-image插件，图床链接多了一个斜杠，coding 无法识别直接跳转404</p>
-<p><a href="https://nobige.coding.net/p/nobige/d/public/git/lfs/master/post/20220727-Centos_pei_zhi_an_zhuang_Tomcat//mauro-lima-oUyEx8C960Q-unsplash.jpg">https://nobige.coding.net/p/nobige/d/public/git/lfs/master/post/20220727-Centos_pei_zhi_an_zhuang_Tomcat//mauro-lima-oUyEx8C960Q-unsplash.jpg</a></p>
-</blockquote>
-<p><strong>解决</strong></p>
-<p>更新 <a href="https://github.com/JackCh3n/hexo-asset-image">https://github.com/JackCh3n/hexo-asset-image</a> 插件即可</p>
-<h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><blockquote>
-<p>新版本，本地搜索不支持CDN</p>
-</blockquote>
-<p><strong>解决</strong></p>
-<p>取消CDN</p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20220729-next_sheng_ji_8_yu_keng/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -500,7 +478,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -536,31 +514,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20220727-Centos_pei_zhi_an_zhuang_Tomcat/mauro-lima-oUyEx8C960Q-unsplash.jpg" alt="mauro-lima-oUyEx8C960Q-unsplash.jpg"></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为了安全，创建一个专门的用户</span></span><br><span class="line">useradd -m -U -d /opt/tomcat -s /bin/false tomcat</span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line"><span class="comment"># 创建一个通用的目录</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /opt/tomcat/latest</span><br><span class="line"><span class="comment"># 下载tomcat 9</span></span><br><span class="line">wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz</span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">tar -zxvf apache-tomcat-9.0.65.tar.gz</span><br><span class="line"><span class="comment"># 移动文件</span></span><br><span class="line"><span class="built_in">mv</span> apache-tomcat-9.0.65 /opt/tomcat/</span><br><span class="line"><span class="comment"># 创建软链接，方便后续更新</span></span><br><span class="line"><span class="built_in">ln</span> -s /opt/tomcat/apache-tomcat-9.0.14 /opt/tomcat/latest</span><br><span class="line"><span class="comment"># 赋予权限</span></span><br><span class="line"><span class="built_in">chown</span> -R tomcat: /opt/tomcat</span><br><span class="line"><span class="comment"># 赋予权限</span></span><br><span class="line">sh -c <span class="string">&#x27;chmod +x /opt/tomcat/latest/bin/*.sh&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>创建系统单位文件，使Tomcat作为服务运行</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/systemd/system/tomcat.service</span><br></pre></td></tr></table></figure>
-
-<p>粘贴以下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=tomcat</span><br><span class="line">After=syslog.target network.target remote-fs.target nss-lookup.target</span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/opt/tomcat/latest/tomcat.pid</span><br><span class="line">ExecStart=/opt/tomcat/latestbin/startup.sh</span><br><span class="line">ExecStop=/bin/kill -s QUIT <span class="variable">$MAINPID</span></span><br><span class="line">ExecReload=/bin/kill -s HUP <span class="variable">$MAINPID</span></span><br><span class="line">PrivateTmp=<span class="literal">true</span></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<p>tomcat 需要增加一个pid文件<br>在tomca&#x2F;bin 目录下面，增加 setenv.sh 配置，catalina.sh启动的时候会调用，同时配置java内存参数。 </p>
-<p><code>vi /opt/tomcat/latest/bin/setenv.sh</code></p>
-<p>配置如下，根据自身情况修改配置</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#add tomcat pid</span><br><span class="line">CATALINA_PID=&quot;$CATALINA_BASE/tomcat.pid&quot;</span><br><span class="line">#add java opts</span><br><span class="line">JAVA_OPTS=&quot;-server -XX:PermSize=256M -XX:MaxPermSize=1024m -Xms512M -Xmx1024M -XX:MaxNewSize=256m&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>tomcat.service</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置开机启动 </span></span><br><span class="line">systemctl <span class="built_in">enable</span> tomcat</span><br><span class="line"><span class="comment"># 启动tomcat</span></span><br><span class="line">systemctl start tomcat</span><br><span class="line"><span class="comment"># 停止tomcat</span></span><br><span class="line">systemctl stop tomcat</span><br><span class="line"><span class="comment"># 重启tomcat</span></span><br><span class="line">systemctl restart tomcat</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://www.myfreax.com/how-to-install-tomcat-9-on-centos-7/">https://www.myfreax.com/how-to-install-tomcat-9-on-centos-7/</a></li>
-<li><a href="https://www.cnblogs.com/hubing/p/6134415.html">https://www.cnblogs.com/hubing/p/6134415.html</a></li>
-<li><a href="https://unsplash.com/photos/oUyEx8C960Q">https://unsplash.com/photos/oUyEx8C960Q</a></li>
-</ul>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20220727-Centos_pei_zhi_an_zhuang_Tomcat/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -622,7 +582,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -658,78 +618,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20220727-Elasticsearch_bu_shu_wen_ti/ray-zhuang-ToTlbvvI_uc-unsplash.jpg" alt="ray-zhuang-ToTlbvvI_uc-unsplash.jpg"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><blockquote>
-<p>Elasticsearch启动报错：Exception in thread “main” java.nio.file.AccessDeniedException</p>
-</blockquote>
-<p>编辑 &#x2F; etc&#x2F;sudoers 文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
-
-<p>在下面添加一行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">es    ALL=(ALL)       ALL </span><br><span class="line"># es是我要赋予权限的用户名</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>没有权限</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chown -R smarthome:smarthome /home/smarthome/elasticsearch/</span><br><span class="line">chmod 777 /home/smarthome/elasticsearch</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>[1]: max file descriptors [4096] for elasticsearch process is too low, increase to at least [65535]</p>
-<p>文件权限不足</p>
-</blockquote>
-<p>在 &#x2F; etc&#x2F;security&#x2F;limits.conf 中添加如下内容</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/security/limits.conf</span><br><span class="line">#添加以下内容 </span><br><span class="line">es hard nofile 65536</span><br><span class="line">es soft nofile 65536</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ulimit -Hn</span><br><span class="line">ulimit -Sn</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>[2]: max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</p>
-<p>虚拟内存分配不足</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w vm.max_map_count=262144</span><br><span class="line">sysctl -a|grep vm.max_map_count</span><br></pre></td></tr></table></figure>
-
-<p>然后在 &#x2F;etc&#x2F;sysctl.conf 文件最后添加一行</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vm.max_map_count=262144</span><br></pre></td></tr></table></figure>
-
-<p>输入命令：<code>sysctl -p</code>立即生效</p>
-<blockquote>
-<p>OpenJDK 64-Bit Server VM warning: Option UseConcMarkSweepGC was deprecated in version 9.0 and will likely be removed in a future release.</p>
-</blockquote>
-<p>修改 jvm.options 文件配置<code>vim /etc/elasticsearch/jvm.options</code>，将</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-XX:+UseConcMarkSweepGC 改为 -XX:+UseG1GC</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># PUT请求</span><br><span class="line"></span><br><span class="line">http://127.0.0.1:9200/my-index-001</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 删除单个</span><br><span class="line"># DELETE请求</span><br><span class="line"></span><br><span class="line">http://127.0.0.1:9200/my-index-001</span><br><span class="line"># 删除多个</span><br><span class="line"># DELETE请求</span><br><span class="line"></span><br><span class="line">http://127.0.0.1:9200/my-index-001,my-index-002</span><br><span class="line"># 通配符需要开启</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># GET请求</span><br><span class="line"></span><br><span class="line">http://127.0.0.1:9200/_alias</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>maybe these locations are not writable or multiple nodes were started without increasing</p>
-</blockquote>
-<p>这个错误的原因是因为之前用root用户启动了es，之后切换用户运行就会报这个错误</p>
-<p>解决</p>
-<p>删除ES配置目录下data目录中的nodes文件，然后用非ROOT用户启动就能解决了</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html">https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html</a></li>
-<li><a href="https://blog.csdn.net/username666/article/details/105034364">https://blog.csdn.net/username666/article/details/105034364</a></li>
-<li><a href="https://blog.csdn.net/chenshm/article/details/124264078">https://blog.csdn.net/chenshm/article/details/124264078</a></li>
-<li><a href="https://blog.csdn.net/qq_43655835/article/details/104633359">https://blog.csdn.net/qq_43655835/article/details/104633359</a></li>
-<li><a href="https://blog.csdn.net/username666/article/details/105034364">https://blog.csdn.net/username666/article/details/105034364</a></li>
-<li><a href="https://blog.csdn.net/zhezhebie/article/details/105481989">https://blog.csdn.net/zhezhebie/article/details/105481989</a></li>
-<li><a href="https://www.cnblogs.com/TidalCoast1034/p/15766836.html">https://www.cnblogs.com/TidalCoast1034/p/15766836.html</a></li>
-<li><a href="https://unsplash.com/photos/ToTlbvvI_uc">https://unsplash.com/photos/ToTlbvvI_uc</a></li>
-</ul>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20220727-Elasticsearch_bu_shu_wen_ti/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -791,7 +686,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -827,55 +722,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20220708-cloudflare_mo_ren_huan_cun_biao_zhun/photo-1657215374010-786fefd1dbbc.jpg" alt="photo-1657215374010-786fefd1dbbc"></p>
-<h3 id="支持的缓存格式"><a href="#支持的缓存格式" class="headerlink" title="支持的缓存格式"></a>支持的缓存格式</h3><blockquote>
-<p>常见压缩包和视频文件都是支持</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">7Z  CSV GIF MIDI PNG TIF ZIP</span><br><span class="line">AVI DOC GZ  MKV PPT TIFF ZST</span><br><span class="line">AVIF DOCX ICO MP3 PPTX TTF</span><br><span class="line">APK DMG ISO MP4 PS  WEBM</span><br><span class="line">BIN EJS JAR OGG RAR WEBP</span><br><span class="line">BMP EOT JPG OTF SVG WOFF</span><br><span class="line">BZ2 EPS JPEG  PDF SVGZ WOFF2</span><br><span class="line">CLASS EXE JS  PICT SWF XLS</span><br><span class="line">CSS FLAC MID PLS TAR XLSX</span><br></pre></td></tr></table></figure>
-
-<h3 id="上传文件限制"><a href="#上传文件限制" class="headerlink" title="上传文件限制"></a>上传文件限制</h3><blockquote>
-<p>HTTP POST 请求大小</p>
-</blockquote>
-<ul>
-<li>100MB 免费版和专业版</li>
-<li>200MB 专业版</li>
-<li>500MB 企业版</li>
-</ul>
-<h3 id="缓存文件大小限制"><a href="#缓存文件大小限制" class="headerlink" title="缓存文件大小限制"></a>缓存文件大小限制</h3><ul>
-<li>免费、专业版和商业版客户的限制为 512 MB。</li>
-<li>企业客户，默认的最大可缓存文件大小为 5 GB</li>
-</ul>
-<h3 id="缓存代码"><a href="#缓存代码" class="headerlink" title="缓存代码"></a>缓存代码</h3><blockquote>
-<p>cf-cache-status</p>
-</blockquote>
-<ul>
-<li>cf-cache-status:HIT<ul>
-<li>命中缓存，直接从CF CDN中获取，不走服务器</li>
-</ul>
-</li>
-<li>cf-cache-status:MISS：<ul>
-<li>命中失败，走服务器，如果在<strong>缓存文件大小限制</strong>内下次则HIT</li>
-</ul>
-</li>
-<li>cf-cache-status: BYPASS：<ul>
-<li>走服务器，可能设置相应头，如：<code>NO-CACHE</code></li>
-</ul>
-</li>
-<li>cf-cache-status:EXPIRED：<ul>
-<li>走服务器，缓存过期，如果在<strong>缓存文件大小限制</strong>内下次则HIT</li>
-</ul>
-</li>
-<li>cf-cache-status:DYNAMIC：<ul>
-<li>走服务器,没有配置缓存，也不缓存文件，下次依旧走服务器</li>
-</ul>
-</li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://developers.cloudflare.com/cache/about/default-cache-behavior">https://developers.cloudflare.com/cache/about/default-cache-behavior</a></li>
-<li><a href="https://unsplash.com/photos/848z7lbCjoo">https://unsplash.com/photos/848z7lbCjoo</a></li>
-</ul>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20220708-cloudflare_mo_ren_huan_cun_biao_zhun/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 

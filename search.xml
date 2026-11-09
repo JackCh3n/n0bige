@@ -215,6 +215,24 @@
       </tags>
   </entry>
   <entry>
+    <title>联通4G接入点名称APN设置</title>
+    <url>/post/20171221-LIANTONG4GAPN/</url>
+    <content><![CDATA[<p>继上次刷机后 APN没有设置 这段时间都是用WIFI上网 今天恰巧要用到数据流量就把APN这个遗忘的点给补上<br>名称：3gwap<br>APN:3gwap<br>代理：10.0.0.172<br>端口：80</p>
+<span id="more"></span>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">名称：3gwap</span><br><span class="line">APN:3gwap</span><br><span class="line">代理：10.0.0.172</span><br><span class="line">端口：80</span><br><span class="line">用户名：未设定</span><br><span class="line">密码：未设定</span><br><span class="line">服务器：未设定</span><br><span class="line">彩信中心号码：未设定</span><br><span class="line">彩信代理：未设定</span><br><span class="line">彩信端口：未设定</span><br><span class="line">MCC:460</span><br><span class="line">MNC:01</span><br><span class="line">身份验证类型：PAP</span><br><span class="line">APN类型：default</span><br><span class="line">APN协议：IPv4</span><br><span class="line">APN漫游协议：IPv4</span><br><span class="line">APN启用/停用：APN已启用</span><br><span class="line">承载系统：未指定</span><br><span class="line">MVNO类型：无</span><br><span class="line">MVNO值：未设定</span><br><span class="line"></span><br><span class="line">名称：3gnet</span><br><span class="line">APN:3gnet</span><br><span class="line">代理：未设定</span><br><span class="line">端口：未设定</span><br><span class="line">用户名：未设定</span><br><span class="line">密码：未设定</span><br><span class="line">服务器：未设定</span><br><span class="line">彩信中心号码：未设定</span><br><span class="line">彩信代理：未设定</span><br><span class="line">彩信端口：未设定</span><br><span class="line">MCC:460</span><br><span class="line">MNC:01</span><br><span class="line">身份证验证类型：PAP</span><br><span class="line">APN类型：default,supl</span><br><span class="line">APN协议：IPv4</span><br><span class="line">APN漫游协议：IPv4</span><br><span class="line">APN启用/停用：APN已启用</span><br><span class="line">承载系统：未指定</span><br><span class="line">MVNO类型：无</span><br><span class="line">MVNO值：未设定</span><br><span class="line"></span><br><span class="line">名称：中国联通MMS</span><br><span class="line">APN:3gwap</span><br><span class="line">代理：未设定</span><br><span class="line">端口：未设定</span><br><span class="line">用户名：未设定</span><br><span class="line">密码：未设定</span><br><span class="line">服务器：未设定</span><br><span class="line">彩信中心号码：http://mmsc.myuni.com.cn</span><br><span class="line">彩信代理：10.0.0.172</span><br><span class="line">彩信端口：80</span><br><span class="line">MCC:460</span><br><span class="line">MNC:01</span><br><span class="line">身份证验证类型：PAP</span><br><span class="line">APN类型：mms</span><br><span class="line">APN协议：IPv4</span><br><span class="line">APN漫游协议：IPv4</span><br><span class="line">APN启用/停用：APN已启用</span><br><span class="line">承载系统：未指定</span><br><span class="line">MVNO类型：无</span><br><span class="line">MVNO值：未设定</span><br></pre></td></tr></table></figure>
+
+<p>转载自:<a href="http://sony.it168.com/thread-443562-1-1.html">http://sony.it168.com/thread-443562-1-1.html</a></p>
+]]></content>
+      <categories>
+        <category>APN</category>
+      </categories>
+      <tags>
+        <tag>联通</tag>
+        <tag>APN</tag>
+        <tag>SONY</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>oppo r11 r11st 刷改全网通破解网络锁 </title>
     <url>/post/20171203-oppoR11tUnLockTool/</url>
     <content><![CDATA[<p>效果：使用后双卡均可使用流量上网 不限制于移动卡上网</p>
@@ -1770,6 +1788,26 @@
       </tags>
   </entry>
   <entry>
+    <title>MS SQL Server 此数据库没有有效所有者</title>
+    <url>/post/20181105-SQLServerPermissiondenied/</url>
+    <content><![CDATA[<p><img src="/post/20181105-SQLServerPermissiondenied/xiao2018-11-04_19-12-38.jpg" alt="此数据库没有有效所有者"></p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>标题: Microsoft SQL Server Management Studio此数据库没有有效所有者，因此无法安装数据库关系图支持对象。若要继续，请首先使用“数据库属性”对话框的“文件”页或 ALTER AUTHORIZATION 语句将数据库所有者设置为有效登录名，然后再添加数据库关系图支持对象。</p>
+<hr>
+<p>按钮:</p>
+<p>确定</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>use [数据库名]<br>EXEC sp_changedbowner ‘sa’</p>
+<p>意思就是把数据库的权限给sa</p>
+]]></content>
+      <categories>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
+        <tag>server</tag>
+        <tag>技巧</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SQL Server 脚本代替开机自动启动</title>
     <url>/post/20190126-SQLServerBatStartupservice/</url>
     <content><![CDATA[<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>减少不必要的内存和电池电量，让电池🔋支撑整个课程。</p>
@@ -1801,24 +1839,6 @@
         <tag>sql</tag>
         <tag>server</tag>
         <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>联通4G接入点名称APN设置</title>
-    <url>/post/20171221-LIANTONG4GAPN/</url>
-    <content><![CDATA[<p>继上次刷机后 APN没有设置 这段时间都是用WIFI上网 今天恰巧要用到数据流量就把APN这个遗忘的点给补上<br>名称：3gwap<br>APN:3gwap<br>代理：10.0.0.172<br>端口：80</p>
-<span id="more"></span>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">名称：3gwap</span><br><span class="line">APN:3gwap</span><br><span class="line">代理：10.0.0.172</span><br><span class="line">端口：80</span><br><span class="line">用户名：未设定</span><br><span class="line">密码：未设定</span><br><span class="line">服务器：未设定</span><br><span class="line">彩信中心号码：未设定</span><br><span class="line">彩信代理：未设定</span><br><span class="line">彩信端口：未设定</span><br><span class="line">MCC:460</span><br><span class="line">MNC:01</span><br><span class="line">身份验证类型：PAP</span><br><span class="line">APN类型：default</span><br><span class="line">APN协议：IPv4</span><br><span class="line">APN漫游协议：IPv4</span><br><span class="line">APN启用/停用：APN已启用</span><br><span class="line">承载系统：未指定</span><br><span class="line">MVNO类型：无</span><br><span class="line">MVNO值：未设定</span><br><span class="line"></span><br><span class="line">名称：3gnet</span><br><span class="line">APN:3gnet</span><br><span class="line">代理：未设定</span><br><span class="line">端口：未设定</span><br><span class="line">用户名：未设定</span><br><span class="line">密码：未设定</span><br><span class="line">服务器：未设定</span><br><span class="line">彩信中心号码：未设定</span><br><span class="line">彩信代理：未设定</span><br><span class="line">彩信端口：未设定</span><br><span class="line">MCC:460</span><br><span class="line">MNC:01</span><br><span class="line">身份证验证类型：PAP</span><br><span class="line">APN类型：default,supl</span><br><span class="line">APN协议：IPv4</span><br><span class="line">APN漫游协议：IPv4</span><br><span class="line">APN启用/停用：APN已启用</span><br><span class="line">承载系统：未指定</span><br><span class="line">MVNO类型：无</span><br><span class="line">MVNO值：未设定</span><br><span class="line"></span><br><span class="line">名称：中国联通MMS</span><br><span class="line">APN:3gwap</span><br><span class="line">代理：未设定</span><br><span class="line">端口：未设定</span><br><span class="line">用户名：未设定</span><br><span class="line">密码：未设定</span><br><span class="line">服务器：未设定</span><br><span class="line">彩信中心号码：http://mmsc.myuni.com.cn</span><br><span class="line">彩信代理：10.0.0.172</span><br><span class="line">彩信端口：80</span><br><span class="line">MCC:460</span><br><span class="line">MNC:01</span><br><span class="line">身份证验证类型：PAP</span><br><span class="line">APN类型：mms</span><br><span class="line">APN协议：IPv4</span><br><span class="line">APN漫游协议：IPv4</span><br><span class="line">APN启用/停用：APN已启用</span><br><span class="line">承载系统：未指定</span><br><span class="line">MVNO类型：无</span><br><span class="line">MVNO值：未设定</span><br></pre></td></tr></table></figure>
-
-<p>转载自:<a href="http://sony.it168.com/thread-443562-1-1.html">http://sony.it168.com/thread-443562-1-1.html</a></p>
-]]></content>
-      <categories>
-        <category>APN</category>
-      </categories>
-      <tags>
-        <tag>联通</tag>
-        <tag>APN</tag>
-        <tag>SONY</tag>
       </tags>
   </entry>
   <entry>
@@ -2294,7 +2314,7 @@
 </tr>
 <tr>
 <td>SMTP_USER</td>
-<td><a href="mailto:&#x78;&#120;&#120;&#120;&#120;&#x78;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">xxxxxx@qq.com</a></td>
+<td><a href="mailto:&#120;&#120;&#120;&#x78;&#x78;&#120;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;">xxxxxx@qq.com</a></td>
 <td>[必填]SMTP登录用户</td>
 </tr>
 <tr>
@@ -2309,7 +2329,7 @@
 </tr>
 <tr>
 <td>SENDER_EMAIL</td>
-<td><a href="mailto:&#x78;&#120;&#x78;&#120;&#x78;&#120;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">xxxxxx@qq.com</a></td>
+<td><a href="mailto:&#x78;&#120;&#120;&#120;&#120;&#x78;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">xxxxxx@qq.com</a></td>
 <td>[必填]发件邮箱</td>
 </tr>
 <tr>
@@ -2319,7 +2339,7 @@
 </tr>
 <tr>
 <td>BLOGGER_EMAIL</td>
-<td><a href="mailto:&#120;&#120;&#x78;&#120;&#120;&#x40;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#109;">xxxxx@gmail.com</a></td>
+<td><a href="mailto:&#x78;&#120;&#x78;&#x78;&#x78;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#111;&#x6d;">xxxxx@gmail.com</a></td>
 <td>[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
 </tr>
 <tr>
@@ -2518,6 +2538,48 @@
 ]]></content>
       <categories>
         <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>插件</tag>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo利用插件简单的使用管理图片</title>
+    <url>/post/20190605-hexoEasyUsingImages/</url>
+    <content><![CDATA[<h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>?	现在的环境用的时候并没有发现什么不妥，在搜索了下发现hexo使用图片有很多的不便，加上修改了hexo-asset-image插件，索性写下这篇文章，之前是参考那一篇文章不记得了。</p>
+<p>资源（Asset）代表 <code>source</code> 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。</p>
+<h2 id="文章资源文件夹"><a href="#文章资源文件夹" class="headerlink" title="文章资源文件夹"></a>文章资源文件夹</h2><p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 <code>config.yml</code>文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">_config.yml</span><br><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
+
+<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
+<h2 id="图片插件"><a href="#图片插件" class="headerlink" title="图片插件"></a>图片插件</h2><p>官方的使用方式很麻烦，作为一个懒人肯定不能这干，于是有人开发了hexo-asset-image插件，使用方法就是通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。</p>
+<p>修改 <code>_config.yml</code>下的<code>post_asset_folder: true</code> 将其改成true</p>
+<p>用的时候只要</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![a](a.jpg)</span><br></pre></td></tr></table></figure>
+
+<p>即可，插件会自动修改具体的路径</p>
+<p>完整的目录结构是</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo利用插件简单的使用管理图片</span><br><span class="line">├── a.jpg</span><br><span class="line">├── b.jpg</span><br><span class="line">└── c.jpg</span><br><span class="line">hexo利用插件简单的使用管理图片.md</span><br></pre></td></tr></table></figure>
+
+<h2 id="插件不能正常的使用？"><a href="#插件不能正常的使用？" class="headerlink" title="插件不能正常的使用？"></a>插件不能正常的使用？</h2><p>如果你使用的了官方的插件后发现图片地址没有正确的引用，例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">文章链接---https://nobige.cn/post/20170926-phpUniqueMark/</span><br><span class="line">目录</span><br><span class="line">20170926-phpUniqueMark</span><br><span class="line">└── xiao20170926182609.jpg</span><br><span class="line">20170926-phpUniqueMark.md</span><br><span class="line">插件处理后的结果是</span><br><span class="line">https://nobige.cn/post/20170926-phpUniqueMark/xiao20170926182609.png</span><br></pre></td></tr></table></figure>
+
+<p>则可以查看下《<a href="/go.html?u=https://nobige.cn/post/2019-06-05-hexo-asset-imageFix">hexo-asset-image插件修改</a>》里面有写怎么处理插件不能使用的错误</p>
+<h2 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h2><p>修改package.json 在dependencies 添加</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;hexo-asset-image&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://github.com/JackCh3n/hexo-asset-image&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p>完整的样子</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo-site&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;3.8.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.7.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-asset-image&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://github.com/JackCh3n/hexo-asset-image&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="npm安装"><a href="#npm安装" class="headerlink" title="npm安装"></a>npm安装</h2><p>嫌弃修改麻烦，怕出问题？那就用npm命令方式添加，在hexo根目录运行</p>
+<p><code>npm install --save https://github.com/JackCh3n/hexo-asset-image</code></p>
+<p>修改版Github地址：<a href="/go.html?u=https://github.com/JackCh3n/hexo-asset-image">https://github.com/JackCh3n/hexo-asset-image</a></p>
+<p>原版Github地址：<a href="/go.html?u=https://github.com/xcodebuild/hexo-asset-image">https://github.com/xcodebuild/hexo-asset-image</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="/go.html?u=https://hexo.io/zh-cn/docs/asset-folders.html">资源文件夹 | Hexo</a></p>
+]]></content>
+      <categories>
+        <category>hexo</category>
       </categories>
       <tags>
         <tag>插件</tag>
@@ -2816,26 +2878,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MS SQL Server 此数据库没有有效所有者</title>
-    <url>/post/20181105-SQLServerPermissiondenied/</url>
-    <content><![CDATA[<p><img src="/post/20181105-SQLServerPermissiondenied/xiao2018-11-04_19-12-38.jpg" alt="此数据库没有有效所有者"></p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>标题: Microsoft SQL Server Management Studio此数据库没有有效所有者，因此无法安装数据库关系图支持对象。若要继续，请首先使用“数据库属性”对话框的“文件”页或 ALTER AUTHORIZATION 语句将数据库所有者设置为有效登录名，然后再添加数据库关系图支持对象。</p>
-<hr>
-<p>按钮:</p>
-<p>确定</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>use [数据库名]<br>EXEC sp_changedbowner ‘sa’</p>
-<p>意思就是把数据库的权限给sa</p>
-]]></content>
-      <categories>
-        <category>技巧</category>
-      </categories>
-      <tags>
-        <tag>sql</tag>
-        <tag>server</tag>
-        <tag>技巧</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>docker的简单使用</title>
     <url>/post/20191007-docker_de_jian_dan_shi_yong/</url>
     <content><![CDATA[<h2 id="概念图"><a href="#概念图" class="headerlink" title="概念图"></a>概念图</h2><p><img src="/post/20191007-docker_de_jian_dan_shi_yong/docker-stages.png" alt="docker概念图"></p>
@@ -3002,6 +3044,82 @@
       <tags>
         <tag>技巧</tag>
         <tag>错误</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>selenium安装和Chromedriver</title>
+    <url>/post/20191108-selenium_an_zhuang_he_Chromedriver/</url>
+    <content><![CDATA[<h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><p>Selenium是一个Web的自动化测试工具，最初是为网站自动化测试而开发的，Selenium<br>可以直接运行在浏览器上，它支持所有主流的浏览器（包括PhantomJS这些无界面的浏览器），可以接收指令，让浏览器自动加载页面，获取需要的数据，甚至页面截屏</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
+<li><a href="/go.html?u=https://npm.taobao.org/mirrors/chromedriver">ChromeDriver Mirror</a></li>
+<li><a href="/go.html?u=https://www.google.cn/intl/zh-CN/chrome/">Chrome</a></li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><em>可以解决，以下错误问题</em></p>
+<blockquote>
+<p>Message: ‘chromedriver’ executable needs to be in PATH. Please see <a href="https://sites.google.com/a/chromium.org/chromedriver/home">https://sites.google.com/a/chromium.org/chromedriver/home</a></p>
+</blockquote>
+<p>首先根据Chrome版本进行下载chromedriver驱动，</p>
+<p><strong>Chrome版本查看路径</strong></p>
+<p>[菜单 ] -&gt; [帮助]  -&gt; [关于Google Chrome]</p>
+<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019-11-05-11-18-08-127.jpg" alt="Chrome版本查看路径"></p>
+<p>如下图所示，我的版本为<code>版本 77.0.3865.90（正式版本） （64 位）</code></p>
+<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019_11_06_13_37_19_157.jpg" alt="Chrome版本"></p>
+<p>然后到<a href="/go.html?u=https://npm.taobao.org/mirrors/chromedriver">ChromeDriver Mirror</a>淘宝镜像地址进行下载，以我的版本为例搜索<code>77.0.3865</code>然后选择<code>77.0.3865.40</code>即可，一般都是选择对应chrome版本较新的即可。</p>
+<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019_11_06_13_39_06_979.jpg" alt="npm淘宝镜像"></p>
+<p>（以Win7为例）接着下载对应版本的chromedriver驱动<code>chromedriver.exe</code>放到<code>python.exe</code> 同级文件夹即可，如</p>
+<p>python path 是 <code>C:\Users\Administrator\AppData\Local\Programs\Python\Python37</code></p>
+<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019-11-05-10-58-54-57.jpg" alt="python dir"></p>
+<p>最后尝试代码以下代码，若是可以正常的打开网站即为安装成功。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">&#x27;https://nobige.cn&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(driver.title)</span><br><span class="line"></span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
+
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><blockquote>
+<p>Message: ‘chromedriver’ executable needs to be in PATH. Please see <a href="https://sites.google.com/a/chromium.org/chromedriver/home">https://sites.google.com/a/chromium.org/chromedriver/home</a></p>
+</blockquote>
+<p>解决办法参考，<strong>安装</strong>。</p>
+<blockquote>
+<p>element is not attached to the page document</p>
+</blockquote>
+<p>原因:页面未完全加载完成(元素丢失)，解决办法，刷新页面后延迟下或者重新获取</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 刷新</span></span><br><span class="line">driver.refresh()</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>Selenium提供了下列的方法</p>
+<ul>
+<li>find_element_by_id</li>
+<li>find_element_by_name</li>
+<li>find_element_by_xpath</li>
+<li>find_element_by_link_text</li>
+<li>find_element_by_partial_link_text</li>
+<li>find_element_by_tag_name</li>
+<li>find_element_by_class_name</li>
+<li>find_element_by_css_selector</li>
+</ul>
+<p><strong>一次查找多个元素 (这些方法会返回一个list列表):</strong></p>
+<ul>
+<li>find_elements_by_name</li>
+<li>find_elements_by_xpath</li>
+<li>find_elements_by_link_text</li>
+<li>find_elements_by_partial_link_text</li>
+<li>find_elements_by_tag_name</li>
+<li>find_elements_by_class_name</li>
+<li>find_elements_by_css_selector</li>
+</ul>
+<p>手册中找到的可能用的上的方法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">获取标签属性</span><br><span class="line">get_attribute</span><br><span class="line">get_attribute(<span class="string">&quot;class&quot;</span>)</span><br><span class="line"></span><br><span class="line">填写内容</span><br><span class="line">find_element_by_id(<span class="string">&quot;username&quot;</span>).send_keys(<span class="string">&quot;some text&quot;</span>)</span><br><span class="line"></span><br><span class="line">下拉或多选</span><br><span class="line">    清除所有选定的条目通过索引，值，文本名</span><br><span class="line">    deselect_all</span><br><span class="line">    deselect_by_index</span><br><span class="line">    deselect_by_value</span><br><span class="line">    deselect_by_visible_text</span><br><span class="line">    </span><br><span class="line">    选择下拉或多选通过索引，值，文本名</span><br><span class="line">    select_by_index</span><br><span class="line">    select_by_value</span><br><span class="line">    select_by_visible_text</span><br><span class="line">    </span><br><span class="line">    返回属于此选择标记的所有选定选项的列表</span><br><span class="line">    all_selected_options</span><br><span class="line">    </span><br><span class="line">    此选择标记中的第一个选定选项（或正常选择中的当前选定选项）</span><br><span class="line">    first_selected_option</span><br><span class="line">    </span><br><span class="line">    返回属于此选择标记的所有选项的列表</span><br><span class="line">    options</span><br><span class="line"></span><br><span class="line">单击</span><br><span class="line">click()</span><br><span class="line"></span><br><span class="line">双击</span><br><span class="line">double_click</span><br><span class="line"></span><br><span class="line">提交</span><br><span class="line">element.submit()</span><br><span class="line"></span><br><span class="line">在不同的窗口和框架之间移动</span><br><span class="line">driver.switch_to_window(<span class="string">&quot;windowName&quot;</span>)</span><br><span class="line"></span><br><span class="line">弹出对话框</span><br><span class="line">alert = driver.switch_to_alert()</span><br><span class="line"></span><br><span class="line">操作Cookies,增，查，删，删除全部</span><br><span class="line">add_cookie(cookie)</span><br><span class="line">get_cookies()</span><br><span class="line">delete_cookie</span><br><span class="line">delete_all_cookies</span><br><span class="line"></span><br><span class="line">控制浏览器历史前进</span><br><span class="line">forward()</span><br><span class="line"></span><br><span class="line">控制浏览器历史后退</span><br><span class="line">back()</span><br><span class="line"></span><br><span class="line">刷新</span><br><span class="line">refresh</span><br><span class="line"></span><br><span class="line">关闭页面</span><br><span class="line">close()</span><br><span class="line"></span><br><span class="line">最大化 Web 驱动程序正在使用的当前窗口</span><br><span class="line">maximize_window</span><br><span class="line">最小化 Web 驱动程序正在使用的当前窗口</span><br><span class="line">minimize_window</span><br><span class="line"></span><br><span class="line">将当前窗口的屏幕截图保存到 PNG 图像文件中。</span><br><span class="line">get_screenshot_as_file(文件名)</span><br><span class="line">save_screenshot</span><br><span class="line"></span><br><span class="line">获取当前窗口的屏幕截图作为 base64 编码字符串</span><br><span class="line">get_screenshot_as_base64</span><br><span class="line"></span><br><span class="line">获取当前URL</span><br><span class="line">current_url</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="/go.html?u=https://selenium-python-zh.readthedocs.io/en/latest/api.html">7. WebDriver API — Selenium-Python中文文档 2 documentation</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>错误</tag>
+        <tag>chromedriver</tag>
+        <tag>selenium</tag>
+        <tag>常用</tag>
       </tags>
   </entry>
   <entry>
@@ -4256,48 +4374,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo利用插件简单的使用管理图片</title>
-    <url>/post/20190605-hexoEasyUsingImages/</url>
-    <content><![CDATA[<h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>?	现在的环境用的时候并没有发现什么不妥，在搜索了下发现hexo使用图片有很多的不便，加上修改了hexo-asset-image插件，索性写下这篇文章，之前是参考那一篇文章不记得了。</p>
-<p>资源（Asset）代表 <code>source</code> 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 <code>source/images</code> 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。</p>
-<h2 id="文章资源文件夹"><a href="#文章资源文件夹" class="headerlink" title="文章资源文件夹"></a>文章资源文件夹</h2><p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 <code>config.yml</code>文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">_config.yml</span><br><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
-
-<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。这个资源文件夹将会有与这个 markdown 文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
-<h2 id="图片插件"><a href="#图片插件" class="headerlink" title="图片插件"></a>图片插件</h2><p>官方的使用方式很麻烦，作为一个懒人肯定不能这干，于是有人开发了hexo-asset-image插件，使用方法就是通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹。</p>
-<p>修改 <code>_config.yml</code>下的<code>post_asset_folder: true</code> 将其改成true</p>
-<p>用的时候只要</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">![a](a.jpg)</span><br></pre></td></tr></table></figure>
-
-<p>即可，插件会自动修改具体的路径</p>
-<p>完整的目录结构是</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo利用插件简单的使用管理图片</span><br><span class="line">├── a.jpg</span><br><span class="line">├── b.jpg</span><br><span class="line">└── c.jpg</span><br><span class="line">hexo利用插件简单的使用管理图片.md</span><br></pre></td></tr></table></figure>
-
-<h2 id="插件不能正常的使用？"><a href="#插件不能正常的使用？" class="headerlink" title="插件不能正常的使用？"></a>插件不能正常的使用？</h2><p>如果你使用的了官方的插件后发现图片地址没有正确的引用，例如</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">文章链接---https://nobige.cn/post/20170926-phpUniqueMark/</span><br><span class="line">目录</span><br><span class="line">20170926-phpUniqueMark</span><br><span class="line">└── xiao20170926182609.jpg</span><br><span class="line">20170926-phpUniqueMark.md</span><br><span class="line">插件处理后的结果是</span><br><span class="line">https://nobige.cn/post/20170926-phpUniqueMark/xiao20170926182609.png</span><br></pre></td></tr></table></figure>
-
-<p>则可以查看下《<a href="/go.html?u=https://nobige.cn/post/2019-06-05-hexo-asset-imageFix">hexo-asset-image插件修改</a>》里面有写怎么处理插件不能使用的错误</p>
-<h2 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h2><p>修改package.json 在dependencies 添加</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="attr">&quot;hexo-asset-image&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://github.com/JackCh3n/hexo-asset-image&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
-
-<p>完整的样子</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo-site&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;3.8.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.7.1&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;hexo-asset-image&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://github.com/JackCh3n/hexo-asset-image&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="npm安装"><a href="#npm安装" class="headerlink" title="npm安装"></a>npm安装</h2><p>嫌弃修改麻烦，怕出问题？那就用npm命令方式添加，在hexo根目录运行</p>
-<p><code>npm install --save https://github.com/JackCh3n/hexo-asset-image</code></p>
-<p>修改版Github地址：<a href="/go.html?u=https://github.com/JackCh3n/hexo-asset-image">https://github.com/JackCh3n/hexo-asset-image</a></p>
-<p>原版Github地址：<a href="/go.html?u=https://github.com/xcodebuild/hexo-asset-image">https://github.com/xcodebuild/hexo-asset-image</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="/go.html?u=https://hexo.io/zh-cn/docs/asset-folders.html">资源文件夹 | Hexo</a></p>
-]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>插件</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>IOS12.4开启微信CallKit</title>
     <url>/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/</url>
     <content><![CDATA[<p><img src="/post/20190827-IOS_124_kai_qi_wei_xin_CallKit/pascal-meier-QU6B63EDfD0-unsplash.jpg" alt="Rechtswissenschaftliches Institut UZH"></p>
@@ -4440,6 +4516,36 @@
         <tag>smb</tag>
         <tag>ltsc</tag>
         <tag>共享</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>华硕老毛子Padavan固件限制玩客云上传</title>
+    <url>/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/</url>
+    <content><![CDATA[<p><img src="/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/aaron-burden-QX3ODZvva9Y-unsplash.jpg" alt="Plant, sunflower, flower and blossom"></p>
+<h2 id="原由"><a href="#原由" class="headerlink" title="原由"></a>原由</h2><p>​	老毛子Padavan固件虽然稳定但是没有QOS限速，而玩客云要退出【链克计划】说是需要手持身份证，这么无理的要求肯定是不能答应大，但是不限制上传又严重影响网速，咋办？</p>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>​	设备需求，理论上支持所有的OpenWrt系统的路由器，Padavan固件</p>
+<p>在高级设置&gt;自定义设置&gt;脚本&gt;[在防火墙规则 (Emong’s Qos) 启动后执行:]内添加以下代码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 限制玩客云设备 192.168.123.204 每秒钟通过 200×1.5=300K ；超过的流量都丢弃 (设置的太少，会导致无法开机)</span></span><br><span class="line"><span class="comment"># 将192.168.123.204修改成你玩客云的ip</span></span><br><span class="line">iptables -t mangle -I FORWARD 1 -s 192.168.123.204 -m <span class="built_in">limit</span> --<span class="built_in">limit</span> 200/s --limit-burst 1000 -j ACCEPT</span><br><span class="line"></span><br><span class="line">iptables -t mangle -A FORWARD -s 192.168.123.204 -j DROP</span><br></pre></td></tr></table></figure>
+
+<p><img src="/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/xiao_20190828045604.png" alt="添加限速命令"></p>
+<p><strong>查询限速命令是否生效？</strong></p>
+<p>在高级设置&gt;系统管理&gt;控制台&gt;输入<code>iptables -t mangle -nvL FORWARD</code> &gt;刷新,如果结果出现刚才设定的IP则为成功。</p>
+<p><img src="/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/xiao_20190828045754.png" alt="查询限速命令是否生效"></p>
+<p>更多<code>iptables</code>命令或需要更高级的设置请产考《<a href="https://wangchujiang.com/linux-command/c/iptables.html">iptables 命令，Linux iptables 命令详解：Linux上常用的防火墙软件 - Linux 命令搜索引擎</a>》 </p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://tieba.baidu.com/p/6083482278">@zjhongwenjun-玩客云限制上传方法玩客云吧_百度贴吧</a></li>
+<li><a href="https://www.right.com.cn/forum/thread-161324-1-1.html">固件下载-@hiboyhiboyhiboy-[2019-03-05]改华硕[N14U N54U]5G 2G的7620老毛子Padavan固件(私人云储存 aria2 QOS) - Padavan - 恩山无线论坛 - Powered by Discuz!</a></li>
+<li><a href="https://unsplash.com/photos/QX3ODZvva9Y">壁纸-Plant, sunflower, flower and blossom | HD photo by Aaron Burden (@aaronburden) on Unsplash</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>玩客云</tag>
+        <tag>限速</tag>
+        <tag>老毛子</tag>
+        <tag>padavan</tag>
       </tags>
   </entry>
   <entry>
@@ -4774,36 +4880,6 @@
       </tags>
   </entry>
   <entry>
-    <title>华硕老毛子Padavan固件限制玩客云上传</title>
-    <url>/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/</url>
-    <content><![CDATA[<p><img src="/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/aaron-burden-QX3ODZvva9Y-unsplash.jpg" alt="Plant, sunflower, flower and blossom"></p>
-<h2 id="原由"><a href="#原由" class="headerlink" title="原由"></a>原由</h2><p>​	老毛子Padavan固件虽然稳定但是没有QOS限速，而玩客云要退出【链克计划】说是需要手持身份证，这么无理的要求肯定是不能答应大，但是不限制上传又严重影响网速，咋办？</p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>​	设备需求，理论上支持所有的OpenWrt系统的路由器，Padavan固件</p>
-<p>在高级设置&gt;自定义设置&gt;脚本&gt;[在防火墙规则 (Emong’s Qos) 启动后执行:]内添加以下代码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 限制玩客云设备 192.168.123.204 每秒钟通过 200×1.5=300K ；超过的流量都丢弃 (设置的太少，会导致无法开机)</span></span><br><span class="line"><span class="comment"># 将192.168.123.204修改成你玩客云的ip</span></span><br><span class="line">iptables -t mangle -I FORWARD 1 -s 192.168.123.204 -m <span class="built_in">limit</span> --<span class="built_in">limit</span> 200/s --limit-burst 1000 -j ACCEPT</span><br><span class="line"></span><br><span class="line">iptables -t mangle -A FORWARD -s 192.168.123.204 -j DROP</span><br></pre></td></tr></table></figure>
-
-<p><img src="/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/xiao_20190828045604.png" alt="添加限速命令"></p>
-<p><strong>查询限速命令是否生效？</strong></p>
-<p>在高级设置&gt;系统管理&gt;控制台&gt;输入<code>iptables -t mangle -nvL FORWARD</code> &gt;刷新,如果结果出现刚才设定的IP则为成功。</p>
-<p><img src="/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/xiao_20190828045754.png" alt="查询限速命令是否生效"></p>
-<p>更多<code>iptables</code>命令或需要更高级的设置请产考《<a href="https://wangchujiang.com/linux-command/c/iptables.html">iptables 命令，Linux iptables 命令详解：Linux上常用的防火墙软件 - Linux 命令搜索引擎</a>》 </p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://tieba.baidu.com/p/6083482278">@zjhongwenjun-玩客云限制上传方法玩客云吧_百度贴吧</a></li>
-<li><a href="https://www.right.com.cn/forum/thread-161324-1-1.html">固件下载-@hiboyhiboyhiboy-[2019-03-05]改华硕[N14U N54U]5G 2G的7620老毛子Padavan固件(私人云储存 aria2 QOS) - Padavan - 恩山无线论坛 - Powered by Discuz!</a></li>
-<li><a href="https://unsplash.com/photos/QX3ODZvva9Y">壁纸-Plant, sunflower, flower and blossom | HD photo by Aaron Burden (@aaronburden) on Unsplash</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技巧</category>
-      </categories>
-      <tags>
-        <tag>玩客云</tag>
-        <tag>限速</tag>
-        <tag>老毛子</tag>
-        <tag>padavan</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo评论插件之路</title>
     <url>/post/20201125-H_e_x_o_ping_lun_cha_jian_zhi_lu/</url>
     <content><![CDATA[<h2 id="Hexo评论插件之路"><a href="#Hexo评论插件之路" class="headerlink" title="Hexo评论插件之路"></a>Hexo评论插件之路</h2><blockquote>
@@ -4850,6 +4926,41 @@
       <tags>
         <tag>插件</tag>
         <tag>评论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TortoiseGit合并N个项目并保留commit记录</title>
+    <url>/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/</url>
+    <content><![CDATA[<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/serge-kutuzov-3EyxOAVVk4M-unsplash.jpg" alt="Photo by Serge Kutuzov on Unsplash"></p>
+<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
+<p>假设有N个小项目ProA,ProB,ProC,现在打算将三个项目合并到一个项目中去集中管理，并且保留ProA,ProB,ProC的commit记录。</p>
+</blockquote>
+<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
+<li>添加要合并的项目</li>
+<li>拉取并提交代码</li>
+</ol>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.创建一个要集中管理ProA,ProB,ProC的项目，例如ProMAX，并在本地正常的克隆这个库</p>
+<p>2.在ProMAX本地库中<code>设置，git，远端</code>，添加一个ProA的库地址，并取消获取远端分支。</p>
+<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_20-08-42.jpg" alt="本地库"></p>
+<p>3.在ProMAX本地库中拉刚添加的ProA，注意这里暂时不要选并合</p>
+<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_20-09-43.jpg" alt="添加库"></p>
+<p>4.出现拉取失败，选择合并非相关历史</p>
+<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_19-51-58.jpg" alt="合并非相关历史"></p>
+<p>5.拉取正常</p>
+<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_19-52-17.jpg" alt="拉取正常"></p>
+<p>6.在ProMAX创建一个文件夹如ProA，并将拉取到的ProA代码放入其中，并提交</p>
+<p>7.推送记得选包括标签</p>
+<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_19-54-29.jpg" alt="推送代码"></p>
+<p>8.重复2-7完成添加ProB,ProC的项目</p>
+<p>9.可以在历史信息中查看到三个项目的commit记录都成功的保留了。</p>
+]]></content>
+      <categories>
+        <category>技巧</category>
+      </categories>
+      <tags>
+        <tag>github</tag>
+        <tag>TortoiseGit</tag>
+        <tag>commit</tag>
       </tags>
   </entry>
   <entry>
@@ -5881,114 +5992,56 @@
       </tags>
   </entry>
   <entry>
-    <title>TortoiseGit合并N个项目并保留commit记录</title>
-    <url>/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/</url>
-    <content><![CDATA[<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/serge-kutuzov-3EyxOAVVk4M-unsplash.jpg" alt="Photo by Serge Kutuzov on Unsplash"></p>
-<h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><blockquote>
-<p>假设有N个小项目ProA,ProB,ProC,现在打算将三个项目合并到一个项目中去集中管理，并且保留ProA,ProB,ProC的commit记录。</p>
+    <title>GitHub_Actions部署Hexo博客</title>
+    <url>/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/</url>
+    <content><![CDATA[<h2 id="其实"><a href="#其实" class="headerlink" title="其实"></a>其实</h2><blockquote>
+<p>原理同《<a href="https://nobige.cn/post/20191007-coding_chi_xu_ji_cheng_bu_shu_hexo_bo_ke/">coding持续集成部署hexo博客</a>》相似，只是换了个平台而已，仅此而已。但是可以配合使用Github的话可以使用jsdelivr CDN（中国由网宿cdn提供）</p>
 </blockquote>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ol>
-<li>添加要合并的项目</li>
-<li>拉取并提交代码</li>
-</ol>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>1.创建一个要集中管理ProA,ProB,ProC的项目，例如ProMAX，并在本地正常的克隆这个库</p>
-<p>2.在ProMAX本地库中<code>设置，git，远端</code>，添加一个ProA的库地址，并取消获取远端分支。</p>
-<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_20-08-42.jpg" alt="本地库"></p>
-<p>3.在ProMAX本地库中拉刚添加的ProA，注意这里暂时不要选并合</p>
-<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_20-09-43.jpg" alt="添加库"></p>
-<p>4.出现拉取失败，选择合并非相关历史</p>
-<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_19-51-58.jpg" alt="合并非相关历史"></p>
-<p>5.拉取正常</p>
-<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_19-52-17.jpg" alt="拉取正常"></p>
-<p>6.在ProMAX创建一个文件夹如ProA，并将拉取到的ProA代码放入其中，并提交</p>
-<p>7.推送记得选包括标签</p>
-<p><img src="/post/20201103-TortoiseGit_he_bing_N_ge_xiang_mu_bing_bao_liu_commit_ji_lu/fuckqq_2020-10-30_19-54-29.jpg" alt="推送代码"></p>
-<p>8.重复2-7完成添加ProB,ProC的项目</p>
-<p>9.可以在历史信息中查看到三个项目的commit记录都成功的保留了。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
+<p>GitHub Actions同Travis CI差不多都是持续集成服务，感兴趣可以到官网了解 <a href="https://github.com/features/actions">Features • GitHub Actions</a></p>
+</blockquote>
+<p>由于是自家的服务，所以每个项目都是内置自带Actions的，需要使用只需在项目页面的Actions子页面，选择你要的脚本或是使用自己的脚本，这里选择<strong>set up a workflow yourself</strong> </p>
+<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_21_23_58.png" alt="Actions"></p>
+<p>之后只要复制以下代码即可(代码来自@JerryC)</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">自动部署</span> <span class="string">Hexo</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">node-version:</span> [<span class="number">10.</span><span class="string">x</span>]</span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">开始运行</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v1</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">设置</span> <span class="string">Node.js</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装</span> <span class="string">Hexo</span> <span class="string">CI</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          export TZ=&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">          npm install hexo-cli -g</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">缓存</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v1</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">cache-dependencies</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;runner.OS&#125;&#125;-$&#123;&#123;hashFiles(&#x27;**/package-lock.json&#x27;)&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装插件</span></span><br><span class="line">        <span class="attr">if:</span> <span class="string">steps.cache-dependencies.outputs.cache-hit</span> <span class="type">!=</span> <span class="string">&#x27;true&#x27;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署博客</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          hexo clean &amp;&amp; hexo g </span></span><br><span class="line"><span class="string">          cd ./public</span></span><br><span class="line"><span class="string">          git init</span></span><br><span class="line"><span class="string">          git config user.name &quot;$&#123;&#123;secrets.GIT_NAME&#125;&#125;&quot;</span></span><br><span class="line"><span class="string">          git config user.email &quot;$&#123;&#123;secrets.GIT_EMAIL&#125;&#125;&quot;</span></span><br><span class="line"><span class="string">          git add .</span></span><br><span class="line"><span class="string">          git commit -m &quot;Update&quot;</span></span><br><span class="line"><span class="string">          git push --force --quiet &quot;https://$&#123;&#123;secrets.GH_TOKEN&#125;&#125;@$&#123;&#123;secrets.GH_REF&#125;&#125;&quot; master:master</span></span><br></pre></td></tr></table></figure>
+
+<p>需要关注的就是4个变量和1个执行命令</p>
+<p>变量：GIT_NAME，GIT_EMAIL，GH_TOKEN，GH_REF，分别是git的姓名，邮箱和token及仓库地址</p>
+<p>token获取地址，Settings——Developer settings——Personal access tokens——Generate new token创建一个只有public_repo（公共仓库）权限的token即可，得到一个类似<code>d6ce252bf70f925f32c36850a14e276b915b005f</code></p>
+<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_22_29_26.png" alt="create token"></p>
+<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_22_30_37.png" alt="token"></p>
+<p>仓库地址为：<code>github.com/JackCh3n/n0bige.git</code></p>
+<p>这一句完整的命令就是使用Token强制提交</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push --force --quiet https://d6ce252bf70f925f32c36850a14e276b915b005f@github.com/JackCh3n/n0bige.git master:master</span><br></pre></td></tr></table></figure>
+
+<p>变量则是在项目，settings，Secrets，创建并添加即可，之后脚本就可以通过<code>$&#123;&#123;secrets.GIT_NAME&#125;&#125;</code>的方式获取变量的值了，为了保护隐私&#x2F;安全？</p>
+<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_21_28_28.png" alt="Secrets"></p>
+<p>执行命令：原来是<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo douban &amp;&amp; gulp</code>，就是hexo缓存清理，hexo生成静态文件，hexo 豆瓣页面和html，css，js压缩，这里可以根据自己的需求做修改，如我就将最后的两个都删了,最终得到<code>hexo clean &amp;&amp; hexo g</code> </p>
+<p>最后可以在项目页—— Actions——All workflows查看脚本运行的日志和情况</p>
+<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_22_01_19.png" alt="脚本日志"></p>
+<h2 id="jsdelivr"><a href="#jsdelivr" class="headerlink" title="jsdelivr"></a>jsdelivr</h2><blockquote>
+<p>一个开放的CDN，提供npm，GitHub，WordPress等项目的镜像功能（国内用的是网宿CDN）</p>
+</blockquote>
+<p>使用方法copy官方的介绍，支持版本号、分支、列表或是获取精简版的js和css</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//加载任何GitHub版本、提交或分支</span><br><span class="line">//注意：我们建议对支持npm的项目使用npm</span><br><span class="line">https://cdn.jsdeliver.net/gh/user/repo@version/file</span><br><span class="line"></span><br><span class="line">//加载jQuery v3.2.1</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">//使用版本范围而不是特定版本</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3.2/dist/jquery.min.js</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">//完全省略版本以获得最新版本</span><br><span class="line">//你不应该在生产中使用这个</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">//将“.min”添加到任何JS/CSS文件以获取精简版本</span><br><span class="line">//如果不存在，我们会为您生成</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3.2.1/src/core.min.js</span><br><span class="line"></span><br><span class="line">//在末尾添加/以获取目录列表</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery/</span><br></pre></td></tr></table></figure>
+
+<p>注意：jsdelivr 仅支持20M以下的文件加速，20M以上会出现无法下载的现象。</p>
+<blockquote>
+<p>仓库超过50M也无法显示列表：Package size exceeded the configured limit of 50 MB. Try <a href="https://github.com/JackCh3n/pantest/tree/master/">https://github.com/JackCh3n/pantest/tree/master/</a> instead.</p>
+<p>单文件大小超过20M：File size exceeded the configured limit of 20 MB.</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jsdelivr CDN文件上限测下载链接</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/1m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/10m.zip</span><br><span class="line"></span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/20m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/21m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/22m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/23m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/24m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/25m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/26m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/27m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/28m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/29m.zip</span><br><span class="line"></span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/30m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/40m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/50m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/55m.zip</span><br><span class="line">window生成指定大小文件</span><br><span class="line">fsutil file createnew c:\1 1024</span><br><span class="line"># 1024 = 1k</span><br><span class="line"># 10240 = 10k</span><br><span class="line"># 1024000 = 1mb</span><br><span class="line"># 10240000 = 10mb</span><br><span class="line"># 20480000 = 20mb</span><br><span class="line"># 25600000 = 25mb</span><br><span class="line"># 30720000 = 30mb</span><br><span class="line"># 40960000 = 40mb</span><br><span class="line"># 51200000 = 50mb</span><br><span class="line"># 56320000 = 55mb</span><br><span class="line"></span><br><span class="line">linux生成指定大小文件</span><br><span class="line"># /dev/zero 是 Linux 提供的一个特殊的字符设备（伪文件，Pseudo-devices）</span><br><span class="line"># 它的特点是可以永远读该文件，每次读取的结果都是二进制 0</span><br><span class="line">#生成一个文件名为10M.zip的10M测试文件</span><br><span class="line">dd if=/dev/zero of=/root/test/10M.zip bs=1M count=10</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://zhuanlan.zhihu.com/p/103618527">@Jerry - travisci&#x2F;GitHub Actions部署GitHub Pages和Coding Pages - 知乎</a></li>
+</ul>
 ]]></content>
       <categories>
         <category>技巧</category>
       </categories>
       <tags>
         <tag>github</tag>
-        <tag>TortoiseGit</tag>
-        <tag>commit</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>selenium安装和Chromedriver</title>
-    <url>/post/20191108-selenium_an_zhuang_he_Chromedriver/</url>
-    <content><![CDATA[<h2 id="Selenium"><a href="#Selenium" class="headerlink" title="Selenium"></a>Selenium</h2><p>Selenium是一个Web的自动化测试工具，最初是为网站自动化测试而开发的，Selenium<br>可以直接运行在浏览器上，它支持所有主流的浏览器（包括PhantomJS这些无界面的浏览器），可以接收指令，让浏览器自动加载页面，获取需要的数据，甚至页面截屏</p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><ul>
-<li><a href="/go.html?u=https://npm.taobao.org/mirrors/chromedriver">ChromeDriver Mirror</a></li>
-<li><a href="/go.html?u=https://www.google.cn/intl/zh-CN/chrome/">Chrome</a></li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><em>可以解决，以下错误问题</em></p>
-<blockquote>
-<p>Message: ‘chromedriver’ executable needs to be in PATH. Please see <a href="https://sites.google.com/a/chromium.org/chromedriver/home">https://sites.google.com/a/chromium.org/chromedriver/home</a></p>
-</blockquote>
-<p>首先根据Chrome版本进行下载chromedriver驱动，</p>
-<p><strong>Chrome版本查看路径</strong></p>
-<p>[菜单 ] -&gt; [帮助]  -&gt; [关于Google Chrome]</p>
-<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019-11-05-11-18-08-127.jpg" alt="Chrome版本查看路径"></p>
-<p>如下图所示，我的版本为<code>版本 77.0.3865.90（正式版本） （64 位）</code></p>
-<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019_11_06_13_37_19_157.jpg" alt="Chrome版本"></p>
-<p>然后到<a href="/go.html?u=https://npm.taobao.org/mirrors/chromedriver">ChromeDriver Mirror</a>淘宝镜像地址进行下载，以我的版本为例搜索<code>77.0.3865</code>然后选择<code>77.0.3865.40</code>即可，一般都是选择对应chrome版本较新的即可。</p>
-<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019_11_06_13_39_06_979.jpg" alt="npm淘宝镜像"></p>
-<p>（以Win7为例）接着下载对应版本的chromedriver驱动<code>chromedriver.exe</code>放到<code>python.exe</code> 同级文件夹即可，如</p>
-<p>python path 是 <code>C:\Users\Administrator\AppData\Local\Programs\Python\Python37</code></p>
-<p><img src="/post/20191108-selenium_an_zhuang_he_Chromedriver/xiao2019-11-05-10-58-54-57.jpg" alt="python dir"></p>
-<p>最后尝试代码以下代码，若是可以正常的打开网站即为安装成功。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">&#x27;https://nobige.cn&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(driver.title)</span><br><span class="line"></span><br><span class="line">driver.quit()</span><br></pre></td></tr></table></figure>
-
-<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><blockquote>
-<p>Message: ‘chromedriver’ executable needs to be in PATH. Please see <a href="https://sites.google.com/a/chromium.org/chromedriver/home">https://sites.google.com/a/chromium.org/chromedriver/home</a></p>
-</blockquote>
-<p>解决办法参考，<strong>安装</strong>。</p>
-<blockquote>
-<p>element is not attached to the page document</p>
-</blockquote>
-<p>原因:页面未完全加载完成(元素丢失)，解决办法，刷新页面后延迟下或者重新获取</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 刷新</span></span><br><span class="line">driver.refresh()</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>Selenium提供了下列的方法</p>
-<ul>
-<li>find_element_by_id</li>
-<li>find_element_by_name</li>
-<li>find_element_by_xpath</li>
-<li>find_element_by_link_text</li>
-<li>find_element_by_partial_link_text</li>
-<li>find_element_by_tag_name</li>
-<li>find_element_by_class_name</li>
-<li>find_element_by_css_selector</li>
-</ul>
-<p><strong>一次查找多个元素 (这些方法会返回一个list列表):</strong></p>
-<ul>
-<li>find_elements_by_name</li>
-<li>find_elements_by_xpath</li>
-<li>find_elements_by_link_text</li>
-<li>find_elements_by_partial_link_text</li>
-<li>find_elements_by_tag_name</li>
-<li>find_elements_by_class_name</li>
-<li>find_elements_by_css_selector</li>
-</ul>
-<p>手册中找到的可能用的上的方法</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">获取标签属性</span><br><span class="line">get_attribute</span><br><span class="line">get_attribute(<span class="string">&quot;class&quot;</span>)</span><br><span class="line"></span><br><span class="line">填写内容</span><br><span class="line">find_element_by_id(<span class="string">&quot;username&quot;</span>).send_keys(<span class="string">&quot;some text&quot;</span>)</span><br><span class="line"></span><br><span class="line">下拉或多选</span><br><span class="line">    清除所有选定的条目通过索引，值，文本名</span><br><span class="line">    deselect_all</span><br><span class="line">    deselect_by_index</span><br><span class="line">    deselect_by_value</span><br><span class="line">    deselect_by_visible_text</span><br><span class="line">    </span><br><span class="line">    选择下拉或多选通过索引，值，文本名</span><br><span class="line">    select_by_index</span><br><span class="line">    select_by_value</span><br><span class="line">    select_by_visible_text</span><br><span class="line">    </span><br><span class="line">    返回属于此选择标记的所有选定选项的列表</span><br><span class="line">    all_selected_options</span><br><span class="line">    </span><br><span class="line">    此选择标记中的第一个选定选项（或正常选择中的当前选定选项）</span><br><span class="line">    first_selected_option</span><br><span class="line">    </span><br><span class="line">    返回属于此选择标记的所有选项的列表</span><br><span class="line">    options</span><br><span class="line"></span><br><span class="line">单击</span><br><span class="line">click()</span><br><span class="line"></span><br><span class="line">双击</span><br><span class="line">double_click</span><br><span class="line"></span><br><span class="line">提交</span><br><span class="line">element.submit()</span><br><span class="line"></span><br><span class="line">在不同的窗口和框架之间移动</span><br><span class="line">driver.switch_to_window(<span class="string">&quot;windowName&quot;</span>)</span><br><span class="line"></span><br><span class="line">弹出对话框</span><br><span class="line">alert = driver.switch_to_alert()</span><br><span class="line"></span><br><span class="line">操作Cookies,增，查，删，删除全部</span><br><span class="line">add_cookie(cookie)</span><br><span class="line">get_cookies()</span><br><span class="line">delete_cookie</span><br><span class="line">delete_all_cookies</span><br><span class="line"></span><br><span class="line">控制浏览器历史前进</span><br><span class="line">forward()</span><br><span class="line"></span><br><span class="line">控制浏览器历史后退</span><br><span class="line">back()</span><br><span class="line"></span><br><span class="line">刷新</span><br><span class="line">refresh</span><br><span class="line"></span><br><span class="line">关闭页面</span><br><span class="line">close()</span><br><span class="line"></span><br><span class="line">最大化 Web 驱动程序正在使用的当前窗口</span><br><span class="line">maximize_window</span><br><span class="line">最小化 Web 驱动程序正在使用的当前窗口</span><br><span class="line">minimize_window</span><br><span class="line"></span><br><span class="line">将当前窗口的屏幕截图保存到 PNG 图像文件中。</span><br><span class="line">get_screenshot_as_file(文件名)</span><br><span class="line">save_screenshot</span><br><span class="line"></span><br><span class="line">获取当前窗口的屏幕截图作为 base64 编码字符串</span><br><span class="line">get_screenshot_as_base64</span><br><span class="line"></span><br><span class="line">获取当前URL</span><br><span class="line">current_url</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="/go.html?u=https://selenium-python-zh.readthedocs.io/en/latest/api.html">7. WebDriver API — Selenium-Python中文文档 2 documentation</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>错误</tag>
-        <tag>chromedriver</tag>
-        <tag>selenium</tag>
-        <tag>常用</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -6511,6 +6564,28 @@
       </tags>
   </entry>
   <entry>
+    <title>Java读取文本文件中文乱码问题</title>
+    <url>/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/</url>
+    <content><![CDATA[<p><img src="/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/pexels-9726123.jpg" alt="女孩"></p>
+<blockquote>
+<p>接口返回乱码，但是在部分电脑上没有出现问题，第一反，读取的JSON文件乱码，尝试覆盖JSON文件后无果，尝试修改Java代码，看到源代码为简单的读取文件,果然没有指定要读取的编码。</p>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; lines=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">BufferedReader br=<span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(fileName),<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line"><span class="type">String</span> <span class="variable">line</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">while</span> ((line = br.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">      lines.add(line);</span><br><span class="line">&#125;</span><br><span class="line">br.close();</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="/go.html?u=https://www.pexels.com/zh-cn/photo/9726123/">有关休閒, 假期, 兒童的免费素材图片 (pexels.com)</a></li>
+<li><a href="/go.html?u=https://blog.csdn.net/greenqingqingws/article/details/7395213">Java读取文本文件中文乱码问题青青木屋-CSDN博客_java读取文件内容中文乱码</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>问题</tag>
+        <tag>乱码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring JdbcTemplate常用方法</title>
     <url>/post/20211015-Spring_JdbcTemplate_chang_yong_fang_fa/</url>
     <content><![CDATA[<p><img src="/post/20211015-Spring_JdbcTemplate_chang_yong_fang_fa/pexels-9859315.jpg" alt="摆盘"></p>
@@ -6696,59 +6771,6 @@
       </tags>
   </entry>
   <entry>
-    <title>GitHub_Actions部署Hexo博客</title>
-    <url>/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/</url>
-    <content><![CDATA[<h2 id="其实"><a href="#其实" class="headerlink" title="其实"></a>其实</h2><blockquote>
-<p>原理同《<a href="https://nobige.cn/post/20191007-coding_chi_xu_ji_cheng_bu_shu_hexo_bo_ke/">coding持续集成部署hexo博客</a>》相似，只是换了个平台而已，仅此而已。但是可以配合使用Github的话可以使用jsdelivr CDN（中国由网宿cdn提供）</p>
-</blockquote>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><blockquote>
-<p>GitHub Actions同Travis CI差不多都是持续集成服务，感兴趣可以到官网了解 <a href="https://github.com/features/actions">Features • GitHub Actions</a></p>
-</blockquote>
-<p>由于是自家的服务，所以每个项目都是内置自带Actions的，需要使用只需在项目页面的Actions子页面，选择你要的脚本或是使用自己的脚本，这里选择<strong>set up a workflow yourself</strong> </p>
-<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_21_23_58.png" alt="Actions"></p>
-<p>之后只要复制以下代码即可(代码来自@JerryC)</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">自动部署</span> <span class="string">Hexo</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">master</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">build:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">strategy:</span></span><br><span class="line">      <span class="attr">matrix:</span></span><br><span class="line">        <span class="attr">node-version:</span> [<span class="number">10.</span><span class="string">x</span>]</span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">开始运行</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/checkout@v1</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">设置</span> <span class="string">Node.js</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">$&#123;&#123;</span> <span class="string">matrix.node-version</span> <span class="string">&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装</span> <span class="string">Hexo</span> <span class="string">CI</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          export TZ=&#x27;Asia/Shanghai&#x27;</span></span><br><span class="line"><span class="string">          npm install hexo-cli -g</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">缓存</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v1</span></span><br><span class="line">        <span class="attr">id:</span> <span class="string">cache-dependencies</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;runner.OS&#125;&#125;-$&#123;&#123;hashFiles(&#x27;**/package-lock.json&#x27;)&#125;&#125;</span></span><br><span class="line"></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">安装插件</span></span><br><span class="line">        <span class="attr">if:</span> <span class="string">steps.cache-dependencies.outputs.cache-hit</span> <span class="type">!=</span> <span class="string">&#x27;true&#x27;</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          npm install</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">部署博客</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">|</span></span><br><span class="line"><span class="string">          hexo clean &amp;&amp; hexo g </span></span><br><span class="line"><span class="string">          cd ./public</span></span><br><span class="line"><span class="string">          git init</span></span><br><span class="line"><span class="string">          git config user.name &quot;$&#123;&#123;secrets.GIT_NAME&#125;&#125;&quot;</span></span><br><span class="line"><span class="string">          git config user.email &quot;$&#123;&#123;secrets.GIT_EMAIL&#125;&#125;&quot;</span></span><br><span class="line"><span class="string">          git add .</span></span><br><span class="line"><span class="string">          git commit -m &quot;Update&quot;</span></span><br><span class="line"><span class="string">          git push --force --quiet &quot;https://$&#123;&#123;secrets.GH_TOKEN&#125;&#125;@$&#123;&#123;secrets.GH_REF&#125;&#125;&quot; master:master</span></span><br></pre></td></tr></table></figure>
-
-<p>需要关注的就是4个变量和1个执行命令</p>
-<p>变量：GIT_NAME，GIT_EMAIL，GH_TOKEN，GH_REF，分别是git的姓名，邮箱和token及仓库地址</p>
-<p>token获取地址，Settings——Developer settings——Personal access tokens——Generate new token创建一个只有public_repo（公共仓库）权限的token即可，得到一个类似<code>d6ce252bf70f925f32c36850a14e276b915b005f</code></p>
-<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_22_29_26.png" alt="create token"></p>
-<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_22_30_37.png" alt="token"></p>
-<p>仓库地址为：<code>github.com/JackCh3n/n0bige.git</code></p>
-<p>这一句完整的命令就是使用Token强制提交</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git push --force --quiet https://d6ce252bf70f925f32c36850a14e276b915b005f@github.com/JackCh3n/n0bige.git master:master</span><br></pre></td></tr></table></figure>
-
-<p>变量则是在项目，settings，Secrets，创建并添加即可，之后脚本就可以通过<code>$&#123;&#123;secrets.GIT_NAME&#125;&#125;</code>的方式获取变量的值了，为了保护隐私&#x2F;安全？</p>
-<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_21_28_28.png" alt="Secrets"></p>
-<p>执行命令：原来是<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo douban &amp;&amp; gulp</code>，就是hexo缓存清理，hexo生成静态文件，hexo 豆瓣页面和html，css，js压缩，这里可以根据自己的需求做修改，如我就将最后的两个都删了,最终得到<code>hexo clean &amp;&amp; hexo g</code> </p>
-<p>最后可以在项目页—— Actions——All workflows查看脚本运行的日志和情况</p>
-<p><img src="/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/fuckqq_2020_05-20_22_01_19.png" alt="脚本日志"></p>
-<h2 id="jsdelivr"><a href="#jsdelivr" class="headerlink" title="jsdelivr"></a>jsdelivr</h2><blockquote>
-<p>一个开放的CDN，提供npm，GitHub，WordPress等项目的镜像功能（国内用的是网宿CDN）</p>
-</blockquote>
-<p>使用方法copy官方的介绍，支持版本号、分支、列表或是获取精简版的js和css</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//加载任何GitHub版本、提交或分支</span><br><span class="line">//注意：我们建议对支持npm的项目使用npm</span><br><span class="line">https://cdn.jsdeliver.net/gh/user/repo@version/file</span><br><span class="line"></span><br><span class="line">//加载jQuery v3.2.1</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">//使用版本范围而不是特定版本</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3.2/dist/jquery.min.js</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">//完全省略版本以获得最新版本</span><br><span class="line">//你不应该在生产中使用这个</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery/dist/jquery.min.js</span><br><span class="line"></span><br><span class="line">//将“.min”添加到任何JS/CSS文件以获取精简版本</span><br><span class="line">//如果不存在，我们会为您生成</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery@3.2.1/src/core.min.js</span><br><span class="line"></span><br><span class="line">//在末尾添加/以获取目录列表</span><br><span class="line">https://cdn.jsdeliver.net/gh/jquery/jquery/</span><br></pre></td></tr></table></figure>
-
-<p>注意：jsdelivr 仅支持20M以下的文件加速，20M以上会出现无法下载的现象。</p>
-<blockquote>
-<p>仓库超过50M也无法显示列表：Package size exceeded the configured limit of 50 MB. Try <a href="https://github.com/JackCh3n/pantest/tree/master/">https://github.com/JackCh3n/pantest/tree/master/</a> instead.</p>
-<p>单文件大小超过20M：File size exceeded the configured limit of 20 MB.</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jsdelivr CDN文件上限测下载链接</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/1m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/10m.zip</span><br><span class="line"></span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/20m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/21m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/22m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/23m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/24m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/25m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/26m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/27m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/28m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/29m.zip</span><br><span class="line"></span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/30m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/40m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/50m.zip</span><br><span class="line">https://cdn.jsdelivr.net/gh/JackCh3n/pantest/55m.zip</span><br><span class="line">window生成指定大小文件</span><br><span class="line">fsutil file createnew c:\1 1024</span><br><span class="line"># 1024 = 1k</span><br><span class="line"># 10240 = 10k</span><br><span class="line"># 1024000 = 1mb</span><br><span class="line"># 10240000 = 10mb</span><br><span class="line"># 20480000 = 20mb</span><br><span class="line"># 25600000 = 25mb</span><br><span class="line"># 30720000 = 30mb</span><br><span class="line"># 40960000 = 40mb</span><br><span class="line"># 51200000 = 50mb</span><br><span class="line"># 56320000 = 55mb</span><br><span class="line"></span><br><span class="line">linux生成指定大小文件</span><br><span class="line"># /dev/zero 是 Linux 提供的一个特殊的字符设备（伪文件，Pseudo-devices）</span><br><span class="line"># 它的特点是可以永远读该文件，每次读取的结果都是二进制 0</span><br><span class="line">#生成一个文件名为10M.zip的10M测试文件</span><br><span class="line">dd if=/dev/zero of=/root/test/10M.zip bs=1M count=10</span><br></pre></td></tr></table></figure>
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://zhuanlan.zhihu.com/p/103618527">@Jerry - travisci&#x2F;GitHub Actions部署GitHub Pages和Coding Pages - 知乎</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技巧</category>
-      </categories>
-      <tags>
-        <tag>github</tag>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>双网卡设置内外网同时启用</title>
     <url>/post/20210428-shuang_wang_ka_she_zhi_nei_wai_wang_tong_shi_qi_yong/</url>
     <content><![CDATA[<blockquote>
@@ -6916,69 +6938,6 @@
       </tags>
   </entry>
   <entry>
-    <title>frp内网穿透安装与配置</title>
-    <url>/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/</url>
-    <content><![CDATA[<h2 id="啥"><a href="#啥" class="headerlink" title="啥"></a>啥</h2><p>​	frp是啥?简单的说就是外国版的TeamViewer,AnyDesk 国内版的QQ远程桌面,向日葵,DeskTop的控制软件,不同点就是搭建在自己的服务器上,自己去维护.不用在那些软件上充值会员,对服务器的带宽要求也不是很大.3m都可以实现看电影(但有谁会远程看电影?)</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>服务器一台</li>
-<li>被控机</li>
-<li>控制机</li>
-<li>被控机用<a href="/go.html?u=https://www.baidu.com/s?wd=%E6%AD%A5%E8%81%94%E7%AB%AF%E5%8F%A3%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6">软件修改</a>3389端口和开启远程访问</li>
-<li>服务器开放端口7000-7100</li>
-</ul>
-<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_15-59-04.png" alt="修改3389端口和开启远程访问"></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取版本号</span></span><br><span class="line"><span class="built_in">export</span> FRP_VERSION=$(wget -qO- -t1 -T2 <span class="string">&quot;https://api.github.com/repos/fatedier/frp/releases/latest&quot;</span> | grep <span class="string">&quot;tag_name&quot;</span> | <span class="built_in">head</span> -n 1 | awk -F <span class="string">&quot;:&quot;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/\&quot;//g;s/,//g;s/ //g&#x27;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;最新版本为&quot;</span><span class="variable">$&#123;FRP_VERSION&#125;</span></span><br><span class="line"><span class="comment"># 创建文件夹</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/frp</span><br><span class="line"><span class="comment"># 进入目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/frp</span><br><span class="line"><span class="comment"># 下载最新版本</span></span><br><span class="line">sudo wget <span class="string">&quot;https://github.com/fatedier/frp/releases/download/v<span class="variable">$&#123;FRP_VERSION&#125;</span>/frp_<span class="variable">$&#123;FRP_VERSION&#125;</span>_linux_amd64.tar.gz&quot;</span></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">sudo tar xzvf frp_<span class="variable">$&#123;FRP_VERSION&#125;</span>_linux_amd64.tar.gz</span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">sudo <span class="built_in">mv</span> frp_<span class="variable">$&#123;FRP_VERSION&#125;</span>_linux_amd64/* /etc/frp</span><br><span class="line"></span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-05-27</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.yeslu.cn/archives/3a47af3d.html</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置frp服务端</span></span><br><span class="line">sudo vim /etc/frp/frps.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置信息</span></span><br><span class="line">[common]</span><br><span class="line"><span class="comment"># 绑定的端口号</span></span><br><span class="line">bind_port = 1024</span><br><span class="line"><span class="comment"># dashboard_addr = 0.0.0.0</span></span><br><span class="line"><span class="comment"># 控制面板端口号</span></span><br><span class="line">dashboard_port = 7000</span><br><span class="line"><span class="comment"># 仪表盘访问的用户名密码，如果不设置，则默认都是 admin</span></span><br><span class="line">dashboard_user = nobige</span><br><span class="line">dashboard_pwd = nobigePassword</span><br><span class="line"><span class="comment"># auth token</span></span><br><span class="line">token = nobigeToken</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用systemctl配置后台运行和开机自启</span></span><br><span class="line">sudo vim /lib/systemd/system/frps.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置信息</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=fraps service</span><br><span class="line">After=network.target syslog.target</span><br><span class="line">Wants=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line"><span class="comment"># 启动服务的命令（此处写你的frps的实际安装目录）</span></span><br><span class="line">ExecStart=/etc/frp/frps -c /etc/frp/frps.ini</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<h2 id="服务端启动"><a href="#服务端启动" class="headerlink" title="服务端启动"></a>服务端启动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动frp</span></span><br><span class="line">sudo systemctl start frps</span><br><span class="line"><span class="comment"># 打开自启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> frps</span><br><span class="line"><span class="comment"># 重启应用，</span></span><br><span class="line">sudo systemctl restart frps</span><br><span class="line"><span class="comment"># 停止应用</span></span><br><span class="line">sudo systemctl stop frps</span><br><span class="line"><span class="comment"># 查看应用的日志</span></span><br><span class="line">sudo systemctl status frps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开放端口</span></span><br><span class="line">sudo firewall-cmd --zone=public --add-port=7000/tcp --permanent</span><br><span class="line"><span class="comment"># 防火墙重启</span></span><br><span class="line">sudo firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果端口被占用,找到其进程并对其结束</span></span><br><span class="line"><span class="comment"># 查看端口号 </span></span><br><span class="line">netstat -anp|grep 7000</span><br><span class="line"><span class="comment"># 查看端口号</span></span><br><span class="line">lsof -i:7000</span><br><span class="line"><span class="comment"># 查看程序进程 </span></span><br><span class="line">ps -ef|grep frps</span><br><span class="line"><span class="comment"># 结束进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 进程号</span><br></pre></td></tr></table></figure>
-
-<h2 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h2><ul>
-<li>下载win最新版的<a href="/go.html?u=https://github.com/fatedier/frp/releases/">frp客户端</a>解压到D盘的目录下,如<code>D:\xiao\frp</code></li>
-<li>创建一个<code>frp.ini</code>日志文件,<code>frp.bat</code>批处理文件</li>
-</ul>
-<p><code>frp.bat</code>配置</p>
-<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">:home</span><br><span class="line">frpc -c frpc.ini &gt;&gt; frp.log</span><br><span class="line"><span class="keyword">goto</span> home</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>根据情况配置<code>frpc.ini</code></li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置信息</span></span><br><span class="line">[common]</span><br><span class="line"><span class="comment"># 服务器IP,可以是ip也可以是域名</span></span><br><span class="line">server_addr = frp.tiiao.cn </span><br><span class="line"><span class="comment"># 主端口</span></span><br><span class="line">server_port = 1024</span><br><span class="line">token =nobigeToken</span><br><span class="line"><span class="comment"># 名称，作为标注</span></span><br><span class="line">[nobige]</span><br><span class="line"><span class="comment"># 服务类型，远程桌面需要tcp</span></span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line"><span class="comment"># 本机</span></span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line"><span class="comment"># 远程桌面的端口号</span></span><br><span class="line">local_port = 2048</span><br><span class="line"><span class="comment">#服务器开放的子端口</span></span><br><span class="line">remote_port = 7001</span><br></pre></td></tr></table></figure>
-
-<p>打开系统自带的<code>任务计划程序</code>并创建一个frp启动任务.并参考下图配置.</p>
-<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_16-45-10.png" alt="创建任务计划"></p>
-<p>常规配置</p>
-<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_14-41-16.png" alt="常规配置"></p>
-<p>触发器</p>
-<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_14-42-59.png" alt="触发器"></p>
-<p>操作</p>
-<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_14-42-12.png" alt="操作"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
-<li>以远程桌面为例,用系统自带远程桌面,地址为<code>frp.tiiao.cn:7001</code></li>
-<li>也可以适用于nginx或是其他服务.只需要在客户端添加绑定端口和服务端端口即可</li>
-<li>其他端口可参考<a href="https://nobige.cn/post/20201211-chang_yong_duan_kou_zheng_li/">常用端口整理</a></li>
-</ul>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
-<li>被控端密码尽量复杂</li>
-<li>被控端的3389默认端口一定要修改</li>
-<li>服务端防火墙最好限制端口访问</li>
-</ol>
-<p>如果没有做到,可能导致因为局域网部分机器中勒索病毒而受牵连!中过多次勒索病毒的经验.</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="/go.html?u=https://www.jianshu.com/p/3ed3f985f35b">https://www.jianshu.com/p/3ed3f985f35b</a></li>
-<li><a href="/go.html?u=https://www.guger.top/index.php/2020/06/10/%E5%9F%BA%E4%BA%8Efrp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%9A%84windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E7%9A%84%E6%90%AD%E5%BB%BA/">https://www.guger.top/index.php/2020/06/10/基于frp内网穿透的windows远程桌面的搭建/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>frp</tag>
-        <tag>远程</tag>
-        <tag>控制</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>bat批处理给zip文件名添加后缀</title>
     <url>/post/20210528-bat_pi_chu_li_gei_zip_wen_jian_ming_tian_jia_hou_zhui/</url>
     <content><![CDATA[<p><img src="/post/20210528-bat_pi_chu_li_gei_zip_wen_jian_ming_tian_jia_hou_zhui/jakob-owens-CTflmHHVrBM-unsplash.jpg" alt="jakob-owens-CTflmHHVrBM-unsplash"></p>
@@ -7011,28 +6970,6 @@
         <tag>批处理</tag>
         <tag>bat</tag>
         <tag>批量</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java读取文本文件中文乱码问题</title>
-    <url>/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/</url>
-    <content><![CDATA[<p><img src="/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/pexels-9726123.jpg" alt="女孩"></p>
-<blockquote>
-<p>接口返回乱码，但是在部分电脑上没有出现问题，第一反，读取的JSON文件乱码，尝试覆盖JSON文件后无果，尝试修改Java代码，看到源代码为简单的读取文件,果然没有指定要读取的编码。</p>
-</blockquote>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">List&lt;String&gt; lines=<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;();</span><br><span class="line">BufferedReader br=<span class="keyword">new</span> <span class="title class_">BufferedReader</span>(<span class="keyword">new</span> <span class="title class_">InputStreamReader</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(fileName),<span class="string">&quot;UTF-8&quot;</span>));</span><br><span class="line"><span class="type">String</span> <span class="variable">line</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"><span class="keyword">while</span> ((line = br.readLine()) != <span class="literal">null</span>) &#123;</span><br><span class="line">      lines.add(line);</span><br><span class="line">&#125;</span><br><span class="line">br.close();</span><br></pre></td></tr></table></figure>
-
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="/go.html?u=https://www.pexels.com/zh-cn/photo/9726123/">有关休閒, 假期, 兒童的免费素材图片 (pexels.com)</a></li>
-<li><a href="/go.html?u=https://blog.csdn.net/greenqingqingws/article/details/7395213">Java读取文本文件中文乱码问题青青木屋-CSDN博客_java读取文件内容中文乱码</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>问题</tag>
-        <tag>乱码</tag>
       </tags>
   </entry>
   <entry>
@@ -7161,6 +7098,56 @@
         <tag>技巧</tag>
         <tag>优化</tag>
         <tag>高效</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>好玩的Docker容器</title>
+    <url>/post/20220309-hao_wan_de_Docker_rong_qi/</url>
+    <content><![CDATA[<p><img src="/post/20220309-hao_wan_de_Docker_rong_qi/refargotohp-29JBoNy1rhE-unsplash.jpg" alt="refargotohp-29JBoNy1rhE-unsplash.jpg"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>官方</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
+
+<p><strong>国内</strong></p>
+<p><em>daocloud 一键安装命令</em></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><blockquote>
+<p>docker: Cannot connect to the Docker daemon at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock. Is the docker daemon running?.<br>See ‘docker run –help’.</p>
+</blockquote>
+<p>问题：没有启动，找不到线程</p>
+<p>解决：启动Docker即可</p>
+<p><code>service docker start</code> </p>
+<h2 id="Aria2Pro"><a href="#Aria2Pro" class="headerlink" title="Aria2Pro"></a>Aria2Pro</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><blockquote>
+<p>使用 Aria2 完美配置方案<br>BT 下载率高、速度快<br>重启后不丢失任务进度、不重复下载<br>删除正在下载的任务自动删除未完成的文件<br>下载错误自动删除未完成的文件<br>下载完成自动删除控制文件(.aria2后缀名文件)<br>下载完成自动删除种子文件(.torrent后缀名文件)<br>下载完成自动删除空目录<br>BT 下载完成自动清除垃圾文件(文件类型过滤功能)<br>BT 下载完成自动清除小文件(文件大小过滤功能)<br>有一定的防版权投诉、防迅雷吸血效果<br>更好的 PT 下载支持<br>使用 Aria2 Pro Core 项目最新静态编译二进制文件<br>多平台：amd64, i386, arm64, armhf（VPS、群辉、树莓派等常见平台完美支持）<br>全功能：Async DNS, BitTorrent, Firefox3 Cookie, GZip, HTTPS, Message Digest, Metalink, XML-RPC, SFTP<br>单服务器线程数最大值无上限（已破解线程数限制）<br>防掉线程优化<br>内存消耗优化<br>读写性能优化<br>最新依赖库，下载更安全、稳定、快速<br>持续更新最新版本<br>支持与 RCLONE 联动<br>自动上传 OneDrive 、Google Drive 等网盘<br>百度网盘转存到其它网盘<br>多网盘自由选择<br>支持新一代互联网协议 IPv6<br>下载完成自动移动文件到指定目录（文件自动归档&#x2F;分类）<br>定时自动更新 BT tracker 列表（无感知、无重启），保持 BT 下载高速率<br>用户文件权限自动配置功能<br>配置文件持久化，支持使用 watchtower 更新容器。<br>极简设计，专注下载，简单易用，少即是多。</p>
+</blockquote>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name aria2-pro \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --network host \</span><br><span class="line">    -e PUID=<span class="variable">$UID</span> \</span><br><span class="line">    -e PGID=<span class="variable">$GID</span> \</span><br><span class="line">    -e RPC_SECRET=e28B41F3dkotu0RPvKgOGYXcDrJlHpwN \</span><br><span class="line">    -e RPC_PORT=6800 \</span><br><span class="line">    -e LISTEN_PORT=6888 \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-config:/config \</span><br><span class="line">    -v /var/www/download:/downloads \</span><br><span class="line">    p3terx/aria2-pro</span><br></pre></td></tr></table></figure>
+
+<h2 id="Qbittorrent"><a href="#Qbittorrent" class="headerlink" title="Qbittorrent"></a>Qbittorrent</h2><h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><blockquote>
+<p>全平台架构x86-64、arm64、arm32<br>默认简体中文<br>做了usermapping，使用你自己的账户权限来运行，这点对于群辉来说尤其重要<br>纯qBittorrent，没有包含多于的服务<br>基于linuxserver&#x2F;qbittorrent,每周构建一次，同步更新最新版本qbittorrent<br>开放了BT下载DTH监听端口、BT下载监听端口（TCP&#x2F;UDP 6881），加快下载速度<br>默认开启DHT，加速下载<br>内置400多条最新trackers（来自XIU2 &#x2F; TrackersListCollection，感谢）<br>默认上海时区 Asia&#x2F;Shanghai</p>
+</blockquote>
+<h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d  \</span><br><span class="line">    --name=qbittorrent  \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --network host \</span><br><span class="line">    -e WEBUIPORT=8080  \</span><br><span class="line">    -e PUID=1026 \</span><br><span class="line">    -e PGID=100 \</span><br><span class="line">    -e TZ=Asia/Shanghai \</span><br><span class="line">    -p 6881:6881  \</span><br><span class="line">    -p 6881:6881/udp  \</span><br><span class="line">    -p 8080:8080  \</span><br><span class="line">    -v <span class="variable">$PWD</span>/qbittorrent-config:/config  \</span><br><span class="line">    -v /var/www/download:/downloads  \</span><br><span class="line">    --restart unless-stopped  \</span><br><span class="line">    superng6/qbittorrent:latest</span><br><span class="line"> <span class="comment">#NLbMEPFSa6gDd1J39oAjWmk5pRvyTH2c</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><h4 id="1-拉取镜像"><a href="#1-拉取镜像" class="headerlink" title="1.拉取镜像"></a>1.拉取镜像</h4><p><code>docker pull nginx:latest</code></p>
+<h4 id="2-创建配置文件夹和网站目录"><a href="#2-创建配置文件夹和网站目录" class="headerlink" title="2.创建配置文件夹和网站目录"></a>2.创建配置文件夹和网站目录</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#启动一个容器</span></span><br><span class="line"> docker run -d --name nginx nginx</span><br><span class="line"><span class="comment"># 查看 容器 获取容器ID 或直接使用名字</span></span><br><span class="line"> docker ps</span><br><span class="line"><span class="comment"># 在当前目录下创建目录：conf </span></span><br><span class="line"><span class="built_in">mkdir</span> -p /docker-config/nginx</span><br><span class="line"><span class="comment"># 拷贝容器内 Nginx 默认配置文件到本地当前目录下的 conf 目录（$PWD 当前全路径）</span></span><br><span class="line">docker <span class="built_in">cp</span> nginx:/etc/nginx/nginx.conf /docker-config/nginx</span><br><span class="line">docker <span class="built_in">cp</span> nginx:/etc/nginx/conf.d /docker-config/nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line"> docker container stop nginx</span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line"> docker container <span class="built_in">rm</span> nginxs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建目录网站目录</span></span><br><span class="line"> <span class="built_in">mkdir</span> -p /var/www/download</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 修改配置文件 /docker-config/nginx/conf.d/default.conf</span></span><br><span class="line"><span class="comment"># 开启目录浏览</span></span><br><span class="line">autoindex on;</span><br><span class="line">autoindex_exact_size off;</span><br><span class="line">autoindex_localtime on;</span><br><span class="line">charset utf-8,gbk;</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动-2"><a href="#启动-2" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 80:80  \</span><br><span class="line"> --name nginxweb \</span><br><span class="line"> -v /var/www/download:/usr/share/nginx/html \</span><br><span class="line"> -v /docker-config/nginx/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line"> -v /docker-config/nginx/conf.d:/etc/nginx/conf.d \</span><br><span class="line"> -v /docker-config/nginx/logs:/var/log/nginx \</span><br><span class="line"> nginx </span><br></pre></td></tr></table></figure>
+
+<h2 id="T"><a href="#T" class="headerlink" title="T"></a>T</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">#启动一个容器</span><br><span class="line">secret=$(head -c <span class="number">16</span> /dev/urandom | xxd -ps)</span><br><span class="line">tag=&quot;<span class="number">12345678901234567890121231231231</span>&quot;</span><br><span class="line">domain=&quot;intl.cloud.tencent.com&quot;</span><br><span class="line">docker run --name mtproxy -d -e tag=&quot;$tag&quot; -e secret=&quot;$secret&quot; -e domain=&quot;$domain&quot; -e ip_white_list=&quot;OFF&quot; -p <span class="number">8088</span>:<span class="number">80</span> -p <span class="number">8083</span>:<span class="number">443</span> ellermister/nginx-mtproxy:latest</span><br><span class="line"></span><br><span class="line"># ip_white_list 可选参数为:</span><br><span class="line"># IP 允许单个 IP 访问</span><br><span class="line"># IPSEG 允许 IP 段访问</span><br><span class="line"># OFF 允许所有 IP 访问</span><br><span class="line"># 查看 容器 获取容器ID 或直接使用名字</span><br><span class="line">docker logs mtproxy</span><br><span class="line"># 在当前目录下创建目录：conf </span><br><span class="line"><span class="built_in">mkdir</span> -p /docker-config/mtg</span><br><span class="line"># 拷贝容器内 Nginx 默认配置文件到本地当前目录下的 conf 目录（$PWD 当前全路径）</span><br><span class="line">docker cp mtg:/config.toml /docker-config/mtg</span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">https://<span class="title">t.me</span>/<span class="title">proxy</span>?<span class="title">server</span>=&lt;<span class="title">YOUR_IP</span>&gt;&amp;<span class="title">port</span>=&lt;<span class="title">PORT</span>&gt;&amp;<span class="title">secret</span>=&lt;<span class="title">SECRET</span>&gt;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">https</span>://<span class="title">github.com</span>/<span class="title">ellermister</span>/<span class="title">mtproxy</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://p3terx.com/archives/docker-aria2-pro.html">https://p3terx.com/archives/docker-aria2-pro.html</a></li>
+<li><a href="https://sleele.com/2020/04/09/docker-qbittorrent-optimizing/">https://sleele.com/2020/04/09/docker-qbittorrent-optimizing/</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/114603487">https://zhuanlan.zhihu.com/p/114603487</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>分享</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>容器</tag>
       </tags>
   </entry>
   <entry>
@@ -7466,21 +7453,66 @@
       </tags>
   </entry>
   <entry>
-    <title>Hutool_HttpRequest_POST_GET编码转码问题</title>
-    <url>/post/20230720-Hutool_HttpRequest_POST_GET_bian_ma_zhuan_ma_wen_ti/</url>
-    <content><![CDATA[<h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><h3 id="实现form表单中文不编码"><a href="#实现form表单中文不编码" class="headerlink" title="实现form表单中文不编码"></a>实现form表单中文不编码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> HttpRequest.post(AEP_GATE_URL.concat(url))</span><br><span class="line">.header(AEP_NONCE,uuid)</span><br><span class="line">.header(AEP_APPKEY,appKeyValue)</span><br><span class="line">.header(AEP_TIMESTAMP,timestamp)</span><br><span class="line">.header(AEP_SIGNATURE,hmac256Encode(getBody(uuid, timestamp)))</span><br><span class="line">.body(MapUtil.sortJoin(fromcs, <span class="string">&quot;&amp;&quot;</span>, <span class="string">&quot;=&quot;</span>,<span class="literal">true</span>)) <span class="comment">// 关键</span></span><br><span class="line">.timeout(<span class="number">20000</span>)<span class="comment">//超时，毫秒</span></span><br><span class="line"><span class="comment">// 可以使用抓包工具，查看是否调用请求参数对的</span></span><br><span class="line">.setHttpProxy(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">8888</span>)</span><br><span class="line">.execute().body();</span><br><span class="line"><span class="comment">// 完整请求头</span></span><br><span class="line"><span class="comment">// POST //xxx/xxx HTTP/1.1</span></span><br><span class="line"><span class="comment">// x-aep-timestamp: 1689823636846</span></span><br><span class="line"><span class="comment">// Accept: text/html,application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span></span><br><span class="line"><span class="comment">// x-aep-signature: 32f04bdbc64a69a89aa9706e2d2ac60ee192e3c2b4f331d3e60f03d460946626</span></span><br><span class="line"><span class="comment">// User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 // Hutool</span></span><br><span class="line"><span class="comment">// x-aep-appkey: 1633010746407477248</span></span><br><span class="line"><span class="comment">// Accept-Encoding: gzip, deflate</span></span><br><span class="line"><span class="comment">// Accept-Language: zh-CN,zh;q=0.8</span></span><br><span class="line"><span class="comment">// x-aep-nonce: d652ec8b-79ad-4981-83ba-de668dbd63f5</span></span><br><span class="line"><span class="comment">// Content-Type: application/x-www-form-urlencoded;charset=UTF-8</span></span><br><span class="line"><span class="comment">// Cache-Control: no-cache</span></span><br><span class="line"><span class="comment">// Pragma: no-cache</span></span><br><span class="line"><span class="comment">// Host: 10.1.1.5:8099</span></span><br><span class="line"><span class="comment">// Content-Length: 19</span></span><br><span class="line"><span class="comment">// Connection: keep-alive</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// userName=test测试</span></span><br></pre></td></tr></table></figure>
+    <title>frp内网穿透安装与配置</title>
+    <url>/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/</url>
+    <content><![CDATA[<h2 id="啥"><a href="#啥" class="headerlink" title="啥"></a>啥</h2><p>​	frp是啥?简单的说就是外国版的TeamViewer,AnyDesk 国内版的QQ远程桌面,向日葵,DeskTop的控制软件,不同点就是搭建在自己的服务器上,自己去维护.不用在那些软件上充值会员,对服务器的带宽要求也不是很大.3m都可以实现看电影(但有谁会远程看电影?)</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>服务器一台</li>
+<li>被控机</li>
+<li>控制机</li>
+<li>被控机用<a href="/go.html?u=https://www.baidu.com/s?wd=%E6%AD%A5%E8%81%94%E7%AB%AF%E5%8F%A3%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6">软件修改</a>3389端口和开启远程访问</li>
+<li>服务器开放端口7000-7100</li>
+</ul>
+<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_15-59-04.png" alt="修改3389端口和开启远程访问"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 获取版本号</span></span><br><span class="line"><span class="built_in">export</span> FRP_VERSION=$(wget -qO- -t1 -T2 <span class="string">&quot;https://api.github.com/repos/fatedier/frp/releases/latest&quot;</span> | grep <span class="string">&quot;tag_name&quot;</span> | <span class="built_in">head</span> -n 1 | awk -F <span class="string">&quot;:&quot;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | sed <span class="string">&#x27;s/\&quot;//g;s/,//g;s/ //g&#x27;</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;最新版本为&quot;</span><span class="variable">$&#123;FRP_VERSION&#125;</span></span><br><span class="line"><span class="comment"># 创建文件夹</span></span><br><span class="line">sudo <span class="built_in">mkdir</span> -p /etc/frp</span><br><span class="line"><span class="comment"># 进入目录</span></span><br><span class="line"><span class="built_in">cd</span> /etc/frp</span><br><span class="line"><span class="comment"># 下载最新版本</span></span><br><span class="line">sudo wget <span class="string">&quot;https://github.com/fatedier/frp/releases/download/v<span class="variable">$&#123;FRP_VERSION&#125;</span>/frp_<span class="variable">$&#123;FRP_VERSION&#125;</span>_linux_amd64.tar.gz&quot;</span></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">sudo tar xzvf frp_<span class="variable">$&#123;FRP_VERSION&#125;</span>_linux_amd64.tar.gz</span><br><span class="line"><span class="comment"># 重命名</span></span><br><span class="line">sudo <span class="built_in">mv</span> frp_<span class="variable">$&#123;FRP_VERSION&#125;</span>_linux_amd64/* /etc/frp</span><br><span class="line"></span><br><span class="line"><span class="comment"># ————————————————</span></span><br><span class="line"><span class="comment"># 日期:2021-05-27</span></span><br><span class="line"><span class="comment"># 参考链接：https://www.yeslu.cn/archives/3a47af3d.html</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="指定编码"><a href="#指定编码" class="headerlink" title="指定编码"></a>指定编码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> HttpRequest.post(AEP_GATE_URL.concat(url))</span><br><span class="line">.header(AEP_NONCE,uuid)</span><br><span class="line">.header(AEP_APPKEY,appKeyValue)</span><br><span class="line">.header(AEP_TIMESTAMP,timestamp)</span><br><span class="line">.header(AEP_SIGNATURE,hmac256Encode(getBody(uuid, timestamp)))</span><br><span class="line">.contentType(<span class="string">&quot;application/x-www-form-urlencoded;charset=GBK&quot;</span>) <span class="comment">// 关键</span></span><br><span class="line">.form(fromcs)</span><br><span class="line">.timeout(<span class="number">20000</span>)<span class="comment">//超时，毫秒</span></span><br><span class="line"><span class="comment">// 可以使用抓包工具，查看是否调用请求参数对的</span></span><br><span class="line">.setHttpProxy(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">8888</span>)</span><br><span class="line">.execute().body();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 完整请求头</span></span><br><span class="line"><span class="comment">// POST //xxx/xxx HTTP/1.1</span></span><br><span class="line"><span class="comment">//x-aep-timestamp: 1689824206833</span></span><br><span class="line"><span class="comment">//Accept: text/html,application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span></span><br><span class="line"><span class="comment">//x-aep-signature: da5c218510eb47a3fb6a8674e2e5905a0d0bf6e58f2d78118836f9da4653d613</span></span><br><span class="line"><span class="comment">//User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 //Hutool</span></span><br><span class="line"><span class="comment">//x-aep-appkey: 1633010746407477248</span></span><br><span class="line"><span class="comment">//Accept-Encoding: gzip, deflate</span></span><br><span class="line"><span class="comment">//Accept-Language: zh-CN,zh;q=0.8</span></span><br><span class="line"><span class="comment">//x-aep-nonce: 1c7fe5d4-a001-43bd-bd47-79968cc3af9c</span></span><br><span class="line"><span class="comment">//Content-Type: application/x-www-form-urlencoded;charset=GBK</span></span><br><span class="line"><span class="comment">//Cache-Control: no-cache</span></span><br><span class="line"><span class="comment">//Pragma: no-cache</span></span><br><span class="line"><span class="comment">//Host: 10.1.1.5:8099</span></span><br><span class="line"><span class="comment">//Content-Length: 31</span></span><br><span class="line"><span class="comment">//Connection: keep-alive</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//userName=test%E6%B5%8B%E8%AF%95</span></span><br></pre></td></tr></table></figure>
+<h2 id="服务端配置"><a href="#服务端配置" class="headerlink" title="服务端配置"></a>服务端配置</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置frp服务端</span></span><br><span class="line">sudo vim /etc/frp/frps.ini</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置信息</span></span><br><span class="line">[common]</span><br><span class="line"><span class="comment"># 绑定的端口号</span></span><br><span class="line">bind_port = 1024</span><br><span class="line"><span class="comment"># dashboard_addr = 0.0.0.0</span></span><br><span class="line"><span class="comment"># 控制面板端口号</span></span><br><span class="line">dashboard_port = 7000</span><br><span class="line"><span class="comment"># 仪表盘访问的用户名密码，如果不设置，则默认都是 admin</span></span><br><span class="line">dashboard_user = nobige</span><br><span class="line">dashboard_pwd = nobigePassword</span><br><span class="line"><span class="comment"># auth token</span></span><br><span class="line">token = nobigeToken</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用systemctl配置后台运行和开机自启</span></span><br><span class="line">sudo vim /lib/systemd/system/frps.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置信息</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=fraps service</span><br><span class="line">After=network.target syslog.target</span><br><span class="line">Wants=network.target</span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line"><span class="comment"># 启动服务的命令（此处写你的frps的实际安装目录）</span></span><br><span class="line">ExecStart=/etc/frp/frps -c /etc/frp/frps.ini</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">String result2= HttpUtil.get(phone.getUrl(),CharsetUtil.CHARSET_GBK);</span><br><span class="line">//发送http请求</span><br><span class="line">        String rsp = HttpRequest.post(url).contentType(&quot;application/x-www-form-urlencoded;charset=GBK&quot;).charset(&quot;GBK&quot;)</span><br><span class="line">                .form(map).execute().body();</span><br></pre></td></tr></table></figure>
+<h2 id="服务端启动"><a href="#服务端启动" class="headerlink" title="服务端启动"></a>服务端启动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动frp</span></span><br><span class="line">sudo systemctl start frps</span><br><span class="line"><span class="comment"># 打开自启动</span></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> frps</span><br><span class="line"><span class="comment"># 重启应用，</span></span><br><span class="line">sudo systemctl restart frps</span><br><span class="line"><span class="comment"># 停止应用</span></span><br><span class="line">sudo systemctl stop frps</span><br><span class="line"><span class="comment"># 查看应用的日志</span></span><br><span class="line">sudo systemctl status frps</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开放端口</span></span><br><span class="line">sudo firewall-cmd --zone=public --add-port=7000/tcp --permanent</span><br><span class="line"><span class="comment"># 防火墙重启</span></span><br><span class="line">sudo firewall-cmd --reload</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果端口被占用,找到其进程并对其结束</span></span><br><span class="line"><span class="comment"># 查看端口号 </span></span><br><span class="line">netstat -anp|grep 7000</span><br><span class="line"><span class="comment"># 查看端口号</span></span><br><span class="line">lsof -i:7000</span><br><span class="line"><span class="comment"># 查看程序进程 </span></span><br><span class="line">ps -ef|grep frps</span><br><span class="line"><span class="comment"># 结束进程</span></span><br><span class="line"><span class="built_in">kill</span> -9 进程号</span><br></pre></td></tr></table></figure>
 
+<h2 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h2><ul>
+<li>下载win最新版的<a href="/go.html?u=https://github.com/fatedier/frp/releases/">frp客户端</a>解压到D盘的目录下,如<code>D:\xiao\frp</code></li>
+<li>创建一个<code>frp.ini</code>日志文件,<code>frp.bat</code>批处理文件</li>
+</ul>
+<p><code>frp.bat</code>配置</p>
+<figure class="highlight bat"><table><tr><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">:home</span><br><span class="line">frpc -c frpc.ini &gt;&gt; frp.log</span><br><span class="line"><span class="keyword">goto</span> home</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>根据情况配置<code>frpc.ini</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 配置信息</span></span><br><span class="line">[common]</span><br><span class="line"><span class="comment"># 服务器IP,可以是ip也可以是域名</span></span><br><span class="line">server_addr = frp.tiiao.cn </span><br><span class="line"><span class="comment"># 主端口</span></span><br><span class="line">server_port = 1024</span><br><span class="line">token =nobigeToken</span><br><span class="line"><span class="comment"># 名称，作为标注</span></span><br><span class="line">[nobige]</span><br><span class="line"><span class="comment"># 服务类型，远程桌面需要tcp</span></span><br><span class="line"><span class="built_in">type</span> = tcp</span><br><span class="line"><span class="comment"># 本机</span></span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line"><span class="comment"># 远程桌面的端口号</span></span><br><span class="line">local_port = 2048</span><br><span class="line"><span class="comment">#服务器开放的子端口</span></span><br><span class="line">remote_port = 7001</span><br></pre></td></tr></table></figure>
+
+<p>打开系统自带的<code>任务计划程序</code>并创建一个frp启动任务.并参考下图配置.</p>
+<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_16-45-10.png" alt="创建任务计划"></p>
+<p>常规配置</p>
+<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_14-41-16.png" alt="常规配置"></p>
+<p>触发器</p>
+<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_14-42-59.png" alt="触发器"></p>
+<p>操作</p>
+<p><img src="/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/fuckqq_2021-05-27_14-42-12.png" alt="操作"></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><ul>
+<li>以远程桌面为例,用系统自带远程桌面,地址为<code>frp.tiiao.cn:7001</code></li>
+<li>也可以适用于nginx或是其他服务.只需要在客户端添加绑定端口和服务端端口即可</li>
+<li>其他端口可参考<a href="https://nobige.cn/post/20201211-chang_yong_duan_kou_zheng_li/">常用端口整理</a></li>
+</ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ol>
+<li>被控端密码尽量复杂</li>
+<li>被控端的3389默认端口一定要修改</li>
+<li>服务端防火墙最好限制端口访问</li>
+</ol>
+<p>如果没有做到,可能导致因为局域网部分机器中勒索病毒而受牵连!中过多次勒索病毒的经验.</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="/go.html?u=https://www.jianshu.com/p/3ed3f985f35b">https://www.jianshu.com/p/3ed3f985f35b</a></li>
+<li><a href="/go.html?u=https://www.guger.top/index.php/2020/06/10/%E5%9F%BA%E4%BA%8Efrp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E7%9A%84windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E7%9A%84%E6%90%AD%E5%BB%BA/">https://www.guger.top/index.php/2020/06/10/基于frp内网穿透的windows远程桌面的搭建/</a></li>
+</ul>
 ]]></content>
       <categories>
-        <category>技术</category>
+        <category>linux</category>
       </categories>
       <tags>
-        <tag>问题</tag>
-        <tag>hutool</tag>
+        <tag>frp</tag>
+        <tag>远程</tag>
+        <tag>控制</tag>
       </tags>
   </entry>
   <entry>
@@ -7817,8 +7849,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>破解</tag>
         <tag>联通</tag>
+        <tag>破解</tag>
         <tag>免费</tag>
         <tag>vn007</tag>
         <tag>计算器</tag>
@@ -7981,6 +8013,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hutool_HttpRequest_POST_GET编码转码问题</title>
+    <url>/post/20230720-Hutool_HttpRequest_POST_GET_bian_ma_zhuan_ma_wen_ti/</url>
+    <content><![CDATA[<h2 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h2><h3 id="实现form表单中文不编码"><a href="#实现form表单中文不编码" class="headerlink" title="实现form表单中文不编码"></a>实现form表单中文不编码</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> HttpRequest.post(AEP_GATE_URL.concat(url))</span><br><span class="line">.header(AEP_NONCE,uuid)</span><br><span class="line">.header(AEP_APPKEY,appKeyValue)</span><br><span class="line">.header(AEP_TIMESTAMP,timestamp)</span><br><span class="line">.header(AEP_SIGNATURE,hmac256Encode(getBody(uuid, timestamp)))</span><br><span class="line">.body(MapUtil.sortJoin(fromcs, <span class="string">&quot;&amp;&quot;</span>, <span class="string">&quot;=&quot;</span>,<span class="literal">true</span>)) <span class="comment">// 关键</span></span><br><span class="line">.timeout(<span class="number">20000</span>)<span class="comment">//超时，毫秒</span></span><br><span class="line"><span class="comment">// 可以使用抓包工具，查看是否调用请求参数对的</span></span><br><span class="line">.setHttpProxy(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">8888</span>)</span><br><span class="line">.execute().body();</span><br><span class="line"><span class="comment">// 完整请求头</span></span><br><span class="line"><span class="comment">// POST //xxx/xxx HTTP/1.1</span></span><br><span class="line"><span class="comment">// x-aep-timestamp: 1689823636846</span></span><br><span class="line"><span class="comment">// Accept: text/html,application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span></span><br><span class="line"><span class="comment">// x-aep-signature: 32f04bdbc64a69a89aa9706e2d2ac60ee192e3c2b4f331d3e60f03d460946626</span></span><br><span class="line"><span class="comment">// User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 // Hutool</span></span><br><span class="line"><span class="comment">// x-aep-appkey: 1633010746407477248</span></span><br><span class="line"><span class="comment">// Accept-Encoding: gzip, deflate</span></span><br><span class="line"><span class="comment">// Accept-Language: zh-CN,zh;q=0.8</span></span><br><span class="line"><span class="comment">// x-aep-nonce: d652ec8b-79ad-4981-83ba-de668dbd63f5</span></span><br><span class="line"><span class="comment">// Content-Type: application/x-www-form-urlencoded;charset=UTF-8</span></span><br><span class="line"><span class="comment">// Cache-Control: no-cache</span></span><br><span class="line"><span class="comment">// Pragma: no-cache</span></span><br><span class="line"><span class="comment">// Host: 10.1.1.5:8099</span></span><br><span class="line"><span class="comment">// Content-Length: 19</span></span><br><span class="line"><span class="comment">// Connection: keep-alive</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="comment">// userName=test测试</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="指定编码"><a href="#指定编码" class="headerlink" title="指定编码"></a>指定编码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">result</span> <span class="operator">=</span> HttpRequest.post(AEP_GATE_URL.concat(url))</span><br><span class="line">.header(AEP_NONCE,uuid)</span><br><span class="line">.header(AEP_APPKEY,appKeyValue)</span><br><span class="line">.header(AEP_TIMESTAMP,timestamp)</span><br><span class="line">.header(AEP_SIGNATURE,hmac256Encode(getBody(uuid, timestamp)))</span><br><span class="line">.contentType(<span class="string">&quot;application/x-www-form-urlencoded;charset=GBK&quot;</span>) <span class="comment">// 关键</span></span><br><span class="line">.form(fromcs)</span><br><span class="line">.timeout(<span class="number">20000</span>)<span class="comment">//超时，毫秒</span></span><br><span class="line"><span class="comment">// 可以使用抓包工具，查看是否调用请求参数对的</span></span><br><span class="line">.setHttpProxy(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">8888</span>)</span><br><span class="line">.execute().body();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 完整请求头</span></span><br><span class="line"><span class="comment">// POST //xxx/xxx HTTP/1.1</span></span><br><span class="line"><span class="comment">//x-aep-timestamp: 1689824206833</span></span><br><span class="line"><span class="comment">//Accept: text/html,application/json,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</span></span><br><span class="line"><span class="comment">//x-aep-signature: da5c218510eb47a3fb6a8674e2e5905a0d0bf6e58f2d78118836f9da4653d613</span></span><br><span class="line"><span class="comment">//User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36 //Hutool</span></span><br><span class="line"><span class="comment">//x-aep-appkey: 1633010746407477248</span></span><br><span class="line"><span class="comment">//Accept-Encoding: gzip, deflate</span></span><br><span class="line"><span class="comment">//Accept-Language: zh-CN,zh;q=0.8</span></span><br><span class="line"><span class="comment">//x-aep-nonce: 1c7fe5d4-a001-43bd-bd47-79968cc3af9c</span></span><br><span class="line"><span class="comment">//Content-Type: application/x-www-form-urlencoded;charset=GBK</span></span><br><span class="line"><span class="comment">//Cache-Control: no-cache</span></span><br><span class="line"><span class="comment">//Pragma: no-cache</span></span><br><span class="line"><span class="comment">//Host: 10.1.1.5:8099</span></span><br><span class="line"><span class="comment">//Content-Length: 31</span></span><br><span class="line"><span class="comment">//Connection: keep-alive</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//userName=test%E6%B5%8B%E8%AF%95</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">String result2= HttpUtil.get(phone.getUrl(),CharsetUtil.CHARSET_GBK);</span><br><span class="line">//发送http请求</span><br><span class="line">        String rsp = HttpRequest.post(url).contentType(&quot;application/x-www-form-urlencoded;charset=GBK&quot;).charset(&quot;GBK&quot;)</span><br><span class="line">                .form(map).execute().body();</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>问题</tag>
+        <tag>hutool</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Oracle钱包wallet加密和密码修改</title>
     <url>/post/20240712-Oracle_qian_bao_wallet_jia_mi_he_mi_ma_xiu_gai/</url>
     <content><![CDATA[<p><img src="/post/20240712-Oracle_qian_bao_wallet_jia_mi_he_mi_ma_xiu_gai/fuckqq_2024-07-12_16-37-09.png" alt="fuckqq_2024-07-12_16-37-09.png"></p>
@@ -8057,6 +8107,67 @@
       </categories>
       <tags>
         <tag>时间</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>阿里云FC函数PHP运行环境如何增加或删除内置扩展</title>
+    <url>/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/</url>
+    <content><![CDATA[<p><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/irina-marie-3LhP8tDH4rQ-unsplash.jpg" alt="irina-marie-3LhP8tDH4rQ-unsplash.jpg"></p>
+<blockquote>
+<p>本文是对官方文档一个补充，补充了一个小小的细节和另外一个扩展的方法</p>
+</blockquote>
+<p>本文以不引入protobuf和添加pdo_sqlite内置扩展为例，介绍如何添加、删除PHP运行环境的内置扩展。关于函数计算PHP运行环境目前支持的内置扩展，请参见<a href="https://help.aliyun.com/zh/functioncompute/user-guide/overview-php#section-zxz-fow-swn">PHP内置扩展</a>。</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
+<li>php-pdo_sqlite扩展（阿里云官方提供）</li>
+<li><a href="https://aliware-images.oss-cn-hangzhou.aliyuncs.com/FC/pdo_sqlite.zip">https://aliware-images.oss-cn-hangzhou.aliyuncs.com/FC/pdo_sqlite.zip</a></li>
+</ul>
+<h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><blockquote>
+<p>使用精简或添加大量扩展</p>
+</blockquote>
+<ol>
+<li><p>在函数入口文件的相同目录创建一个extension目录，然后上传下载的扩展到指定目录，最终目录结构如下。</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">|____extension</span><br><span class="line">| |____my_ext.ini</span><br><span class="line">| |____pdo_sqlite.so</span><br><span class="line">|____index.php</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/fuckqq_2024-07-05_10-16-37.jpg" alt="fuckqq_2024-07-05_10-16-37.jpg"></p>
+<ol start="2">
+<li><p>编辑my_ext.ini文件，注释protobuf扩展。</p>
+<p>您可以增加其他扩展或注释不需要的扩展，优化PHP运行环境的启动速度。示例代码如下。</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">extension</span>=session.so</span><br><span class="line"><span class="attr">extension</span>=ftp.so</span><br><span class="line"><span class="attr">extension</span>=shmop.so</span><br><span class="line"><span class="attr">extension</span>=bcmath.so</span><br><span class="line"><span class="attr">extension</span>=gettext.so</span><br><span class="line"><span class="attr">extension</span>=pcntl.so</span><br><span class="line"><span class="attr">extension</span>=simplexml.so</span><br><span class="line"><span class="attr">extension</span>=xmlreader.so</span><br><span class="line"><span class="attr">extension</span>=bz2.so</span><br><span class="line"><span class="attr">extension</span>=gmp.so</span><br><span class="line"><span class="attr">extension</span>=pdo.so</span><br><span class="line"><span class="attr">extension</span>=soap.so</span><br><span class="line"><span class="attr">extension</span>=xmlrpc.so</span><br><span class="line"><span class="attr">extension</span>=calendar.so</span><br><span class="line"><span class="attr">extension</span>=iconv.so</span><br><span class="line"><span class="attr">extension</span>=pdo_mysql.so</span><br><span class="line"><span class="attr">extension</span>=sockets.so</span><br><span class="line"><span class="attr">extension</span>=xmlwriter.so</span><br><span class="line"><span class="attr">extension</span>=ctype.so</span><br><span class="line"><span class="attr">extension</span>=imagick.so</span><br><span class="line"><span class="attr">extension</span>=phar.so</span><br><span class="line"><span class="attr">extension</span>=sysvmsg.so</span><br><span class="line"><span class="attr">extension</span>=dom.so</span><br><span class="line"><span class="attr">extension</span>=json.so</span><br><span class="line"><span class="attr">extension</span>=posix.so</span><br><span class="line"><span class="attr">extension</span>=sysvsem.so</span><br><span class="line"><span class="attr">extension</span>=exif.so</span><br><span class="line"><span class="attr">extension</span>=zip.so</span><br><span class="line"><span class="attr">extension</span>=memcached.so</span><br><span class="line"><span class="attr">extension</span>=mbstring.so</span><br><span class="line"><span class="comment">;注释删除内置protobuf扩展</span></span><br><span class="line"><span class="comment">;extension=protobuf.so</span></span><br><span class="line"><span class="attr">extension</span>=sysvshm.so</span><br><span class="line"><span class="attr">extension</span>=fileinfo.so</span><br><span class="line"><span class="attr">extension</span>=mysqli.so</span><br><span class="line"><span class="attr">extension</span>=redis.so</span><br><span class="line"><span class="attr">extension</span>=tokenizer.so</span><br><span class="line"><span class="attr">extension</span>=zip.so</span><br><span class="line"><span class="attr">extension</span>=memcached.so</span><br><span class="line"><span class="attr">zend_extension</span>=/usr/local/lib/php/extensions/<span class="literal">no</span>-debug-non-zts-<span class="number">20170718</span>/opcache.so</span><br><span class="line"><span class="attr">zend_extension</span>=/usr/local/lib/php/extensions/<span class="literal">no</span>-debug-non-zts-<span class="number">20170718</span>/xdebug.so</span><br><span class="line"><span class="comment">;添加pdo_sqlite扩展</span></span><br><span class="line"><span class="attr">extension</span>=/code/extension/pdo_sqlite.so</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基于上述目录的代码包创建函数。具体操作，请参见<a href="https://help.aliyun.com/zh/functioncompute/user-guide/manage-functions#section-b9y-zn1-5wr">创建函数</a>。</p>
+</li>
+<li><p>设置函数的环境变量。PHP_INI_SCAN_DIR指向代码目录下面的my_ext.ini，此时PHP运行环境不会加载protobuf扩展。<br><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/fuckqq_2024-07-05_10-07-32.jpg"></p>
+</li>
+</ol>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">PHP_INI_SCAN_DIR</span>=/code/extension</span><br></pre></td></tr></table></figure>
+
+<p>更多信息，请参见<a href="https://developer.aliyun.com/article/645670">PHP运行环境动态加载卸载内置扩展</a>。</p>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><blockquote>
+<p>适用于单个扩展添加。</p>
+</blockquote>
+<p>通方法1差不多，不过只需要添加一个<code>pdo_sqlite.ini</code>,最终目录结构如下;</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">|____extension</span><br><span class="line">| |____pdo_sqlite.ini</span><br><span class="line">| |____pdo_sqlite.so</span><br><span class="line">|____index.php</span><br></pre></td></tr></table></figure>
+
+<p><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/fuckqq_2024-07-05_10-18-38.jpg" alt="fuckqq_2024-07-05_10-18-38.jpg"></p>
+<p>其中<code>pdo_sqlite.ini</code>内容为如下</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">extension</span>=/code/extension/pdo_sqlite.so</span><br></pre></td></tr></table></figure>
+
+<p>然后不需要修改环境变量。</p>
+<h2 id="其他版本"><a href="#其他版本" class="headerlink" title="其他版本"></a>其他版本</h2><p>要是需要添加指定版本的某个扩展可以参考<a href="https://developer.aliyun.com/article/768961">函数计算 php 运行环境添加 pdo_sqlite 扩展</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li><a href="https://unsplash.com/photos/a-white-flower-floating-on-top-of-a-body-of-water-3LhP8tDH4rQ">https://unsplash.com/photos/a-white-flower-floating-on-top-of-a-body-of-water-3LhP8tDH4rQ</a></li>
+<li><a href="https://help.aliyun.com/zh/functioncompute/support/how-to-add-or-remove-built-in-extensions-to-or-from-the-php-runtime">PHP运行环境如何增加或删除内置扩展？</a></li>
+<li><a href="https://developer.aliyun.com/article/768961">函数计算 php 运行环境添加 pdo_sqlite 扩展</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>阿里云</tag>
+        <tag>fu</tag>
+        <tag>内置扩展</tag>
       </tags>
   </entry>
   <entry>
@@ -8146,117 +8257,6 @@
         <tag>ddgoose</tag>
         <tag>ppduck</tag>
         <tag>图片压缩</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>好玩的Docker容器</title>
-    <url>/post/20220309-hao_wan_de_Docker_rong_qi/</url>
-    <content><![CDATA[<p><img src="/post/20220309-hao_wan_de_Docker_rong_qi/refargotohp-29JBoNy1rhE-unsplash.jpg" alt="refargotohp-29JBoNy1rhE-unsplash.jpg"></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>官方</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun</span><br></pre></td></tr></table></figure>
-
-<p><strong>国内</strong></p>
-<p><em>daocloud 一键安装命令</em></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">curl -sSL https://get.daocloud.io/docker | sh</span><br></pre></td></tr></table></figure>
-
-<h2 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h2><blockquote>
-<p>docker: Cannot connect to the Docker daemon at unix:&#x2F;&#x2F;&#x2F;var&#x2F;run&#x2F;docker.sock. Is the docker daemon running?.<br>See ‘docker run –help’.</p>
-</blockquote>
-<p>问题：没有启动，找不到线程</p>
-<p>解决：启动Docker即可</p>
-<p><code>service docker start</code> </p>
-<h2 id="Aria2Pro"><a href="#Aria2Pro" class="headerlink" title="Aria2Pro"></a>Aria2Pro</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><blockquote>
-<p>使用 Aria2 完美配置方案<br>BT 下载率高、速度快<br>重启后不丢失任务进度、不重复下载<br>删除正在下载的任务自动删除未完成的文件<br>下载错误自动删除未完成的文件<br>下载完成自动删除控制文件(.aria2后缀名文件)<br>下载完成自动删除种子文件(.torrent后缀名文件)<br>下载完成自动删除空目录<br>BT 下载完成自动清除垃圾文件(文件类型过滤功能)<br>BT 下载完成自动清除小文件(文件大小过滤功能)<br>有一定的防版权投诉、防迅雷吸血效果<br>更好的 PT 下载支持<br>使用 Aria2 Pro Core 项目最新静态编译二进制文件<br>多平台：amd64, i386, arm64, armhf（VPS、群辉、树莓派等常见平台完美支持）<br>全功能：Async DNS, BitTorrent, Firefox3 Cookie, GZip, HTTPS, Message Digest, Metalink, XML-RPC, SFTP<br>单服务器线程数最大值无上限（已破解线程数限制）<br>防掉线程优化<br>内存消耗优化<br>读写性能优化<br>最新依赖库，下载更安全、稳定、快速<br>持续更新最新版本<br>支持与 RCLONE 联动<br>自动上传 OneDrive 、Google Drive 等网盘<br>百度网盘转存到其它网盘<br>多网盘自由选择<br>支持新一代互联网协议 IPv6<br>下载完成自动移动文件到指定目录（文件自动归档&#x2F;分类）<br>定时自动更新 BT tracker 列表（无感知、无重启），保持 BT 下载高速率<br>用户文件权限自动配置功能<br>配置文件持久化，支持使用 watchtower 更新容器。<br>极简设计，专注下载，简单易用，少即是多。</p>
-</blockquote>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">    --name aria2-pro \</span><br><span class="line">    --restart unless-stopped \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --network host \</span><br><span class="line">    -e PUID=<span class="variable">$UID</span> \</span><br><span class="line">    -e PGID=<span class="variable">$GID</span> \</span><br><span class="line">    -e RPC_SECRET=e28B41F3dkotu0RPvKgOGYXcDrJlHpwN \</span><br><span class="line">    -e RPC_PORT=6800 \</span><br><span class="line">    -e LISTEN_PORT=6888 \</span><br><span class="line">    -v <span class="variable">$PWD</span>/aria2-config:/config \</span><br><span class="line">    -v /var/www/download:/downloads \</span><br><span class="line">    p3terx/aria2-pro</span><br></pre></td></tr></table></figure>
-
-<h2 id="Qbittorrent"><a href="#Qbittorrent" class="headerlink" title="Qbittorrent"></a>Qbittorrent</h2><h3 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h3><blockquote>
-<p>全平台架构x86-64、arm64、arm32<br>默认简体中文<br>做了usermapping，使用你自己的账户权限来运行，这点对于群辉来说尤其重要<br>纯qBittorrent，没有包含多于的服务<br>基于linuxserver&#x2F;qbittorrent,每周构建一次，同步更新最新版本qbittorrent<br>开放了BT下载DTH监听端口、BT下载监听端口（TCP&#x2F;UDP 6881），加快下载速度<br>默认开启DHT，加速下载<br>内置400多条最新trackers（来自XIU2 &#x2F; TrackersListCollection，感谢）<br>默认上海时区 Asia&#x2F;Shanghai</p>
-</blockquote>
-<h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d  \</span><br><span class="line">    --name=qbittorrent  \</span><br><span class="line">    --log-opt max-size=1m \</span><br><span class="line">    --network host \</span><br><span class="line">    -e WEBUIPORT=8080  \</span><br><span class="line">    -e PUID=1026 \</span><br><span class="line">    -e PGID=100 \</span><br><span class="line">    -e TZ=Asia/Shanghai \</span><br><span class="line">    -p 6881:6881  \</span><br><span class="line">    -p 6881:6881/udp  \</span><br><span class="line">    -p 8080:8080  \</span><br><span class="line">    -v <span class="variable">$PWD</span>/qbittorrent-config:/config  \</span><br><span class="line">    -v /var/www/download:/downloads  \</span><br><span class="line">    --restart unless-stopped  \</span><br><span class="line">    superng6/qbittorrent:latest</span><br><span class="line"> <span class="comment">#NLbMEPFSa6gDd1J39oAjWmk5pRvyTH2c</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><h4 id="1-拉取镜像"><a href="#1-拉取镜像" class="headerlink" title="1.拉取镜像"></a>1.拉取镜像</h4><p><code>docker pull nginx:latest</code></p>
-<h4 id="2-创建配置文件夹和网站目录"><a href="#2-创建配置文件夹和网站目录" class="headerlink" title="2.创建配置文件夹和网站目录"></a>2.创建配置文件夹和网站目录</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#启动一个容器</span></span><br><span class="line"> docker run -d --name nginx nginx</span><br><span class="line"><span class="comment"># 查看 容器 获取容器ID 或直接使用名字</span></span><br><span class="line"> docker ps</span><br><span class="line"><span class="comment"># 在当前目录下创建目录：conf </span></span><br><span class="line"><span class="built_in">mkdir</span> -p /docker-config/nginx</span><br><span class="line"><span class="comment"># 拷贝容器内 Nginx 默认配置文件到本地当前目录下的 conf 目录（$PWD 当前全路径）</span></span><br><span class="line">docker <span class="built_in">cp</span> nginx:/etc/nginx/nginx.conf /docker-config/nginx</span><br><span class="line">docker <span class="built_in">cp</span> nginx:/etc/nginx/conf.d /docker-config/nginx</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止容器</span></span><br><span class="line"> docker container stop nginx</span><br><span class="line"><span class="comment"># 删除容器</span></span><br><span class="line"> docker container <span class="built_in">rm</span> nginxs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建目录网站目录</span></span><br><span class="line"> <span class="built_in">mkdir</span> -p /var/www/download</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 修改配置文件 /docker-config/nginx/conf.d/default.conf</span></span><br><span class="line"><span class="comment"># 开启目录浏览</span></span><br><span class="line">autoindex on;</span><br><span class="line">autoindex_exact_size off;</span><br><span class="line">autoindex_localtime on;</span><br><span class="line">charset utf-8,gbk;</span><br></pre></td></tr></table></figure>
-
-<h3 id="启动-2"><a href="#启动-2" class="headerlink" title="启动"></a>启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 80:80  \</span><br><span class="line"> --name nginxweb \</span><br><span class="line"> -v /var/www/download:/usr/share/nginx/html \</span><br><span class="line"> -v /docker-config/nginx/nginx.conf:/etc/nginx/nginx.conf \</span><br><span class="line"> -v /docker-config/nginx/conf.d:/etc/nginx/conf.d \</span><br><span class="line"> -v /docker-config/nginx/logs:/var/log/nginx \</span><br><span class="line"> nginx </span><br></pre></td></tr></table></figure>
-
-<h2 id="T"><a href="#T" class="headerlink" title="T"></a>T</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">#启动一个容器</span><br><span class="line">secret=$(head -c <span class="number">16</span> /dev/urandom | xxd -ps)</span><br><span class="line">tag=&quot;<span class="number">12345678901234567890121231231231</span>&quot;</span><br><span class="line">domain=&quot;intl.cloud.tencent.com&quot;</span><br><span class="line">docker run --name mtproxy -d -e tag=&quot;$tag&quot; -e secret=&quot;$secret&quot; -e domain=&quot;$domain&quot; -e ip_white_list=&quot;OFF&quot; -p <span class="number">8088</span>:<span class="number">80</span> -p <span class="number">8083</span>:<span class="number">443</span> ellermister/nginx-mtproxy:latest</span><br><span class="line"></span><br><span class="line"># ip_white_list 可选参数为:</span><br><span class="line"># IP 允许单个 IP 访问</span><br><span class="line"># IPSEG 允许 IP 段访问</span><br><span class="line"># OFF 允许所有 IP 访问</span><br><span class="line"># 查看 容器 获取容器ID 或直接使用名字</span><br><span class="line">docker logs mtproxy</span><br><span class="line"># 在当前目录下创建目录：conf </span><br><span class="line"><span class="built_in">mkdir</span> -p /docker-config/mtg</span><br><span class="line"># 拷贝容器内 Nginx 默认配置文件到本地当前目录下的 conf 目录（$PWD 当前全路径）</span><br><span class="line">docker cp mtg:/config.toml /docker-config/mtg</span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">https://<span class="title">t.me</span>/<span class="title">proxy</span>?<span class="title">server</span>=&lt;<span class="title">YOUR_IP</span>&gt;&amp;<span class="title">port</span>=&lt;<span class="title">PORT</span>&gt;&amp;<span class="title">secret</span>=&lt;<span class="title">SECRET</span>&gt;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">https</span>://<span class="title">github.com</span>/<span class="title">ellermister</span>/<span class="title">mtproxy</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://p3terx.com/archives/docker-aria2-pro.html">https://p3terx.com/archives/docker-aria2-pro.html</a></li>
-<li><a href="https://sleele.com/2020/04/09/docker-qbittorrent-optimizing/">https://sleele.com/2020/04/09/docker-qbittorrent-optimizing/</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/114603487">https://zhuanlan.zhihu.com/p/114603487</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>分享</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>容器</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>阿里云FC函数PHP运行环境如何增加或删除内置扩展</title>
-    <url>/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/</url>
-    <content><![CDATA[<p><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/irina-marie-3LhP8tDH4rQ-unsplash.jpg" alt="irina-marie-3LhP8tDH4rQ-unsplash.jpg"></p>
-<blockquote>
-<p>本文是对官方文档一个补充，补充了一个小小的细节和另外一个扩展的方法</p>
-</blockquote>
-<p>本文以不引入protobuf和添加pdo_sqlite内置扩展为例，介绍如何添加、删除PHP运行环境的内置扩展。关于函数计算PHP运行环境目前支持的内置扩展，请参见<a href="https://help.aliyun.com/zh/functioncompute/user-guide/overview-php#section-zxz-fow-swn">PHP内置扩展</a>。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul>
-<li>php-pdo_sqlite扩展（阿里云官方提供）</li>
-<li><a href="https://aliware-images.oss-cn-hangzhou.aliyuncs.com/FC/pdo_sqlite.zip">https://aliware-images.oss-cn-hangzhou.aliyuncs.com/FC/pdo_sqlite.zip</a></li>
-</ul>
-<h2 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h2><blockquote>
-<p>使用精简或添加大量扩展</p>
-</blockquote>
-<ol>
-<li><p>在函数入口文件的相同目录创建一个extension目录，然后上传下载的扩展到指定目录，最终目录结构如下。</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">|____extension</span><br><span class="line">| |____my_ext.ini</span><br><span class="line">| |____pdo_sqlite.so</span><br><span class="line">|____index.php</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/fuckqq_2024-07-05_10-16-37.jpg" alt="fuckqq_2024-07-05_10-16-37.jpg"></p>
-<ol start="2">
-<li><p>编辑my_ext.ini文件，注释protobuf扩展。</p>
-<p>您可以增加其他扩展或注释不需要的扩展，优化PHP运行环境的启动速度。示例代码如下。</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">extension</span>=session.so</span><br><span class="line"><span class="attr">extension</span>=ftp.so</span><br><span class="line"><span class="attr">extension</span>=shmop.so</span><br><span class="line"><span class="attr">extension</span>=bcmath.so</span><br><span class="line"><span class="attr">extension</span>=gettext.so</span><br><span class="line"><span class="attr">extension</span>=pcntl.so</span><br><span class="line"><span class="attr">extension</span>=simplexml.so</span><br><span class="line"><span class="attr">extension</span>=xmlreader.so</span><br><span class="line"><span class="attr">extension</span>=bz2.so</span><br><span class="line"><span class="attr">extension</span>=gmp.so</span><br><span class="line"><span class="attr">extension</span>=pdo.so</span><br><span class="line"><span class="attr">extension</span>=soap.so</span><br><span class="line"><span class="attr">extension</span>=xmlrpc.so</span><br><span class="line"><span class="attr">extension</span>=calendar.so</span><br><span class="line"><span class="attr">extension</span>=iconv.so</span><br><span class="line"><span class="attr">extension</span>=pdo_mysql.so</span><br><span class="line"><span class="attr">extension</span>=sockets.so</span><br><span class="line"><span class="attr">extension</span>=xmlwriter.so</span><br><span class="line"><span class="attr">extension</span>=ctype.so</span><br><span class="line"><span class="attr">extension</span>=imagick.so</span><br><span class="line"><span class="attr">extension</span>=phar.so</span><br><span class="line"><span class="attr">extension</span>=sysvmsg.so</span><br><span class="line"><span class="attr">extension</span>=dom.so</span><br><span class="line"><span class="attr">extension</span>=json.so</span><br><span class="line"><span class="attr">extension</span>=posix.so</span><br><span class="line"><span class="attr">extension</span>=sysvsem.so</span><br><span class="line"><span class="attr">extension</span>=exif.so</span><br><span class="line"><span class="attr">extension</span>=zip.so</span><br><span class="line"><span class="attr">extension</span>=memcached.so</span><br><span class="line"><span class="attr">extension</span>=mbstring.so</span><br><span class="line"><span class="comment">;注释删除内置protobuf扩展</span></span><br><span class="line"><span class="comment">;extension=protobuf.so</span></span><br><span class="line"><span class="attr">extension</span>=sysvshm.so</span><br><span class="line"><span class="attr">extension</span>=fileinfo.so</span><br><span class="line"><span class="attr">extension</span>=mysqli.so</span><br><span class="line"><span class="attr">extension</span>=redis.so</span><br><span class="line"><span class="attr">extension</span>=tokenizer.so</span><br><span class="line"><span class="attr">extension</span>=zip.so</span><br><span class="line"><span class="attr">extension</span>=memcached.so</span><br><span class="line"><span class="attr">zend_extension</span>=/usr/local/lib/php/extensions/<span class="literal">no</span>-debug-non-zts-<span class="number">20170718</span>/opcache.so</span><br><span class="line"><span class="attr">zend_extension</span>=/usr/local/lib/php/extensions/<span class="literal">no</span>-debug-non-zts-<span class="number">20170718</span>/xdebug.so</span><br><span class="line"><span class="comment">;添加pdo_sqlite扩展</span></span><br><span class="line"><span class="attr">extension</span>=/code/extension/pdo_sqlite.so</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>基于上述目录的代码包创建函数。具体操作，请参见<a href="https://help.aliyun.com/zh/functioncompute/user-guide/manage-functions#section-b9y-zn1-5wr">创建函数</a>。</p>
-</li>
-<li><p>设置函数的环境变量。PHP_INI_SCAN_DIR指向代码目录下面的my_ext.ini，此时PHP运行环境不会加载protobuf扩展。<br><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/fuckqq_2024-07-05_10-07-32.jpg"></p>
-</li>
-</ol>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">PHP_INI_SCAN_DIR</span>=/code/extension</span><br></pre></td></tr></table></figure>
-
-<p>更多信息，请参见<a href="https://developer.aliyun.com/article/645670">PHP运行环境动态加载卸载内置扩展</a>。</p>
-<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><blockquote>
-<p>适用于单个扩展添加。</p>
-</blockquote>
-<p>通方法1差不多，不过只需要添加一个<code>pdo_sqlite.ini</code>,最终目录结构如下;</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">|____extension</span><br><span class="line">| |____pdo_sqlite.ini</span><br><span class="line">| |____pdo_sqlite.so</span><br><span class="line">|____index.php</span><br></pre></td></tr></table></figure>
-
-<p><img src="/post/20240705-a_li_yun_FC_han_shu_P_H_P_yun_xing_huan_jing_ru_he_zeng_jia_huo_shan_chu_nei_zhi_kuo_zhan/fuckqq_2024-07-05_10-18-38.jpg" alt="fuckqq_2024-07-05_10-18-38.jpg"></p>
-<p>其中<code>pdo_sqlite.ini</code>内容为如下</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">extension</span>=/code/extension/pdo_sqlite.so</span><br></pre></td></tr></table></figure>
-
-<p>然后不需要修改环境变量。</p>
-<h2 id="其他版本"><a href="#其他版本" class="headerlink" title="其他版本"></a>其他版本</h2><p>要是需要添加指定版本的某个扩展可以参考<a href="https://developer.aliyun.com/article/768961">函数计算 php 运行环境添加 pdo_sqlite 扩展</a></p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><a href="https://unsplash.com/photos/a-white-flower-floating-on-top-of-a-body-of-water-3LhP8tDH4rQ">https://unsplash.com/photos/a-white-flower-floating-on-top-of-a-body-of-water-3LhP8tDH4rQ</a></li>
-<li><a href="https://help.aliyun.com/zh/functioncompute/support/how-to-add-or-remove-built-in-extensions-to-or-from-the-php-runtime">PHP运行环境如何增加或删除内置扩展？</a></li>
-<li><a href="https://developer.aliyun.com/article/768961">函数计算 php 运行环境添加 pdo_sqlite 扩展</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>php</tag>
-        <tag>阿里云</tag>
-        <tag>fu</tag>
-        <tag>内置扩展</tag>
       </tags>
   </entry>
 </search>

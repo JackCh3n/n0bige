@@ -270,7 +270,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,51 +306,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/post/20171020-Cleverbingtheprogrammer/al-soot-q9-rkEJfIG4-unsplash.jpg" alt="Aircraft seats"></p>
-<p><em>Photo by Al Soot on Unsplash</em></p>
-<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><p><code>https://www.bing.com/HPImageArchive.aspx?format=js&amp;n=1&amp;idx=0&amp;mkt=em-Us&amp;toHttps=1</code></p>
-<ul>
-<li>format - 返回格式,<strong>可选</strong> 默认xml [xml,js]</li>
-<li>n - 显示历史条数,<strong>必须</strong> 范围[1-8]</li>
-<li>idx - 图片日期 -1为今天 0为昨天 1 为前天,<strong>可选</strong> [范围-1 - 8]</li>
-<li>mkt - 国家，亲测大部分国家相同，默认为访问者IP的国家，浏览器直接测试无法更改国家，<strong>可选</strong></li>
-<li>已成功测试国家有<ul>
-<li>zh-CN</li>
-<li>ja-JP - 不同于其他</li>
-<li>en-NZ - 不同于其他</li>
-<li>en-US  - 同中国，时区问题</li>
-<li>en-AU - 同中国，时区问题</li>
-<li>en-CA - 同中国，时区问题</li>
-<li>de-DE - 同中国，时区问题</li>
-</ul>
-</li>
-<li>toHtpps - 强制https 有无均可</li>
-</ul>
-<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">.版本 <span class="number">2</span></span><br><span class="line">.支持库 spec</span><br><span class="line">.支持库 internet</span><br><span class="line"></span><br><span class="line">.程序集 程序集<span class="number">1</span></span><br><span class="line"></span><br><span class="line">.子程序 _启动子程序, 整数型, , 本子程序在程序启动后最先执行</span><br><span class="line">.局部变量 data_json, 类_json</span><br><span class="line">.局部变量 data, 字节集</span><br><span class="line">.局部变量 <span class="keyword">text</span>, 文本型</span><br><span class="line">.局部变量 jpg, 文本型</span><br><span class="line">.局部变量 <span class="type">date</span>, 日期时间型</span><br><span class="line">.局部变量 name, 文本型</span><br><span class="line">.局部变量 save_name, 文本型</span><br><span class="line"></span><br><span class="line">调试输出 (文件是否存在 (“D:\wallpaper\”))</span><br><span class="line">.如果 (文件是否存在 (“D:\wallpaper\”) ＝ 假)</span><br><span class="line">    目录_创建 (“D:\wallpaper\”)</span><br><span class="line">.否则</span><br><span class="line"></span><br><span class="line">.如果结束</span><br><span class="line">data ＝ 网页_访问 (“https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=-<span class="number">1&amp;</span>n=<span class="number">1</span>”)</span><br><span class="line"><span class="keyword">text</span> ＝ 到文本 (data)</span><br><span class="line">name ＝ 文本_取出中间文本 (<span class="keyword">text</span>, “url#引号:#引号”, “#引号,#引号urlbase”)</span><br><span class="line">save_name ＝ 到文本 (取年份 (取现行时间 ())) ＋ 到文本 (取月份 (取现行时间 ())) ＋ 到文本 (取日 (取现行时间 ())) ＋ 取文本右边 (name, <span class="number">4</span>)</span><br><span class="line">jpg ＝ “https://cn.bing.com” ＋ name</span><br><span class="line">写到文件 (“D:\wallpaper\” ＋ save_name, HTTP读文件 (jpg))</span><br><span class="line">系统_置桌面背景 (“D:\wallpaper\” ＋ save_name)</span><br><span class="line"></span><br><span class="line">返回 (<span class="number">0</span>)  <span class="comment">&#x27; 可以根据您的需要返回任意数值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="/post/20171020-Cleverbingtheprogrammer/xiao2018-10-13_14-58-33.jpg" alt="json"></p>
-<p>##1X 故事的缘由</p>
-<p>闲着无聊逛发现一个神奇的api 第三方api 觉得还是挺有意思的（第一看到有图片描述,以前有用过必应壁纸软件 自动设置成壁纸）</p>
-<p><img src="/post/20171020-Cleverbingtheprogrammer/xiao20171020224342.png" alt="别人的api"></p>
-<p>响应方式：JSON。<br>	- url 为壁纸的url链接<br>	- title 为图片的标题<br>	- d 为图片的描述。</p>
-<p><img src="/post/20171020-Cleverbingtheprogrammer/xiao20171020224632.png" alt="api"></p>
-<p>别人的是挺好的 但是第三方永远是第三方 万一他网站哪天GG了或者被打了怎么办？？于是便研究了下bing首页<br>发现其“必应的api” ？ </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">https://cn.bing.com/HPImageArchive.aspx?format=js&amp;n=1&amp;toHttps=1</span><br><span class="line">formath=js 时 为json格式，去除则xml格式</span><br><span class="line">n=1 为今天 2为今天算起往后推</span><br><span class="line">toHttps=1 估计是强制https 1为真？ </span><br></pre></td></tr></table></figure>
-<p>api 假装在分析</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;images&quot;</span>: [<span class="comment">//不用我说都知道是我们要的图片</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;startdate&quot;</span>: <span class="string">&quot;20171019&quot;</span>,<span class="comment">//开始日期</span></span><br><span class="line">      <span class="string">&quot;fullstartdate&quot;</span>: <span class="string">&quot;201710191600&quot;</span>,</span><br><span class="line">      <span class="string">&quot;enddate&quot;</span>: <span class="string">&quot;20171020&quot;</span>,<span class="comment">//戒指日期</span></span><br><span class="line">      <span class="string">&quot;url&quot;</span>: <span class="string">&quot;/az/hprichbg/rb/LaGrandeNomade_ZH-CN10098798714_1920x1080.jpg&quot;</span>,<span class="comment">//图片地址 加上 https://cn.bing.com</span></span><br><span class="line">      <span class="string">&quot;urlbase&quot;</span>: <span class="string">&quot;/az/hprichbg/rb/LaGrandeNomade_ZH-CN10098798714&quot;</span>,</span><br><span class="line">      <span class="string">&quot;copyright&quot;</span>: <span class="string">&quot;由艺术家荷梅·潘萨设计的流浪者雕像的内部细节，法国昂蒂布 (© travelstock44/Alamy)&quot;</span>,<span class="comment">//版权</span></span><br><span class="line">      <span class="string">&quot;copyrightlink&quot;</span>: <span class="string">&quot;http://www.bing.com/search?q=Le+Nomade&amp;form=hpcapt&amp;mkt=zh-cn&quot;</span>,</span><br><span class="line">      <span class="string">&quot;quiz&quot;</span>: <span class="string">&quot;/search?q=Bing+homepage+quiz&amp;filters=WQOskey:%22HPQuiz_20171019_LaGrandeNomade%22&amp;FORM=HPQUIZ&quot;</span>,</span><br><span class="line">      <span class="string">&quot;wp&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="string">&quot;hsh&quot;</span>: <span class="string">&quot;86c4bc7d789fce187c0f349ebd12def5&quot;</span>,<span class="comment">//图片has？</span></span><br><span class="line">      <span class="string">&quot;drk&quot;</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="string">&quot;top&quot;</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="string">&quot;bot&quot;</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="string">&quot;hs&quot;</span>: [</span><br><span class="line">        </span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;tooltips&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;loading&quot;</span>: <span class="string">&quot;正在加载...&quot;</span>,</span><br><span class="line">    <span class="string">&quot;previous&quot;</span>: <span class="string">&quot;上一个图像&quot;</span>,</span><br><span class="line">    <span class="string">&quot;next&quot;</span>: <span class="string">&quot;下一个图像&quot;</span>,</span><br><span class="line">    <span class="string">&quot;walle&quot;</span>: <span class="string">&quot;此图片不能下载用作壁纸。&quot;</span>,</span><br><span class="line">    <span class="string">&quot;walls&quot;</span>: <span class="string">&quot;下载今日美图。仅限用作桌面壁纸。&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>一开始还是没有找到图片详情的 只发现一个这个东西没有怎么注意 找了几遍后终于把重心放在这个页面上 </p>
-<p><img src="/post/20171020-Cleverbingtheprogrammer/xiao20171020225707.png" alt="神奇"></p>
-<p>Ctrl + A 后出现了真正的面目 不得不说必应的程序员真Tm有才 或者说我见识少？</p>
-<p><img src="/post/20171020-Cleverbingtheprogrammer/xiao20171020225831.png" alt="神奇"></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">https://cn.bing.com/cnhp/life?toHttps=1</span><br><span class="line">toHttps=1 估计是强制https 1为真？</span><br></pre></td></tr></table></figure>
-<p>至于文字需怎么抓取？ 正则？？？ 写的一手烂正则。。。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$str</span>=<span class="string">&#x27;&lt;div class=&quot;hplaTtl&quot;&gt; “思想也可以被触摸” &lt;/div&gt; &lt;div&gt; &lt;span class=&quot;hplaDM&quot;&gt;去看看 &lt;img class=&quot;rms_img&quot; src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMAgMAAAArG7R0AAAACVBMVEUAAAAAspQAspT6118gAAAAAnRSTlMApkkmy+UAAAAmSURBVAjXY4ABCQkGBi4uBgampgYGhgULGBg0NEA0iA8UB8uDAAB0UAVhwgBi6wAAAABJRU5ErkJggg==&quot;&gt;&lt;/span&gt;&lt;span class=&quot;hplaAttr&quot;&gt;法国，昂蒂布&lt;/span&gt; &lt;/div&gt; &lt;div class=&quot;hplaCata&quot;&gt; &lt;div class=&quot;hplatt&quot;&gt; 那些创意感十足的雕像 &lt;/div&gt; &lt;div class=&quot;hplats&quot;&gt; 你是否触摸到那些艺术家的脑洞 &lt;/div&gt; &lt;div id=&quot;hplaSnippet&quot;&gt; 雕刻家荷梅&amp;#183;潘萨在世界各地制造了许多大型雕塑。“Le Nomade”描绘了一个由不锈钢制成的人形雕像，它被切割成英文字母。当你在法国的昂蒂布参观时，你会发现这个雕像非常巨大，这也与潘萨的创作理念一致，它创造的艺术不仅吸引了我们的视觉感官，我们的思想也被他带动。 &lt;/div&gt; &lt;div class=&quot;hplaPvd&quot;&gt; 文/时尚旅游 &lt;/div&gt; &lt;/div&gt;&#x27;</span>;</span><br><span class="line"><span class="variable">$preg</span> = <span class="string">&#x27;/&lt;div.(class|id)=&quot;(hplaTtl|hplaSnippet)&quot;&gt;(.*?)&lt;\/div&gt;/&#x27;</span>;</span><br><span class="line"><span class="title function_ invoke__">preg_match_all</span>(<span class="variable">$preg</span>,<span class="variable">$str</span>,<span class="variable">$arr</span>);	</span><br><span class="line"><span class="title function_ invoke__">print_r</span>(<span class="variable">$arr</span>);</span><br></pre></td></tr></table></figure>
-
-<p><img src="/post/20171020-Cleverbingtheprogrammer/xiao20171020234645.png" alt="运行结果"></p>
-<p>嗯 该有的都有了 至此bing 每日图片api就有了</p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20171020-Cleverbingtheprogrammer/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -412,7 +374,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -448,18 +410,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="js取float型小数点后两位数的方法"><a href="#js取float型小数点后两位数的方法" class="headerlink" title="js取float型小数点后两位数的方法"></a>js取float型小数点后两位数的方法</h2><p><strong>四舍五入</strong></p>
-<p>以下处理结果会四舍五入:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num =<span class="number">3.1415926</span>; num = num.<span class="title function_">toFixed</span>(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// 输出结果为 3.14</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/post/20170926-0902jqueryLearn/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20170926-0902jqueryLearn/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
@@ -521,7 +478,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2026-11-09 14:34:23" itemprop="dateModified" datetime="2026-11-09T14:34:23+08:00">2026-11-09</time>
+      <time title="Modified: 2026-11-09 15:57:28" itemprop="dateModified" datetime="2026-11-09T15:57:28+08:00">2026-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -557,16 +514,13 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p><del>想到生成唯一的ID 第一反应就是系统默认的uniqid 函数</del><br><img src="/post/20170926-phpUniqueMark/xiao20170926182609.png" alt="开发手册"><br><del>但是uniqid 也是会有出现重复的现象 不相信可以自己动手实验一下</del></p>
-<p><img src="/post/20170926-phpUniqueMark/xiao20170926182742.png" alt="uniqid重复"></p>
-<p><del>看到如此你可能想到时间戳+随机数？ 不可否认 这种方法也是可以实现唯一的 下面贴出小明的方法 支持生成字段长度的控制,<em>本地测试200W次没有出现重复现象(200w后就没有测试了,测试可能不符合国际标准？)</em></del></p>
-<p><del>没有什么技术含量 如果有不对之处请指出。</del></p>
-<p><img src="/post/20170926-phpUniqueMark/xiao20170926183236.png" alt="小明的uniqid"></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rand_mark</span>(<span class="params"><span class="variable">$num</span>=<span class="number">8</span>,<span class="variable">$data</span>=<span class="keyword">array</span>(<span class="params"></span>)</span>) </span>&#123;</span><br><span class="line">	<span class="variable">$data</span>[]=<span class="title function_ invoke__">md5</span>(<span class="title function_ invoke__">uniqid</span>().<span class="title function_ invoke__">mt_rand</span>(<span class="number">1000</span>,<span class="number">9999</span>));</span><br><span class="line">	<span class="variable">$data</span>[]=<span class="title function_ invoke__">substr</span>(<span class="variable">$data</span>[<span class="string">&#x27;0&#x27;</span>],<span class="title function_ invoke__">mt_rand</span>(<span class="number">0</span>,<span class="number">32</span>-<span class="variable">$num</span>),<span class="variable">$num</span>);</span><br><span class="line">	<span class="variable">$data</span>[]=<span class="title function_ invoke__">substr</span>(<span class="variable">$data</span>[<span class="string">&#x27;0&#x27;</span>],<span class="title function_ invoke__">mt_rand</span>(<span class="number">0</span>,<span class="number">32</span>-<span class="variable">$num</span>),<span class="variable">$num</span>);</span><br><span class="line">	<span class="variable">$data</span>[]=<span class="title function_ invoke__">substr</span>(<span class="variable">$data</span>[<span class="string">&#x27;0&#x27;</span>],<span class="title function_ invoke__">mt_rand</span>(<span class="number">0</span>,<span class="number">32</span>-<span class="variable">$num</span>),<span class="variable">$num</span>);</span><br><span class="line">	<span class="variable">$data</span>[]=<span class="title function_ invoke__">substr</span>(<span class="variable">$data</span>[<span class="string">&#x27;0&#x27;</span>],<span class="title function_ invoke__">mt_rand</span>(<span class="number">0</span>,<span class="number">32</span>-<span class="variable">$num</span>),<span class="variable">$num</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$data</span>[<span class="title function_ invoke__">rand</span>(<span class="number">1</span>,<span class="number">4</span>)];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="2019-04-12更新"><a href="#2019-04-12更新" class="headerlink" title="2019-04-12更新"></a>2019-04-12更新</h2><p>​	突然想起来之前写过这么一个函数，真是太年轻了。其实可以用microtime()微妙函数，在一定程度上解决高并发的问题。之前写的“可能”没有什么问题，但是在性能上是不可取的。</p>
-
+    <div class="post-body" itemprop="articleBody"><!--noindex-->
+          <div class="post-button">
+            <a class="btn" href="/post/20170926-phpUniqueMark/" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+        <!--/noindex-->
       
     </div>
 
