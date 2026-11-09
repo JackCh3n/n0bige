@@ -21,15 +21,19 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://nobige.cn/post/20240513-nei_wang_shi_jian_tong_bu_fang_an/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
+    <loc>https://nobige.cn/post/20240522-PPDuck3_po_jie_suan_fa_jie_xi/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
     <loc>https://nobige.cn/post/20240320-VN007+_chao_ji_mi_ma_ji_suan_qi_suan_fa/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20241107-Cloudflare_Workers_de_ha_xi_han_shu/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -38,10 +42,6 @@
   </url>
   <url>
     <loc>https://nobige.cn/post/20240207-xiao_mi_lu_you_qi_mini(R1C)_shua_ji/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20241107-Cloudflare_Workers_de_ha_xi_han_shu/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -61,19 +61,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20230718-Nginx_bao_An_error_occurred/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://nobige.cn/post/20220919-Java_tiao_zheng_ya_suo_tu_pian/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20220729-next_sheng_ji_8_yu_keng/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20220727-Elasticsearch_bu_shu_wen_ti/</loc>
+    <loc>https://nobige.cn/post/20230718-Nginx_bao_An_error_occurred/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -81,15 +73,15 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
+    <loc>https://nobige.cn/post/20220727-Elasticsearch_bu_shu_wen_ti/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20220729-next_sheng_ji_8_yu_keng/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
     <loc>https://nobige.cn/post/20220309-hao_wan_de_Docker_rong_qi/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20220118-IP_di_zhi_API_cha_xun_jie_kou/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20220118-Jquery_shu_xing_xuan_ze_qi_yu_huo_fei_shi_li/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -101,7 +93,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/</loc>
+    <loc>https://nobige.cn/post/20220118-IP_di_zhi_API_cha_xun_jie_kou/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20220118-Jquery_shu_xing_xuan_ze_qi_yu_huo_fei_shi_li/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -109,7 +105,7 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20211015-xian_shang_kao_shi_kao_ti_da_an_jie_xi/</loc>
+    <loc>https://nobige.cn/post/20210527-frp_nei_wang_chuan_tou_an_zhuang_yu_pei_zhi/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -129,19 +125,19 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20211015-Spring_JdbcTemplate_chang_yong_fang_fa/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://nobige.cn/post/20200808-android_cuo_wu_bi_ji/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/</loc>
+    <loc>https://nobige.cn/post/20211015-Spring_JdbcTemplate_chang_yong_fang_fa/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200815-mei_ri_bi_ying_bi_zhi_gong_ju/</loc>
+    <loc>https://nobige.cn/post/20211015-xian_shang_kao_shi_kao_ti_da_an_jie_xi/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20211015-Java_du_qu_wen_ben_wen_jian_zhong_wen_luan_ma_wen_ti/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -161,11 +157,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/</loc>
+    <loc>https://nobige.cn/post/20200815-mei_ri_bi_ying_bi_zhi_gong_ju/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200302-springframework4or5_pei_zhi_X_M_L_wu_ban_ben/</loc>
+    <loc>https://nobige.cn/post/20200520-GitHub_Actions_bu_shu_H_e_x_o_bo_ke/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -173,7 +169,7 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200302-Telegram_yong_jiu_shan_chu_zhang_hao/</loc>
+    <loc>https://nobige.cn/post/20200302-springframework4or5_pei_zhi_X_M_L_wu_ban_ben/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -181,11 +177,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200314-AZW3_wen_jian_po_jie_zhi_qu_chu_D_R_M_ban_quan_bao_hu/</loc>
+    <loc>https://nobige.cn/post/20200302-Telegram_yong_jiu_shan_chu_zhang_hao/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200311-xiao_mi_shou_ji_an_zhuang_Charles_zheng_shu/</loc>
+    <loc>https://nobige.cn/post/20200314-AZW3_wen_jian_po_jie_zhi_qu_chu_D_R_M_ban_quan_bao_hu/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -193,7 +189,7 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/</loc>
+    <loc>https://nobige.cn/post/20200311-xiao_mi_shou_ji_an_zhuang_Charles_zheng_shu/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -201,15 +197,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200222-linux_chang_yong_he_cuo_wu_ji/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://nobige.cn/post/20200222-python3_cuo_wu_ji_bu_ding_shi_geng_xin/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20200214-2020_zai_zhan_lang_chao_ipbs9505/</loc>
+    <loc>https://nobige.cn/post/20200222-li_yong_cloudflare_workers_fan_dai_li_jing_xiang_Google/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -221,11 +213,19 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20201211-chang_yong_duan_kou_zheng_li/</loc>
+    <loc>https://nobige.cn/post/20200222-linux_chang_yong_he_cuo_wu_ji/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://nobige.cn/post/20201202-cha_kan_svn_ben_di_zhang_hu_he_mi_ma/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20200214-2020_zai_zhan_lang_chao_ipbs9505/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20201211-chang_yong_duan_kou_zheng_li/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -245,11 +245,15 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
+    <loc>https://nobige.cn/post/20190908-GoogleVoice_bao_hao_mian_hui_shou_fang_fa/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
     <loc>https://nobige.cn/post/20200128-xshell_jiu_ban_ben_da_kai_cuo_wu/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20190908-GoogleVoice_bao_hao_mian_hui_shou_fang_fa/</loc>
+    <loc>https://nobige.cn/post/20190829-qu_xian_jiu_guo_zhi_Hexo_qi_yong_CDN/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -258,10 +262,6 @@
   </url>
   <url>
     <loc>https://nobige.cn/post/20190828-hua_shuo_lao_mao_zi_Padavan_gu_jian_xian_zhi_wan_ke_yun_shang_chuan/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20190829-qu_xian_jiu_guo_zhi_Hexo_qi_yong_CDN/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -281,15 +281,15 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20190708-pythonpaqudianyingtiantang/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://nobige.cn/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
     <loc>https://nobige.cn/post/20190707-pythontiaoyongxunleixiazai/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20190708-pythonpaqudianyingtiantang/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -381,10 +381,6 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20190605-hexoEasyUsingImages/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://nobige.cn/post/20191031-netERR_BLOCKED_BY_CLIENT/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
@@ -393,7 +389,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20190409-Composer-SSL-TLS-Problem/</loc>
+    <loc>https://nobige.cn/post/20190605-hexoEasyUsingImages/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20190410-Valine-AdminDeployment/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -401,7 +401,7 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20190410-Valine-AdminDeployment/</loc>
+    <loc>https://nobige.cn/post/20190409-Composer-SSL-TLS-Problem/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -425,11 +425,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20190214-TortoiseGitLoadedPuttykeyGreyUnavailable/</loc>
+    <loc>https://nobige.cn/post/20190212-xternalChainJump/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20190212-xternalChainJump/</loc>
+    <loc>https://nobige.cn/post/20190214-TortoiseGitLoadedPuttykeyGreyUnavailable/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -445,11 +445,11 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20181028-hackintoshWhitewashingSiri/</loc>
+    <loc>https://nobige.cn/post/20181105-SQLServerPermissiondenied/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20181105-SQLServerPermissiondenied/</loc>
+    <loc>https://nobige.cn/post/20181028-hackintoshWhitewashingSiri/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -461,19 +461,7 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
-    <loc>https://nobige.cn/post/20180906-VisualStudioActivationcode/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
     <loc>https://nobige.cn/post/20180914-iosUsingDoubleverification/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20180826-blogAllFileDownloadNetdisc/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20180818-aria2ForCentosInstall/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -481,7 +469,19 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
+    <loc>https://nobige.cn/post/20180906-VisualStudioActivationcode/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
     <loc>https://nobige.cn/post/20180809-phpZipArchiveNdir/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20180818-aria2ForCentosInstall/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20180826-blogAllFileDownloadNetdisc/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
@@ -561,15 +561,15 @@
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
+    <loc>https://nobige.cn/post/20171203-oppoR11tUnLockTool/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
+    <loc>https://nobige.cn/post/20171203-oppoR11tUnLockTool/</loc>
+    <lastmod>2026-11-09</lastmod>
+  </url>
+  <url>
     <loc>https://nobige.cn/post/20171221-LIANTONG4GAPN/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20171203-oppoR11tUnLockTool/</loc>
-    <lastmod>2026-11-09</lastmod>
-  </url>
-  <url>
-    <loc>https://nobige.cn/post/20171203-oppoR11tUnLockTool/</loc>
     <lastmod>2026-11-09</lastmod>
   </url>
   <url>
