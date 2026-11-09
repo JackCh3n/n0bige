@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: 
+Disallow: /atom.xml
+Sitemap: https://nobige.cn/sitemap.xml
+Sitemap: https://nobige.cn/sitemap.txt
+Sitemap: https://nobige.cn/baidusitemap.xml

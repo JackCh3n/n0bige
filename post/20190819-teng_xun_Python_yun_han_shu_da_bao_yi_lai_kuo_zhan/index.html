@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.wulihub.com.cn/gc/Wez0VG/images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.wulihub.com.cn/gc/Wez0VG/images/favicon-16x16.png">
+  <link rel="mask-icon" href="https://www.wulihub.com.cn/gc/Wez0VG/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://registry.npmmirror.com/@fortawesome/fontawesome-free/7.3.1/files/css/all.min.css" integrity="sha256-4Lad8m4ZWW1Lgb9+sMVLYEfnIh7BjV1NQMEe79Pviks=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://registry.npmmirror.com/animate.css/3.1.1/files/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nobige.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.29.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="功能​	打包依赖后可以在腾讯云函数正常的运行代码，把云函数当VPS用 特点​	免费（暂无收费计划），基本可以当VPS用，懒人必备，专心（只要负责业务逻辑代码不用管服务器情况） 打包Linux​		可以参考官方教程《云函数 创建部署程序包 - 开发指南 - 文档中心 - 腾讯云》 懒人（推荐）​		利用Pycharm 快速安装  创建项目，选择virtualenv     安装第三方扩展（插件）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="腾讯Python云函数打包依赖扩展">
+<meta property="og:url" content="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/index.html">
+<meta property="og:site_name" content="NoBige-JackCh3n">
+<meta property="og:description" content="功能​	打包依赖后可以在腾讯云函数正常的运行代码，把云函数当VPS用 特点​	免费（暂无收费计划），基本可以当VPS用，懒人必备，专心（只要负责业务逻辑代码不用管服务器情况） 打包Linux​		可以参考官方教程《云函数 创建部署程序包 - 开发指南 - 文档中心 - 腾讯云》 懒人（推荐）​		利用Pycharm 快速安装  创建项目，选择virtualenv     安装第三方扩展（插件）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/trent-szmolnik-wxSsX8kHaoI-unsplash.jpg">
+<meta property="og:image" content="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/xiao20190819121438.png">
+<meta property="og:image" content="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/xiao20190819121645.png">
+<meta property="og:image" content="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/xiao2019-08-19-00-30-57-320.jpg">
+<meta property="article:published_time" content="2019-08-18T16:03:13.000Z">
+<meta property="article:modified_time" content="2026-11-09T06:19:50.066Z">
+<meta property="article:author" content="JackCh3n">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="云函数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/trent-szmolnik-wxSsX8kHaoI-unsplash.jpg">
+
+
+<link rel="canonical" href="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/","path":"post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/","title":"腾讯Python云函数打包依赖扩展"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>腾讯Python云函数打包依赖扩展 | NoBige-JackCh3n</title>
+  
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-122817633-1","only_pageview":true,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?96741f92c07d010c0ddd1d02197893e2"></script>
+
+
+
+
+
+
+
+  
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://registry.npmmirror.com/hexo-generator-searchdb/1.5.0/files/dist/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-search popup-trigger" aria-label="Search" role="button">
+      <i class="fa fa-search fa-fw fa-lg"></i>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NoBige-JackCh3n</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">copy to my blog</p>
+  </div>
+
+  <div class="site-nav-toggle" aria-label="Toggle navigation bar" role="button">
+      <i class="fa fa-ellipsis fa-fw fa-lg"></i>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="sitemap fa-fw"></i>Sitemap</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  
+  <template id="search-popup-template"><div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div></template>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%93%E5%8C%85"><span class="nav-number">3.</span> <span class="nav-text">打包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux"><span class="nav-number">3.1.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">3.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%87%92%E4%BA%BA%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">懒人（推荐）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy"><span class="nav-number">3.4.</span> <span class="nav-text">copy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="JackCh3n"
+      src="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+  <p class="site-author-name" itemprop="name">JackCh3n</p>
+  <div class="site-description" itemprop="description">Record the pit filling process with words</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">44</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">283</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jackch3n" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jackch3n" rel="noopener me" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          Links
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://vercel.com/?f=nobige" title="https:&#x2F;&#x2F;vercel.com?f&#x3D;nobige" rel="noopener" target="_blank">vercel</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.jsdelivr.com/?f=nobige" title="https:&#x2F;&#x2F;www.jsdelivr.com?f&#x3D;nobige" rel="noopener" target="_blank">jsdelivr</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://www.upyun.com/?f=nobige" title="https:&#x2F;&#x2F;www.upyun.com?f&#x3D;nobige" rel="noopener" target="_blank">upyun</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://coding.net/?f=nobige" title="https:&#x2F;&#x2F;coding.net?f&#x3D;nobige" rel="noopener" target="_blank">coding</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="https://unsplash.com/?f=nobige" title="https:&#x2F;&#x2F;unsplash.com?f&#x3D;nobige" rel="noopener" target="_blank">unsplash</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://nobige.cn/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://www.wulihub.com.cn/gc/Wez0VG/images/avatar.png">
+      <meta itemprop="name" content="JackCh3n">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NoBige-JackCh3n">
+      <meta itemprop="description" content="Record the pit filling process with words">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="腾讯Python云函数打包依赖扩展 | NoBige-JackCh3n">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          腾讯Python云函数打包依赖扩展
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-19 00:03:13" itemprop="dateCreated datePublished" datetime="2019-08-19T00:03:13+08:00">2019-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2026-11-09 14:19:50" itemprop="dateModified" datetime="2026-11-09T14:19:50+08:00">2026-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E5%B7%A7/" itemprop="url" rel="index"><span itemprop="name">技巧</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-lines"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>392</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><img src="/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/trent-szmolnik-wxSsX8kHaoI-unsplash.jpg" alt="Working at home"></p>
+<h2 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h2><p>​	打包依赖后可以在腾讯云函数正常的运行代码，把云函数当VPS用</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><p>​	免费（暂无收费计划），基本可以当VPS用，懒人必备，专心（只要负责业务逻辑代码不用管服务器情况）</p>
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>​		可以参考官方教程《<a href="/go.html?u=https://cloud.tencent.com/document/product/583/9702">云函数 创建部署程序包 - 开发指南 - 文档中心 - 腾讯云</a>》</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="懒人（推荐）"><a href="#懒人（推荐）" class="headerlink" title="懒人（推荐）"></a>懒人（推荐）</h3><p>​		利用Pycharm 快速安装</p>
+<ol>
+<li><p>创建项目，选择<strong>virtualenv</strong></p>
+<ol>
+<li><img src="/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/xiao20190819121438.png" alt="创建项目"></li>
+</ol>
+</li>
+<li><p>安装第三方扩展（插件） - 设置 - 项目 —&gt; 添加搜索需要的扩展</p>
+<ol>
+<li><img src="/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/xiao20190819121645.png" alt="安装扩展"></li>
+<li>如果下载安装插件扩展速度慢的话可以参考《<a href="https://nobige.cn/post/20190614-SublimeText3xiaPythonhuanjingdajianbushu/#pip%E9%95%9C%E5%83%8F%E6%BA%90">pip镜像源</a>》</li>
+</ol>
+</li>
+<li><p>复制扩展</p>
+</li>
+</ol>
+<p><strong>情景假设</strong>，我的程序脚本是<code>index.py</code> 需要安装的扩展为 <code>bs4</code>(BeautifulSoup)，目录在<code>D:\python\nobige</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\PYTHON\NOBIGE</span><br><span class="line">└─index.py</span><br></pre></td></tr></table></figure>
+
+<p>在创建完项目和安装完插件后目录情况为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">D:\PYTHON\NOBIGE</span><br><span class="line">├─.idea</span><br><span class="line">└─venv</span><br><span class="line">    ├─Include</span><br><span class="line">    ├─Lib</span><br><span class="line">    │  ├─site-packages</span><br><span class="line">    │  │  ├─beautifulsoup4-4.8.0.dist-info</span><br><span class="line">    │  │  ├─bs4</span><br><span class="line">    │  │  ├─bs4-0.0.1.dist-info</span><br><span class="line">    │  │  ├─pip-19.0.3-py3.7.egg</span><br><span class="line">    │  └─tcl8.6</span><br><span class="line">    └─Scripts</span><br></pre></td></tr></table></figure>
+
+<p>需要做的便是将<code>venv</code> —&gt; <code>Lib</code> —&gt; <code>site-packages</code>目录下的所有文件和<code>index.py</code>打包</p>
+<p>打包后的压缩包长这个样子</p>
+<p><img src="/post/20190819-teng_xun_Python_yun_han_shu_da_bao_yi_lai_kuo_zhan/xiao2019-08-19-00-30-57-320.jpg" alt="打包后的压缩包"></p>
+<h3 id="copy"><a href="#copy" class="headerlink" title="copy"></a>copy</h3><ul>
+<li>下载扩展插件的源码将源码和<code>index.py</code>一起打包</li>
+<li>如<code>requests</code> 则将 <a href="/go.html?u=https://codeload.github.com/psf/requests/legacy.tar.gz/master">psf-requests-v2.22.0-20-ga4c18cd.tar.gz</a> —-&gt; <code>psf-requests-a4c18cd</code> —-&gt; <code>requests</code>文件夹和<code>index.py</code>打包，但是有的扩展插件不能这样打包如<code>Bs4</code>会报错</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a><code>参考</code></h2><ul>
+<li><a href="/go.html?u=https://www.infoq.cn/article/bkUftPHOcOud2K3e_6gA">@刘宇-Serverless实践系列（二）：为Python云函数打包依赖</a></li>
+<li><a href="/go.html?u=https://unsplash.com/photos/wxSsX8kHaoI">壁纸 - Working at home | HD photo by Trent Szmolnik (@ts_imagery) on Unsplash</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E4%BA%91%E5%87%BD%E6%95%B0/" rel="tag"># 云函数</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/20190803-rk3128_shua_an_zhuo_gu_jian/" rel="prev" title="rk3128刷安卓固件">
+                  <i class="fa fa-angle-left"></i> rk3128刷安卓固件
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/20190819-wan_ke_yun_and_teng_xun_yun_han_shu_da_zao_dian_ying_zi_dong_hua_xia_zai/" rel="next" title="玩客云and腾讯云函数打造电影自动化下载">
+                  玩客云and腾讯云函数打造电影自动化下载 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments disqusjs-container">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">JackCh3n</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">127k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">7:43</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://registry.npmmirror.com/disqusjs/3.2.1/files/dist/browser/styles/disqusjs.css" integrity="sha256-9SkCf6N7ls5uSFyENCeHM+m7Qv3lHH9Eg/CxdCajarI=" crossorigin="anonymous">
+
+<script class="next-config" data-name="disqusjs" type="application/json">{"enable":true,"api":"https://disqus.skk.moe/disqus/","apikey":"Kmo9kPwsir7ppp8tGpeGROCmUtW8tdZBOdBVowPC67xVfTS5uV1wr6s4kckvP95m","shortname":"nobige","js":{"url":"https://registry.npmmirror.com/disqusjs/3.2.1/files/dist/browser/disqusjs.es2015.umd.min.js","integrity":"sha256-6a5jzAWTjd18Nq6rZZn1x9hZLDZAilRDnd0arUFteBM="}}</script>
+<script src="/js/third-party/comments/disqusjs.js" defer></script>
+
+</body>
+</html>
